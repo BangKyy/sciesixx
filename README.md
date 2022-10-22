@@ -1,3 +1,2 @@
 # UNISIX Site
-
-# <h6>Wait, still in the making.</h6>
+# <h5>Wait, still in the making.</h5>
