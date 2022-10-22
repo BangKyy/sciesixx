@@ -1,0 +1,119 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* VARIABLE CSS */
+:root{
+    /* background colors */
+    --bg-color-1: #f2f2f2;
+    --bg-color-2: #11325B;
+
+    /* font colors */
+    --color-1: #143a6a;
+    --color-2: #0e2a4c;
+    --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+/* Navbar Section */
+header{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--bg-color-1);
+}
+nav{
+    height: 8vh;
+    background-color: transparent;
+    /* background-color: #F6F6FF; */
+    /* box-shadow: 0.2px 2px rgba(0, 0, 0, 0.1); */
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    color: #030310;
+    display: flex;
+    padding: 0 10px;
+}
+.nav-logo {
+    width: 120px;
+    height: auto;
+    margin: -50px 0;
+}
+.logo-container {
+    /* background-color: aquamarine; */
+}
+.navbar {
+    /* background-color: bisque; */
+    display: flex;
+    list-style-type: none;
+    margin: 5px 20px;
+    /* background-color: antiquewhite; */
+}
+.navbar > li {
+    padding: 0 4px;
+}
+.navbar > li > a {
+    text-decoration: none;
+    color: var(--color-2);
+}
+.nav-p {
+    text-align: center;
+    padding-top: 12px;
+}
+/* End Navbar Section */
+/* First Section */
+.main-page{
+    background-color: var(--bg-color-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 5px;
+    height: 100%;
+    color: var(--color-1);
+}
+.container-child {
+    margin: 0 80px
+}
+.container-1 {
+    /* border: 2px solid #000; */
+    width: 455px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container-1 h1 {
+    padding: 0 0 12px 0;
+    align-self: flex-start;
+    font-size: 35pt;
+}
+.container-2 {
+    /* border: 2px solid #000; */
+}
+.image-section-1 {
+    /* border: 1px solid #000; */
+    width: 300px;
+    height: auto;
+}
+/* First Section */
+
+.isi{
+    height: 100vh;
+    /* background-color: #1c5398; */
+    background-color: var(--bg-color-2);
+    width: 100%;
+}
+
+.isi-teks{
+    text-align: center;
+    padding-top: 1rem;
+    color: #fff;
+}
+
+section{
+    height: 100vh;
+    background-color: #fff;
+    width: auto;
+}
