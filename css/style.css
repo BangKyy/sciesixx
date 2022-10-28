@@ -57,6 +57,7 @@ nav{
     justify-content: flex-start;
     flex-direction: row;
     padding: 0 10px;
+    transition: 0.2s;
 }
 .nav-logo {
     width: 50px;
@@ -71,7 +72,6 @@ nav{
     display: flex;
     list-style-type: none;
     margin: 5px 20px;
-    /* background-color: antiquewhite; */
 }
 .navbar > li {
     padding: 0 4px;
@@ -282,10 +282,13 @@ nav{
 .identification-exam-section{
     box-shadow: 3.5px 0px 8px #03031035;
     border-radius: 10px;
+    display: flex;
+    align-items: center;
     /* box-shadow: 4px 4px 10px -4px, inset -2px 0px 0px #fff; */
 }
 .identification-exam{
     padding: 1rem 2rem;
+    text-indent: 8rem;
 }
 /* End Four Section */
 
@@ -308,11 +311,14 @@ nav{
     justify-content: flex-start;
     align-items: center;
 }
+.creation-title {
+    padding: 0 0 0 2rem;
+}
 .creation-link {
     position: relative;
     right: 0;
     /* background-color: #0002; */
-    width: 70%;
+    width: 65%;
     text-align: right;
     margin: 0 0 0 4rem;
 }
@@ -339,7 +345,7 @@ nav{
     flex-direction: column;
     display: inline-block;
     max-width: 250px;
-    padding: 5px 10px;
+    padding: 15px 10px;
 }
 .creation:hover{
     transform: scale(1.05);
@@ -431,6 +437,7 @@ footer {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 15px 0;
     /* box-shadow: 0px -0.2px 5px var(--color-2); */
 }
 .logo-footer {
@@ -450,6 +457,7 @@ footer .footer-subcontainer {
 }
 .footer-subcontainer:first-child > div {
     display: flex;
+    padding: 0 0 10px 0;
 }
 .footer-subcontainer:first-child > div > div {
     width: 50%;
@@ -461,6 +469,7 @@ footer .footer-subcontainer {
     text-decoration: none;
     color: #202020;
     transition: 0.2s;
+    font-size: 11pt;
 }
 .footer-subcontainer > span > a:hover {
     color: var(--bg-color-2);
@@ -471,10 +480,14 @@ footer .footer-subcontainer {
 .footer-subcontainer:last-child > span {
     font-size: 9pt;
 }
+.socmed-icon {
+    margin: 10px 0 0 0;
+}
 .socmed-logo {
     font-size: 18pt;
     color: #202020;
     margin: 0 5px;
+    transition: 0.2s;
 }
 .socmed-logo:hover{
     color: var(--bg-color-2);
