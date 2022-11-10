@@ -37,5 +37,20 @@
             </ul>
         </nav>
     </header>
+    <section class="main container-fluid pt-5">
+        <div class="error-container container-sm mt-5"></div>
+        <form class="form container-sm mt-5">
+            <label for="username-input">Username <span class="text-danger">&ast;</span></label>
+            <input type="text" name="username" id="username-input" class="form-control">
+            <label for="email-input">Email <span class="text-danger">&ast;</span></label>
+            <input type="text" name="email" id="email-input" class="form-control">
+            <label for="password-input">Password <span class="text-danger">&ast;</span></label>
+            <input type="text" name="password" id="password-input" class="form-control">
+            <label for="cpassword-input">Confirm password <span class="text-danger">&ast;</span></label>
+            <input type="text" name="cpassword" id="cpassword-input" class="form-control">
+            <input type="submit" name="submit" class="form-btn btn btn-primary mt-4" value="Sign up">
+        </form>
+   </section>
+   <script src="../js/signup.js"></script>
 </body>
 </html>
