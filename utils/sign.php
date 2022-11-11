@@ -5,11 +5,16 @@ class SignupError {
     private $errorMessages = [];
 
     public function username($input): bool {
-        $pattern = "/^([a-zA-Z0-9_]*)$/";
+        $pattern = "/^([a-zA-Z0-9_ ]*)$/";
         $match = preg_match($pattern, $input);
 
         if (!$match) {
             $message = "Username hanya boleh menggunakan huruf, angka, dan underscore";
+            array_push($this->errorMessages, $message);
+            return false;
+        }
+        if (strpos($input, " ") !== false) {
+            $message = "Username tidak boleh mengandung spasi";
             array_push($this->errorMessages, $message);
             return false;
         }
