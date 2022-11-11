@@ -1,3 +1,6 @@
+import { setCookie } from "./lib/cookie.js";
+
+const select = (selector) => document.querySelector(selector);
 const form = document.querySelector(".form");
 
 const displayErrors = (errors) => {
@@ -20,14 +23,7 @@ const displayErrors = (errors) => {
     errorContainer.innerHTML = errorElement;
 };
 
-const sendUserData = async () => {
-    const select = (selector) => document.querySelector(selector);
-    const [username, email, password, cpassword] = [
-        select("#username-input").value,
-        select("#email-input").value,
-        select("#password-input").value,
-        select("#cpassword-input").value,
-    ];
+const sendUserData = async (username, email, password, cpassword) => {
     const payload = { username, email, password, cpassword, date: Date() };
     const rawResponse = await fetch("../rest/signup.php", {
         method: "POST",
@@ -38,13 +34,34 @@ const sendUserData = async () => {
         body: JSON.stringify(payload)
     });
     const response = await rawResponse.json();
-    const { errorMessages } = response;
+    
+    return response;
+};
 
-    if (!errorMessages.length) return location.reload();
-    displayErrors(errorMessages);
+const submitForm = async () => {
+    const [username, email, password, cpassword] = [
+        select("#username-input").value?.trim().toLowerCase(),
+        select("#email-input").value?.trim().toLowerCase(),
+        select("#password-input").value?.trim(),
+        select("#cpassword-input").value?.trim()
+    ];
+    const resUserData = await sendUserData(username, email, password, cpassword);
+    const { errorMessages } = resUserData;
+
+    if (errorMessages.length) {
+        displayErrors(errorMessages);
+        return;
+    }
+
+    setCookie(document, {
+        name: "user",
+        value: email,
+        expires: 1000 * 60 * 60
+    });
+    location.reload();
 };
 
 form.addEventListener("submit", (ev) => {
     ev.preventDefault();
-    sendUserData();
+    submitForm();
 });

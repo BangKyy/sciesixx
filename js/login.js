@@ -1,3 +1,6 @@
+import { setCookie } from "./lib/cookie.js";
+
+const select = (selector) => document.querySelector(selector);
 const form = document.querySelector(".form");
 
 const displayErrors = (errors) => {
@@ -20,12 +23,7 @@ const displayErrors = (errors) => {
     errorContainer.innerHTML = errorElement;
 };
 
-const sendUserData = async () => {
-    const select = (selector) => document.querySelector(selector);
-    const [email, password] = [
-        select("#email-input").value,
-        select("#password-input").value
-    ];
+const sendUserData = async (email, password) => {
     const payload = { email, password };
     const rawResponse = await fetch("../rest/login.php", {
         method: "POST",
@@ -36,14 +34,32 @@ const sendUserData = async () => {
         body: JSON.stringify(payload)
     });
     const response = await rawResponse.json();
-    const { errorMessages } = response;
 
-    if (!errorMessages.length) return location.reload();
-    console.log(errorMessages);
-    displayErrors(errorMessages);
+    return response;
+};
+
+const submitForm = async () => {
+    const [email, password] = [
+        select("#email-input").value?.trim().toLowerCase(),
+        select("#password-input").value?.trim()
+    ];
+    const resUserData = await sendUserData(email, password);
+    const { errorMessages } = resUserData;
+
+    if (errorMessages.length) {
+        displayErrors(errorMessages);
+        return;
+    }
+
+    setCookie(document, {
+        name: "user",
+        value: email,
+        expires: 1000 * 60 * 60
+    });
+    location.reload();
 };
 
 form.addEventListener("submit", (ev) => {
     ev.preventDefault();
-    sendUserData();
+    submitForm();
 });
