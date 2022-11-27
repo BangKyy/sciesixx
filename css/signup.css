@@ -71,9 +71,13 @@ nav{
 .navbar > li {
     padding: 0 4px;
 }
-.navbar > li > a {
+.navbar > li a {
     text-decoration: none;
     color: var(--color-2);
+    cursor: pointer;
+}
+.navbar > li a:hover {
+    color: var(--link-color-2);
 }
 .nav-p {
     text-align: center;

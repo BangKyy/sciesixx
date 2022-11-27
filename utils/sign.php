@@ -14,7 +14,7 @@ class SignupError {
             return false;
         }
         if (strpos($input, " ") !== false) {
-            $message = "Username tidak boleh mengandung spasi";
+            $message = "Username tidak boleh menggunakan spasi";
             array_push($this->errorMessages, $message);
             return false;
         }
