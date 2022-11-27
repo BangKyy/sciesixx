@@ -7,16 +7,20 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    color: var(--color-2);
+}
+
 /* VARIABLE CSS */
 :root{
     /* background colors */
     --bg-color-1: #a4bad6;
     --bg-color-2: #e8eef5;
-    --bg-color-3: #dde8f7;
+    --bg-color-3: #dde8f7; 
 
     /* font colors */
     --color-1: #143a6a;
-    --color-2: #0e2a4c;
+    --color-2: #011D31;
     --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
     --color-4: #e8eef5;
 
@@ -31,7 +35,7 @@
     /* Fonts Bold */
     --bold-1: 300;
     --bold-2: 400;
-    --bold-3: 500;
+    --bold-3: 600;
     --bold-4: 900; 
 }
 
@@ -225,6 +229,8 @@ nav{
 } 
 .daily-title{
     text-align: center;
+    color: var(--color-2);
+    font-weight: 600;
 }
 .daily-box{
     display: flex;
@@ -271,6 +277,8 @@ nav{
 }
 .identification-title{
     font-size: 34px;
+    font-weight: var(--bold-3);
+    color: var(--color-2);
 }
 .identification{
     display: flex;
@@ -318,6 +326,10 @@ nav{
 }
 .creation-title {
     padding: 0 0 0 2rem;
+    width: 100%;
+    font-size: 30px;
+    font-weight: var(--bold-3);
+    color: var(--color-2);
 }
 .creation-link {
     position: relative;
@@ -326,6 +338,7 @@ nav{
     width: 65%;
     text-align: right;
     margin: 0 0 0 4rem;
+    font-size: 18px;
 }
 .creation-link > a {
     color: var(--color-2);
@@ -438,10 +451,35 @@ nav{
     background-color: var(--bg-color-3);
     border-radius: 10px;
     position: relative;
-    display: flex;
+    /* display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 auto; */
+}
+.contact-title-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.contact-sub-title{
+    margin: 0 0 2rem 3rem;
+    font-size: 30px;
+    font-weight: var(--bold-3);
+}
+.contact-link {
+    position: relative;
+    right: 0;
+    /* background-color: #0002; */
+    width: 65%;
+    text-align: right;
+    margin: -2rem 0 0 11.5rem;
+    font-size: 18px;
+}
+.contact-link > a {
+    color: var(--color-2);
+}
+.contact-link > a:hover{
+    color: var(--link-color-1);
 }
 .contact-box{
     width: 500px;
@@ -450,6 +488,7 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 .title-contact{
     font-size: 35px;
@@ -459,6 +498,10 @@ nav{
     width: 100%;
     position: relative;
     margin-bottom: 15px;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #c7d1de, #ecf8ff);
+    box-shadow:  8px 8px 14px #a4acb7,
+             -8px -8px 14px #f2f6fc;
 }
 .contact-name i{
     position: absolute;
@@ -474,8 +517,8 @@ nav{
     border: none;
     outline: none;
     font-size: 18px;
-    background-color: #eee;
-    border-radius: 40px;
+    background-color: var(--bg-color-2);
+    border-radius: 15px;
 }
 .contact-name input::placeholder{
     color: #bbb;
@@ -486,6 +529,10 @@ nav{
     width: 100%;
     position: relative;
     margin-bottom: 15px;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #c7d1de, #ecf8ff);
+    box-shadow:  8px 8px 14px #a4acb7,
+             -8px -8px 14px #f2f6fc;
 }
 .contact-email i{
     position: absolute;
@@ -501,8 +548,8 @@ nav{
     border: none;
     outline: none;
     font-size: 18px;
-    background-color: #eee;
-    border-radius: 40px;
+    background-color: var(--bg-color-2);
+    border-radius: 15px;
 }
 .contact-email input::placeholder{
     color: #bbb;
@@ -513,6 +560,10 @@ nav{
     width: 100%;
     position: relative;
     margin-bottom: 15px;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #c7d1de, #ecf8ff);
+    box-shadow:  8px 8px 14px #a4acb7,
+             -8px -8px 14px #f2f6fc;
 }
 .contact-msg-box i{
     position: absolute;
@@ -528,8 +579,8 @@ nav{
     border: none;
     outline: none;
     font-size: 18px;
-    background-color: #eee;
-    border-radius: 40px;
+    background-color: var(--bg-color-2);
+    border-radius: 15px;
 }
 .contact-msg-box textarea::placeholder{
     color: #bbb;
@@ -546,11 +597,14 @@ nav{
     padding: 10px;
     font-size: 20px;
     color: #fff;
-    background-color: #0767a2;
+    background-color: var(--btn-color-1);
     border: none;
     outline: none;
-    border-radius: 40px;
+    border-radius: 15px;
     cursor: pointer;
+}
+.contact-btn button:hover{
+    background-color: var(--btn-color-2);
 }
 
 .contact-msg{

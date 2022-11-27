@@ -7,6 +7,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    background: var(--bg-color-1);
+}
+
 :root{
     /* background colors */
     --bg-color-1: #a4bad6;
@@ -15,7 +19,7 @@
 
     /* font colors */
     --color-1: #143a6a;
-    --color-2: #0e2a4c;
+    --color-2: #011D31;
     --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
     --color-4: #e8eef5;
 
@@ -30,7 +34,7 @@
     /* Fonts Bold */
     --bold-1: 300;
     --bold-2: 400;
-    --bold-3: 500;
+    --bold-3: 600;
     --bold-4: 900; 
 }
 
@@ -79,11 +83,11 @@ nav{
     text-align: center;
     padding-top: 12px;
 }
-.sign-btn-container {
+/* .sign-btn-container {
     justify-self: flex-end;
     /* margin-left: 35rem; */
-}
-.btn-primary,
+/* } */
+/* .btn-primary,
 .btn-primary:visited {
     color: var(--color-4) !important;
     background-color: var(--btn-color-1) !important;
@@ -104,5 +108,14 @@ nav{
 .btn-outline-primary:active {
     color: var(--color-4) !important;
     background-color: var(--btn-color-1) !important;
-}
+} */
 /* End Navbar Section */
+
+.signup-container{
+    background-color: transparent;
+}
+.signup-img{
+    width: 50px;
+    height: auto;
+    margin: -50px 20px;
+}

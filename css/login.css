@@ -15,7 +15,7 @@
 
     /* font colors */
     --color-1: #143a6a;
-    --color-2: #0e2a4c;
+    --color-2: #011D31;
     --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
     --color-4: #e8eef5;
 
@@ -30,7 +30,7 @@
     /* Fonts Bold */
     --bold-1: 300;
     --bold-2: 400;
-    --bold-3: 500;
+    --bold-3: 600;
     --bold-4: 900; 
 }
 
