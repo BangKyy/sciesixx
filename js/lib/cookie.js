@@ -11,7 +11,7 @@ export const getCookie = (document, { name }) => {
         });
     const cookie = cookies.find((c) => c.name === name);
     
-    return cookie.value;
+    return cookie?.value;
 };
 
 export const setCookie = (document, { name, value, expires, path="/" }) => {

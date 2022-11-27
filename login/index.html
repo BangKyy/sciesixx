@@ -30,9 +30,40 @@
                     <!-- <a href="#" class="logo">UNISIX</a> -->
                 </li>
                 <li><a href="../" class="nav-link">Beranda</a></li>
-                <li><a href="#" class="nav-link">Profile</a></li>
-                <li><a href="#" class="nav-link">Galeri</a></li>
-                <li><a href="#" class="nav-link">Fitur</a></li>
+                <li>
+                    <div class="dropdown-center p-2 pt-0 pb-0">
+                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                          Profil
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Siswa</a></li>
+                          <li><a class="dropdown-item" href="#">Struktur Kelas</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown-center p-2 pt-0 pb-0">
+                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                          Galeri
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Foto</a></li>
+                          <li><a class="dropdown-item" href="#">Video</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown-center p-2 pt-0 pb-0">
+                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                          Profil
+                        </a>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#">Edukasi</a></li>
+                          <li><a class="dropdown-item" href="#">Informasi</a></li>
+                          <li><a class="dropdown-item" href="#">kalender</a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li><a href="#" class="nav-link">Kontak</a></li>
             </ul>
         </nav>
@@ -44,7 +75,8 @@
             <input type="text" id="email-input" class="form-control">
             <label for="password-input">Password <span class="text-danger">&ast;</span></label>
             <input type="text" id="password-input" class="form-control">
-            <input type="submit" class="form-btn btn btn-primary mt-4" value="Log in">
+            <span class="forget-password pt-2 d-block">Lupa password&quest; <a href="./new-password/">ganti password</a></span>
+            <input type="submit" class="form-btn btn btn-primary mt-4 d-block" value="Log in">
         </form>
    </section>
    <script type="module" src="../js/login.js"></script>
