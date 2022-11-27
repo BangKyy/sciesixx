@@ -397,9 +397,6 @@ nav{
     position: absolute;
     transform: translate(-12%, -5%) rotate(180deg);
 }
-/* .sub-number{
-    
-} */
 /* End five section */
 
 /* Six section */
@@ -433,6 +430,169 @@ nav{
   }
   
 /* End six section */
+
+/* Contact Section */
+.contact-container{
+    width: 100%;
+    height: auto;
+    background-color: var(--bg-color-3);
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.contact-box{
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title-contact{
+    font-size: 35px;
+    margin: 15px;
+}
+.contact-name{
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+.contact-name i{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #bbb;
+}
+.contact-name input{
+    width: 100%;
+    padding: 20px 60px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #eee;
+    border-radius: 40px;
+}
+.contact-name input::placeholder{
+    color: #bbb;
+    font-weight: 500;
+}
+
+.contact-email{
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+.contact-email i{
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #bbb;
+}
+.contact-email input{
+    width: 100%;
+    padding: 20px 60px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #eee;
+    border-radius: 40px;
+}
+.contact-email input::placeholder{
+    color: #bbb;
+    font-weight: 500;
+}
+
+.contact-msg-box{
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+.contact-msg-box i{
+    position: absolute;
+    top: 12%;
+    left: 30px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #bbb;
+}
+.contact-msg-box textarea{
+    width: 100%;
+    padding: 20px 60px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    background-color: #eee;
+    border-radius: 40px;
+}
+.contact-msg-box textarea::placeholder{
+    color: #bbb;
+    font-weight: 500;
+}
+
+.contact-btn{
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.contact-btn button{
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #0767a2;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.contact-msg{
+    width: 100%;
+    position: relative;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+}
+.contact-msg .success{
+    font-size: 20px;
+    color: green;
+    position: absolute;
+    animation: buttons .3s linear;
+    display: none;
+}
+.contact-msg .danger{
+    font-size: 20px;
+    color: red;
+    position: absolute;
+    animation: buttons .3s linear;
+    display: none;
+}
+@keyframes buttons{
+    0%{
+        transform: scale(0.1);
+    }
+    50%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.contact-image{
+    width: 400px;
+    margin-left: 15rem;
+    margin-bottom: 10rem;
+}
+
+
+/* End contact Section */
 
 /* Footer Section */
 footer {

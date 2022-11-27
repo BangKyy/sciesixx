@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Unity Of Science Six</h1>
-<h3 align="center">In the manufacturing stage on day 5/75.</h3>
+<h3 align="center">In the manufacturing stage on day 8</h3>
 
 - 📫 How to reach me **unityofsciencesix@gmail.com**
 

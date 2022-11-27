@@ -101,7 +101,7 @@
             <h3 class="person-title">Wali Kelas</h3>
             <div class="person-container">
                 <figure>
-                    <img src="images/main-photo.png" alt="" class="img-person">
+                    <img src="images/main-photo.jpg" alt="" class="img-person">
                     <figcaption class="nick-person-container">
                         <P class="nick-person">Drs. Parnadi, M.Pd</p>
                     </figcaption>
@@ -242,6 +242,33 @@
     </section>
     <!-- End Six Section -->
 
+    <!-- Contact Form -->
+    <section class="contact-container">
+        <div class="contact-box">
+            <h3 class="title-contact"></h3>
+            <div class="contact-name">
+                <i class="bi bi-person"></i>
+                <input type="text" placeholder="Name" id="name">
+            </div>
+            <div class="contact-email">
+                <i class="bi bi-envelope"></i>
+                <input type="text" placeholder="Email" id="email">
+            </div>
+            <div class="contact-msg-box">
+                <!-- <i class="bi bi-chat-left"></i> -->
+                <textarea id="msg" cols="30" rows="10" placeholder="Message"></textarea>
+            </div>
+            <div class="contact-btn">
+                <button id="send" onclick="contactmsg()">Send</button>
+            </div>
+            <div class="contact-msg">
+                <div class="success" id="success">Your Message Successfully Sent!</div>
+                <div class="danger" id="danger">Feilds Can't be Empty!</div>
+            </div>
+        </div>
+        <!-- <img src="images/contact-img.png" alt="" class="contact-image"> -->
+    </section>
+
     <!-- Footer Section -->
     <footer id="footer" class="container-fluid d-flex">
         <div class="footer-subcontainer">
@@ -263,7 +290,6 @@
         <div class="footer-subcontainer">
             <span><a href="#">Privacy policy</a></span>
             <span><a href="#">Term of use</a></span>
-            <span><a href="#">Disclaimer</a></span>
         </div>
         <div class="footer-subcontainer">
             <div class="socmed-icon pt-2">
