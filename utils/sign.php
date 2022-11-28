@@ -96,7 +96,7 @@ class LoginError {
             array_push($this->errorMessages, "Anda belum terdaftar, silahkan klik <a href=\"../signup\" class=\"text-danger\">daftar</a>");
             return false;
         }
-        if ($user["password"] !== $password) {
+        if ($user[0]["password"] !== $password) {
             array_push($this->errorMessages, "Password salah");
             return false;
         }
@@ -119,7 +119,7 @@ function getUser($key, $value) {
     $value = preg_replace("/(\-|\/)/", "", $value);
     $value = htmlspecialchars($value);
     $query = $connection->query("SELECT * FROM users WHERE " . $key . "=" . "'$value'");
-    $userData = $query->fetch_assoc();
+    $userData = $query->fetch_all(MYSQLI_ASSOC);
     return $userData;
 }
 
@@ -157,16 +157,8 @@ function saveUser($username, $email, $password, $date) {
     $username = htmlspecialchars($username);
     $email = htmlspecialchars($email);
     $password = htmlspecialchars($password);
-    $prepared = $connection->prepare("INSERT INTO users (username, email, password, date, last_activity) VALUES (?, ?, ?, ?, ?)");
-    $prepared->bind_param("sssss", $username, $email, $password, $date, $date);
-    $prepared->execute();
-    return json_encode(["error" => false]);
-}
-
-function updateUser($id, $column, $value) {
-    global $connection;
-    $sql = "UPDATE users SET $column = '$value' WHERE id = $id";
-    $prepared = $connection->prepare($sql);
+    $prepared = $connection->prepare("INSERT INTO users (username, email, password, date) VALUES (?, ?, ?, ?)");
+    $prepared->bind_param("ssss", $username, $email, $password, $date);
     $prepared->execute();
     return json_encode(["error" => false]);
 }

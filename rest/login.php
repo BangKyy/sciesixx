@@ -14,22 +14,11 @@ if ($reqMethod === "GET") {
 elseif ($reqMethod === "POST") {
     $email = key_exists("email" ,$POST) ? $POST["email"] : "";
     $password = key_exists("password", $POST) ? $POST["password"] : "";
-    $date = key_exists("date", $POST) ? $POST["date"] : "";
     $errorMessages = getLoginErrors($email, $password);
-    $isSuccess = !count($errorMessages);
-    $userData = ["" => ""];
-
-    if ($isSuccess) {
-        $userData = getUser("email", $email);
-        updateUser($userData["id"], "last_activity", $date);
-        $userData["last_activity"] = $date;
-    }
-
     $output = [
-        "success" => $isSuccess,
-        "error" => !$isSuccess,
-        "errorMessages" => $errorMessages,
-        "userData" => $userData
+        "success" => !count($errorMessages),
+        "error" => count($errorMessages) > 0,
+        "errorMessages" => $errorMessages
     ];
 
     echo json_encode($output);

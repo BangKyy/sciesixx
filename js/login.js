@@ -24,23 +24,18 @@ const displayErrors = (errors) => {
 };
 
 const sendUserData = async (email, password) => {
-    const date = Date();
     const payload = { email, password };
-    try {
-        const rawResponse = await fetch("../rest/login.php", {
-            method: "POST",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
-        });
-        const response = await rawResponse.json();
-        return response;
-    } catch (err) {
-        console.dir(err);
-        return {};
-    }
+    const rawResponse = await fetch("../rest/login.php", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    });
+    const response = await rawResponse.json();
+
+    return response;
 };
 
 const submitForm = async () => {
