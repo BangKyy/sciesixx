@@ -10,7 +10,7 @@ if ($reqMethod === "GET") {
     $collumnValue = $_GET["value"];
     $user = getUser($collumnName, $collumnValue);
     echo json_encode($user);
-} 
+}
 elseif ($reqMethod === "POST") {
     $username = key_exists("username", $POST) ? $POST["username"] : "";
     $email = key_exists("email" ,$POST) ? $POST["email"] : "";
@@ -18,15 +18,20 @@ elseif ($reqMethod === "POST") {
     $cpassword = key_exists("cpassword", $POST) ? $POST["cpassword"] : "";
     $date = $POST["date"];
     $errorMessages = getSignupErrors($username, $email, $password, $cpassword);
-    $output = [
-        "success" => !count($errorMessages),
-        "error" => count($errorMessages) > 0,
-        "errorMessages" => $errorMessages
-    ];
+    $isSuccess = !count($errorMessages);
+    $userData = ["" => ""];
 
-    if (!$output["error"]) {
+    if ($isSuccess) {
         saveUser($username, $email, $password, $date);
+        $userData = getUser("email", $email);
     }
+
+    $output = [
+        "success" => $isSuccess,
+        "error" => !$isSuccess,
+        "errorMessages" => $errorMessages,
+        "userData" => $userData
+    ];
 
     echo json_encode($output);
 }
