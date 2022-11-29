@@ -157,9 +157,28 @@ function saveUser($username, $email, $password, $date) {
     $username = htmlspecialchars($username);
     $email = htmlspecialchars($email);
     $password = htmlspecialchars($password);
-    $prepared = $connection->prepare("INSERT INTO users (username, email, password, date) VALUES (?, ?, ?, ?)");
-    $prepared->bind_param("ssss", $username, $email, $password, $date);
+    $prepared = $connection->prepare("INSERT INTO users (username, email, password, date, last_activity) VALUES (?, ?, ?, ?, ?)");
+    $prepared->bind_param("sssss", $username, $email, $password, $date, $date);
     $prepared->execute();
     return json_encode(["error" => false]);
+}
+
+function updateUser($column, $key, $keyValue, $value) {
+    global $connection;
+    $connection->query("UPDATE users SET $column = '$value' WHERE $key = '$keyValue'");
+    return json_encode([
+        "error" => false,
+        "connection" => $connection
+    ]);
+}
+
+function deleteUser($columnName, $columnValue) {
+    global $connection;
+    $sql = "DELETE FROM users WHERE $columnName = '$columnValue'";
+    $connection->query($sql);
+    return json_encode([
+        "error" => false,
+        "connection" => $connection
+    ]);
 }
 ?>

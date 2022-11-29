@@ -110,7 +110,12 @@ nav{
     background-color: var(--btn-color-1) !important;
 } */
 /* End Navbar Section */
+.signup-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
+}
 .signup-container{
     background-color: transparent;
 }

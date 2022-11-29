@@ -58,7 +58,7 @@ const submitForm = async () => {
         value: email,
         expires: 1000 * 60 * 60
     });
-    location.reload();
+    window.open("../", "_self");
 };
 
 form.addEventListener("submit", (ev) => {

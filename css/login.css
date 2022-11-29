@@ -106,3 +106,14 @@ nav{
     background-color: var(--btn-color-1) !important;
 }
 /* End Navbar Section */
+
+.login-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.login-img{
+    width: 50px;
+    height: auto;
+    margin: 0 20px;
+}
