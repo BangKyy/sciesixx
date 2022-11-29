@@ -18,60 +18,31 @@
     <title>UNISIX SITE | Password Baru</title>
 </head>
 <body>
-    <header>
-        <nav class="nav container-fluid">
-            <!-- Logo -->
-            <!-- Navbar -->
-            <ul class="navbar">
-                <li class="logo-container">
-                    <a href="/#">
-                        <img src="../../images/main-logo.png" alt="logo" class="nav-logo">
-                    </a>
-                </li>
-                <li><a href="../../" class="nav-link">Beranda</a></li>
-                <li>
-                    <div class="dropdown-center p-2 pt-0 pb-0">
-                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
-                          Profil
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Siswa</a></li>
-                          <li><a class="dropdown-item" href="#">Struktur Kelas</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="dropdown-center p-2 pt-0 pb-0">
-                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
-                          Galeri
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Foto</a></li>
-                          <li><a class="dropdown-item" href="#">Video</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="dropdown-center p-2 pt-0 pb-0">
-                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
-                          Profil
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Edukasi</a></li>
-                          <li><a class="dropdown-item" href="#">Informasi</a></li>
-                          <li><a class="dropdown-item" href="#">kalender</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#" class="nav-link">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header></header>
     <section class="main container-fluid pt-5">
         <div class="error-container container-sm mt-5"></div>
-        <form class="form container-sm mt-5">
-            
-        </form>
+        <div class="form-container container mt-5">
+            <div class="verify-icon-container">
+                <i class="bi bi-patch-check"></i>
+            </div>
+            <div class="verify-title-container">
+                <h4>Verifikasi</h4>
+            </div>
+            <div class="alert-container container d-flex justify-content-center flex-column mt-2 mb-2">
+                <div class="success-alert alert alert-success text-center" role="alert"></div>
+                <div class="error-alert alert alert-warning alert-dismissible fade show text-center" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <!-- <div class="error-alert alert alert-danger text-center" role="alert"></div> -->
+            </div>
+            <form class="form container-sm">
+                <label for="email-input" class="email-label">Masukan Email:</label>
+                <input type="email" id="email-input" class="form-control">
+                <div class="container d-flex justify-content-center">
+                    <input type="submit" value="Dapatkan Kode" class="submit-btn btn btn-primary mt-3">
+                </div>
+            </form>
+        </div>
    </section>
    <script type="module" src="../../js/new-password.js"></script>
 </body>
