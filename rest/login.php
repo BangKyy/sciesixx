@@ -14,12 +14,17 @@ if ($reqMethod === "GET") {
 elseif ($reqMethod === "POST") {
     $email = key_exists("email" ,$POST) ? $POST["email"] : "";
     $password = key_exists("password", $POST) ? $POST["password"] : "";
+    $date = key_exists("date", $POST) ? $POST["date"] : "";
     $errorMessages = getLoginErrors($email, $password);
     $output = [
         "success" => !count($errorMessages),
         "error" => count($errorMessages) > 0,
         "errorMessages" => $errorMessages
     ];
+
+    if ($output["success"]) {
+        updateUser("last_activity", "email", $email, $date);
+    }
 
     echo json_encode($output);
 }

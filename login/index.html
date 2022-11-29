@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Signup CSS -->
+    <!-- Login CSS -->
     <link rel="stylesheet" href="../css/login.css" class="rel">
     <!-- FAV Icons -->
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
@@ -18,63 +18,22 @@
     <title>UNISIX SITE | Masuk</title>
 </head>
 <body>
-    <header>
-        <nav class="nav container-fluid">
-            <!-- Logo -->
-            <!-- Navbar -->
-            <ul class="navbar">
-                <li class="logo-container">
-                    <a href="/#">
-                        <img src="../images/main-logo.png" alt="logo" class="nav-logo">
-                    </a>
-                    <!-- <a href="#" class="logo">UNISIX</a> -->
-                </li>
-                <li><a href="../" class="nav-link">Beranda</a></li>
-                <li>
-                    <div class="dropdown-center p-2 pt-0 pb-0">
-                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
-                          Profil
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Siswa</a></li>
-                          <li><a class="dropdown-item" href="#">Struktur Kelas</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="dropdown-center p-2 pt-0 pb-0">
-                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
-                          Galeri
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Foto</a></li>
-                          <li><a class="dropdown-item" href="#">Video</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="dropdown-center p-2 pt-0 pb-0">
-                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
-                          Profil
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Edukasi</a></li>
-                          <li><a class="dropdown-item" href="#">Informasi</a></li>
-                          <li><a class="dropdown-item" href="#">kalender</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#" class="nav-link">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header></header>
     <section class="main container-fluid pt-5">
+        <div class="container-sm pt-5">
+            <div class="login-header">
+                <a href="../">
+                    <img class="login-img" src="../images/main-logo.png" alt="">
+                </a>
+                <h2 class="login-title">Unity of Science Six</h2>
+            </div>
+        </div>
         <div class="error-container container-sm mt-5"></div>
         <form class="form container-sm mt-5">
             <label for="email-input">Email <span class="text-danger">&ast;</span></label>
-            <input type="text" id="email-input" class="form-control">
+            <input type="text" autocomplete="off" id="email-input" class="form-control">
             <label for="password-input">Password <span class="text-danger">&ast;</span></label>
-            <input type="text" id="password-input" class="form-control">
+            <input type="text" autocomplete="off" id="password-input" class="form-control">
             <span class="forget-password pt-2 d-block">Lupa password&quest; <a href="./new-password/">ganti password</a></span>
             <input type="submit" class="form-btn btn btn-primary mt-4 d-block" value="Log in">
         </form>

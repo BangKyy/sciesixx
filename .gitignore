@@ -1,1 +1,3 @@
 *.rest
+*.test.js
+test.js

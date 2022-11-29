@@ -24,7 +24,8 @@ const displayErrors = (errors) => {
 };
 
 const sendUserData = async (email, password) => {
-    const payload = { email, password };
+    const date = Date();
+    const payload = { email, password, date };
     const rawResponse = await fetch("../rest/login.php", {
         method: "POST",
         headers: {
@@ -56,7 +57,7 @@ const submitForm = async () => {
         value: email,
         expires: 1000 * 60 * 60
     });
-    location.reload();
+    window.open("../", "_self");
 };
 
 form.addEventListener("submit", (ev) => {
