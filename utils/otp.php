@@ -1,13 +1,19 @@
 <?php
 require "../utils/sign.php";
+require "../utils/formatter.php";
 
 class OTPError {
     private $errorMessages = [];
 
     public function email($value): bool {
         $value = strtolower($value);
+        $value = trim($value);
         $isValidEmail = filter_var($value, FILTER_VALIDATE_EMAIL);
 
+        if (!$value) {
+            array_push($this->errorMessages, "Email wajib diisi");
+            return false;
+        }
         if (!$isValidEmail) {
             array_push($this->errorMessages, "Email tidak valid");
             return false;
@@ -45,7 +51,7 @@ function getOtpEmailErrors($email) {
 
 function getOtpUser($column, $columnValue) {
     global $connection;
-    $sql = "SELECT * FROM otp WHERE $column = '$columnValue'";
+    $sql = "SELECT * FROM otp WHERE $column LIKE '$columnValue'";
     $query = $connection->query($sql);
     $result = $query->fetch_assoc();
     return $result;
@@ -60,10 +66,38 @@ function saveOtpUser($email, $otp, $expire, $date) {
     return json_encode(["error" => false]);
 }
 
+function updateOtpUser($id, $entries) {
+    global $connection;
+    $implodedEntries = implodeAssoc($entries, ", ", "=", true);
+    $sql = "UPDATE otp SET $implodedEntries WHERE id = $id";
+    $connection->query($sql);
+    return json_encode(["error" => false]);
+}
+
 function deleteOtpUser($column, $columnValue) {
     global $connection;
-    $sql = "DELETE FROM otp WHERE $column = '$columnValue'";
+    $column = strtolower($column);
+    $columnValue = strtolower($columnValue);
+    $sql = "DELETE FROM otp WHERE $column LIKE '$columnValue'";
     $connection->query($sql);
-    return json_encode(["error" => true]);
+    return json_encode(["error" => false]);
+}
+
+function deleteExpiredOtpUser($dateNow) {
+    global $connection;
+    $dateNow = $dateNow;
+    $selectedQuery = $connection->query("SELECT expire_date FROM otp");
+    $selected = $selectedQuery->fetch_all(MYSQLI_ASSOC);
+    $filteredExpires = array_filter($selected, function($var) {
+        global $dateNow;
+        return intval($var["expire_date"]) < intval($dateNow);
+    });
+    $expireDates = array_map(function($var) {
+        return "'" . $var["expire_date"] . "'";
+    }, $filteredExpires);
+    $implodedExpireDates = implode(", ", $expireDates);
+    $sql = "DELETE FROM otp WHERE expire_date IN ($implodedExpireDates)";
+    $connection->query($sql);
+    return json_encode(["error" => false]);
 }
 ?>

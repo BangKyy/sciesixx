@@ -118,7 +118,7 @@ function getUser($key, $value) {
     $key = preg_replace("/[^a-z0-9_]/i", "", $key);
     $value = preg_replace("/(\-|\/)/", "", $value);
     $value = htmlspecialchars($value);
-    $query = $connection->query("SELECT * FROM users WHERE " . $key . "=" . "'$value'");
+    $query = $connection->query("SELECT * FROM users WHERE $key LIKE '$value'");
     $userData = $query->fetch_all(MYSQLI_ASSOC);
     return $userData;
 }
@@ -174,7 +174,7 @@ function updateUser($column, $key, $keyValue, $value) {
 
 function deleteUser($columnName, $columnValue) {
     global $connection;
-    $sql = "DELETE FROM users WHERE $columnName = '$columnValue'";
+    $sql = "DELETE FROM users WHERE $columnName LIKE '$columnValue'";
     $connection->query($sql);
     return json_encode([
         "error" => false,
