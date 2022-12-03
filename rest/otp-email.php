@@ -27,17 +27,34 @@ switch($_SERVER["REQUEST_METHOD"]) {
         $date = key_exists("date", $POST) ? $POST["date"] : "";
 
         $emailErrors = getOtpEmailErrors($email);
+        $oldUser = getOtpUser("email", $email);
         $output = [
             "success" => !count($emailErrors),
             "error" => count($emailErrors),
-            "errorMessages" => $emailErrors
+            "errorMessages" => $emailErrors,
+            "old_user" => $oldUser
         ];
 
         if ($output["success"]) {
-            saveOtpUser($email, $otp, $expire, $date);
+            if ($oldUser) {
+                $userEntries = [
+                    "email" => $email,
+                    "otp_number" => $otp,
+                    "expire_date" => $expire,
+                    "date" => $date
+                ];
+                updateOtpUser($oldUser["id"], $userEntries);
+            } else {
+                saveOtpUser($email, $otp, $expire, $date);
+            }
         }
 
         echo json_encode($output);
+        break;
+    }
+    case "DELETE": {
+        $dateNow = key_exists("date", $POST) ? $POST["date"] : "";
+        echo deleteExpiredOtpUser($dateNow);
         break;
     }
     default: {
