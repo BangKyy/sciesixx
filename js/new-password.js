@@ -1,13 +1,19 @@
 import { deleteCookie, getCookie, setCookie } from "./lib/cookie.js";
 import { getOtp } from "./lib/otp.js";
 
-const form = document.querySelector(".form");
-const successAlert = document.querySelector(".success-alert");
-const errorAlert = document.querySelector(".error-alert");
+const formEmail = document.querySelector(".form-1");
+const formOtp = document.querySelector(".form-2");
+const formPassword = document.querySelector(".form-3");
 
 const showErrors = (error) => {
-    const container = document.querySelector(".error-alert");
-    alert(error);
+    const container = document.querySelector(".error-alert-container");
+    const element = `
+        <div class="error-alert alert alert-warning alert-dismissible fade show text-center" role="alert">
+            ${error}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+    container.innerHTML = element;
 };
 
 const getOtpUser = async (key, value) => {
@@ -58,7 +64,35 @@ const sendOtpEmail = async (email, otp, expire, date=Date()) => {
     return data;
 };
 
-const submitForm = async () => {
+const sendOtpNumber = async (email, otp, expire) => {
+    const payload = { email, otp, expire };
+    const rawData = await fetch("../../rest/otp-number.php", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    });
+    const data = await rawData.json();
+    return data;
+}
+
+const sendOtpPassword = async (email, password, cpassword, date=Date()) => {
+    const payload = { email, password, cpassword, date };
+    const rawData = await fetch("../../rest/otp-password.php", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    });
+    const data = await rawData.json();
+    return data;
+};
+
+const submitEmailForm = async () => {
     const expireDate = new Date();
     expireDate.setTime(Date.now() + (1000 * 60 * 15));
     const email = document.querySelector("#email-input")?.value;
@@ -77,32 +111,131 @@ const submitForm = async () => {
         expires: 1000 * 60 * 15
     });
 
+    // Temporary
+    setCookie(document, {
+        name: "otp_code",
+        value: otp,
+        expires: 1000 * 60 * 15
+    })
+    
     window.location.reload();
 };
 
-const toOtpMode = () => {
-    console.log("work");
+const submitOtpForm = async () => {
+    const expireDate = new Date();
+    expireDate.setTime(Date.now() + (1000 * 60 * 30));
+    const email = getCookie(document, { name: "otp_user" });
+    const otp = document.querySelector("#otp-input")?.value;
+    const expire = expireDate.getTime();
+    const resData = await sendOtpNumber(email, otp, expire);
+
+    if (!resData?.success) {
+        showErrors(resData.errorMessages);
+        return;
+    }
+
+    setCookie(document, {
+        name: "otp_number",
+        value: otp,
+        expires: 1000 * 60 * 30
+    });
+    
+    window.location.reload();
 };
 
-const checkOtpMode = async (callback) => {
+const submitPasswordForm = async () => {
+    const email = getCookie(document, { name: "otp_user" });
+    const password = document.querySelector("#password-input")?.value;
+    const cpassword = document.querySelector("#cpassword-input")?.value;
+
+    const resData = await sendOtpPassword(email, password, cpassword);
+
+    if (!resData?.success) {
+        showErrors(resData.errorMessages);
+        return;
+    }
+
+    deleteCookie(document, { name: "otp_user" });
+    deleteCookie(document, { name: "otp_number" });
+
+    window.location.assign("../../");
+};
+
+const changeForm = (formNumber) => {
+    const forms = [
+        document.querySelector(".form-1"),
+        document.querySelector(".form-2"),
+        document.querySelector(".form-3")
+    ];
+
+    forms.forEach((form, i) => {
+        if (i === formNumber - 1) {
+            form.classList.remove("form-hidden");
+        } else {
+            form.classList.add("form-hidden");
+        }
+    });
+};
+
+const toEmailMode = () => {
+    changeForm(1);
+};
+
+const toOtpMode = (email) => {
+    const otpCode = getCookie(document, { name: "otp_code" });
+    changeForm(2);
+    console.log("OTP code: %s", otpCode);
+};
+
+const toPasswordMode = (otp) => {
+    const title = document.querySelector(".verify-title-container h4");
+    title.innerHTML = "Password Baru";
+    changeForm(3);
+};
+
+const checkMode = async (callbackEmail, callbackOtp, callbackPassword) => {
     const otpUserCookie = getCookie(document, { name: "otp_user" });
+    const otpNumber = getCookie(document, { name: "otp_number" });
     const otpUser = await getOtpUser("email", otpUserCookie || "") || "";
     const expireDate = new Date(parseInt(otpUser?.expire_date || 0));
-    if (!(otpUser && (Date.now() < expireDate))) {
-        await deleteExpiredOtpUser();
-        deleteCookie(document, { name: "otp_user" });
+    const formSpinner = document.querySelector(".form-spinner");
+
+    if (otpNumber) {
+        callbackPassword(otpUser.otp_number);
+        formSpinner.style.display = "none";
+        return;
+    }
+    if (otpUser && (Date.now() < expireDate)) {
+        callbackOtp(otpUser.email);
+        formSpinner.style.display = "none";
         return;
     };
-    callback();
+    
+    console.log(await deleteExpiredOtpUser());
+    deleteCookie(document, { name: "otp_user" });
+    formSpinner.style.display = "none";
+    callbackEmail();
 };
 
-form.addEventListener("submit", (ev) => {
+formEmail.addEventListener("submit", (ev) => {
     ev.preventDefault();
-    submitForm();
+    submitEmailForm();
+});
+formOtp.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    submitOtpForm();
+});
+formPassword.addEventListener("submit", (ev) => {
+    ev.preventDefault();
+    submitPasswordForm();
 });
 
 window.addEventListener("load", () => {
-    checkOtpMode(() => {
-        toOtpMode();
+    checkMode(() => {
+        toEmailMode();
+    }, (otpEmail) => {
+        toOtpMode(otpEmail);
+    }, (otpNumber) => {
+        toPasswordMode(otpNumber);
     });
 });

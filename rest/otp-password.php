@@ -22,39 +22,23 @@ switch($_SERVER["REQUEST_METHOD"]) {
     }
     case "POST": {
         $email = key_exists("email", $POST) ? $POST["email"] : "";
-        $otp = key_exists("otp", $POST) ? $POST["otp"] : "";
-        $expire = key_exists("expire", $POST) ? $POST["expire"] : "";
+        $password = key_exists("password", $POST) ? $POST["password"] : "";
+        $cpassword = key_exists("cpassword", $POST) ? $POST["cpassword"] : "";
         $date = key_exists("date", $POST) ? $POST["date"] : "";
-
-        $errorMessages = getOtpEmailErrors($email);
-        $oldUser = getOtpUser("email", $email);
+        $errorMessages = getOtpPasswordErrors($password, $cpassword);
         $output = [
             "success" => !count($errorMessages),
             "error" => !!count($errorMessages),
-            "errorMessages" => $errorMessages,
-            "old_user" => $oldUser
+            "errorMessages" => $errorMessages
         ];
 
         if ($output["success"]) {
-            if ($oldUser) {
-                $userEntries = [
-                    "email" => $email,
-                    "otp_number" => $otp,
-                    "expire_date" => $expire,
-                    "date" => $date
-                ];
-                updateOtpUser($oldUser["id"], $userEntries);
-            } else {
-                saveOtpUser($email, $otp, $expire, $date);
-            }
+            updateUser("password", "email", $email, $password);
+            updateUser("last_activity", "email", $email, $date);
+            deleteOtpUser("email", $email);
         }
 
         echo json_encode($output);
-        break;
-    }
-    case "DELETE": {
-        $dateNow = key_exists("date", $POST) ? $POST["date"] : "";
-        echo deleteExpiredOtpUser($dateNow);
         break;
     }
     default: {

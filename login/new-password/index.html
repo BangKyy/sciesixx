@@ -29,17 +29,38 @@
                 <h4>Verifikasi</h4>
             </div>
             <div class="alert-container container d-flex justify-content-center flex-column mt-2 mb-2">
-                <div class="success-alert alert alert-success text-center" role="alert"></div>
-                <div class="error-alert alert alert-warning alert-dismissible fade show text-center" role="alert">
+                <div class="success-alert-container"></div>
+                <div class="error-alert-container"></div>
+                <!-- <div class="success-alert alert alert-success text-center" role="alert"></div> -->
+                <!-- <div class="error-alert alert alert-warning alert-dismissible fade show text-center" role="alert">
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+                </div> -->
                 <!-- <div class="error-alert alert alert-danger text-center" role="alert"></div> -->
             </div>
-            <form class="form container-sm">
+            <div class="form-spinner container spinner-border text-secondary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <form class="form-email form-1 form-hidden container-sm">
                 <label for="email-input" class="email-label">Masukan Email:</label>
                 <input type="email" id="email-input" class="form-control" autocomplete="off">
                 <div class="container d-flex justify-content-center">
                     <input type="submit" value="Dapatkan Kode" class="submit-btn btn btn-primary mt-3">
+                </div>
+            </form>
+            <form class="form-otp form-2 form-hidden container-sm">
+                <label for="otp-input" class="otp-label">Masukan Kode Verifikasi</label>
+                <input type="number" id="otp-input" class="form-control" autocomplete="off">
+                <div class="container d-flex justify-content-center">
+                    <input type="submit" value="Verifikasi" class="submit-btn-otp btn btn-primary mt-3">
+                </div>
+            </form>
+            <form class="form-password form-3 form-hidden container-sm">
+                <label for="password-input" class="password-label">Password</label>
+                <input type="text" id="password-input" class="form-control" autocomplete="off">
+                <label for="cpassword-input" class="cpassword-label">Konfirmasi Password</label>
+                <input type="text" id="cpassword-input" class="form-control" autocomplete="off">
+                <div class="container d-flex justify-content-center">
+                    <input type="submit" value="Ganti" class="submit-btn-password btn btn-primary mt-3">
                 </div>
             </form>
         </div>
