@@ -157,6 +157,11 @@ const submitPasswordForm = async () => {
 
     deleteCookie(document, { name: "otp_user" });
     deleteCookie(document, { name: "otp_number" });
+    setCookie(document, {
+        name: "user",
+        value: email,
+        expires: 1000 * 60 * 60
+    });
 
     window.location.assign("../../");
 };

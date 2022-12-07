@@ -44,10 +44,15 @@ class OTPError {
         return true;
     }
 
-    public function password($password, $cpassword): bool {
+    public function password($email, $password, $cpassword): bool {
+        $email = trim($email);
         $password = trim($password);
         $cpassword = trim($cpassword);
 
+        if (!$email) {
+            array_push($this->errorMessages, "Halaman ini telah kadaluwarsa");
+            return false;
+        }
         if (!($password && $cpassword)) {
             array_push($this->errorMessages, "Semua kolom wajib diisi");
             return false;
@@ -64,7 +69,13 @@ class OTPError {
     }
 
     public function validateUser($email, $otp): bool {
+        if (!$email) {
+            array_push($this->errorMessages, "Kode verifikasi anda telah kadaluwarsa");
+            return false;
+        }
+
         $user = getOtpUser("email", $email);
+
         if (!$user) {
             array_push($this->errorMessages, "Email salah");
             return false;
@@ -98,9 +109,9 @@ function getOTPUserErrors($email, $otp) {
     return $error->getErrorMessages();
 }
 
-function getOtpPasswordErrors($password, $cpassword) {
+function getOtpPasswordErrors($email, $password, $cpassword) {
     $error = new OTPError();
-    $error->password($password, $cpassword);
+    $error->password($email, $password, $cpassword);
     return $error->getErrorMessages();
 }
 
@@ -135,6 +146,19 @@ function deleteOtpUser($column, $columnValue) {
     $columnValue = strtolower($columnValue);
     $sql = "DELETE FROM otp WHERE $column LIKE '$columnValue'";
     $connection->query($sql);
+    return json_encode(["error" => false]);
+}
+
+function resetOtpTableId() {
+    global $connection;
+    $query = $connection->query("SELECT id FROM otp");
+    $result = $query->fetch_all(MYSQLI_ASSOC);
+
+    if (count($result) !== 0) {
+        return json_encode(["error" => false]);
+    }
+
+    $connection->query("ALTER TABLE otp AUTO_INCREMENT=1");
     return json_encode(["error" => false]);
 }
 

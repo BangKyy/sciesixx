@@ -41,7 +41,7 @@ class SignupError {
 
         $user = getUser("email", $input);
         if (count($user)) {
-            $message = "Email salah";
+            $message = "Email sudah terdaftar";
             array_push($this->errorMessages, $message);
             return false;
         }
