@@ -25,7 +25,7 @@ switch($_SERVER["REQUEST_METHOD"]) {
         $password = key_exists("password", $POST) ? $POST["password"] : "";
         $cpassword = key_exists("cpassword", $POST) ? $POST["cpassword"] : "";
         $date = key_exists("date", $POST) ? $POST["date"] : "";
-        $errorMessages = getOtpPasswordErrors($password, $cpassword);
+        $errorMessages = getOtpPasswordErrors($email, $password, $cpassword);
         $output = [
             "success" => !count($errorMessages),
             "error" => !!count($errorMessages),
@@ -36,6 +36,7 @@ switch($_SERVER["REQUEST_METHOD"]) {
             updateUser("password", "email", $email, $password);
             updateUser("last_activity", "email", $email, $date);
             deleteOtpUser("email", $email);
+            resetOtpTableId();
         }
 
         echo json_encode($output);
