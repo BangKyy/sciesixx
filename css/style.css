@@ -105,7 +105,7 @@ nav{
     padding-top: 12px;
 }
 .sign-btn-container {
-    justify-self: flex-end;
+    justify-self: end;
     /* margin-left: 35rem; */
 }
 .btn-primary,
