@@ -16,6 +16,14 @@ const showErrors = (error) => {
     container.innerHTML = element;
 };
 
+const showLoader = (event) => {
+
+};
+
+const hideLoader = (event) => {
+
+};
+
 const getOtpUser = async (key, value) => {
     const rawData = await fetch(`../../rest/otp-email.php?key=${key}&value=${value}`);
     const data = await rawData.json();
@@ -92,6 +100,20 @@ const sendOtpPassword = async (email, password, cpassword, date=Date()) => {
     return data;
 };
 
+const sendMailOtp = async (email) => {
+    const payload = { email };
+    const rawData = await fetch("../../rest/otp-mailer.php", {
+        method: "POST",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    });
+    const data = await rawData.json();
+    return data;
+};
+
 const submitEmailForm = async () => {
     const expireDate = new Date();
     expireDate.setTime(Date.now() + (1000 * 60 * 15));
@@ -105,18 +127,12 @@ const submitEmailForm = async () => {
         return;
     }
 
+    await sendMailOtp(email);
     setCookie(document, {
         name: "otp_user",
         value: email,
         expires: 1000 * 60 * 15
     });
-
-    // Temporary
-    setCookie(document, {
-        name: "otp_code",
-        value: otp,
-        expires: 1000 * 60 * 15
-    })
     
     window.location.reload();
 };
@@ -172,6 +188,7 @@ const changeForm = (formNumber) => {
         document.querySelector(".form-2"),
         document.querySelector(".form-3")
     ];
+    const submitBtns = document.querySelectorAll(".submit-btn");
 
     forms.forEach((form, i) => {
         if (i === formNumber - 1) {
@@ -187,9 +204,9 @@ const toEmailMode = () => {
 };
 
 const toOtpMode = (email) => {
-    const otpCode = getCookie(document, { name: "otp_code" });
+    // const otpCode = getCookie(document, { name: "otp_code" });
     changeForm(2);
-    console.log("OTP code: %s", otpCode);
+    // console.log("OTP code: %s", otpCode);
 };
 
 const toPasswordMode = (otp) => {

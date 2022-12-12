@@ -15,6 +15,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- Sweetalert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js" integrity="sha256-t2UzhRr4kaJ0M9btOrWK1Uua9mDTZVrXyuC9lRtqAwk=" crossorigin="anonymous"></script>
 
     <title>UNISIX SITE</title>
 
@@ -25,49 +27,51 @@
         <nav class="nav container-fluid">
             <!-- Logo -->
             <!-- Navbar -->
-            <ul class="navbar">
-                <li class="logo-container">
-                    <a href="/#">
-                        <img src="images/main-logo.png" alt="logo" class="nav-logo">
-                    </a>
-                </li>
-                <li><a href="./" class="nav-link">Beranda</a></li>
-                <li>
-                    <div class="dropdown-center p-2 pt-0 pb-0">
-                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
-                          Profil
+            <div class="navbar-container">
+                <ul class="navbar">
+                    <li class="logo-container">
+                        <a href="/#">
+                            <img src="images/main-logo.png" alt="logo" class="nav-logo">
                         </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="./profile/student/">Siswa</a></li>
-                          <li><a class="dropdown-item" href="./profile/structure/">Struktur Kelas</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="dropdown-center p-2 pt-0 pb-0">
-                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
-                          Galeri
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="./gallery/photo/">Foto</a></li>
-                          <li><a class="dropdown-item" href="./gallery/video/">Video</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <div class="dropdown-center p-2 pt-0 pb-0">
-                        <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
-                          Fitur
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="./feature/education/">Edukasi</a></li>
-                          <li><a class="dropdown-item" href="./feature/information/">Informasi</a></li>
-                          <li><a class="dropdown-item" href="./feature/calendar/">kalender</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="./contact/" class="nav-link">Kontak</a></li>
-            </ul>
+                    </li>
+                    <li><a href="./" class="nav-link">Beranda</a></li>
+                    <li>
+                        <div class="dropdown-center p-2 pt-0 pb-0">
+                            <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                              Profil
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="./profile/student/">Siswa</a></li>
+                              <li><a class="dropdown-item" href="./profile/structure/">Struktur Kelas</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown-center p-2 pt-0 pb-0">
+                            <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                              Galeri
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="./gallery/photo/">Foto</a></li>
+                              <li><a class="dropdown-item" href="./gallery/video/">Video</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown-center p-2 pt-0 pb-0">
+                            <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                              Fitur
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="./feature/education/">Edukasi</a></li>
+                              <li><a class="dropdown-item" href="./feature/information/">Informasi</a></li>
+                              <li><a class="dropdown-item" href="./feature/calendar/">kalender</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="./contact/" class="nav-link">Kontak</a></li>
+                </ul>
+            </div>
             <!-- Log in && Sign up button -->
             <div class="sign-btn-container">
                 <a href="login/" class="sign-btn login-btn btn btn-sm btn-outline-primary">Masuk</a>
@@ -263,7 +267,7 @@
                 <textarea id="msg" cols="30" rows="10" placeholder="Pesan"></textarea>
             </div>
             <div class="contact-btn">
-                <button id="send" onclick="contactmsg()">Kirim</button>
+                <button id="send">Kirim</button>
             </div>
             <div class="contact-msg">
                 <div class="success" id="success">Your Message Successfully Sent!</div>
