@@ -1,7 +1,55 @@
 import { setCookie } from "./lib/cookie.js";
+import { TogglePassword } from "./utils/toggle-password.js";
 
 const select = (selector) => document.querySelector(selector);
 const form = document.querySelector(".form");
+const passwordInput = document.querySelector("#password-input");
+const passwordEye = document.querySelector(".password-eye");
+
+const rememberObj = {
+    shouldRemember: false,
+    checkbox: document.querySelector(".remember-me"),
+    emailInput: document.querySelector("#email-input"),
+    email: "",
+
+    init() {
+        this.checkbox.addEventListener("click", () => {
+            this.toggle();
+        });
+        this.emailInput.addEventListener("input", (ev) => {
+            this.email = ev.target.value;
+            this.write();
+        });
+        this.loadChecked();
+    },
+
+    loadChecked() {
+        const email = localStorage.getItem("unisix-email");
+        if (!email) return;
+        this.shouldRemember = true;
+        this.checkbox.setAttribute("checked", "checked");
+        this.emailInput.value = email;
+        this.email = email;
+    },
+
+    toggle() {
+        this.shouldRemember = !this.shouldRemember;
+        this.shouldRemember ? this.add() : this.delete();
+    },
+
+    add() {
+        window.localStorage.setItem("unisix-email", this.email);
+    },
+
+    write() {
+        if (!this.shouldRemember) return;
+        this.add();
+    },
+
+    delete() {
+        window.localStorage.removeItem("unisix-email")
+    }
+};
 
 const displayErrors = (errors) => {
     const errorContainer = document.querySelector(".error-container");
@@ -60,7 +108,20 @@ const submitForm = async () => {
     window.open("../", "_self");
 };
 
+// const autoFIllEmail = () => {
+//     const emailInput = document.querySelector("#email-input");
+//     const email = localStorage.getItem("unisix-email");
+//     if (!email) return;
+//     emailInput.value = email;
+// };
+
 form.addEventListener("submit", (ev) => {
     ev.preventDefault();
     submitForm();
+});
+
+window.addEventListener("load", () => {
+    // autoFIllEmail();
+    rememberObj.init();
+    new TogglePassword(passwordInput, passwordEye).init();
 });

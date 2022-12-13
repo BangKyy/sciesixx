@@ -8,7 +8,12 @@
 }
 
 body{
-    background: var(--bg-color-1);
+    background: rgb(232,238,245);
+    background: linear-gradient(215deg, rgba(232,238,245,1) 50%, rgba(164,186,214,1) 50%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 93.95vh;
 }
 
 :root{
@@ -83,44 +88,145 @@ nav{
     text-align: center;
     padding-top: 12px;
 }
-/* .sign-btn-container {
-    justify-self: flex-end;
-    /* margin-left: 35rem; */
-/* } */
-/* .btn-primary,
-.btn-primary:visited {
-    color: var(--color-4) !important;
-    background-color: var(--btn-color-1) !important;
-    border-color: var(--btn-color-1) !important;
-}
-.btn-primary:hover,
-.btn-primary:active {
-    color: var(--color-4) !important;
-    background-color: var(--btn-color-2) !important;
-    border-color: var(--btn-color-2) !important;
-}
-.btn-outline-primary,
-.btn-outline-primary:visited {
-    color: var(--color-1) !important;
-    border-color: var(--btn-color-1) !important;
-}
-.btn-outline-primary:hover,
-.btn-outline-primary:active {
-    color: var(--color-4) !important;
-    background-color: var(--btn-color-1) !important;
-} */
-/* End Navbar Section */
-.signup-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
 
+
+.signup-container {
+    display: flex;
+    flex-direction: row;
+    width:70%;
+    margin: 2.5rem auto;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
-.signup-container{
-    background-color: transparent;
+.signup-left-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 50%;
+    position: relative;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    border-radius: 15px 0 0 15px;
+    padding: 1rem 0;
 }
-.signup-img{
+.signup-img1{
     width: 50px;
-    height: auto;
-    margin: -50px 20px;
 }
+.signup-left-title{
+    font-size: 15px;
+    font-weight: var(--bold-3);
+    margin-top: 5px;
+}
+.signup-left-description{
+    font-size: 10px;
+    margin-top: 16px;
+    font-weight: var(--bold-2);
+}
+.signup-img2{
+    width: 250px;
+    margin-top: 1rem;
+}
+.signup-icon-sosmed{
+    margin-top: 2rem;
+}
+.socmed-link{
+    color: #000000;
+}
+.socmed-link:hover{
+    color: var(--btn-color-1);
+}
+.bi{
+    font-size: 12px;
+    padding: 0 4px;
+    cursor: pointer
+}
+.signup-copyright{
+    margin-top: 20px;
+    font-size: 8px;;
+}
+.error-container{
+    font-size: 12px;
+    width: 45%;
+    padding: 0;
+    margin-left: 12px;
+}
+.signup-right-container{
+    background-color: #FFFFFF;
+    width: 100%;
+    border-radius: 0 15px 15px 0;
+}
+.signup-right{
+    width: 100%;
+    padding-left: 5rem;
+    margin-top: 5rem;
+}
+.signup-right-title{
+    font-size: 16px;
+}
+.signup-right-description{
+    font-size: 12px;
+}
+.form label {
+    font-size: 12px;
+}
+.form div{
+    width: 50%;
+}
+.form-control {
+    margin: 1px 0 10px 0;
+    font-size: 8pt !important;
+    padding: 4.5px 8px !important;
+    border: 1px solid #a7bfd4 !important;
+    border-radius: 5px;
+    width: 50% !important;
+    /* background-color: #030310 !; */
+}
+#password-input, #cpassword-input {
+    border-right-width: 0 !important;
+}
+.form-btn{
+    /* ws minimum wi width e */
+    width: 20%;
+    background-color: var(--btn-color-2);
+    border-radius: 5px;
+    border-width: 0;
+    color: #fff;
+    font-size: 10pt;
+    padding: 4px 0;
+}
+.form-btn:hover{
+    background-color: var(--btn-color-1);
+}
+.signup-main-title{
+    margin-top: 1rem;
+}
+.signup-confirm{
+    font-size: 12px;
+}
+.signup-confirm-masuk{
+    text-decoration: none;
+    color: var(--btn-color-2);
+}
+.password-eye, .cpassword-eye {
+    background-color: #0000 !important;
+    padding: 4px 4px !important;
+    margin: 1px 0 0 0 !important;
+    height: 27px !important;
+    border: 1px solid #a7bfd4 !important;
+    border-left-width: 0 !important;
+    cursor: pointer;
+}
+.password-eye i, .cpassword-eye i {
+    margin: 0 0 0 0 !important;
+    font-size: 14px;
+}
+.password-group-container, .cpassword-group-container {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* SEMANGAT GESS !! */
+/* PULANG DULSS GESS */
+/* OK 👌 */

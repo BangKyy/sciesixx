@@ -20,7 +20,7 @@ class SignupError {
         }
 
         $user = getUser("username", $input);
-        if (count($user)) {
+        if ($user) {
             $message = "Username tidak tersedia";
             array_push($this->errorMessages, $message);
             return false;
@@ -40,7 +40,7 @@ class SignupError {
         }
 
         $user = getUser("email", $input);
-        if (count($user)) {
+        if ($user) {
             $message = "Email sudah terdaftar";
             array_push($this->errorMessages, $message);
             return false;
@@ -52,6 +52,11 @@ class SignupError {
     public function password($input): bool {
         if (strlen($input) < 8) {
             $message = "Panjang password minimal 8 karakter";
+            array_push($this->errorMessages, $message);
+            return false;
+        }
+        if (!preg_match("/^([a-zA-Z0-9_ ]*)$/", $input)) {
+            $message = "Password hanya boleh menggunakan huruf, angka, dan underscore";
             array_push($this->errorMessages, $message);
             return false;
         }
@@ -92,11 +97,11 @@ class LoginError {
         }
 
         $user = getUser("email", $email);
-        if (!count($user)) {
+        if (!$user) {
             array_push($this->errorMessages, "Anda belum terdaftar, silahkan klik <a href=\"../signup\" class=\"text-danger\">daftar</a>");
             return false;
         }
-        if ($user[0]["password"] !== $password) {
+        if ($user["password"] !== $password) {
             array_push($this->errorMessages, "Password salah");
             return false;
         }
@@ -113,13 +118,13 @@ class LoginError {
     }
 }
 
-function getUser($key, $value) {
+function getUser($key, $value, $all=false) {
     global $connection;
     $key = preg_replace("/[^a-z0-9_]/i", "", $key);
     $value = preg_replace("/(\-|\/)/", "", $value);
     $value = htmlspecialchars($value);
     $query = $connection->query("SELECT * FROM users WHERE $key LIKE '$value'");
-    $userData = $query->fetch_all(MYSQLI_ASSOC);
+    $userData = $all ? $query->fetch_all(MYSQLI_ASSOC) : $query->fetch_assoc();
     return $userData;
 }
 
