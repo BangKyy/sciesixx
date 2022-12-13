@@ -48,6 +48,11 @@ class OTPError {
         $email = trim($email);
         $password = trim($password);
         $cpassword = trim($cpassword);
+        $user = getUser("email", $email);
+        $oldPassword =  $user["password"];
+        $isEqualOldPassword = ($oldPassword === $password) && ($oldPassword === $cpassword);
+        $legalMatch = "/^([a-zA-Z0-9_ ]*)$/";
+        $isLegalCharacter = preg_match($legalMatch, $password) && preg_match($legalMatch, $cpassword);
 
         if (!$email) {
             array_push($this->errorMessages, "Halaman ini telah kadaluwarsa");
@@ -57,12 +62,24 @@ class OTPError {
             array_push($this->errorMessages, "Semua kolom wajib diisi");
             return false;
         }
+        if (!$isLegalCharacter) {
+            array_push($this->errorMessages, "Password hanya boleh menggunakan huruf, angka, dan underscore");
+            return false;
+        }
+        if (preg_match("/\s/", $password) || preg_match("/\s/", $cpassword)) {
+            array_push($this->errorMessages, "Password tidak boleh menggunakan spasi");
+            return false;
+        }
         if ($password !== $cpassword) {
             array_push($this->errorMessages, "Konfirmasi password harus sama dengan password");
             return false;
         }
         if (!(strlen($password) >= 8 && strlen($cpassword) >= 8)) {
             array_push($this->errorMessages, "Password minimal 8 karakter");
+            return false;
+        }
+        if ($isEqualOldPassword) {
+            array_push($this->errorMessages, "Password baru tidak boleh sama dengan password lama");
             return false;
         }
         return true;

@@ -1,7 +1,13 @@
 import { setCookie } from "./lib/cookie.js";
+import { TogglePassword } from "./utils/toggle-password.js";
 
 const select = (selector) => document.querySelector(selector);
 const form = document.querySelector(".form");
+const formBtn = document.querySelector(".form-btn");
+const passwordInput = document.querySelector("#password-input");
+const cpasswordInput = document.querySelector("#cpassword-input");
+const passwordEye = document.querySelector(".password-eye");
+const cpasswordEye = document.querySelector(".cpassword-eye");
 
 const displayErrors = (errors) => {
     const errorContainer = document.querySelector(".error-container");
@@ -21,6 +27,14 @@ const displayErrors = (errors) => {
     `;
 
     errorContainer.innerHTML = errorElement;
+};
+
+const disableFormBtn = () => {
+    formBtn?.setAttribute("disabled", "disabled");
+};
+
+const enableFormBtn = () => {
+    formBtn?.removeAttribute("disabled");
 };
 
 const sendUserData = async (username, email, password, cpassword) => {
@@ -50,6 +64,7 @@ const submitForm = async () => {
 
     if (errorMessages.length) {
         displayErrors(errorMessages);
+        enableFormBtn();
         return;
     }
 
@@ -58,10 +73,16 @@ const submitForm = async () => {
         value: email,
         expires: 1000 * 60 * 60
     });
-    window.open("../", "_self");
+    window.location.assign("../");
 };
 
 form.addEventListener("submit", (ev) => {
     ev.preventDefault();
+    disableFormBtn();
     submitForm();
+});
+
+window.addEventListener("load", () => {
+    new TogglePassword(passwordInput, passwordEye).init();
+    new TogglePassword(cpasswordInput, cpasswordEye).init();
 });

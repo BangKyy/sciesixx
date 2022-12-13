@@ -19,28 +19,59 @@
 </head>
 <body>
     <header></header>
-    <section class="signup-container main container-fluid pt-5">
-        <div class="signup-left container-sm pt-5">
-            <div class="signup-header">
+    <section class="signup-container main">
+        <div class="signup-left-container pt-5"> <!--container-sm-->
+            <div class="signup-left">
                 <a href="../">
-                    <img class="signup-img" src="../images/main-logo.png" alt="">
+                    <img class="signup-img1" src="../images/main-logo.png" alt="">
                 </a>
-                <h2 class="signup-title">Unity of Science Six</h2>
+                <h2 class="signup-left-title">Unity of Science Six</h2>
+                <p class="signup-left-description">Bergabung dengan kami. <br> Mulai hal baru dan nikmati fiturnya!</p>
+                <!-- <p class="signup-description">Mulai hal baru dan nikmati fiturnya!</p> -->
+                <div class="signup-img-container">
+                    <img class="signup-img2" src="../images/icon-signup.svg" alt="">
+                </div>
+                <div class="signup-icon-sosmed">
+                    <i class="bi bi-envelope"></i>
+                    <a href="https://instagram.com/sciesixx" target="_blank" class="socmed-link ig-link"><i class="bi bi-instagram socmed-logo ig-logo"></i></a>
+                    <a href="https://discord.gg/GzVM6rAm/" target="_blank" class="socmed-link dc-link"><i class="bi bi-discord socmed-logo dc-logo"></i></a>
+                </div>
+                <p class="signup-copyright">Copyright @ 2022. Unity of Science Six. All rights reserved</p>
             </div>
         </div>
-        <div class="error-container container-sm mt-5"></div>
-        <div class="signup-right">
-            <form class="form container-sm mt-5">
-                <label for="username-input">Username <span class="text-danger">&ast;</span></label>
-                <input type="text" name="username" autocomplete="off" id="username-input" class="form-control">
-                <label for="email-input">Email <span class="text-danger">&ast;</span></label>
-                <input type="text" name="email" autocomplete="off" id="email-input" class="form-control">
-                <label for="password-input">Password <span class="text-danger">&ast;</span></label>
-                <input type="text" name="password" autocomplete="off" id="password-input" class="form-control">
-                <label for="cpassword-input">Konfirmasi password <span class="text-danger">&ast;</span></label>
-                <input type="text" name="cpassword" autocomplete="off" id="cpassword-input" class="form-control">
-                <input type="submit" name="submit" class="form-btn btn btn-primary mt-4" value="Sign up">
-            </form>
+
+
+        <div class="signup-right-container">
+            <div class="signup-right">
+                <div class="signup-main-title container-sm">
+                    <h4 class="signup-right-title">Daftar Untuk Mendapatkan Akses Lebih</h4>
+                    <p class="signup-right-description">Masukan data dengan benar!</p>
+                </div>
+                <div class="error-container mt-4"></div> <!-- container-sm -->
+                <form class="form container-sm">
+                    <label for="username-input">Username</label> <!--<span class="text-danger">&ast;</span>-->
+                    <input type="text" name="username" autocomplete="off" id="username-input" placeholder="Masukan username" class="form-control">
+                    <label for="email-input">Alamat Email</label> <!--<span class="text-danger">&ast;</span>-->
+                    <input type="text" name="email" autocomplete="off" id="email-input" placeholder="Masukan email" class="form-control">
+                    <label for="password-input">Kata sandi</label> <!--<span class="text-danger">&ast;</span>-->
+                    <div class="password-group-container input-group">
+                        <input type="password" name="password" autocomplete="off" id="password-input" placeholder="Masukan sandi" class="form-control">
+                        <span class="password-eye input-group-text"><i class="bi bi-eye-slash"></i></span>
+                    </div>
+                    <label for="cpassword-input">Konfirmasi kata sandi</label> <!--<span class="text-danger">&ast;</span>-->
+                    <div class="cpassword-group-container input-group">
+                        <input type="password" name="cpassword" autocomplete="off" id="cpassword-input" placeholder="Masukan sandi" class="form-control">
+                        <span class="cpassword-eye input-group-text"><i class="bi bi-eye-slash"></i></span>
+                    </div>
+                    <input type="submit" name="submit" class="form-btn  mt-2" value="Daftar"> <!-- btn btn-primary-->
+                </form>
+                <div class="signup-main-title container-sm">
+                    <h4 class="signup-confirm">
+                        Sudah memiliki akun?
+                        <a class="signup-confirm-masuk" href="../login/">Masuk</a>
+                    </h4>
+                </div>
+            </div>
         </div>
    </section>
    <script type="module" src="../js/signup.js"></script>

@@ -4,6 +4,7 @@ import { getOtp } from "./lib/otp.js";
 const formEmail = document.querySelector(".form-1");
 const formOtp = document.querySelector(".form-2");
 const formPassword = document.querySelector(".form-3");
+const submitBtns = document.querySelectorAll(".submit-btn");
 
 const showErrors = (error) => {
     const container = document.querySelector(".error-alert-container");
@@ -16,12 +17,14 @@ const showErrors = (error) => {
     container.innerHTML = element;
 };
 
-const showLoader = (event) => {
-
+const disableBtn = (num) => {
+    const btn = submitBtns[num - 1];
+    btn.setAttribute("disabled", "disabled");
 };
 
-const hideLoader = (event) => {
-
+const enableBtn = (num) => {
+    const btn = submitBtns[num - 1];
+    btn.removeAttribute("disabled");
 };
 
 const getOtpUser = async (key, value) => {
@@ -115,6 +118,7 @@ const sendMailOtp = async (email) => {
 };
 
 const submitEmailForm = async () => {
+    disableBtn(1);
     const expireDate = new Date();
     expireDate.setTime(Date.now() + (1000 * 60 * 15));
     const email = document.querySelector("#email-input")?.value;
@@ -124,6 +128,7 @@ const submitEmailForm = async () => {
 
     if (!resData?.success) {
         showErrors(resData.errorMessages);
+        enableBtn(1);
         return;
     }
 
@@ -138,6 +143,7 @@ const submitEmailForm = async () => {
 };
 
 const submitOtpForm = async () => {
+    disableBtn(2);
     const expireDate = new Date();
     expireDate.setTime(Date.now() + (1000 * 60 * 30));
     const email = getCookie(document, { name: "otp_user" });
@@ -147,6 +153,7 @@ const submitOtpForm = async () => {
 
     if (!resData?.success) {
         showErrors(resData.errorMessages);
+        enableBtn(2);
         return;
     }
 
@@ -160,6 +167,7 @@ const submitOtpForm = async () => {
 };
 
 const submitPasswordForm = async () => {
+    disableBtn(3);
     const email = getCookie(document, { name: "otp_user" });
     const password = document.querySelector("#password-input")?.value;
     const cpassword = document.querySelector("#cpassword-input")?.value;
@@ -168,6 +176,7 @@ const submitPasswordForm = async () => {
 
     if (!resData?.success) {
         showErrors(resData.errorMessages);
+        enableBtn(3);
         return;
     }
 
@@ -188,11 +197,11 @@ const changeForm = (formNumber) => {
         document.querySelector(".form-2"),
         document.querySelector(".form-3")
     ];
-    const submitBtns = document.querySelectorAll(".submit-btn");
 
     forms.forEach((form, i) => {
         if (i === formNumber - 1) {
             form.classList.remove("form-hidden");
+            enableBtn(i + 1);
         } else {
             form.classList.add("form-hidden");
         }
@@ -204,9 +213,7 @@ const toEmailMode = () => {
 };
 
 const toOtpMode = (email) => {
-    // const otpCode = getCookie(document, { name: "otp_code" });
     changeForm(2);
-    // console.log("OTP code: %s", otpCode);
 };
 
 const toPasswordMode = (otp) => {

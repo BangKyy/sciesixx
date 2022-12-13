@@ -7,6 +7,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    background: rgb(232,238,245);
+    background: linear-gradient(215deg, rgba(232,238,245,1) 50%, rgba(164,186,214,1) 50%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 93.95vh;
+}
+
 :root{
     /* background colors */
     --bg-color-1: #a4bad6;
@@ -107,13 +116,145 @@ nav{
 }
 /* End Navbar Section */
 
-.login-header {
+
+
+
+.login-container {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: row;
+    width:70%;
+    margin: 2.5rem auto;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
-.login-img{
+.login-left-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 50%;
+    position: relative;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    border-radius: 15px 0 0 15px;
+    padding: 1rem 0;
+}
+.login-img1{
     width: 50px;
-    height: auto;
-    margin: 0 20px;
+}
+.login-left-title{
+    font-size: 15px;
+    font-weight: var(--bold-3);
+    margin-top: 5px;
+}
+.login-left-description{
+    font-size: 10px;
+    margin-top: 16px;
+    font-weight: var(--bold-2);
+}
+.login-img2{
+    width: 250px;
+    margin-top: 1rem;
+}
+.login-icon-sosmed{
+    margin-top: 2rem;
+}
+.socmed-link{
+    color: #000000;
+}
+.socmed-link:hover{
+    color: var(--btn-color-1);
+}
+.bi{
+    font-size: 12px;
+    padding: 0 4px;
+    cursor: pointer;
+}
+.login-copyright{
+    margin-top: 20px;
+    font-size: 8px;
+}
+.error-container{
+    font-size: 12px;
+    width: 48%;
+    padding: 0;
+    margin-left: 12px;
+}
+.login-right-container{
+    background-color: #FFFFFF;
+    width: 100%;
+    border-radius: 0 15px 15px 0;
+}
+.login-right{
+    width: 100%;
+    padding-left: 5rem;
+    margin-top: 5rem;
+}
+.login-right-title{
+    font-size: 16px;
+}
+.login-right-description{
+    font-size: 12px;
+}
+.form label {
+    font-size: 12px;
+}
+.form div{
+    width: 50%;
+}
+.form-control {
+    margin: 1px 0 10px 0;
+    font-size: 8pt !important;
+    padding: 4.5px 8px !important;
+    border: 1px solid #a7bfd4 !important;
+    border-radius: 5px;
+    width: 50% !important;
+}
+#password-input, #cpassword-input {
+    border-right-width: 0 !important;
+}
+.form-btn{
+    /* ws minimum wi width e */
+    width: 20%;
+    background-color: var(--btn-color-2);
+    border-radius: 5px;
+    border-width: 0;
+    color: #fff;
+    font-size: 10pt;
+    padding: 4px 0;
+}
+.form-btn:hover{
+    background-color: var(--btn-color-1);
+}
+.login-main-title{
+    margin-top: 1rem;
+}
+.login-confirm{
+    font-size: 12px;
+}
+.login-confirm-masuk{
+    text-decoration: none;
+    color: var(--btn-color-2);
+}
+.login-lupa-sandi{
+    text-decoration: none;
+    color: var(--btn-color-2);
+}
+.password-eye, .cpassword-eye {
+    background-color: #0000 !important;
+    padding: 4px 4px !important;
+    margin: 1px 0 0 0 !important;
+    height: 27px !important;
+    border: 1px solid #a7bfd4 !important;
+    border-left-width: 0 !important;
+    cursor: pointer;
+}
+.password-eye i, .cpassword-eye i {
+    margin: 0 0 0 0 !important;
+    font-size: 14px;
+}
+.password-group-container, .cpassword-group-container {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }

@@ -19,24 +19,57 @@
 </head>
 <body>
     <header></header>
-    <section class="main container-fluid pt-5">
-        <div class="container-sm pt-5">
-            <div class="login-header">
+    <section class="login-container main">
+        <div class="login-left-container pt-5">
+            <div class="login-left">
                 <a href="../">
-                    <img class="login-img" src="../images/main-logo.png" alt="">
+                    <img class="login-img1" src="../images/main-logo.png" alt="">
                 </a>
-                <h2 class="login-title">Unity of Science Six</h2>
+                <h2 class="login-left-title">Unity of Science Six</h2>
+                <p class="login-left-description">Bergabung dengan kami. <br> Mulai hal baru dan nikmati fiturnya!</p>
+                <!-- <p class="signup-description">Mulai hal baru dan nikmati fiturnya!</p> -->
+                <div class="login-img-container">
+                    <img class="login-img2" src="../images/icon-login.svg" alt="">
+                </div>
+                <div class="login-icon-sosmed">
+                    <i class="bi bi-envelope"></i>
+                    <a href="https://instagram.com/sciesixx" target="_blank" class="socmed-link ig-link"><i class="bi bi-instagram socmed-logo ig-logo"></i></a>
+                    <a href="https://discord.gg/GzVM6rAm/" target="_blank" class="socmed-link dc-link"><i class="bi bi-discord socmed-logo dc-logo"></i></a>
+                </div>
+                <p class="login-copyright">Copyright @ 2022. Unity of Science Six. All rights reserved</p>
             </div>
         </div>
-        <div class="error-container container-sm mt-5"></div>
-        <form class="form container-sm mt-5">
-            <label for="email-input">Email <span class="text-danger">&ast;</span></label>
-            <input type="text" autocomplete="off" id="email-input" class="form-control">
-            <label for="password-input">Password <span class="text-danger">&ast;</span></label>
-            <input type="text" autocomplete="off" id="password-input" class="form-control">
-            <span class="forget-password pt-2 d-block">Lupa password&quest; <a href="./new-password/">ganti password</a></span>
-            <input type="submit" class="form-btn btn btn-primary mt-4 d-block" value="Log in">
-        </form>
+        <div class="login-right-container">
+            <div class="login-right">
+                <div class="login-main-title container-sm">
+                    <h4 class="login-right-title">Masuk Untuk Mendapatkan Akses Lebih</h4>
+                    <p class="login-right-description">Masukan data dengan benar!</p>
+                </div>
+                <div class="error-container mt-5"></div>
+                <form class="form container-sm">
+                    <label for="email-input">Email</label> <!--<span class="text-danger">&ast;</span>-->
+                    <input type="text" autocomplete="off" id="email-input" class="form-control" placeholder="Masukan email">
+                    <label for="password-input">Kata sandi</label> <!--<span class="text-danger">&ast;</span>-->
+                    <div class="password-group-container input-group">
+                        <input type="password" name="password" autocomplete="off" id="password-input" placeholder="Masukan sandi" class="form-control">
+                        <span class="password-eye input-group-text"><i class="bi bi-eye-slash"></i></span>
+                    </div>
+                    <div class="remember-me-container form-check">
+                        <input class="remember-me form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">Ingat saya</label>
+                    </div>
+                    <!-- <span class="forget-password pt-2 d-block">Lupa password&quest; <a href="./new-password/">ganti password</a></span> -->
+                    <input type="submit" class="form-btn mt-4" value="Masuk">
+                </form>
+                <div class="login-main-title container-sm">
+                    <h4 class="login-confirm">
+                        Belum memiliki akun?
+                        <a class="login-confirm-masuk" href="../signup/">Buat akun</a> <br>
+                        <a href="./new-password/" class="login-lupa-sandi">Lupa kata sandi?</a>
+                    </h4>
+                </div>
+            </div>
+        </div>
    </section>
    <script type="module" src="../js/login.js"></script>
 </body>

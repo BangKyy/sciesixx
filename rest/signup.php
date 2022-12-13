@@ -1,5 +1,6 @@
 <?php
 require "../utils/sign.php";
+require "../utils/mailer.php";
 header("Content-Type: application/json; charset=utf-8");
 
 $POST = json_decode(file_get_contents("php://input"), true);
@@ -23,9 +24,12 @@ elseif ($reqMethod === "POST") {
         "error" => count($errorMessages) > 0,
         "errorMessages" => $errorMessages
     ];
+    $mailSubject = "Selamat Datang di Situs Kami!";
+    $mailBody = "<p>Selamat datang $username!</p><br><br>Terima kasih telah bergabung bersama kami!";
 
     if (!$output["error"]) {
         saveUser($username, $email, $password, $date);
+        sendMail($email, $mailSubject, $mailBody);
     }
 
     echo json_encode($output);
