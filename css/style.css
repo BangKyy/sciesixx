@@ -131,6 +131,7 @@ nav{
     background-color: var(--btn-color-1) !important;
 }
 /* End Navbar Section */
+
 /* First Section */
 .main-page{
     background-color: var(--bg-color-1);
@@ -138,7 +139,7 @@ nav{
     justify-content: center;
     align-items: center;
     padding: 60px 5px;
-    height: 100%;
+    height: 100vh;
     color: var(--color-2);
 }
 .container-child {
@@ -174,11 +175,12 @@ nav{
     width: 100%;
 }
 .teacher-container{
-    height: 60vh;
+    /* height: 60vh; */
     /* background-color: #1c5398; */
     background-color: var(--bg-color-2);
     width: 100%;
     position: relative;
+    padding-bottom: 4rem;
 }
 .all-person-section{
     /* background-color: var(--bg-color-2); */
@@ -226,8 +228,10 @@ nav{
 
 /* Third Section */
 .daily-container{
-    height: 40vh;
+    /* height: 40vh; */
     background-color: var(--bg-color-2);
+    padding-bottom: 4rem;
+    margin: 0 auto;
 }
 .daily-content{
     display: flex;
@@ -242,6 +246,7 @@ nav{
     text-align: center;
     color: var(--color-2);
     font-weight: 600;
+    font-size: 30px;
 }
 .daily-box{
     /* display: flex;
@@ -282,31 +287,36 @@ nav{
     background-color: var(--bg-color-2);
     /* height: 80vh; */
     padding-bottom: 2rem;
+    margin: 0 auto;
 }
 .identification-title-container{
     text-align: center;
     margin: 0 auto;
 }
 .identification-title{
-    font-size: 34px;
+    font-size: 30px;
     font-weight: var(--bold-3);
     color: var(--color-2);
 }
+/* .identification-content{
+    background-color: rgb(242, 242, 248);
+} */
+
 .identification{
     display: flex;
     width: 80%;
     margin: 2rem auto;
     justify-content: center;
     background-color: rgb(242, 242, 248);
-    /* border-radius: 70px; */
+    border-radius: 15px;
 }
 .identification-image{
-    width: 290px;
-    border-radius: 10px 0 0 10px;
+    width: 300px; 
+    border-radius: 15px 0 0 15px;
 }
-.identification-exam-section{
+.identification-exam-section {
     box-shadow: 3.5px 0px 8px #03031035;
-    border-radius: 10px;
+    border-radius: 0 15px 15px 0;
     display: flex;
     align-items: center;
     /* box-shadow: 4px 4px 10px -4px, inset -2px 0px 0px #fff; */
@@ -459,9 +469,8 @@ nav{
 /* Contact Section */
 .contact-container{
     width: 100%;
-    height: auto;
+    /* height: auto; */
     background-color: var(--bg-color-3);
-    border-radius: 10px;
     position: relative;
     /* display: flex;
     justify-content: center;
@@ -495,9 +504,8 @@ nav{
     color: var(--link-color-1);
 }
 .contact-box{
-    width: 600px;
-    height: auto;
-    display: flex;
+    width: 500px;
+    /* height: auto; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -517,7 +525,8 @@ nav{
     border-radius: 15px;
     background: linear-gradient(145deg, #c7d1de, #ecf8ff);
     box-shadow:  8px 8px 14px #a4acb7,
-             -8px -8px 14px #f2f6fc;
+                -8px -8px 10px #f2f6fc62;
+    
 }
 .contact-name i{
     position: absolute;
@@ -548,7 +557,7 @@ nav{
     border-radius: 15px;
     background: linear-gradient(145deg, #c7d1de, #ecf8ff);
     box-shadow:  8px 8px 14px #a4acb7,
-             -8px -8px 14px #f2f6fc;
+                -8px -8px 10px #f2f6fc62;
 }
 .contact-email i{
     position: absolute;
@@ -579,7 +588,7 @@ nav{
     border-radius: 15px;
     background: linear-gradient(145deg, #c7d1de, #ecf8ff36);
     box-shadow:  8px 8px 14px #a4acb7,
-             -8px -8px 14px #f2f6fc;
+                -8px -8px 10px #f2f6fc62;
 }
 .contact-msg-box i{
     position: absolute;
@@ -617,7 +626,7 @@ nav{
     background-color: var(--btn-color-1);
     border: none;
     outline: none;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
 }
 .contact-btn button:hover{
@@ -737,17 +746,116 @@ footer .footer-subcontainer {
     header{
         width: 100%;
     }
+    .navbar-list, .sign-btn-container {
+        display: none;
+    }
+    .wave-one {
+        margin-top: 0;
+    }
+    .main-page {
+        /* justify-content: stretch; */
+        /* background-color: #0002; */
+        width: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .container-1 {
+        width: 45% !important;
+        /* background-color: #0001; */
+        margin: 5rem 1rem;
+    }
+    .container-2 {
+        margin: 5rem 0;
+        /* width: 600px; */
+    }
+    .image-section-1 {
+        width: 260px;
+        height: auto;
+        /* background-color: #0001; */
+    }
+
+    .person-desk{
+        margin: 1rem;
+        font-size: 12px;
+    }
+    .identification {
+        flex-direction: column;
+    }
+    .identification-image {
+        width: 100%;
+        border-radius: 15px 15px 0 0 ;
+    }
+    .identification-exam-section {
+        border-radius: 0 0 15px 15px ;
+    }
+    .identification-exam{
+        padding: 1rem 2rem;
+        text-indent: 8rem;
+    }
+
+    .identification-exam{
+        padding: 1rem 2rem;
+        text-indent: 8rem;
+        font-size: 12px;
+    }
+
     .main-page{
         padding: 60px 0;
     }
     .daily-content{
         display: grid;
-        grid-template-columns: 2fr 2fr 3fr;
+        grid-template-columns: 2fr 2fr 2fr;
+        width: 100%;
+        justify-items: center;
+    }
+    .daily-container{
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .creation-title-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .creation-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .creation-link {
+        left: 0;
+        text-align: left;
+        margin-left: 2rem;
+    }
+    .contact-box{
+        width: 450px;
+        margin: 10rem auto;
+    }
+    .contact-name input{
+        padding: 15px 60px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    .contact-email input{
+        padding: 15px 60px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    .contact-msg-box textarea{
+        padding: 15px 60px;
+        font-size: 12px;
+        border-radius: 10px;
+    }
+    .contact-btn button{
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 10px;
     }
 }
-
-/* For medium devices */
 @media screen and (max-width: 768px) {
+    
 }
 
 @media screen and (max-width: 576px) {
@@ -755,4 +863,4 @@ footer .footer-subcontainer {
 
 /* For small devices */
 @media screen and (max-width: 350px) {
-}
+}/*  *//*  *//*  *//*  */ /*  */
