@@ -131,6 +131,7 @@ nav{
     background-color: var(--btn-color-1) !important;
 }
 /* End Navbar Section */
+
 /* First Section */
 .main-page{
     background-color: var(--bg-color-1);
@@ -174,11 +175,12 @@ nav{
     width: 100%;
 }
 .teacher-container{
-    height: 60vh;
+    /* height: 60vh; */
     /* background-color: #1c5398; */
     background-color: var(--bg-color-2);
     width: 100%;
     position: relative;
+    padding-bottom: 4rem;
 }
 .all-person-section{
     /* background-color: var(--bg-color-2); */
@@ -226,8 +228,10 @@ nav{
 
 /* Third Section */
 .daily-container{
-    height: 40vh;
+    /* height: 40vh; */
     background-color: var(--bg-color-2);
+    padding-bottom: 4rem;
+    margin: 0 auto;
 }
 .daily-content{
     display: flex;
@@ -242,6 +246,7 @@ nav{
     text-align: center;
     color: var(--color-2);
     font-weight: 600;
+    font-size: 32px;
 }
 .daily-box{
     /* display: flex;
@@ -282,31 +287,36 @@ nav{
     background-color: var(--bg-color-2);
     /* height: 80vh; */
     padding-bottom: 2rem;
+    margin: 0 auto;
 }
 .identification-title-container{
     text-align: center;
     margin: 0 auto;
 }
 .identification-title{
-    font-size: 34px;
+    font-size: 32px;
     font-weight: var(--bold-3);
     color: var(--color-2);
 }
+/* .identification-content{
+    background-color: rgb(242, 242, 248);
+} */
+
 .identification{
     display: flex;
     width: 80%;
     margin: 2rem auto;
     justify-content: center;
     background-color: rgb(242, 242, 248);
-    /* border-radius: 70px; */
+    border-radius: 15px;
 }
 .identification-image{
-    width: 290px;
-    border-radius: 10px 0 0 10px;
+    width: 300px; 
+    border-radius: 15px 0 0 15px;
 }
-.identification-exam-section{
+.identification-exam-section {
     box-shadow: 3.5px 0px 8px #03031035;
-    border-radius: 10px;
+    border-radius: 0 15px 15px 0;
     display: flex;
     align-items: center;
     /* box-shadow: 4px 4px 10px -4px, inset -2px 0px 0px #fff; */
@@ -497,7 +507,6 @@ nav{
 .contact-box{
     width: 600px;
     height: auto;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -517,7 +526,8 @@ nav{
     border-radius: 15px;
     background: linear-gradient(145deg, #c7d1de, #ecf8ff);
     box-shadow:  8px 8px 14px #a4acb7,
-             -8px -8px 14px #f2f6fc;
+                -8px -8px 14px #f2f6fc;
+    
 }
 .contact-name i{
     position: absolute;
@@ -737,17 +747,68 @@ footer .footer-subcontainer {
     header{
         width: 100%;
     }
+    .navbar-list, .sign-btn-container {
+        display: none;
+    }
+
+    .person-desk{
+        margin: 1rem;
+        font-size: 12px;
+    }
+    .identification {
+        flex-direction: column;
+    }
+    .identification-image {
+        width: 100%;
+        border-radius: 15px 15px 0 0 ;
+    }
+    .identification-exam-section {
+        border-radius: 0 0 15px 15px ;
+    }
+    .identification-exam{
+        padding: 1rem 2rem;
+        text-indent: 8rem;
+    }
+
+    .identification-exam{
+        padding: 1rem 2rem;
+        text-indent: 8rem;
+        font-size: 12px;
+    }
+
     .main-page{
         padding: 60px 0;
     }
     .daily-content{
         display: grid;
-        grid-template-columns: 2fr 2fr 3fr;
+        grid-template-columns: 2fr 2fr 2fr;
+        width: 100%;
+        justify-items: center;
+    }
+    .daily-container{
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+    .creation-title-container {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .creation-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .creation-link {
+        left: 0;
+        text-align: left;
+        margin-left: 2rem;
     }
 }
-
-/* For medium devices */
 @media screen and (max-width: 768px) {
+    
 }
 
 @media screen and (max-width: 576px) {
@@ -755,4 +816,4 @@ footer .footer-subcontainer {
 
 /* For small devices */
 @media screen and (max-width: 350px) {
-}
+}/*  *//*  *//*  *//*  */ /*  */
