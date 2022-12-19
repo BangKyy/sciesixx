@@ -1,10 +1,15 @@
 import { deleteCookie, getCookie, setCookie } from "./lib/cookie.js";
 import { getOtp } from "./lib/otp.js";
+import { TogglePassword } from "./utils/toggle-password.js";
 
 const formEmail = document.querySelector(".form-1");
 const formOtp = document.querySelector(".form-2");
 const formPassword = document.querySelector(".form-3");
 const submitBtns = document.querySelectorAll(".submit-btn");
+const passwordInput = document.querySelector("#password-input");
+const cpasswordInput = document.querySelector("#cpassword-input");
+const passwordEye = document.querySelector(".password-eye");
+const cpasswordEye = document.querySelector(".cpassword-eye");
 
 const showErrors = (error) => {
     const container = document.querySelector(".error-alert-container");
@@ -138,8 +143,23 @@ const submitEmailForm = async () => {
         value: email,
         expires: 1000 * 60 * 15
     });
+    setCookie(document, {
+        name: "otp_resend_time",
+        value: `${Date.now() + (1000 * 60)}`,
+        expires: 1000 * 60 * 15
+    });
     
     window.location.reload();
+};
+
+const getOtpInput = () => {
+    const elements = document.querySelectorAll(".otp-input");
+    let otp = "";
+    elements.forEach((element) => {
+        otp += element.value;
+    });
+    console.log(otp)
+    return otp;
 };
 
 const submitOtpForm = async () => {
@@ -147,7 +167,7 @@ const submitOtpForm = async () => {
     const expireDate = new Date();
     expireDate.setTime(Date.now() + (1000 * 60 * 30));
     const email = getCookie(document, { name: "otp_user" });
-    const otp = document.querySelector("#otp-input")?.value;
+    const otp = getOtpInput();
     const expire = expireDate.getTime();
     const resData = await sendOtpNumber(email, otp, expire);
 
@@ -208,17 +228,48 @@ const changeForm = (formNumber) => {
     });
 };
 
+const limitOtpInputs = () => {
+    const elements = document.querySelectorAll(".otp-input");
+    elements.forEach((element) => {
+        element.addEventListener("input", (ev) => {
+            const value = ev.target.value.trim();
+            if (value.length <= 1) return;
+            element.value = value.slice(0, 1);
+        });
+    });
+};
+
+const changeElementByMode= (title, description, icon) => {
+    const titleElement = document.querySelector(".new-password-right-title");
+    const descriptionElement = document.querySelector(".new-password-right-description");
+    const img = document.querySelector(".new-password-img2");
+
+    titleElement.innerHTML = title;
+    descriptionElement.innerHTML = description;
+    img.setAttribute("src", icon);
+};
+
 const toEmailMode = () => {
+    const title = "Verifikasi Email";
+    const description = "Masukan alamat email yang terkait dengan akun anda!";
+    const icon = "../../images/verify-email.svg";
+    changeElementByMode(title, description, icon);
     changeForm(1);
 };
 
 const toOtpMode = (email) => {
+    const title = "Masukan OTP";
+    const description = "Masukan kode 6 digit yang dikirim ke alamat email anda!";
+    const icon = "../../images/verify-otp.svg";
+    changeElementByMode(title, description, icon);
     changeForm(2);
 };
 
 const toPasswordMode = (otp) => {
-    const title = document.querySelector(".verify-title-container h4");
-    title.innerHTML = "Password Baru";
+    const title = "Atur Ulang Kata Sandi";
+    const description = "Kata sandi harus berbeda dari kata sandi yang sebelumnya";
+    const icon = "../../images/verify-password.svg";
+    changeElementByMode(title, description, icon);
     changeForm(3);
 };
 
@@ -267,4 +318,7 @@ window.addEventListener("load", () => {
     }, (otpNumber) => {
         toPasswordMode(otpNumber);
     });
+    limitOtpInputs();
+    new TogglePassword(passwordInput, passwordEye).init();
+    new TogglePassword(cpasswordInput, cpasswordEye).init();
 });

@@ -6,7 +6,8 @@ const changeNavColor = (document, scrollY) => {
     const bgColors = ["#a4bad6", "#e8eef5", "#dde8f7"];
     const currentScrollPositions = scrollPositions.filter((position) => position <= scrollY);
     const bgColorsIndex = currentScrollPositions.length - 1;
-    nav.style.backgroundColor = scrollY > 0 ? bgColors[bgColorsIndex] : "transparent";
+    // nav.style.backgroundColor = scrollY > 0 ? bgColors[bgColorsIndex] : "transparent";
+    nav.style.backgroundColor = bgColors[bgColorsIndex];
 };
 
 const toggleNavShadow = (document, scrollY) => {

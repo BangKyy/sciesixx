@@ -48,16 +48,18 @@ class OTPError {
         $email = trim($email);
         $password = trim($password);
         $cpassword = trim($cpassword);
+        
+        if (!$email) {
+            array_push($this->errorMessages, "Halaman ini telah kadaluwarsa");
+            return false;
+        }
+
         $user = getUser("email", $email);
         $oldPassword =  $user["password"];
         $isEqualOldPassword = ($oldPassword === $password) && ($oldPassword === $cpassword);
         $legalMatch = "/^([a-zA-Z0-9_ ]*)$/";
         $isLegalCharacter = preg_match($legalMatch, $password) && preg_match($legalMatch, $cpassword);
 
-        if (!$email) {
-            array_push($this->errorMessages, "Halaman ini telah kadaluwarsa");
-            return false;
-        }
         if (!($password && $cpassword)) {
             array_push($this->errorMessages, "Semua kolom wajib diisi");
             return false;

@@ -19,50 +19,78 @@
 </head>
 <body>
     <header></header>
-    <section class="main container-fluid pt-5">
-        <div class="error-container container-sm mt-5"></div>
-        <div class="form-container container mt-5">
-            <div class="verify-icon-container">
-                <i class="bi bi-patch-check"></i>
-            </div>
-            <div class="verify-title-container">
-                <h4>Verifikasi</h4>
-            </div>
-            <div class="alert-container container d-flex justify-content-center flex-column mt-2 mb-2">
-                <div class="success-alert-container"></div>
-                <div class="error-alert-container"></div>
-                <!-- <div class="success-alert alert alert-success text-center" role="alert"></div> -->
-                <!-- <div class="error-alert alert alert-warning alert-dismissible fade show text-center" role="alert">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div> -->
-                <!-- <div class="error-alert alert alert-danger text-center" role="alert"></div> -->
-            </div>
-            <div class="form-spinner container spinner-border text-secondary" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <form class="form-email form-1 form-hidden container-sm">
-                <label for="email-input" class="email-label">Masukan Email:</label>
-                <input type="email" id="email-input" class="form-control" autocomplete="off">
-                <div class="container d-flex justify-content-center">
-                    <input type="submit" value="Dapatkan Kode" class="submit-btn submit-btn-email btn btn-primary mt-3">
+    <section class="new-password-container main">
+        <div class="new-password-left-container pt-5">
+            <div class="new-password-left">
+                <a href="../../">
+                    <img class="new-password-img1" src="../../images/main-logo.png" alt="">
+                </a>
+                <h2 class="new-password-left-title">Unity of Science Six</h2>
+                <p class="new-password-left-description">Bergabung dengan kami. <br> Mulai hal baru dan nikmati fiturnya!</p>
+                <div class="new-password-img-container">
+                    <img class="new-password-img2" src="../../images/verify-email.svg" alt="">
                 </div>
-            </form>
-            <form class="form-otp form-2 form-hidden container-sm">
-                <label for="otp-input" class="otp-label">Masukan Kode Verifikasi</label>
-                <input type="number" id="otp-input" class="form-control" autocomplete="off">
-                <div class="container d-flex justify-content-center">
-                    <input type="submit" value="Verifikasi" class="submit-btn submit-btn-otp btn btn-primary mt-3">
+                <div class="new-password-icon-sosmed">
+                    <i class="bi bi-envelope"></i>
+                    <a href="https://instagram.com/sciesixx" target="_blank" class="socmed-link ig-link"><i class="bi bi-instagram socmed-logo ig-logo"></i></a>
+                    <a href="https://discord.gg/GzVM6rAm/" target="_blank" class="socmed-link dc-link"><i class="bi bi-discord socmed-logo dc-logo"></i></a>
                 </div>
-            </form>
-            <form class="form-password form-3 form-hidden container-sm">
-                <label for="password-input" class="password-label">Password</label>
-                <input type="text" id="password-input" class="form-control" autocomplete="off">
-                <label for="cpassword-input" class="cpassword-label">Konfirmasi Password</label>
-                <input type="text" id="cpassword-input" class="form-control" autocomplete="off">
-                <div class="container d-flex justify-content-center">
-                    <input type="submit" value="Ganti" class="submit-btn submit-btn-password btn btn-primary mt-3">
+                <p class="new-password-copyright">Copyright @ 2022. Unity of Science Six. All rights reserved</p>
+            </div>
+        </div>
+        <div class="new-password-right-container">
+            <div class="new-password-right">
+                <div class="new-password-main-title container-sm">
+                    <h4 class="new-password-right-title">Verifikasi Email</h4>
+                    <p class="new-password-right-description">Masukan alamat email yang terkait dengan akun anda!</p>
                 </div>
-            </form>
+                <div class="error-alert-container mt-5"></div>
+                <div class="form-spinner-container">
+                    <div class="form-spinner container spinner-border text-secondary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div class="form-container">
+                    <form class="form form-email form-1 form-hidden container-sm">
+                        <label for="email-input" class="email-label">Alamat email</label>
+                        <input type="email" id="email-input" class="form-control" placeholder="Masukan email" autocomplete="off">
+                        <div class="btn-container">
+                            <input type="submit" value="Dapatkan Kode" class="submit-btn submit-btn-email btn btn-primary mt-1">
+                        </div>
+                    </form>
+                    <form class="form form-otp form-2 form-hidden container-sm">
+                        <div class="otp-input-container">
+                            <input type="number" class="otp-input form-control" autocomplete="off">
+                            <input type="number" class="otp-input form-control" autocomplete="off">
+                            <input type="number" class="otp-input form-control" autocomplete="off">
+                            <input type="number" class="otp-input form-control" autocomplete="off">
+                            <input type="number" class="otp-input form-control" autocomplete="off">
+                            <input type="number" class="otp-input form-control" autocomplete="off">
+                        </div>
+                        <div class="btn-container">
+                            <input type="submit" value="Verifikasi dan Proses" class="submit-btn submit-btn-otp btn btn-primary mt-1">
+                        </div>
+                        <div class="resend-otp-container">
+                            <span class="resend-otp-text">Tidak menerima kode OTP? <a href="./resend-otp/" class="a-resend-otp-text">Kirim Ulang</a></span>
+                        </div>
+                    </form>
+                    <form class="form form-password form-3 form-hidden container-sm">
+                        <label for="cpassword-input">Kata sandi</label>
+                        <div class="password-group-container input-group">
+                            <input type="password" name="password" autocomplete="off" id="password-input" placeholder="Masukan sandi" class="form-control">
+                            <span class="password-eye input-group-text"><i class="bi bi-eye-slash"></i></span>
+                        </div>
+                        <label for="cpassword-input">Konfirmasi kata sandi</label>
+                        <div class="cpassword-group-container input-group">
+                            <input type="password" name="cpassword" autocomplete="off" id="cpassword-input" placeholder="Masukan sandi" class="form-control">
+                            <span class="cpassword-eye input-group-text"><i class="bi bi-eye-slash"></i></span>
+                        </div>
+                        <div class="btn-container">
+                            <input type="submit" value="Atur Ulang Kata Sandi" class="submit-btn submit-btn-password btn btn-primary mt-1">
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
    </section>
    <script type="module" src="../../js/new-password.js"></script>
