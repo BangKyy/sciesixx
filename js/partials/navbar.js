@@ -1,4 +1,5 @@
 import { getCookie } from "../lib/cookie.js";
+import { Sidebar } from "../utils/sidebar.js";
 
 const changeNavColor = (document, scrollY) => {
     const nav = document.querySelector(".nav");
@@ -28,8 +29,18 @@ const toggleSignBtn = (document) => {
     signBtnContainer.innerHTML = logOutElement;
 };
 
+const initSidebar = (element=null, btn=null, bars=[]) => {
+    const select = document.querySelector.bind(document);
+    const selectAll = document.querySelectorAll.bind(document);
+    element ? 0 : element = select(".sidebar");
+    btn ? 0 : btn = select(".menu-icon");
+    bars.length ? 0 : bars = selectAll(".menu-bar");
+    new Sidebar(element, btn, bars).init({ hidden: true });
+};
+
 export {
     changeNavColor,
     toggleNavShadow,
-    toggleSignBtn
+    toggleSignBtn,
+    initSidebar
 };

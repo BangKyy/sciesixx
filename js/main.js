@@ -59,6 +59,7 @@ window.addEventListener("scroll", () => {
     nav.toggleNavShadow(document, window.scrollY);
 });
 window.addEventListener("load", () => {
+    nav.initSidebar();
     nav.toggleSignBtn(document);
     footer.generateDynamicCopyrightYear(document);
     footer.updateSocmedUrl(document);

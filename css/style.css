@@ -120,10 +120,10 @@ nav{
 }
 .sign-btn-container {
     justify-self: end;
-    /* margin-left: 35rem; */
+    margin-left: calc(100% - 730px);
 }
 .menu-icon-container {
-    width: calc(100% - 230px);
+    width: calc(100% - 355px);
     /* background-color: #0001; */
     display: flex;
     align-items: flex-end;
@@ -141,16 +141,19 @@ nav{
     cursor: pointer;
 }
 .menu-icon > div {
-    width: 32px;
-    height: calc(100% / 10);
+    width: 22px;
+    height: calc(100% / 18);
     background-color: var(--color-2);
     border-radius: 5px;
 }
+.menu-icon > div {
+    transition: 0.4s;
+}
 .menu-icon > div:nth-child(1) {
-    transform: translate(0, -120%);
+    transform: translate(0, -150%);
 }
 .menu-icon > div:nth-child(3) {
-    transform: translate(0, 120%);
+    transform: translate(0, 150%);
 }
 .sidebar {
     position: fixed;
@@ -159,12 +162,13 @@ nav{
     background-color: var(--bg-dropdown);
     padding: 15px 0;
     transform: translate(0, -100%);
-    transition: 0.2s;
+    transition: 0.4s;
 }
 .sidebar-ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    /* background-color: #011D31; */
 }
 .sidebar-ul li {
     display: flex;
@@ -178,6 +182,12 @@ nav{
     text-decoration: none;
     /* background-color: #0001; */
     /* width: 100%; */
+}
+.sign-button-list {
+    padding: 5px 0;
+}
+.sign-button-list, .sign-button-list a {
+    display: none !important;
 }
 .btn-primary,
 .btn-primary:visited {
@@ -822,9 +832,14 @@ footer .footer-subcontainer {
     }
     .menu-icon-container {
         display: flex;
+        /* width: calc(100% - 925px); */
     }
-    .navbar-list, .sign-btn-container {
+    .navbar-list {
         display: none;
+    }
+    .sign-btn-container {
+        display: block;
+        margin-left: 0;
     }
     .wave-one {
         margin-top: 0;
@@ -948,6 +963,16 @@ footer .footer-subcontainer {
 }
 
 @media screen and (max-width: 576px) {
+    .sign-btn-container {
+        display: none;
+        /* margin-left: 35rem; */
+    }
+    .menu-icon-container {
+        width: calc(100% - 225px);
+    }
+    .sign-button-list, .sign-button-list a {
+        display: block !important;
+    }
     .nick-person{
         font-size: 10px;
     }
