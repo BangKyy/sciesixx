@@ -53,14 +53,28 @@ const submitForm = async () => {
     }
 };
 
+const responsiveIdentificationImg = () => {
+    const img = document.querySelector(".identification-image");
+    const width = window.innerWidth;
+    const imgUrls = ["./images/identification-3.jpg", "./images/identification-2.jpg"];
+    const sizes = [0, 992];
+    const imgUrlsIndex = sizes.filter((size) => size <= width).length - 1;
+    const url = imgUrls[imgUrlsIndex];
+    img.src = url;
+};
+
 formBtn.addEventListener("click", submitForm);
 window.addEventListener("scroll", () => {
     nav.changeNavColor(document, window.scrollY);
     nav.toggleNavShadow(document, window.scrollY);
+});
+window.addEventListener("resize", () => {
+    responsiveIdentificationImg();
 });
 window.addEventListener("load", () => {
     nav.initSidebar();
     nav.toggleSignBtn(document);
     footer.generateDynamicCopyrightYear(document);
     footer.updateSocmedUrl(document);
+    responsiveIdentificationImg();
 });

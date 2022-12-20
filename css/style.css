@@ -174,8 +174,8 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0;
-    /* flex-direction: column; */
+    padding: 10px 0 !important;
+    flex-direction: column;
 }
 .sidebar-ul li a {
     color: var(--color-2);
@@ -183,8 +183,16 @@ nav{
     /* background-color: #0001; */
     /* width: 100%; */
 }
+.sidebar-ul li .a-collapse {
+    font-size: 10pt;
+}
+.sidebar-ul li .card {
+    background-color: #fff !important;
+}
 .sign-button-list {
     padding: 5px 0;
+    flex-direction: row !important;
+    /* background-color: #011D31; */
 }
 .sign-button-list, .sign-button-list a {
     display: none !important;
@@ -426,6 +434,8 @@ nav{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    /* width: 100%;
+    word-wrap: break-word; */
 }
 .creation-title {
     padding: 0 0 0 2rem;
@@ -442,6 +452,8 @@ nav{
     text-align: right;
     margin: 0 0 0 4rem;
     font-size: 18px;
+    /* background-color: #0001; */
+    padding-right: 25px;
 }
 .creation-link > a {
     color: var(--color-2);
@@ -451,7 +463,7 @@ nav{
 }
 .creation-container {
     width: 100%;
-    padding: 20px 40px;
+    padding: 20px 0;
     background-color: var(--bg-color-3);
 }
 .creation-content{
@@ -563,6 +575,7 @@ nav{
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+    /* background-color: #0001; */
 }
 .contact-sub-title{
     margin: 0 0 2rem 3rem;
@@ -832,14 +845,23 @@ footer .footer-subcontainer {
     }
     .menu-icon-container {
         display: flex;
-        /* width: calc(100% - 925px); */
+        /* width: calc(100% - 935px); */
+        width: 45px;
+        /* background-color: #0001; */
     }
     .navbar-list {
         display: none;
     }
     .sign-btn-container {
-        display: block;
+        display: flex;
         margin-left: 0;
+        justify-content: flex-end;
+        width: calc(100% - 275px);
+        /* width: 65px; */
+        /* background-color: #011D31; */
+    }
+    .sign-btn-container .sign-btn {
+        margin: 0 1.5px;
     }
     .wave-one {
         margin-top: 0;
@@ -890,7 +912,6 @@ footer .footer-subcontainer {
         text-indent: 8rem;
         font-size: 12px;
     }
-
     .main-page{
         padding: 60px 0;
     }
@@ -915,11 +936,20 @@ footer .footer-subcontainer {
         text-align: left;
         margin-left: 2rem;
     }
+    .creation-title {
+        padding: 0;
+    }
+    .creation-title-container {
+        width: 85%;
+    }
     .creation-content {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .creation-link {
+        padding-right: 0;
     }
     .contact-box{
         width: 450px;
@@ -971,7 +1001,21 @@ footer .footer-subcontainer {
         width: calc(100% - 225px);
     }
     .sign-button-list, .sign-button-list a {
-        display: block !important;
+        display: flex !important;
+    }
+    .sign-button-list a {
+        margin: 0 2px;
+    }
+    .container-1 h1 {
+        font-size: 25pt;
+    }
+    .container-exam {
+        font-size: 11pt;
+    }
+    .image-section-1 {
+        width: 200px;
+        height: auto;
+        /* background-color: #0001; */
     }
     .nick-person{
         font-size: 10px;
@@ -994,10 +1038,27 @@ footer .footer-subcontainer {
     .daily-content{
         display: grid;
         grid-template-columns: 2fr 2fr;
+        gap: 0;
     }
+    .daily-box {
+        padding: 10px 20px;
+        width: 160px;
+    }
+    /* .daily-box h2 {
+        background-color: #011D31;
+    } */
     .contact-box{
         width: 350px;
         margin: 10rem auto;
+    }
+    .daily-title,
+    .identification-title,
+    .creation-title,
+    .contact-sub-title {
+        font-size: 18pt;
+    }
+    .creation-link, .contact-link {
+        font-size: 11pt;
     }
     .contact-name input{
         padding: 15px 60px;
@@ -1019,10 +1080,34 @@ footer .footer-subcontainer {
         font-size: 20px;
         border-radius: 10px;
     }
+    .footer-subcontainer > span {
+        padding: 5px 8px;
+    }
+    .footer-subcontainer > span a {
+        font-size: 10pt;
+    }
 }
 
 /* For small devices */
 @media screen and (max-width: 350px) {
+    .nick-person{
+        font-size: 10px;
+    }
+    .person-desk{
+        margin: 1rem;
+        font-size: 4px;
+        font-weight: var(--bold-2);
+    }
+    .person-title{
+        text-align: center;
+        color: var(--color-2);
+        font-weight: var(--bold-3);
+        font-size: 16px;
+    }
+    .img-person{
+        height: 80px;
+        margin: 0 0 2rem 3rem;
+    }
     .daily-content{
         display: grid;
         grid-template-columns: 1fr;
@@ -1072,5 +1157,11 @@ footer .footer-subcontainer {
         padding: 4px;
         font-size: 20px;
         border-radius: 10px;
+    }
+    .footer-subcontainer > span {
+        padding: 5px 5px;
+    }
+    .footer-subcontainer > span a {
+        font-size: 9pt;
     }
 }/*  *//*  *//*  *//*  */ /*  */
