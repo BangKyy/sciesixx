@@ -1112,6 +1112,71 @@ footer .footer-subcontainer {
         display: grid;
         grid-template-columns: 1fr;
     }
+    .creation-container {
+        width: 100%;
+        padding: 20px 0;
+        background-color: var(--bg-color-3);
+    }
+    .creation-content{
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+        /* margin: 4rem auto; */
+        margin-top: 8rem;
+    }
+    .creation{
+        display: flex;
+        flex-direction: column;
+        display: inline-block;
+        max-width: 250px;
+        padding: 15px 10px;
+    }
+    .creation:hover{
+        transform: scale(1.05);
+        transition: 0.5s all cubic-bezier(0.075, 0.82, 0.165, 1);
+        box-shadow: 5px 5px 15px#0303103e;
+        border-radius: 10px;
+    }
+    .sub-number {
+        position: absolute;
+        transform: translate(20%, 25%);
+        z-index: 2;
+        color: var(--color-4);
+    }
+    .sub-number-first-child {
+        position: absolute;
+        transform: translate(40%, 25%);
+        z-index: 2;
+        color: var(--color-4);
+    }
+    .creation-sub-title {
+        margin: 40px 0 0 0;
+    }
+    .sub-title{
+        font-size: 12px;
+        background-color: #000;
+    }
+    .img-pattern1 {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        position: absolute;
+        transform: translate(-10%, -10%) rotate(180deg);
+    }
+    .img-pattern2 {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        position: absolute;
+        transform: translate(-15%, -10%) rotate(180deg);
+    }
+    .img-pattern3 {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        position: absolute;
+        transform: translate(-12%, -5%) rotate(180deg);
+    }
     .creation-title-container {
         flex-direction: column;
         justify-content: flex-start;
@@ -1119,9 +1184,6 @@ footer .footer-subcontainer {
     }
     .creation-title{
         font-size: 16px;
-    }
-    .creation-link{
-        font-size: 12px;
     }
     .creation-content {
         display: flex;
@@ -1133,6 +1195,7 @@ footer .footer-subcontainer {
         left: 0;
         text-align: left;
         margin-left: 2rem;
+        font-size: 12px;
     }
     .contact-box{
         width: 300px;
