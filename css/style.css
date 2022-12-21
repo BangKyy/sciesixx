@@ -1152,9 +1152,9 @@ footer .footer-subcontainer {
     .creation-sub-title {
         margin: 40px 0 0 0;
     }
-    .creation-sub-title .sub-title{
-        font-size: 4px;
-        background-color: #011D31
+    .sub-title{
+        font-size: 12px;
+        background-color: #000;
     }
     .img-pattern1 {
         width: 40px;
