@@ -160,7 +160,7 @@ nav{
     top: 58px;
     z-index: 99;
     background-color: var(--bg-dropdown);
-    padding: 15px 0;
+    padding: 15px 0 !important;
     transform: translate(0, -100%);
     transition: 0.4s;
 }
@@ -177,6 +177,9 @@ nav{
     padding: 10px 0 !important;
     flex-direction: column;
 }
+.sidebar-link-list div {
+    padding: 2px 0 !important;
+}
 .sidebar-ul li a {
     color: var(--color-2);
     text-decoration: none;
@@ -188,6 +191,8 @@ nav{
 }
 .sidebar-ul li .card {
     background-color: #fff !important;
+    width: 100% !important;
+    margin: 0 !important;
 }
 .sign-button-list {
     padding: 5px 0;
@@ -1055,10 +1060,10 @@ footer .footer-subcontainer {
     .identification-title,
     .creation-title,
     .contact-sub-title {
-        font-size: 18pt;
+        font-size: 16px;
     }
     .creation-link, .contact-link {
-        font-size: 11pt;
+        font-size: 12px;
     }
     .contact-name input{
         padding: 15px 60px;
@@ -1108,14 +1113,25 @@ footer .footer-subcontainer {
         height: 80px;
         margin: 0 0 2rem 3rem;
     }
+    .identification-title{
+        font-size: 16px;
+        text-align: center;
+    }
     .daily-content{
         display: grid;
         grid-template-columns: 1fr;
+    }
+    .daily-title{
+        font-size: 16px;
+        text-align: center;
     }
     .creation-container {
         width: 100%;
         padding: 20px 0;
         background-color: var(--bg-color-3);
+    }
+    .creation-title{
+        font-size: 16px;
     }
     .creation-content{
         display: flex;
@@ -1139,13 +1155,13 @@ footer .footer-subcontainer {
     }
     .sub-number {
         position: absolute;
-        transform: translate(20%, 25%);
+        transform: translate(50%, 50%);
         z-index: 2;
         color: var(--color-4);
     }
     .sub-number-first-child {
         position: absolute;
-        transform: translate(40%, 25%);
+        transform: translate(80%, 50%);
         z-index: 2;
         color: var(--color-4);
     }
@@ -1154,7 +1170,16 @@ footer .footer-subcontainer {
     }
     .sub-title{
         font-size: 12px;
-        background-color: #000;
+        /* background-color: #000; */
+    }
+    .sub-desk {
+        font-size: 9px;
+    }
+    .sub-number {
+        font-size: 11px;
+    }
+    .sub-number-first-child {
+        font-size: 11px;
     }
     .img-pattern1 {
         width: 40px;
@@ -1197,9 +1222,24 @@ footer .footer-subcontainer {
         margin-left: 2rem;
         font-size: 12px;
     }
+    .logos-sub-title{
+        text-align: center;
+        font-size: 10px;
+        margin-bottom: 1.5rem;
+    }
+    .logos-img {
+        width: 40px;
+        margin: 0 10px;
+        /* mix-blend-mode: luminosity; */
+        opacity: .5;
+        transition: .4s;
+    }
     .contact-box{
         width: 300px;
         margin: 10rem auto;
+    }
+    .contact-sub-title{
+        font-size: 16px;
     }
     .contact-name input{
         padding: 15px 60px;
