@@ -167,6 +167,8 @@ nav{
 }
 .form label {
     font-size: 12px;
+    /* background-color: #0001; */
+    width: 50%;
 }
 .form div{
     width: 50%;
@@ -175,7 +177,7 @@ nav{
     margin: 1px 0 10px 0;
     font-size: 8pt !important;
     padding: 4.5px 8px !important;
-    border: 1px solid #a7bfd4 !important;
+    border: 1px solid var(--bg-color-1) !important;
     border-radius: 5px;
     width: 50% !important;
     /* background-color: #030310 !; */
@@ -183,9 +185,12 @@ nav{
 #password-input, #cpassword-input {
     border-right-width: 0 !important;
 }
+/* .form-btn-container {
+    background-color: #0001;
+} */
 .form-btn{
     /* ws minimum wi width e */
-    width: 20%;
+    width: 100px;
     background-color: var(--btn-color-2);
     border-radius: 5px;
     border-width: 0;
@@ -201,6 +206,7 @@ nav{
 }
 .signup-confirm{
     font-size: 12px;
+    width: 50%;
 }
 .signup-confirm-masuk{
     text-decoration: none;
@@ -230,3 +236,79 @@ nav{
 /* SEMANGAT GESS !! */
 /* PULANG DULSS GESS */
 /* OK 👌 */
+
+@media screen and (max-width: 992px) {
+    .signup-left-container {
+        display: none;
+    }
+    .signup-right-container{
+        background-color: #FFFFFF;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .signup-right{
+        width: 100%;
+        padding-left: 0;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    .signup-main-title {
+        /* background-color: #0002; */
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        /* padding-bottom: 0 !important; */
+    }
+    .signup-right-title {
+        /* background-color: #0001; */
+        width: 50%;
+        padding: 0 !important;
+    }
+    .signup-right-description{
+        /* background-color: #0001; */
+        width: 50%;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .form label {
+        padding: 3px 0;
+    }
+    .form-btn{
+        margin-bottom: 5px;
+        /* align-self: flex-start;
+        margin-left: 167px; */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .signup-right-title {
+        /* background-color: #0001; */
+        width: 75%;
+        padding: 0 !important;
+    }
+    .signup-right-description {
+        width: 75%;
+    }
+    .form label {
+        width: 75%;
+    }
+    .form div{
+        width: 75%;
+    }
+    .form-control {
+        width: 75% !important;
+    }
+    .signup-confirm{
+        font-size: 12px;
+        width: 75%;
+    }
+}

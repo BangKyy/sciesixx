@@ -53,7 +53,12 @@
                 <div class="form-container">
                     <form class="form form-email form-1 form-hidden container-sm">
                         <label for="email-input" class="email-label">Alamat email</label>
-                        <input type="email" id="email-input" class="form-control" placeholder="Masukan email" autocomplete="off">
+                        <div class="email-group input-group mb-3">
+                            <span class="input-group-text-email" id="basic-addon1">
+                                <i class="bi bi-envelope"></i>
+                            </span>
+                            <input type="email" id="email-input" class="form-control" placeholder="Masukan email" autocomplete="off" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
                         <div class="btn-container">
                             <input type="submit" value="Dapatkan Kode" class="submit-btn submit-btn-email btn btn-primary mt-1">
                         </div>
