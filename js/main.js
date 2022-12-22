@@ -74,6 +74,7 @@ window.addEventListener("resize", () => {
 window.addEventListener("load", () => {
     nav.initSidebar();
     nav.toggleSignBtn(document);
+    nav.toggleSignBtn(document, ".sign-button-list");
     footer.generateDynamicCopyrightYear(document);
     footer.updateSocmedUrl(document);
     responsiveIdentificationImg();

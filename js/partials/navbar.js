@@ -17,11 +17,11 @@ const toggleNavShadow = (document, scrollY) => {
     nav.style.boxShadow = scrollY > 50 ? boxShadow : "none";
 };
 
-const toggleSignBtn = (document) => {
-    const signBtnContainer = document.querySelector(".sign-btn-container");
+const toggleSignBtn = (document, selector=".sign-btn-container") => {
+    const signBtnContainer = document.querySelector(selector);
     const origin = encodeURIComponent(window.location.href);
     const logOutElement = `
-        <a href="./logout?last_origin=${origin}" class="sign-btn logout-btn btn btn-sm btn-danger">Keluar</a>
+        <a href="./logout?last_origin=${origin}" class="sign-btn logout-btn btn btn-sm btn-danger text-white">Keluar</a>
     `;
     const cookieData = getCookie(document, { name: "user" });
 
