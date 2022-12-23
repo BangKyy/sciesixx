@@ -1,5 +1,5 @@
 import { getCookie } from "../lib/cookie.js";
-import { Sidebar } from "../utils/sidebar.js";
+import { Sidebar, SidebarArrow } from "../utils/sidebar.js";
 
 const changeNavColor = (document, scrollY) => {
     const nav = document.querySelector(".nav");
@@ -7,7 +7,6 @@ const changeNavColor = (document, scrollY) => {
     const bgColors = ["#a4bad6", "#e8eef5", "#dde8f7"];
     const currentScrollPositions = scrollPositions.filter((position) => position <= scrollY);
     const bgColorsIndex = currentScrollPositions.length - 1;
-    // nav.style.backgroundColor = scrollY > 0 ? bgColors[bgColorsIndex] : "transparent";
     nav.style.backgroundColor = bgColors[bgColorsIndex];
 };
 
@@ -17,15 +16,20 @@ const toggleNavShadow = (document, scrollY) => {
     nav.style.boxShadow = scrollY > 50 ? boxShadow : "none";
 };
 
-const toggleSignBtn = (document, selector=".sign-btn-container") => {
+const toggleSignBtn = (document, selector=null) => {
+    selector = selector || ".sign-btn-container";
     const signBtnContainer = document.querySelector(selector);
     const origin = encodeURIComponent(window.location.href);
     const logOutElement = `
-        <a href="./logout?last_origin=${origin}" class="sign-btn logout-btn btn btn-sm btn-danger text-white">Keluar</a>
+        <a href="./logout?last_origin=${origin}" class="sign-btn logout-btn btn btn-sm btn-outline-primary text-primary">
+            <i class="bi bi-box-arrow-left"></i>&nbsp;&nbsp;<span>Keluar</span>
+        </a>
     `;
     const cookieData = getCookie(document, { name: "user" });
 
     if (!cookieData) return;
+    const newClassName = `${selector}--logout`.split(".")[1];
+    signBtnContainer.classList.add(newClassName);
     signBtnContainer.innerHTML = logOutElement;
 };
 
@@ -38,9 +42,19 @@ const initSidebar = (element=null, btn=null, bars=[]) => {
     new Sidebar(element, btn, bars).init({ hidden: true });
 };
 
+const initSidebarArrow = (parentElements=null, arrowElements=null) => {
+    const parents = parentElements || document.querySelectorAll(".sidebar-arrow-list > p a");
+    const arrows = arrowElements || document.querySelectorAll(".sidebar-arrow-list > p .bi");
+    parents.forEach((parent, i) => {
+        const collapsed = document.querySelectorAll(".sidebar-arrow-list > p .collapsed")[i];
+        new SidebarArrow(arrows[i], parent, collapsed).init();
+    });
+};
+
 export {
     changeNavColor,
     toggleNavShadow,
     toggleSignBtn,
-    initSidebar
+    initSidebar,
+    initSidebarArrow
 };

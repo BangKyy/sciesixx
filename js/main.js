@@ -73,6 +73,7 @@ window.addEventListener("resize", () => {
 });
 window.addEventListener("load", () => {
     nav.initSidebar();
+    nav.initSidebarArrow();
     nav.toggleSignBtn(document);
     nav.toggleSignBtn(document, ".sign-button-list");
     footer.generateDynamicCopyrightYear(document);

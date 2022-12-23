@@ -57,3 +57,42 @@ export class Sidebar {
         });
     }
 }
+
+export class SidebarArrow {
+    constructor(element, parent, collapsed) {
+        this.element = element;
+        this.parent = parent;
+        this.collapsed = collapsed;
+    }
+    
+    init() {
+        this.parent.addEventListener("click", () => {
+            this.toggle();
+        });
+    }
+
+    toggle() {
+        const isCollapsed = this.collapsed.classList.contains("collapsed");
+        switch(isCollapsed) {
+            case true: {
+                this.close();
+                break;
+            }
+            default: {
+                this.open();
+            }
+        }
+    }
+
+    open() {
+        const oldClassName = "bi-caret-down-fill";
+        const newClassName = "bi-caret-up-fill";
+        this.element.classList.replace(oldClassName, newClassName);
+    }
+    
+    close() {
+        const oldClassName = "bi-caret-up-fill";
+        const newClassName = "bi-caret-down-fill";
+        this.element.classList.replace(oldClassName, newClassName);
+    }
+}
