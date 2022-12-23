@@ -44,8 +44,12 @@
                               Profil
                             </a>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="./profile/student/">Siswa</a></li>
-                              <li><a class="dropdown-item" href="./profile/structure/">Struktur Kelas</a></li>
+                                <li>
+                                    <a class="dropdown-item" href="./profile/student/"><i class="bi bi-person-lines-fill"></i><span>Siswa</span></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="./profile/structure/"><i class="bi bi-diagram-3"></i><span>Struktur Kelas</span></a>
+                                </li>
                             </ul>
                         </div>
                     </li>
@@ -55,8 +59,12 @@
                               Galeri
                             </a>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="./gallery/photo/">Foto</a></li>
-                              <li><a class="dropdown-item" href="./gallery/video/">Video</a></li>
+                              <li>
+                                <a class="dropdown-item" href="./gallery/photo/"><i class="bi bi-images"></i><span>Foto</span></a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="./gallery/video/"><i class="bi bi-film"></i><span>Video</span></a>
+                              </li>
                             </ul>
                         </div>
                     </li>
@@ -66,9 +74,13 @@
                               Fitur
                             </a>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="./feature/education/">Edukasi</a></li>
-                              <li><a class="dropdown-item" href="./feature/information/">Informasi</a></li>
-                              <li><a class="dropdown-item" href="./feature/calendar/">kalender</a></li>
+                              <li><a class="dropdown-item" href="./feature/education/"><i class="bi bi-journals"></i><span>Edukasi</span></a></li>
+                              <li>
+                                <a class="dropdown-item" href="./feature/information/"><i class="bi bi-info-circle"></i><span>Informasi</span></a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="./feature/calendar/"><i class="bi bi-calendar"></i><span>Kalender</span></a>
+                              </li>
                             </ul>
                         </div>
                     </li>
@@ -94,56 +106,80 @@
                 <li class="sidebar-link-list container-fluid">
                     <a href="" class="sidebar-link">Beranda</a>
                 </li>
-                <li class="sidebar-link-list container-fluid">
+                <li class="sidebar-link-list sidebar-arrow-list container-fluid">
                     <p class="p-0 m-0">
-                        <a class="p-0 m-0" data-bs-toggle="collapse" href="#collapse-sidebar-profile" role="button" aria-expanded="false" aria-controls="collapse-sidebar-profile">
-                          Profil<i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
+                        <a class="p-0 m-0 collapsed" data-bs-toggle="collapse" href="#collapse-sidebar-profile" role="button" aria-expanded="false" aria-controls="collapse-sidebar-profile">
+                          <span>Profil</span>
+                          <i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
                         </a>
                     </p>
                     <div class="collapse container-fluid" id="collapse-sidebar-profile">
                         <div class="card card-body container-fluid m-0 pt-2 pb-2 bg-dark" style="background-color: #0000; border-width:0;">
-                            <div class="collapse-list-profile container-fluid text-center">
-                                <a class="a-collapse text-center" href="./profile/student/">Siswa</a>
+                            <div class="collapse-list collapse-list-profile container-fluid text-center">
+                                <a class="a-collapse text-center" href="./profile/student/">
+                                    <i class="bi bi-person-lines-fill"></i>
+                                    <span>Siswa</span>
+                                </a>
                             </div>
-                            <div class="collapse-list-profile container-fluid text-center">
-                                <a class="a-collapse text-center" href="./profile/structure/">Struktur Kelas</a>
+                            <div class="collapse-list collapse-list-profile container-fluid text-center">
+                                <a class="a-collapse text-center" href="./profile/structure/">
+                                    <i class="bi bi-diagram-3"></i>
+                                    <span>Struktur Kelas</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="sidebar-link-list container-fluid">
+                <li class="sidebar-link-list sidebar-arrow-list container-fluid">
                     <p class="p-0 m-0">
-                        <a class="p-0 m-0" data-bs-toggle="collapse" href="#collapse-sidebar-gallery" role="button" aria-expanded="false" aria-controls="collapse-sidebar-gallery">
-                          Galeri<i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
+                        <a class="p-0 m-0 collapsed" data-bs-toggle="collapse" href="#collapse-sidebar-gallery" role="button" aria-expanded="false" aria-controls="collapse-sidebar-gallery">
+                          <span>Galeri</span>
+                          <i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
                         </a>
                     </p>
                     <div class="collapse container-fluid" id="collapse-sidebar-gallery">
                         <div class="card card-body container-fluid m-0 pt-2 pb-2" style="background-color: #0000; border-width:0;">
-                            <div class="collapse-list-gallery container-fluid text-center">
-                                <a class="a-collapse text-center" href="./gallery/photo/">Foto</a>
+                            <div class="collapse-list collapse-list-gallery container-fluid text-center">
+                                <a class="a-collapse text-center" href="./gallery/photo/">
+                                    <i class="bi bi-images"></i>
+                                    <span>Foto</span>
+                                </a>
                             </div>
-                            <div class="collapse-list-gallery container-fluid text-center">
-                                <a class="a-collapse text-center" href="./gallery/video/">Video</a>
+                            <div class="collapse-list collapse-list-gallery container-fluid text-center">
+                                <a class="a-collapse text-center" href="./gallery/video/">
+                                    <i class="bi bi-film"></i>
+                                    <span>Video</span>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </li>
-                <li class="sidebar-link-list container-fluid">
+                <li class="sidebar-link-list sidebar-arrow-list container-fluid">
                     <p class="p-0 m-0">
-                        <a class="p-0 m-0" data-bs-toggle="collapse" href="#collapse-sidebar-feature" role="button" aria-expanded="false" aria-controls="collapse-sidebar-feature">
-                          Fitur<i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
+                        <a class="p-0 m-0 collapsed" data-bs-toggle="collapse" href="#collapse-sidebar-feature" role="button" aria-expanded="false" aria-controls="collapse-sidebar-feature">
+                            <span>Fitur</span>
+                            <i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
                         </a>
                     </p>
                     <div class="collapse container-fluid" id="collapse-sidebar-feature">
                         <div class="card card-body container-fluid m-0 pt-2 pb-2" style="background-color: #0000; border-width:0;">
-                            <div class="collapse-list-feature container-fluid text-center">
-                                <a class="a-collapse text-center" href="./feature/education/">Edukasi</a>
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="./feature/education/">
+                                    <i class="bi bi-journals"></i>
+                                    <span>Edukasi</span>
+                                </a>
                             </div>
-                            <div class="collapse-list-feature container-fluid text-center">
-                                <a class="a-collapse text-center" href="./feature/information/">Informasi</a>
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="./feature/information/">
+                                    <i class="bi bi-info-circle"></i>
+                                    <span>Informasi</span>
+                                </a>
                             </div>
-                            <div class="collapse-list-feature container-fluid text-center">
-                                <a class="a-collapse text-center" href="./feature/calendar/">Kalender</a>
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="./feature/calendar/">
+                                    <i class="bi bi-calendar"></i>
+                                    <span>Kalender</span>
+                                </a>
                             </div>
                         </div>
                     </div>

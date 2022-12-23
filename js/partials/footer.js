@@ -11,12 +11,12 @@ const getSocmedInfo = async (path="") => {
     return data;
 };
 
-const updateSocmedUrl = async (document) => {
+const updateSocmedUrl = async (document, path) => {
     const [igLink, dcLink] = [
         document.querySelector(".ig-link"),
         document.querySelector(".dc-link")
     ];
-    const socmedInfo = await getSocmedInfo();
+    const socmedInfo = await getSocmedInfo(path);
     const [igData, dcData] = [
         socmedInfo.instagram,
         socmedInfo.discord

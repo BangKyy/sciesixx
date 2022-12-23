@@ -122,6 +122,13 @@ nav{
     justify-self: end;
     margin-left: calc(100% - 730px);
 }
+.sign-btn-container--logout {
+    margin-left: calc(100% - 680px);
+    
+}
+.sign-btn-container a i {
+    font-size: 12px;
+}
 .menu-icon-container {
     width: calc(100% - 355px);
     /* background-color: #0001; */
@@ -155,6 +162,9 @@ nav{
 .menu-icon > div:nth-child(3) {
     transform: translate(0, 150%);
 }
+.dropdown-menu .bi{
+    margin-right: 12px;
+}
 .sidebar {
     position: fixed;
     top: 58px;
@@ -163,6 +173,7 @@ nav{
     padding: 15px 0 !important;
     transform: translate(0, -100%);
     transition: 0.4s;
+    display: none;
 }
 .sidebar-ul {
     list-style-type: none;
@@ -193,6 +204,9 @@ nav{
     background-color: #fff !important;
     width: 100% !important;
     margin: 0 !important;
+}
+.sidebar-ul li .card .bi{
+    margin-right: 2px;
 }
 .sign-button-list {
     padding: 5px 0;
@@ -868,6 +882,9 @@ footer .footer-subcontainer {
     .sign-btn-container .sign-btn {
         margin: 0 1.5px;
     }
+    .sidebar {
+        display: block;
+    }
     .wave-one {
         margin-top: 0;
     }
@@ -1011,8 +1028,15 @@ footer .footer-subcontainer {
     .sign-button-list a {
         margin: 0 2px;
     }
+    .container-1 {
+        margin: 2rem 0;
+        /* background-color: #011D31; */
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+        box-sizing: border-box;
+    }
     .container-1 h1 {
-        font-size: 25pt;
+        font-size: 22pt;
     }
     .container-exam {
         font-size: 11pt;
@@ -1060,7 +1084,7 @@ footer .footer-subcontainer {
     .identification-title,
     .creation-title,
     .contact-sub-title {
-        font-size: 16px;
+        font-size: 24px;
     }
     .creation-link, .contact-link {
         font-size: 12px;
@@ -1091,17 +1115,25 @@ footer .footer-subcontainer {
     .footer-subcontainer > span a {
         font-size: 10pt;
     }
+    .socmed-icon .bi{
+        font-size: 20px;
+    }
 }
 
 /* For small devices */
 @media screen and (max-width: 350px) {
-    .nick-person{
-        font-size: 10px;
+    .container-1 h1 {
+        font-size: 18pt;
     }
-    .person-desk{
-        margin: 1rem;
-        font-size: 4px;
-        font-weight: var(--bold-2);
+    .container-exam {
+        font-size: 8.25pt;
+    }
+    .image-section-1 {
+        width: 120px;
+        height: auto;
+    }
+    .all-person-section{
+        padding-top: 14px;
     }
     .person-title{
         text-align: center;
@@ -1110,25 +1142,46 @@ footer .footer-subcontainer {
         font-size: 16px;
     }
     .img-person{
-        height: 80px;
-        margin: 0 0 2rem 3rem;
+        height: 60px;
+        margin: 0.8rem 0 2rem 2rem;
+        border: 3px dashed rgba(255,255,255,0.5);
+    }
+    .nick-person{
+        font-size: 8px;
+        margin: -20px 6px 0 0;
+    }
+    .person-desk{
+        margin-top: 1rem;
+        margin-bottom: 0;
+        font-size: 4px;
+        font-weight: var(--bold-2);
     }
     .identification-title{
         font-size: 16px;
-        text-align: center;
     }
-    .daily-content{
+    /* .daily-content{
         display: grid;
         grid-template-columns: 1fr;
-    }
+    } */
     .daily-title{
         font-size: 16px;
         text-align: center;
     }
+    .daily-box{
+        margin-top: 2rem;
+        width: 120px;
+    }
+    .daily-box .bi{
+        font-size: 16px;
+        padding: 2px;
+    }
+    .daily-box h2{
+        font-size: 12px;
+        margin: 0.4rem 0;
+    }
     .creation-container {
         width: 100%;
         padding: 20px 0;
-        background-color: var(--bg-color-3);
     }
     .creation-title{
         font-size: 16px;
@@ -1266,5 +1319,8 @@ footer .footer-subcontainer {
     }
     .footer-subcontainer > span a {
         font-size: 9pt;
+    }
+    .socmed-icon .bi{
+        font-size: 16px;
     }
 }/*  *//*  *//*  *//*  */ /*  */

@@ -363,6 +363,9 @@ nav{
 }
 
 @media screen and (max-width: 576px) {
+    .login-container{
+        margin: 12rem auto;
+    }
     .error-container div {
         width: 73%;
     }
@@ -424,6 +427,14 @@ nav{
     }
     .remember-me-container {
         width: 80% !important;
+        /* background-color: #000000; */
+    }
+    .remember-me {
+        padding: 0 !important;
+        margin-top: 5.6px !important;
+        border: none !important;
+        width: 14px !important;
+        height: 14px !important
     }
     .form-btn-container {
         width: 80% !important;
@@ -434,6 +445,10 @@ nav{
         background-color: var(--bg-reg-mobile-1);
         font-weight: 550;
     }
+    .form-btn:hover{
+        background-color: var(--btn-color-2);
+        color: var(--bg-color-2);
+    }
     .login-confirm {
         color: var(--bg-color-1);
         font-weight: 350;
@@ -441,5 +456,8 @@ nav{
     .login-confirm a {
         color: var(--bg-reg-mobile-1);
         font-weight: 450;
+    }
+    .login-confirm a:hover {
+        color: var(--bg-color-1);
     }
 }
