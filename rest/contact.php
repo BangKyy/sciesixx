@@ -27,10 +27,21 @@ switch($_SERVER["REQUEST_METHOD"]) {
         $subject = "Welcome";
         $body = "<h1>Hai " . $name . "!</h1>";
         $selfBody = "<pre><p>$message</p></pre>";
+        $isValidEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+        $output = [
+            "error" => !$isValidEmail,
+            "errorMessages" => []
+        ];
 
-        saveContactForm($name, $email, $message, $date);
-        sendMail($email, $subject, $body);
-        echo sendMail($from, "Pesan dari: $email", $selfBody);
+        if ($output["error"]) {
+            array_push($output["errorMessages"], "Email tidak valid");
+        } else {
+            saveContactForm($name, $email, $message, $date);
+            sendMail($email, $subject, $body);
+            sendMail($from, "Pesan dari: $email", $selfBody);
+        }
+
+        echo json_encode($output);
         break;
     }
     default: {

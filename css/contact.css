@@ -263,7 +263,8 @@ nav{
 .contact-us-description,
 .input-group,
 .form-btn-container,
-.title-line-container {
+.title-line-container,
+.error-container div {
     width: 60% !important;
 }
 .contact-us-title-container {
@@ -290,18 +291,17 @@ nav{
     width: 150px;
     background-color: var(--btn-color-1);
 }
-/* .contact-us-title::before {
-    content: "";
-    position: relative;
-    width: 100px;
-    height: 4px;
-    background-color: #011D31;
-    z-index: 2;
-    top: 100px;
-} */
 .contact-us-description-container {
     display: flex;
     justify-content: center;
+}
+.error-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 1rem;
+}
+.error-container div {
+    margin: 0 !important;
 }
 .form {
     padding: 1.8rem 0;

@@ -203,24 +203,24 @@
                 <div class="contact-us-description-container container-fluid">
                     <div class="contact-us-description">Jangan ragu untuk menghubungi kami kapan saja. Kami akan menghubungi anda sesegera mungkin!</div>
                 </div>
+                <div class="error-container container-fluid"></div>
                 <form class="form container-fluid">
                     <div class="input-group username-group mb-3">
-                        <span class="input-group-text input-group-text-username" id="username-addon"><i class="bi bi-person"></i></span>
-                        <input type="text" class="form-control" placeholder="Nama" aria-label="Nama" aria-describedby="username-addon">
+                        <span class="input-group-text input-group-text-name" id="username-addon"><i class="bi bi-person"></i></span>
+                        <input type="text" id="name-input" class="form-control" placeholder="Nama" aria-label="Nama" aria-describedby="username-addon" autocomplete="off">
                     </div>
                     <div class="input-group email-group mb-3">
                         <span class="input-group-text input-group-text-email" id="email-addon"><i class="bi bi-envelope"></i></span>
-                        <input type="email" class="form-control" placeholder="Alamat Email" aria-label="Email" aria-describedby="email-addon">
+                        <input type="email" id="email-input" class="form-control" placeholder="Alamat Email" aria-label="Email" aria-describedby="email-addon" autocomplete="off">
                     </div>
                     <div class="input-group message-group mb-3">
                         <span class="input-group-text input-group-text-message" id="message-addon"><i style="visibility: hidden;" class="bi bi-envelope"></i></span>
-                        <input type="message" class="form-control" placeholder="Pesan" aria-label="Pesan" aria-describedby="message-addon">
+                        <input type="message" id="message-input" class="form-control" placeholder="Pesan" aria-label="Pesan" aria-describedby="message-addon" autocomplete="off">
                     </div>
                     <div class="form-btn-container">
                         <input type="button" value="Kirim" class="form-btn btn btn-primary">
                     </div>
                 </form>
-                <div class="error-container"></div>
             </div>
             <div class="contact-us-right">
                 <div class="contact-us-info-title-container container-fluid">
