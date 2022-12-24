@@ -16,12 +16,13 @@ const toggleNavShadow = (document, scrollY) => {
     nav.style.boxShadow = scrollY > 50 ? boxShadow : "none";
 };
 
-const toggleSignBtn = (document, selector=null) => {
+const toggleSignBtn = (document, selector=null, targetPath=null) => {
     selector = selector || ".sign-btn-container";
     const signBtnContainer = document.querySelector(selector);
     const origin = encodeURIComponent(window.location.href);
+    targetPath = `${targetPath||"./logout"}?last_origin=${origin}`;
     const logOutElement = `
-        <a href="./logout?last_origin=${origin}" class="sign-btn logout-btn btn btn-sm btn-outline-primary text-primary">
+        <a href="${targetPath}" class="sign-btn logout-btn btn btn-sm btn-outline-primary text-primary">
             <i class="bi bi-box-arrow-left"></i>&nbsp;&nbsp;<span>Keluar</span>
         </a>
     `;
