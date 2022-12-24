@@ -17,7 +17,9 @@ body{
     --bg-color-1: #a4bad6;
     --bg-color-2: #e8eef5;
     --bg-color-3: #dde8f7;
+    --bg-color-4: #b4c5dd;
     --bg-dropdown: #f2f2f8;
+    --bg-input-1: #ececf2;
 
     /* font colors */
     --color-1: #143a6a;
@@ -61,7 +63,7 @@ nav{
     flex-direction: row;
     padding: 0 10px;
     transition: 0.2s;
-    background-color: var(--bg-color-1);
+    background-color: var(--bg-color-2);
     /* box-shadow: 0 1px 2px 0.1px #00000020; */
 }
 .nav-logo {
@@ -237,6 +239,163 @@ nav{
     background-color: var(--btn-color-1) !important;
 }
 /* End Navbar Section */
+
+/* Main section */
+.main-section {
+    padding: 8rem 0;
+    background-color: var(--bg-color-2);
+}
+.contact-us-container {
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0 !important;
+    width: 80% !important;
+}
+.contact-us-left {
+    background-color: var(--bg-dropdown);
+    border-radius: 15px 0 0 15px;
+    width: 70%;
+}
+.contact-us-title,
+.contact-us-description,
+.input-group,
+.form-btn-container,
+.title-line-container {
+    width: 60% !important;
+}
+.contact-us-title-container {
+    padding: 2.8rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contact-us-title {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    font-size: 32pt;
+    font-weight: 600;
+}
+.title-line-container {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 4rem;
+}
+.title-line {
+    height: 4px;
+    width: 150px;
+    background-color: var(--btn-color-1);
+}
+/* .contact-us-title::before {
+    content: "";
+    position: relative;
+    width: 100px;
+    height: 4px;
+    background-color: #011D31;
+    z-index: 2;
+    top: 100px;
+} */
+.contact-us-description-container {
+    display: flex;
+    justify-content: center;
+}
+.form {
+    padding: 1.8rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.input-group {
+    padding-bottom: 0.4rem !important;
+    /* border-bottom: 1px solid var(--btn-color-1) !important; */
+}
+.input-group-text {
+    background-color: var(--bg-input-1) !important;
+    border: none !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom: 1px solid var(--btn-color-1) !important;
+    /* box-shadow: 0 1px 2px 0 var(--bg-color-1); */
+}
+.form-control {
+    background-color: var(--bg-input-1) !important;
+    border: none !important;
+    font-size: 10pt !important;
+    font-weight: 450 !important;
+    border-bottom-right-radius: 0 !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    border-bottom: 1px solid var(--btn-color-1) !important;
+    /* box-shadow: 0 1px 2px 0 var(--bg-color-1); */
+}
+.form-btn {
+    width: 100%;
+    margin: 1rem 0 4rem 0;
+}
+.contact-us-right {
+    background-color: var(--bg-color-4);
+    border-radius: 0 15px 15px 0;
+    width: calc(100% - 70%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.contact-us-info-title-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2rem !important;
+    padding-bottom: 2rem;
+}
+.contact-us-info-title,
+.contact-us-info,
+.contact-us-socmed-icon-container {
+    width: 70%;
+}
+
+.contact-us-info-title {
+    font-size: 14pt;
+    font-weight: 625;
+}
+.contact-us-info-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2rem !important;
+}
+.contact-us-info {
+    display: flex;
+    align-items: flex-start;
+    /* background-color: #0002; */
+    padding: 1rem 0;
+}
+.info-list-title {
+    font-size: 11pt;
+    margin: 0 !important;
+}
+.info-icon-container,
+.contact-us-socmed-container .invisible-icon-container i {
+    margin-right: 1rem;
+}
+.info-list {
+    display: block;
+    font-size: 9pt;
+}
+.contact-us-socmed-container {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 2rem !important;
+}
+.contact-us-socmed-icon-container i {
+    margin-right: 5px;
+}
+/* End main section */
 
 /* Footer Section */
 footer {

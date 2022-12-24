@@ -193,12 +193,15 @@
     <!-- Main section -->
     <section class="main-section container-fluid">
         <div class="contact-us-container container">
-            <div class=".contact-us-left">
-                <div class="contact-us-title-container">
+            <div class="contact-us-left">
+                <div class="contact-us-title-container container-fluid">
                     <h1 class="contact-us-title">KONTAK KAMI</h1>
+                    <div class="title-line-container">
+                        <div class="title-line"></div>
+                    </div>
                 </div>
-                <div class="contact-us-description-container">
-                    <span class="contact-us description">Jangan ragu untuk menghubungi kami kapan saja. Kami akan menghubungi anda sesegera mungkin!</span>
+                <div class="contact-us-description-container container-fluid">
+                    <div class="contact-us-description">Jangan ragu untuk menghubungi kami kapan saja. Kami akan menghubungi anda sesegera mungkin!</div>
                 </div>
                 <form class="form container-fluid">
                     <div class="input-group username-group mb-3">
@@ -207,10 +210,10 @@
                     </div>
                     <div class="input-group email-group mb-3">
                         <span class="input-group-text input-group-text-email" id="email-addon"><i class="bi bi-envelope"></i></span>
-                        <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                        <input type="email" class="form-control" placeholder="Alamat Email" aria-label="Email" aria-describedby="email-addon">
                     </div>
                     <div class="input-group message-group mb-3">
-                        <span class="input-group-text input-group-text-message" id="message-addon"><i class="bi bi-envelope"></i></span>
+                        <span class="input-group-text input-group-text-message" id="message-addon"><i style="visibility: hidden;" class="bi bi-envelope"></i></span>
                         <input type="message" class="form-control" placeholder="Pesan" aria-label="Pesan" aria-describedby="message-addon">
                     </div>
                     <div class="form-btn-container">
@@ -219,37 +222,50 @@
                 </form>
                 <div class="error-container"></div>
             </div>
-            <div class=".contact-us-right">
-                <h4 class="contact-us-info-title">Kontak Informasi</h4>
-                <div class="contact-us-info-container">
+            <div class="contact-us-right">
+                <div class="contact-us-info-title-container container-fluid">
+                    <h4 class="contact-us-info-title">Kontak Informasi</h4>
+                </div>
+                <div class="contact-us-info-container container-fluid">
                     <div class="contact-us-info">
-                        <div class="info-icon-container"></div>
-                        <div>
-                            <h6>Alamat</h6>
-                            <span>Lorem ipsum dolor</span>
-                            <span>Lorem ipsum dolor sit</span>
+                        <div class="info-icon-container">
+                            <i class="bi bi-1-circle"></i>
+                        </div>
+                        <div class="info-list-container">
+                            <h6 class="info-list-title">Alamat</h6>
+                            <span class="info-list">Lorem ipsum dolor</span>
+                            <span class="info-list">Lorem ipsum dolor sit</span>
                         </div>
                     </div>
                     <div class="contact-us-info">
-                        <div class="info-icon-container"></div>
-                        <div>
-                            <h6>Hubungi Kami</h6>
-                            <span>unityofsciencesix@gmail.com</span>
-                            <span>0821-4062-7334</span>
+                        <div class="info-icon-container">
+                            <i class="bi bi-1-circle"></i>
+                        </div>
+                        <div class="info-list-container">
+                            <h6 class="info-list-title">Hubungi Kami</h6>
+                            <span class="info-list">unityofsciencesix@gmail.com</span>
+                            <span class="info-list">0821-4062-7334</span>
                         </div>
                     </div>
                     <div class="contact-us-info">
-                        <div class="info-icon-container"></div>
-                        <div>
-                            <h6>Butuh bantuan&quest;</h6>
-                            <span>support@gmail.com</span>
-                            <span>0821-4062-7334</span>
+                        <div class="info-icon-container">
+                            <i class="bi bi-1-circle"></i>
+                        </div>
+                        <div class="info-list-container">
+                            <h6 class="info-list-title">Butuh bantuan&quest;</h6>
+                            <span class="info-list">support@gmail.com</span>
+                            <span class="info-list">0821-4062-7334</span>
                         </div>
                     </div>
                 </div>
-                <div class="contact-us-socmed-container">
-                    <i class="instagram-icon bi bi-instagram"></i>
-                    <i class="discord-icon bi bi-discord"></i>
+                <div class="contact-us-socmed-container container-fluid">
+                    <div class="invisible-icon-container">
+                        <i style="visibility: hidden;" class="bi bi-1-circle"></i>
+                    </div>
+                    <div class="contact-us-socmed-icon-container">
+                        <i class="bi bi-instagram"></i>
+                        <i class="bi bi-discord"></i>
+                    </div>
                 </div>
             </div>
         </div>
