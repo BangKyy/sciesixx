@@ -1,10 +1,10 @@
 import { getCookie } from "../lib/cookie.js";
 import { Sidebar, SidebarArrow } from "../utils/sidebar.js";
 
-const changeNavColor = (document, scrollY) => {
+const changeNavColor = (document, scrollY, scrolls=[], colors=[]) => {
     const nav = document.querySelector(".nav");
-    const scrollPositions = [0, 680, 2200];
-    const bgColors = ["#a4bad6", "#e8eef5", "#dde8f7"];
+    const scrollPositions = scrolls.length ? scrolls : [0, 680, 2200];
+    const bgColors = colors.length ? colors : ["#a4bad6", "#e8eef5", "#dde8f7"];
     const currentScrollPositions = scrollPositions.filter((position) => position <= scrollY);
     const bgColorsIndex = currentScrollPositions.length - 1;
     nav.style.backgroundColor = bgColors[bgColorsIndex];
