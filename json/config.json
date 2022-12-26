@@ -1,0 +1,33 @@
+{
+    "name": "UNISIX",
+
+    "styleMobile": {
+        "signBtnContainer": {
+            "width": "calc(100% - 275px)",
+            "display": "none"
+        },
+        "menuIconContainer": {
+            "width": "calc(100% - 225px)"
+        }
+    },
+    
+    "styleTablet": {
+        "signBtnContainer": {
+            "width": "calc(100% - 275px)",
+            "display": "flex",
+            "marginLeft": "0px"
+        },
+        "menuIconContainer": {
+            "width": "45px"
+        }
+    },
+
+    "styleLaptop": {
+        "signBtnContainer": {
+            
+        },
+        "menuIconContainer": {
+            
+        }
+    }
+}

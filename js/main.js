@@ -1,5 +1,6 @@
 import * as nav from "./partials/navbar.js";
 import * as footer from "./partials/footer.js";
+import { generateDynamicSiteName } from "./utils/site-name.js";
 
 const formBtn = document.querySelector("#send");
 
@@ -72,6 +73,7 @@ window.addEventListener("resize", () => {
     responsiveIdentificationImg();
 });
 window.addEventListener("load", () => {
+    generateDynamicSiteName();
     nav.initSidebar();
     nav.initSidebarArrow();
     nav.toggleSignBtn(document);
