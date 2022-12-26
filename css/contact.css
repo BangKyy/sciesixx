@@ -393,7 +393,7 @@ nav{
     padding-left: 2rem !important;
 }
 .contact-us-socmed-icon-container i {
-    margin-right: 5px
+    margin-right: 5px;
 }
 /* End main section */
 
@@ -496,6 +496,82 @@ footer .footer-subcontainer {
     }
     .sidebar {
         display: block;
+    }
+    .contact-us-container {
+        flex-direction: column;
+    }
+    .contact-us-left,
+    .contact-us-right {
+        width: 100%;
+    }
+    .contact-us-title,
+    .contact-us-description,
+    .input-group,
+    .form-btn-container,
+    .title-line-container,
+    .error-container div {
+        width: 70% !important;
+    }
+    .contact-us-left {
+        border-radius: 15px 15px 0 0;
+    }
+    .contact-us-right {
+        border-radius: 0 0 15px 15px;
+    }
+    .contact-us-title {
+        text-align: center;
+        font-size: 30pt;
+    }
+    .title-line-container {
+        padding-left: 0;
+        justify-content: center;
+    }
+    .contact-us-info-title-container {
+        padding: 1.5rem 1rem !important;
+        align-items: center;
+    }
+    .contact-us-info-title {
+        font-size: 20pt;
+        text-align: center;
+    }
+    .contact-us-info-container {
+        padding: 0 1rem !important;
+        align-items: center;
+    }
+    .contact-us-info {
+        flex-direction: column;
+        align-items: center;
+    }
+    .info-icon-container,
+    .contact-us-socmed-container .invisible-icon-container i {
+        margin-right: 0;
+    }
+    .info-icon-container i {
+        font-size: 16pt;
+    }
+    .info-list-title,
+    .info-list {
+        text-align: center;
+    }
+    .info-list-title {
+        font-weight: 650;
+    }
+    .info-list {
+        
+    }
+    .contact-us-socmed-container {
+        justify-content: center !important;
+        padding: 1rem !important;
+    }
+    .contact-us-socmed-icon-container {
+        display: flex;
+        justify-content: center;
+    }
+    .contact-us-socmed-icon-container i {
+        margin: 0 0.5rem;
+    }
+    .invisible-icon-container {
+        display: none;
     }
 }
 @media screen and (max-width: 768px) {
