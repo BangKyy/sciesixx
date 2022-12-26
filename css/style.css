@@ -798,6 +798,10 @@ footer {
     padding: 15px 0;
     /* box-shadow: 0px -0.2px 5px var(--color-2); */
 }
+.logo-footer-container {
+    display: flex;
+    justify-content: flex-end;
+}
 .logo-footer {
     width: 50px;
     height: auto;
@@ -866,7 +870,7 @@ footer .footer-subcontainer {
         display: flex;
         /* width: calc(100% - 935px); */
         width: 45px;
-        /* background-color: #0001; */
+        /* background-color: #0002; */
     }
     .navbar-list {
         display: none;
@@ -876,8 +880,9 @@ footer .footer-subcontainer {
         margin-left: 0;
         justify-content: flex-end;
         width: calc(100% - 275px);
+        /* width: calc(100% - 293px); */
         /* width: 65px; */
-        /* background-color: #011D31; */
+        /* background-color: #0001; */
     }
     .sign-btn-container .sign-btn {
         margin: 0 1.5px;

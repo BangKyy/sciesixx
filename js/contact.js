@@ -1,5 +1,6 @@
 import * as nav from "./partials/navbar.js";
 import * as footer from "./partials/footer.js";
+import { generateDynamicSiteName } from "./utils/site-name.js";
 
 const formBtn = document.querySelector(".form-btn");
 
@@ -66,6 +67,7 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("load", () => {
+    generateDynamicSiteName("../json/config.json");
     nav.initSidebar();
     nav.initSidebarArrow();
     nav.toggleSignBtn(document, null, "../logout");
