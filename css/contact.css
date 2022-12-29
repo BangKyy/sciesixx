@@ -533,6 +533,7 @@ footer .footer-subcontainer {
     .contact-us-info-title {
         font-size: 20pt;
         text-align: center;
+        padding-top: 1rem;
     }
     .contact-us-info-container {
         padding: 0 1rem !important;
@@ -556,12 +557,9 @@ footer .footer-subcontainer {
     .info-list-title {
         font-weight: 650;
     }
-    .info-list {
-        
-    }
     .contact-us-socmed-container {
         justify-content: center !important;
-        padding: 1rem !important;
+        padding: 1rem 1rem 2rem 1rem !important;
     }
     .contact-us-socmed-icon-container {
         display: flex;
@@ -578,6 +576,43 @@ footer .footer-subcontainer {
 
 }
 @media screen and (max-width: 576px) {
+    .contact-us-title,
+    .contact-us-description,
+    .input-group,
+    .form-btn-container,
+    .title-line-container,
+    .error-container div {
+        width: 80% !important;
+    }
+    .contact-us-title {
+        font-size: 20pt;
+    }
+    .title-line {
+        height: 2.8px;
+        width: 75px;
+    }
+    .contact-us-description {
+        font-size: 8pt;
+        text-align: center;
+    }
+    .error-container div {
+        font-size: 8pt;
+    }
+    .form-control {
+        font-size: 8pt !important;
+    }
+    .form-btn {
+        font-size: 9pt !important;
+    }
+    .contact-us-info-title,
+    .contact-us-info,
+    .contact-us-socmed-icon-container {
+        width: 85%;
+    }
+    .contact-us-info-title {
+        font-size: 14pt;
+        font-weight: 625;
+    }
     .sign-btn-container {
         display: none;
         /* margin-left: 35rem; */

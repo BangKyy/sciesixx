@@ -1036,15 +1036,16 @@ footer .footer-subcontainer {
     .container-1 {
         margin: 2rem 0;
         /* background-color: #011D31; */
-        padding-left: 0.4rem;
-        padding-right: 0.4rem;
+        padding-left: 0.4rem !important;
+        padding-right: 0.4rem !important;
         box-sizing: border-box;
+        /* width: 300px !important; */
     }
     .container-1 h1 {
-        font-size: 22pt;
+        font-size: 14pt;
     }
     .container-exam {
-        font-size: 11pt;
+        font-size: 9pt;
     }
     .image-section-1 {
         width: 200px;
