@@ -3,7 +3,8 @@ import { deleteCookie } from "./lib/cookie.js";
 
 const logOutUser = () => {
     const lastOrigin = getQueryOrigin(window, "last_origin");
-    deleteCookie(document, { name: "user "});
+    deleteCookie(document, { name: "user" });
+    deleteCookie(document, { name: "username" });
     window.location.assign(lastOrigin || "/");
 };
 

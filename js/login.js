@@ -93,7 +93,7 @@ const submitForm = async () => {
         select("#password-input").value?.trim()
     ];
     const resUserData = await sendUserData(email, password);
-    const { errorMessages } = resUserData;
+    const { errorMessages, user } = resUserData;
 
     if (errorMessages.length) {
         displayErrors(errorMessages);
@@ -103,6 +103,11 @@ const submitForm = async () => {
     setCookie(document, {
         name: "user",
         value: email,
+        expires: 1000 * 60 * 60
+    });
+    setCookie(document, {
+        name: "username",
+        value: user.username,
         expires: 1000 * 60 * 60
     });
     window.open("../", "_self");

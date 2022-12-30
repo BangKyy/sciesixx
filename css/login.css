@@ -33,6 +33,7 @@ body{
     /* Button colors */
     --btn-color-1: #3677b0;
     --btn-color-2: #3c84c4;
+    --btn-color-3: #f8f5f5;
     
     /* Button hover */
     --link-color-1: #19a6f3;
@@ -339,6 +340,9 @@ nav{
     .error-container div {
         width: 71%;
     }
+    .login-container{
+        margin: 3.2rem auto;
+    }
     .login-right-title {
         /* background-color: #0001; */
         width: 75%;
@@ -363,8 +367,11 @@ nav{
 }
 
 @media screen and (max-width: 576px) {
+    body{
+        height: auto;
+    }
     .login-container{
-        margin: 12rem auto;
+        margin: 11.4rem auto;
     }
     .error-container div {
         width: 73%;
@@ -449,6 +456,10 @@ nav{
         background-color: var(--btn-color-2);
         color: var(--bg-color-2);
     }
+    .form-btn:hover{
+        color: var(--bg-reg-mobile-2) !important;
+        background-color: var(--btn-color-3) !important;
+    }
     .login-confirm {
         color: var(--bg-color-1);
         font-weight: 350;
@@ -459,5 +470,14 @@ nav{
     }
     .login-confirm a:hover {
         color: var(--bg-color-1);
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .login-container{
+        margin: 10.2rem auto;
+    }
+    .error-container ul {
+        padding-left: 0 !important;
     }
 }

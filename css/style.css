@@ -17,7 +17,7 @@ body{
     --bg-color-1: #a4bad6;
     --bg-color-2: #e8eef5;
     --bg-color-3: #dde8f7;
-    --bg-dropdown: #f2f2f8;
+    --bg-dropdown: #F4FAFF; /*#f2f2f8*/
 
     /* font colors */
     --color-1: #143a6a;
@@ -91,7 +91,7 @@ nav{
     /* background-color: bisque; */
     display: flex;
     list-style-type: none;
-    margin: 5px 20px;
+    margin: 5px 20px 5px 0;
 }
 .navbar .dropdown-menu {
     padding: 0;
@@ -214,6 +214,20 @@ nav{
     /* background-color: #011D31; */
 }
 .sign-button-list, .sign-button-list a {
+    display: none !important;
+}
+.sidebar-username-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-username-icon-container {
+    padding: 0 0.5rem;
+}
+.sidebar-username-text {
+    font-size: 10pt;
+}
+.sidebar-list-hidden {
     display: none !important;
 }
 .btn-primary,
@@ -392,7 +406,7 @@ nav{
 .identification-container{
     /* display: flex; */
     width: auto;
-    background-color: var(--bg-color-2);
+    background-color: #e8eef5;
     /* height: 80vh; */
     padding-bottom: 2rem;
     margin: 0 auto;
@@ -415,7 +429,7 @@ nav{
     width: 80%;
     margin: 2rem auto;
     justify-content: center;
-    background-color: rgb(242, 242, 248);
+    background-color: var(--bg-dropdown);
     border-radius: 15px;
 }
 .identification-image{
@@ -565,7 +579,7 @@ nav{
     justify-content: center;
 }
 .logos-img {
-    width: 50px;
+    width: 40px;
     margin: 0 1rem;
     /* mix-blend-mode: luminosity; */
     opacity: .5;
@@ -869,7 +883,7 @@ footer .footer-subcontainer {
     .menu-icon-container {
         display: flex;
         /* width: calc(100% - 935px); */
-        width: 45px;
+        width: 60px;
         /* background-color: #0002; */
     }
     .navbar-list {
@@ -1020,12 +1034,16 @@ footer .footer-subcontainer {
 }
 
 @media screen and (max-width: 576px) {
+    .sidebar-username-container{
+        display: flex;
+        justify-content: center;
+    }
     .sign-btn-container {
         display: none;
         /* margin-left: 35rem; */
     }
     .menu-icon-container {
-        width: calc(100% - 225px);
+        width: calc(100% - 215px);
     }
     .sign-button-list, .sign-button-list a {
         display: flex !important;
@@ -1127,7 +1145,7 @@ footer .footer-subcontainer {
 }
 
 /* For small devices */
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 360px) {
     .container-1 h1 {
         font-size: 18pt;
     }

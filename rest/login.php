@@ -19,11 +19,13 @@ elseif ($reqMethod === "POST") {
     $output = [
         "success" => !count($errorMessages),
         "error" => count($errorMessages) > 0,
-        "errorMessages" => $errorMessages
+        "errorMessages" => $errorMessages,
+        "user" => null
     ];
 
     if ($output["success"]) {
         updateUser("last_activity", "email", $email, $date);
+        $output["user"] = getUser("email", $email);
     }
 
     echo json_encode($output);

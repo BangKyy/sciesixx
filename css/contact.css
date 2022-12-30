@@ -91,7 +91,7 @@ nav{
     /* background-color: bisque; */
     display: flex;
     list-style-type: none;
-    margin: 5px 20px;
+    margin: 5px 20px 5px 0;
 }
 .navbar .dropdown-menu {
     padding: 0;
@@ -477,7 +477,7 @@ footer .footer-subcontainer {
     .menu-icon-container {
         display: flex;
         /* width: calc(100% - 935px); */
-        width: 45px;
+        width: 60px;
         /* background-color: #0001; */
     }
     .navbar-list {
@@ -618,7 +618,7 @@ footer .footer-subcontainer {
         /* margin-left: 35rem; */
     }
     .menu-icon-container {
-        width: calc(100% - 225px);
+        width: calc(100% - 215px);
     }
     .sign-button-list, .sign-button-list a {
         display: flex !important;
@@ -636,7 +636,7 @@ footer .footer-subcontainer {
         font-size: 20px;
     }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 360px) {
     .footer-subcontainer > span {
         padding: 5px 5px;
     }
