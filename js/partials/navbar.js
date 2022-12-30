@@ -52,10 +52,22 @@ const initSidebarArrow = (parentElements=null, arrowElements=null) => {
     });
 };
 
+const checkUsername = () => {
+    const username = getCookie(document, { name: "username" });
+    console.log(username)
+    if (!username) return;
+    const container = document.querySelector(".sidebar-username-list");
+    const usernameElement = document.querySelector(".sidebar-username-text");
+
+    container.classList.remove("sidebar-list-hidden");
+    usernameElement.innerHTML = username;
+};
+
 export {
     changeNavColor,
     toggleNavShadow,
     toggleSignBtn,
     initSidebar,
-    initSidebarArrow
+    initSidebarArrow,
+    checkUsername
 };

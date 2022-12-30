@@ -73,6 +73,11 @@ const submitForm = async () => {
         value: email,
         expires: 1000 * 60 * 60
     });
+    setCookie(document, {
+        name: "username",
+        value: username,
+        expires: 1000 * 60 * 60
+    });
     window.location.assign("../");
 };
 

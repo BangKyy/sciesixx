@@ -18,6 +18,11 @@ class SignupError {
             array_push($this->errorMessages, $message);
             return false;
         }
+        if (strlen($input) > 16) {
+            $message = "Username tidak boleh lebih dari 16 karakter";
+            array_push($this->errorMessages, $message);
+            return false;
+        }
 
         $user = getUser("username", $input);
         if ($user) {

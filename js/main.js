@@ -76,6 +76,7 @@ window.addEventListener("load", () => {
     generateDynamicSiteName();
     nav.initSidebar();
     nav.initSidebarArrow();
+    nav.checkUsername();
     nav.toggleSignBtn(document);
     nav.toggleSignBtn(document, ".sign-button-list");
     footer.generateDynamicCopyrightYear(document);
