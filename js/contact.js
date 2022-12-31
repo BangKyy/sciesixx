@@ -72,6 +72,7 @@ window.addEventListener("load", () => {
     nav.initSidebarArrow();
     nav.toggleSignBtn(document, null, "../logout");
     nav.toggleSignBtn(document, ".sign-button-list", "../logout");
+    nav.checkUsername();
     footer.generateDynamicCopyrightYear(document);
     footer.updateSocmedUrl(document, "../json/social-media.json");
 });

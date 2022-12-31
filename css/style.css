@@ -118,13 +118,31 @@ nav{
     text-align: center;
     padding-top: 12px;
 }
+.nav-username-container {
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: #0001; */
+    align-items: center;
+    width: calc(100% - 690px);
+}
+.nav-username-icon-container {
+    padding: 0 0.5rem;
+}
+.nav-username-text {
+    font-size: 10pt;
+}
+.nav-username-container-hidden {
+    /* visibility: hidden; */
+    display: none !important;
+}
 .sign-btn-container {
     justify-self: end;
-    margin-left: calc(100% - 730px);
+    margin-left: calc(100% - 715px);
+    /* margin-left: 30px; */
 }
 .sign-btn-container--logout {
-    margin-left: calc(100% - 680px);
-    
+    /* margin-left: calc(100% - 665px); */
+    margin-left: 25px;
 }
 .sign-btn-container a i {
     font-size: 12px;
@@ -888,6 +906,11 @@ footer .footer-subcontainer {
     }
     .navbar-list {
         display: none;
+    }
+    .nav-username-container {
+        /* background-color: #0001; */
+        /* width: calc(100% - 390px) !important; */
+        display: none !important;
     }
     .sign-btn-container {
         display: flex;

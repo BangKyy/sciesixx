@@ -54,13 +54,16 @@ const initSidebarArrow = (parentElements=null, arrowElements=null) => {
 
 const checkUsername = () => {
     const username = getCookie(document, { name: "username" });
-    console.log(username)
     if (!username) return;
-    const container = document.querySelector(".sidebar-username-list");
-    const usernameElement = document.querySelector(".sidebar-username-text");
+    const containerSidebar = document.querySelector(".sidebar-username-list");
+    const containerNav = document.querySelector(".nav-username-container");
+    const usernameSidebar = document.querySelector(".sidebar-username-text");
+    const usernameNav = document.querySelector(".nav-username-text");
 
-    container.classList.remove("sidebar-list-hidden");
-    usernameElement.innerHTML = username;
+    containerSidebar.classList.remove("sidebar-list-hidden");
+    containerNav.classList.remove("nav-username-container-hidden");
+    usernameSidebar.innerHTML = username;
+    usernameNav.innerHTML = username;
 };
 
 export {
