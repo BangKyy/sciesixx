@@ -363,6 +363,20 @@ nav{
 .search-sort {
     font-size: 24pt;
 }
+.student-container {
+    background-color: #0001;
+    display: flex;
+    justify-content: center;
+}
+.student-grid-container {
+    background-color: #0002;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.student {
+    background-color: #0003;
+}
 /* End main section */
 
 /* Footer Section */
