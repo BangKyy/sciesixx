@@ -31,6 +31,9 @@ body{
     /* Button colors */
     --btn-color-1: #3677b0;
     --btn-color-2: #3c84c4;
+
+    /* Icons colors */
+    --icon-color-1: #202020;
     
     /* Button hover */
     --link-color-1: #19a6f3;
@@ -288,7 +291,7 @@ nav{
     padding: 1rem 0;
 }
 .profile-icon-container {
-    background-color: var(--bg-color-3);
+    background-color: var(--bg-color-2);
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -326,8 +329,12 @@ nav{
 }
 .search-group {
     border-radius: 300px;
-    border: 1px solid var(--border-color-2) !important;
-    box-shadow: 0 0 4px 0.1px var(--border-color-2);
+    border: 1px solid #0000002c !important;
+    /* box-shadow: 0 0 4px 0.1px var(--color-2); */
+}
+.search-group:hover{
+    border: none !important;
+    box-shadow: 0 0 6px 1px #00000034 !important;
 }
 .search-group {
     width: 60%;
@@ -357,25 +364,93 @@ nav{
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    border: 1px solid var(--border-color-2) !important;
-    box-shadow: 0 0 4px 0.1px var(--border-color-2);
+    border: 1px solid #0000002c !important;
+    /* box-shadow: 0 0 4px 0.1px var(--color-2); */
+}
+.search-sort-container:hover{
+    border: none !important;
+    box-shadow: 0 0 6px 1px #00000034 !important;
 }
 .search-sort {
     font-size: 24pt;
 }
 .student-container {
-    background-color: #0001;
+    background-color: var(--bg-color-2);
     display: flex;
     justify-content: center;
+    margin-top: 8rem;
 }
 .student-grid-container {
-    background-color: #0002;
+    /* background-color: #0002; */
     width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 .student {
-    background-color: #0003;
+    /* background-color: #0003; */
+    display: block;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin: 20px 16px;
+}
+.student-photo{
+    width: 120px;
+    border-radius: 100%;
+    box-shadow: 0 4px 8px #03031070;
+}
+.student-subcontainer-all{
+    background-color: var(--bg-color-2);
+    box-shadow: 0 0 8px #03031056;
+    border-radius: 15px;
+    padding-top: 80px;
+    margin-top: -68px;
+}
+.student-name{
+    font-size: 16px;
+    margin: 0 !important;
+    font-weight: var(--bold-3);
+}
+.student-nis{
+    font-size: 14px;
+    font-weight: var(--bold-3);
+    color: rgba(0, 0, 0, 0.4);
+}
+.student-subcontainer-2{
+    margin: 8px 0;
+}
+.student-religion{
+    font-size: 10px;
+    font-weight: 500;
+}
+.student-age{
+    font-size: 10px;
+    font-weight: 500;
+}
+.student-hobby{
+    font-size: 10px;
+    font-weight: 500;
+}
+.student-subcontainer-3{
+    margin-bottom: 20px;
+}
+.student-quote{
+    font-size: 10px;
+    padding: 12px;
+    font-weight: 500;
+}
+.student-subcontainer-4{
+    margin-bottom: 14px;
+}
+.student-quote{
+    font-size: 10px;
+    padding: 0 12px;
+}
+.student-subcontainer-5{
+    padding-bottom: 12px;
+}
+.student-socmed-link{
+    color: var(--icon-color-1);
 }
 /* End main section */
 
