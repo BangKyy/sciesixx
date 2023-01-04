@@ -13,11 +13,6 @@ switch ($reqMethod) {
         $key = getData($_GET, "key");
         $value = getData($_GET, "value");
         
-        if (!($key && $value)) {
-            echo json_encode(["error" => true]);
-            break;
-        }
-        
         $output = searchStudents($key, $value);
         
         echo json_encode($output);
