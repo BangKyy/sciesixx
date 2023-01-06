@@ -30,9 +30,6 @@ const getStudentElement = (student) => `
             <div class="student-hobby">Hobi: ${student.hobby}</div>
         </div>
         <div class="student-line"></div>
-        <div class="student-subcontainer-4">
-            <div class="student-quote">${student.quote}</div>
-        </div>
         <div class="student-subcontainer-5">
             <div class="student-socmed-container">
                 <a href="https://instagram.com/${student.instagram}" class="student-socmed-link">

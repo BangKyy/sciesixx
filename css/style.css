@@ -755,23 +755,6 @@ header{
 }
 
 @media screen and (max-width: 576px) {
-    .sidebar-username-container{
-        display: flex;
-        justify-content: center;
-    }
-    .sign-btn-container {
-        display: none;
-        /* margin-left: 35rem; */
-    }
-    .menu-icon-container {
-        width: calc(100% - 245px);
-    }
-    .sign-button-list, .sign-button-list a {
-        display: flex !important;
-    }
-    .sign-button-list a {
-        margin: 0 2px;
-    }
     .container-1 {
         margin: 2rem 0;
         /* background-color: #011D31; */
