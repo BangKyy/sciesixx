@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Style CSS -->
     <link rel="stylesheet" href="../../css/profile/structure.css" class="rel">
+    <!-- Partials -->
+    <link rel="stylesheet" href="../../css/partials/nav.css">
+    <link rel="stylesheet" href="../../css/partials/footer.css">
     <!-- FAV Icons -->
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Icon -->
@@ -17,6 +20,249 @@
     <title>UNISIX SITE | Struktur Kelas</title>
 </head>
 <body>
+    <header>
+        <!-- Navbar Section -->
+        <nav class="nav container-fluid">
+            <!-- Logo -->
+            <!-- Navbar -->
+            <div class="navbar-container">
+                <ul class="navbar">
+                    <li class="logo-container">
+                        <a href="../../">
+                            <img src="../../images/main-logo.png" alt="logo" class="nav-logo">
+                        </a>
+                    </li>
+                    <li class="main-title-container">
+                        <h1 class="site-name main-title">UNISIX</h1>
+                    </li>
+                    <li class="navbar-list"><a href="../../" class="nav-link">Beranda</a></li>
+                    <li class="navbar-list">
+                        <div class="dropdown-center p-2 pt-0 pb-0">
+                            <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                              Profil
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="../../profile/student/"><i class="bi bi-person-lines-fill"></i><span>Siswa</span></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../../profile/structure/"><i class="bi bi-diagram-3"></i><span>Struktur Kelas</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navbar-list">
+                        <div class="dropdown-center p-2 pt-0 pb-0">
+                            <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                              Galeri
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li>
+                                <a class="dropdown-item" href="../../gallery/photo/"><i class="bi bi-images"></i><span>Foto</span></a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="../../gallery/video/"><i class="bi bi-film"></i><span>Video</span></a>
+                              </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navbar-list">
+                        <div class="dropdown-center p-2 pt-0 pb-0">
+                            <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                              Fitur
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="../../feature/education/"><i class="bi bi-journals"></i><span>Edukasi</span></a></li>
+                              <li>
+                                <a class="dropdown-item" href="../../feature/information/"><i class="bi bi-info-circle"></i><span>Informasi</span></a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="../../feature/calendar/"><i class="bi bi-calendar"></i><span>Kalender</span></a>
+                              </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navbar-list"><a href="../../contact/" class="nav-link">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="nav-username-container nav-username-container-hidden">
+                <div class="nav-username-icon-container">
+                    <i class="nav-username-icon bi bi-person"></i>
+                </div>
+                <div class="nav-username-text-container">
+                    <div class="nav-username-text site-username"></div>
+                </div>
+            </div>
+            <!-- Log in && Sign up button -->
+            <div class="sign-btn-container">
+                <a href="../../login/" class="sign-btn login-btn btn btn-sm btn-outline-primary">Masuk</a>
+                <a href="../../signup/" class="sign-btn signup-btn btn btn-sm btn-primary">Daftar</a>
+            </div>
+            <!-- Menu Icon -->
+            <div class="menu-icon-container">
+                <div class="menu-icon">
+                    <div class="menu-bar line1"></div>
+                    <div class="menu-bar line2"></div>
+                    <div class="menu-bar line3"></div>
+                </div>
+            </div>
+        </nav>
+        <div class="sidebar container-fluid">
+            <ul class="sidebar-ul">
+                <li class="sidebar-link-list container-fluid">
+                    <a href="" class="sidebar-link">Beranda</a>
+                </li>
+                <li class="sidebar-link-list sidebar-arrow-list container-fluid">
+                    <p class="p-0 m-0">
+                        <a class="p-0 m-0 collapsed" data-bs-toggle="collapse" href="#collapse-sidebar-profile" role="button" aria-expanded="false" aria-controls="collapse-sidebar-profile">
+                          <span>Profil</span>
+                          <i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
+                        </a>
+                    </p>
+                    <div class="collapse container-fluid" id="collapse-sidebar-profile">
+                        <div class="card card-body container-fluid m-0 pt-2 pb-2 bg-dark" style="background-color: #0000; border-width:0;">
+                            <div class="collapse-list collapse-list-profile container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../profile/student/">
+                                    <i class="bi bi-person-lines-fill"></i>
+                                    <span>Siswa</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-profile container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../profile/structure/">
+                                    <i class="bi bi-diagram-3"></i>
+                                    <span>Struktur Kelas</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="sidebar-link-list sidebar-arrow-list container-fluid">
+                    <p class="p-0 m-0">
+                        <a class="p-0 m-0 collapsed" data-bs-toggle="collapse" href="#collapse-sidebar-gallery" role="button" aria-expanded="false" aria-controls="collapse-sidebar-gallery">
+                          <span>Galeri</span>
+                          <i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
+                        </a>
+                    </p>
+                    <div class="collapse container-fluid" id="collapse-sidebar-gallery">
+                        <div class="card card-body container-fluid m-0 pt-2 pb-2" style="background-color: #0000; border-width:0;">
+                            <div class="collapse-list collapse-list-gallery container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../gallery/photo/">
+                                    <i class="bi bi-images"></i>
+                                    <span>Foto</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-gallery container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../gallery/video/">
+                                    <i class="bi bi-film"></i>
+                                    <span>Video</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="sidebar-link-list sidebar-arrow-list container-fluid">
+                    <p class="p-0 m-0">
+                        <a class="p-0 m-0 collapsed" data-bs-toggle="collapse" href="#collapse-sidebar-feature" role="button" aria-expanded="false" aria-controls="collapse-sidebar-feature">
+                            <span>Fitur</span>
+                            <i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
+                        </a>
+                    </p>
+                    <div class="collapse container-fluid" id="collapse-sidebar-feature">
+                        <div class="card card-body container-fluid m-0 pt-2 pb-2" style="background-color: #0000; border-width:0;">
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../feature/education/">
+                                    <i class="bi bi-journals"></i>
+                                    <span>Edukasi</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../feature/information/">
+                                    <i class="bi bi-info-circle"></i>
+                                    <span>Informasi</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../feature/calendar/">
+                                    <i class="bi bi-calendar"></i>
+                                    <span>Kalender</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="sidebar-link-list container-fluid">
+                    <a href="../../contact/" class="sidebar-link">Kontak</a>
+                </li>
+                <li class="sign-button-list container-fluid">
+                    <a href="../../login/" class="sign-btn login-btn btn btn-sm btn-outline-primary">Masuk</a>
+                    <a href="../../signup/" class="sign-btn signup-btn btn btn-sm btn-primary">Daftar</a>
+                </li>
+                <li class="sidebar-username-list sidebar-list-hidden container-fluid">
+                    <!-- Username here -->
+                    <!-- <i class="bi bi-person-circle"></i> iki enek circle -->
+                    <div class="sidebar-username-container container-fluid">
+                        <div class="sidebar-username-icon-container">
+                            <i class="sidebar-username-icon bi bi-person"></i>
+                        </div>
+                        <div class="sidebar-username-text-container">
+                            <div class="sidebar-username-text site-username"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- End Navbar Section -->
+    </header>
+
+    <!-- Main section -->
+    <section class="main-section">
+        <div class="structure-title-container container-fluid">
+            <div class="structure-icon-container">
+                <i class="structure-icon bi bi-diagram-3"></i>
+            </div>
+            <div class="structure-text-container">
+                <h2 class="structure-title">Struktur Kelas</h2>
+                <h5 class="structure-subtitle">Struktur kelas kita yang berganti setiap tahunnya. Ini adalah struktur kelas untuk tahun ini. Silahkan lihat bagan dibawh ini.</h5>
+            </div>
+        </div>
+        <div class="structure-container">
+            <img class="structure" src="../../images/structure.svg" alt="">
+        </div>
+    </section>
+    <!-- End main section -->
     
+    <footer id="footer" class="container-fluid d-flex">
+        <div class="footer-subcontainer">
+            <div>
+                <div class="logo-footer-container container-sm">
+                    <a href="#footer"><img src="../../images/main-logo.png" alt="" class="logo-footer"></a>
+                </div>
+                <div class="title-footer">
+                    <h3 class="site-name">SCIESIXX</h3>
+                </div>
+            </div>
+        </div>
+        <div class="footer-subcontainer">
+            <span><a href="#">Profil kelas</a></span>
+            <span><a href="#">Struktur kelas</a></span>
+            <span><a href="#">Galeri</a></span>
+            <span><a href="#">Tentang</a></span>
+        </div>
+        <div class="footer-subcontainer">
+            <span><a href="#">Privacy policy</a></span>
+            <span><a href="#">Term of use</a></span>
+        </div>
+        <div class="footer-subcontainer">
+            <div class="socmed-icon pt-2">
+                <a href="https://instagram.com/sciesixx" target="_blank" class="socmed-link ig-link"><i class="bi bi-instagram socmed-logo ig-logo"></i></a>
+                <a href="https://discord.gg/GzVM6rAm/" target="_blank" class="socmed-link dc-link"><i class="bi bi-discord socmed-logo dc-logo"></i></a>
+            </div>
+        </div>
+        <div class="footer-subcontainer">
+            <span>&copy; 2022<span class="dynamic-copyright-year"></span> Unity of Science Six</span>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+    <script type="module" src="../../js/structure.js"></script>
 </body>
 </html>

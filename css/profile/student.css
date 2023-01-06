@@ -94,7 +94,7 @@ header{
     padding: 1rem 0;
 }
 .profile-icon-container {
-    background-color: var(--bg-color-2);
+    background-color: var(--bg-color-3);
     width: 75px;
     height: 75px;
     border-radius: 50%;
