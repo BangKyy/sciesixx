@@ -44,11 +44,14 @@ const initSidebar = (element=null, btn=null, bars=[]) => {
 };
 
 const initSidebarArrow = (parentElements=null, arrowElements=null) => {
+    const btnParent = document.querySelector(".menu-icon");
     const parents = parentElements || document.querySelectorAll(".sidebar-arrow-list > p a");
     const arrows = arrowElements || document.querySelectorAll(".sidebar-arrow-list > p .bi");
     parents.forEach((parent, i) => {
         const collapsed = document.querySelectorAll(".sidebar-arrow-list > p .collapsed")[i];
-        new SidebarArrow(arrows[i], parent, collapsed).init();
+        const collapseSidebar = document.querySelectorAll(".collapse-sidebar")[i];
+        SidebarArrow.objects.push(new SidebarArrow(arrows[i], parent, collapsed, collapseSidebar, btnParent, i));
+        SidebarArrow.objects[i].init();
     });
 };
 
