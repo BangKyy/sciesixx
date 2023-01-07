@@ -59,15 +59,33 @@ export class Sidebar {
 }
 
 export class SidebarArrow {
-    constructor(element, parent, collapsed) {
+    static objects = [];
+    static count = 0;
+
+    static collapseAll(indexExcept) {
+        SidebarArrow.objects.forEach((obj, i) =>  {
+            if (i === indexExcept) return;
+            obj.collapse();
+        });
+    }
+
+    constructor(element, parent, collapsed, collapseSidebar, btnParent, index) {
+        SidebarArrow.count += 1;
+
         this.element = element;
         this.parent = parent;
         this.collapsed = collapsed;
+        this.collapseSidebar = collapseSidebar;
+        this.btnParent = btnParent;
+        this.index = index;
     }
     
     init() {
         this.parent.addEventListener("click", () => {
             this.toggle();
+        });
+        this.btnParent.addEventListener("click", () => {
+            this.collapse();
         });
     }
 
@@ -80,6 +98,7 @@ export class SidebarArrow {
             }
             default: {
                 this.open();
+                this.uncollapseExcept(this.index);
             }
         }
     }
@@ -94,5 +113,16 @@ export class SidebarArrow {
         const oldClassName = "bi-caret-up-fill";
         const newClassName = "bi-caret-down-fill";
         this.element.classList.replace(oldClassName, newClassName);
+    }
+
+    uncollapseExcept(index) {
+        SidebarArrow.collapseAll(index);
+    }
+
+    collapse() {
+        this.collapsed.classList.add("collapsed");
+        this.collapsed.setAttribute("aria-expanded", "false");
+        this.collapseSidebar.classList.remove("show");
+        this.close();
     }
 }
