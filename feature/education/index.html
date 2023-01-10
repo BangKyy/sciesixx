@@ -19,6 +19,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <!-- Sweetalert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js" integrity="sha256-t2UzhRr4kaJ0M9btOrWK1Uua9mDTZVrXyuC9lRtqAwk=" crossorigin="anonymous"></script>
+    <!-- FA Icons -->
+    <script src="https://kit.fontawesome.com/df1f690d1c.js" crossorigin="anonymous"></script>
     <title>UNISIX SITE | Edukasi</title>
 </head>
 <body>
@@ -77,7 +79,12 @@
                               Fitur
                             </a>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="../../feature/education/"><i class="bi bi-journals"></i><span>Edukasi</span></a></li>
+                              <li>
+                                <a class="dropdown-item" href="../../feature/education/"><i class="bi bi-journals"></i><span>Edukasi</span></a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="../../feature/entertainment/"><i class="bi bi-puzzle"></i><span>Hiburan</span></a>
+                              </li>
                               <li>
                                 <a class="dropdown-item" href="../../feature/information/"><i class="bi bi-info-circle"></i><span>Informasi</span></a>
                               </li>
@@ -187,6 +194,12 @@
                                 </a>
                             </div>
                             <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../feature/entertainment/">
+                                    <i class="bi bi-puzzle"></i>
+                                    <span>Hiburan</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
                                 <a class="a-collapse text-center" href="../../feature/information/">
                                     <i class="bi bi-info-circle"></i>
                                     <span>Informasi</span>
@@ -243,7 +256,7 @@
                 <h4 class="education-toggle-teks">KONVERTER</h4>
             </div>
         </div>
-        <div class="calculator-container">
+        <div class="calculator-container project-container">
             <div class="calculator-grid-container">
                 <div class="calculator">
                     <div class="calculator-icon-container">
@@ -355,11 +368,11 @@
                 </div>
             </div>
         </div>
-        <div class="converter-container">
+        <div class="converter-container project-container">
             <div class="converter-grid-container">
                 <div class="converter">
                     <div class="converter-icon-container">
-                        <i class="converter-icon bi bi-thermometer-half"></i>
+                        <i class="converter-icon fa-solid fa-temperature-three-quarters"></i>
                     </div>
                     <div class="converter-title-container">
                         <h5 class="converter-title">Suhu</h5>
@@ -371,7 +384,7 @@
                 </div>
                 <div class="converter">
                     <div class="converter-icon-container">
-                        <i class="converter-icon bi bi-thermometer-half"></i>
+                        <i class="converter-icon fa-solid fa-weight-hanging"></i>
                     </div>
                     <div class="converter-title-container">
                         <h5 class="converter-title">Berat</h5>
@@ -383,7 +396,7 @@
                 </div>
                 <div class="converter">
                     <div class="converter-icon-container">
-                        <i class="converter-icon bi bi-thermometer-half"></i>
+                        <i class="converter-icon fa-solid fa-gauge"></i>
                     </div>
                     <div class="converter-title-container">
                         <h5 class="converter-title">Kecepatan</h5>
@@ -395,7 +408,7 @@
                 </div>
                 <div class="converter">
                     <div class="converter-icon-container">
-                        <i class="converter-icon bi bi-thermometer-half"></i>
+                        <i class="converter-icon fa-solid fa-ruler-horizontal"></i>
                     </div>
                     <div class="converter-title-container">
                         <h5 class="converter-title">Jarak</h5>
@@ -407,7 +420,7 @@
                 </div>
                 <div class="converter">
                     <div class="converter-icon-container">
-                        <i class="converter-icon bi bi-thermometer-half"></i>
+                        <i class="converter-icon fa-solid fa-clock"></i>
                     </div>
                     <div class="converter-title-container">
                         <h5 class="converter-title">Waktu</h5>
@@ -455,5 +468,4 @@
     </footer>
     <!-- End Footer Section -->
     <script type="module" src="../../js/education.js"></script>
-</body>
 </html>
