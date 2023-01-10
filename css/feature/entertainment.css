@@ -74,12 +74,12 @@ header{
 }
 /* End Navbar Section */
 
-/* Main Section */
+/* Main section */
 .main-section {
     padding: 8rem 0;
     background-color: var(--bg-color-2);
 }
-.photo-title-container {
+.entertainment-title-container {
     /* background-color: #0001; */
     display: flex;
     justify-content: center;
@@ -87,7 +87,7 @@ header{
     flex-direction: column;
     padding: 1rem 0;
 }
-.photo-icon-container {
+.entertainment-icon-container {
     background-color: var(--bg-color-3);
     width: 75px;
     height: 75px;
@@ -97,111 +97,142 @@ header{
     align-items: center;
     box-shadow: 0 0 4px 1px #0003;
 }
-.photo-icon {
+.entertainment-icon {
     font-size: 28pt;
 }
-.photo-text-container {
+.entertainment-text-container {
     padding-top: 1.2rem;
     /* background-color: #0002; */
 }
-.photo-title,
-.photo-subtitle {
+.entertainment-title,
+.entertainment-subtitle {
     text-align: center;
 }
-.photo-title {
+.entertainment-title {
     font-size: 26pt;
     font-weight: 600;
     margin: 0 !important;
 }
-.photo-subtitle {
+.entertainment-subtitle {
     font-size: 11pt;
     font-weight: 550;
 }
-.landscape-title,
-.portrait-title {
-    padding: 4rem 0 2rem 0;
-    text-align: center;
-    font-size: 16pt;
-    font-weight: 550;
-}
-.landscape-container,
-.portrait-container {
+.entertainment-container {
     padding-top: 2.5rem;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.landscape-grid-container,
-.portrait-grid-container {
+.entertainment-grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 90%;
     /* background-color: #0001; */
     gap: 2rem;
 }
-.landscape,
-.portrait {
+.entertainment {
     background-color: var(--bg-color-3);
     border-radius: 15px;
     box-shadow: 0 0 4px 1px #0003;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
-    padding: 1rem 0 0 0;
+    padding: 1rem 0;
 }
-.landscape-photo-container,
-.landscape-link-container,
-.portrait-photo-container,
-.portrait-link-container {
-    width: 85%;
-}
-.landscape-photo,
-.portrait-photo {
+.entertainment > div {
     width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 5px;
+    padding: 0 1.5rem;
+    /* background-color: #0003; */
 }
-.landscape-link-container,
-.portrait-link-container {
+.entertainment-icon {
+    font-size: 20pt;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.entertainment-icon::before {
+    transform: translate(-2px, 0);
+}
+.enter-link-container{
     display: inline-flex;
     align-items: center;
     justify-content: flex-start;
     gap: 0.25rem;
-    /* background-color: #0001; */
-    padding: 0.2rem 0;
 }
-.landscape-link,
-.portrait-link {
+.enter-link {
     font-size: 10pt;
     text-decoration: none;
     color: rgba(0, 0, 0, 0.7);
 }
-.landscape-arrow-link,
-.portrait-arrow-link {
+.entertainment-arrow-link {
     transition: 0.3s;
+    /* background-color: #0001; */
+    /* padding-bottom: -10px !important; */
+    /* font-size: 16pt; */
+    /* display: flex;
+    align-items: flex-end; */
 }
-.landscape-link-container:hover .landscape-arrow-link,
-.landscape-link,
-.landscape-arrow-link:hover{
-    transform: translateX(0.25rem);
-}
-.landscape-link:hover {
-    color: #011d31;
-}
-/* End Main Section */
+/* End main section */
 
 @media screen and (max-width: 992px) {
-
+    header{
+        width: 100%;
+    }
 }
 @media screen and (max-width: 768px) {
-
+    .entertainment-grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 @media screen and (max-width: 576px) {
-
+    .entertainment-title-container {
+        padding: 1rem 0;
+    }
+    .entertainment-icon-container {
+        width: 70px;
+        height: 70px;
+    }
+    .entertainment-icon {
+        font-size: 24pt;
+    }
+    .entertainment-text-container {
+        padding-top: 1.2rem;
+    }
+    .entertainment-title {
+        font-size: 24pt;
+    }
+    .entertainment-subtitle {
+        font-size: 8pt;
+        padding: 0 50px;
+    }
+    .entertainment-grid-container {
+        grid-template-columns: 1fr;
+    }
 }
 @media screen and (max-width: 360px) {
-
+    .entertainment-title-container {
+        padding: 1rem 0;
+    }
+    .entertainment-icon-container {
+        width: 60px;
+        height: 60px;
+    }
+    .entertainment-icon {
+        font-size: 20pt;
+    }
+    .entertainment-text-container {
+        padding-top: 1.2rem;
+    }
+    .entertainment-title {
+        font-size: 20pt;
+    }
+    .entertainment-subtitle {
+        font-size: 5pt;
+        padding: 0 50px;
+        font-weight: var(--bold-3);
+    }
+    .entertainment-grid-containerr {
+        grid-template-columns: 1fr;
+    }
 }
