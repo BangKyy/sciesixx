@@ -73,3 +73,126 @@ header{
     background-color: var(--btn-color-1) !important;
 }
 /* End Navbar Section */
+
+/* Main Section */
+.main-section {
+    padding: 8rem 0;
+    background-color: var(--bg-color-2);
+}
+.practice-title-container {
+    /* background-color: #0001; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+.practice-icon-container {
+    background-color: var(--bg-color-3);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 4px 1px #0003;
+}
+.practice-icon {
+    font-size: 28pt;
+}
+.practice-text-container {
+    padding-top: 1.2rem;
+    /* background-color: #0002; */
+}
+.practice-title,
+.practice-subtitle {
+    text-align: center;
+}
+.practice-title {
+    font-size: 26pt;
+    font-weight: 600;
+    margin: 0 !important;
+}
+.practice-subtitle {
+    font-size: 11pt;
+    font-weight: 550;
+}
+.landscape-title,
+.portrait-title {
+    padding: 4rem 0 2rem 0;
+    text-align: center;
+    font-size: 16pt;
+    font-weight: 550;
+}
+.landscape-container,
+.portrait-container {
+    padding-top: 2.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.landscape-grid-container,
+.portrait-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 90%;
+    /* background-color: #0001; */
+    gap: 2rem;
+}
+.landscape,
+.portrait {
+    background-color: var(--bg-color-3);
+    border-radius: 15px;
+    box-shadow: 0 0 4px 1px #0003;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 0 0 0;
+}
+.landscape-practice-container,
+.landscape-link-container,
+.portrait-practice-container,
+.portrait-link-container {
+    width: 85%;
+}
+.landscape-practice,
+.portrait-practice {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+.landscape-link-container,
+.portrait-link-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    /* background-color: #0001; */
+    padding: 0.2rem 0;
+}
+.landscape-link,
+.portrait-link {
+    font-size: 10pt;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+.landscape-arrow-link,
+.portrait-arrow-link {
+    transition: 0.3s;
+}
+.landscape-link-container:hover .landscape-arrow-link,
+.landscape-link,
+.landscape-arrow-link:hover,
+.portrait-link-container:hover .portrait-arrow-link,
+.portrait-link,
+.portrait-arrow-link:hover {
+    transform: translateX(0.25rem);
+}
+.landscape-link:hover,
+.portrait-link:hover {
+    color: #011d31;
+}
+/* End Main Section */
