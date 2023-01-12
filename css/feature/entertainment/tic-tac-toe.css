@@ -25,9 +25,14 @@ body{
     --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
     --color-4: #e8eef5;
 
+    /* Tic Tac Toe Font Colors */
+    --ttt-color-red: #FF3C3C;
+    --ttt-color-blue: #3C4FFF;
+
     /* Button colors */
     --btn-color-1: #3677b0;
     --btn-color-2: #3c84c4;
+    --btn-color-3:  #46406c;
     
     /* Button hover */
     --link-color-1: #19a6f3;
@@ -79,8 +84,20 @@ header{
     padding: 8rem 0;
     background-color: var(--bg-color-2);
 }
+.game-title-container {
+    width: 100%;
+    display: block;
+    margin: 4 auto;
+    justify-content: center;
+    text-align: center;
+}
 .game-title {
-    font-size: 22pt;
+    font-size: 32pt;
+    text-align: center;
+}
+.game-subtitle {
+    font-size: 12pt;
+    text-align: center;
 }
 .game-container {
     grid-template-columns: 1fr 1fr 1fr;
@@ -99,11 +116,13 @@ header{
     font-size: 45px;
     font-weight: 300;
 }
-.x-shape {
-    color: #FF3C3C;
+.x-shape,
+.x-turn i {
+    color: var(--ttt-color-red) !important;
 }
-.o-shape {
-    color: #3C4FFF;
+.o-shape,
+.o-turn i {
+    color: var(--ttt-color-blue) !important;
 }
 .turn-text {
     font-size: 20px;
@@ -111,11 +130,17 @@ header{
 .turn-value {
     font-size: 25px;
 }
+.turn-value > i {
+    font-size: 12pt !important;
+}
 .score {
     font-size: 24px;
 }
 .score span {
     padding: 0 4px;
+}
+.reset-btn {
+    background-color:  var(--btn-color-3) !important;
 }
 /* End Main Section */
 

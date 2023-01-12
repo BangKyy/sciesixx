@@ -198,7 +198,8 @@ header{
     text-decoration: none;
     color: rgba(0, 0, 0, 0.7);
 }
-.calculator-arrow-link {
+.calculator-arrow-link, 
+.converter-arrow-link {
     transition: 0.3s;
     /* background-color: #0001; */
     /* padding-bottom: -10px !important; */
@@ -213,10 +214,14 @@ header{
 }
 .calculator-link-container:hover .calculator-arrow-link,
 .calculator-link,
-.calculator-arrow-link:hover{
+.calculator-arrow-link:hover,
+.converter-link-container:hover .converter-arrow-link,
+.converter-link,
+.converter-arrow-link:hover {
     transform: translateX(0.25rem);
 }
-.calculator-link:hover {
+.calculator-link:hover,
+.converter-link:hover {
     color: #011d31;
 }
 /* End main section */

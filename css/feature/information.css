@@ -173,6 +173,14 @@ header{
     /* display: flex;
     align-items: flex-end; */
 }
+.info-link-container:hover .info-arrow-link,
+.info-link,
+.info-arrow-link:hover{
+    transform: translateX(0.25rem);
+}
+.info-link:hover {
+    color: #011d31;
+}
 /* End main section */
 
 @media screen and (max-width: 992px) {

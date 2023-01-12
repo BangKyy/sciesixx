@@ -165,13 +165,21 @@ header{
     text-decoration: none;
     color: rgba(0, 0, 0, 0.7);
 }
-.entertainment-arrow-link {
+.enter-arrow-link {
     transition: 0.3s;
     /* background-color: #0001; */
     /* padding-bottom: -10px !important; */
     /* font-size: 16pt; */
     /* display: flex;
     align-items: flex-end; */
+}
+.enter-link-container:hover .enter-arrow-link,
+.enter-link,
+.enter-arrow-link:hover{
+    transform: translateX(0.25rem);
+}
+.enter-link:hover {
+    color: #011d31;
 }
 /* End main section */
 

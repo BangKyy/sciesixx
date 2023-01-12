@@ -44,24 +44,34 @@ const turn = {
       value === "o" ? "x" : "";
       return opposite;
     },
+
+    getTurnElement(value="") {
+      const turn = value === "x" ? `<i class="bi bi-x-lg"></i>` :
+      value === "o" ? `<i class="bi bi-circle"></i>` : "";
+      return turn;
+    },
     
-    set(value=""){
+    set(value="") {
       let color = this.getColor(value);
       this.options.style.color = color
       this.options.innerHTML = value;
       this.display();
     },
     
-    change(value=""){
+    change(value="") {
       let opposite = this.getOpposite(value);
       let color = this.getColor(opposite);
+      let turnElement = this.getTurnElement(opposite);
       this.options.style.color = color;
-      this.options.innerHTML = opposite;
+      this.options.innerHTML = turnElement;
       this.display();
     },
     
-    display(){
-      this.html.style.color = this.options.style.color;
+    display() {
+      const turnClassName = this.options.style.color === this.color.red ? "x-turn" : "o-turn";
+      const oldTurnClassName = turnClassName === "x-turn" ? "o-turn" : "x-turn";
+      this.html.classList.replace(oldTurnClassName, turnClassName);
+      console.log(this.options.style.color);
       this.html.innerHTML = this.options.innerHTML;
     }
 };
@@ -154,8 +164,14 @@ const game = {
       let xShapeClassName = "x-shape";
       let oShapeClassName = "o-shape";
       
-      let xShape = `<span class="${xShapeClassName}">x</span>`;
-      let oShape = `<span class="${oShapeClassName}">o</span>`;
+      let xShape = `
+        <span class="${xShapeClassName}">
+          <i class="bi bi-x-lg"></i>
+        </span>
+      `;
+      let oShape = `<span class="${oShapeClassName}">
+        <i class="bi bi-circle"></i>
+      </span>`;
       
       return value === "x" ? xShape
       : value === "o" ? oShape
@@ -194,10 +210,10 @@ const game = {
     reset(){
       if(!this.fields.length) return;
       this.fields = [];
-      this.value = "x";
+      this.value = `x`;
       this.winner = "";
       this.paused = false;
-      turn.set(this.value);
+      turn.set(`<i class="bi bi-x-lg"></i>`);
       this.display();
     },
     
@@ -222,7 +238,7 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("load", () => {
     game.init();
-    turn.set("x");
+    turn.set(`<i class="bi bi-x-lg"></i>`);
     generateDynamicSiteName("../../../json/config.json");
     nav.initSidebar();
     nav.initSidebarArrow();
