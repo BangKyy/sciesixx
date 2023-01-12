@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="../../../css/feature/entertainment/tic-tac-toe.css" class="rel">
+    <link rel="stylesheet" href="../../../css/feature/education/weight.css" class="rel">
     <!-- Partials -->
     <link rel="stylesheet" href="../../../css/partials/nav.css">
     <link rel="stylesheet" href="../../../css/partials/footer.css">
@@ -17,9 +17,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <!-- Sweetalert 2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js" integrity="sha256-t2UzhRr4kaJ0M9btOrWK1Uua9mDTZVrXyuC9lRtqAwk=" crossorigin="anonymous"></script>
-    <title>UNISIX SITE | Tic Tac Toe</title>
+    <!-- FA Icons -->
+    <script src="https://kit.fontawesome.com/df1f690d1c.js" crossorigin="anonymous"></script>
+    <title>SCIESIXX SITE | Konverter Berat</title>
 </head>
 <body>
     <header>
@@ -120,7 +120,7 @@
         <div class="sidebar container-fluid">
             <ul class="sidebar-ul">
                 <li class="sidebar-link-list container-fluid">
-                    <a href="../../../" class="sidebar-link">Beranda</a>
+                    <a href="../" class="sidebar-link">Beranda</a>
                 </li>
                 <li class="sidebar-link-list sidebar-arrow-list container-fluid">
                     <p class="p-0 m-0">
@@ -184,7 +184,7 @@
                         </a>
                     </p>
                     <div class="collapse-sidebar collapse container-fluid" id="collapse-sidebar-feature">
-                        <div class="card card-body container-./..fluid m-0 pt-2 pb-2" style="background-color: #0000; border-width:0;">
+                        <div class="card card-body container-fluid m-0 pt-2 pb-2" style="background-color: #0000; border-width:0;">
                             <div class="collapse-list collapse-list-feature container-fluid text-center">
                                 <a class="a-collapse text-center" href="../../../feature/education/">
                                     <i class="bi bi-journals"></i>
@@ -234,74 +234,98 @@
             </ul>
         </div>
         <!-- End Navbar Section -->
-        <!-- Main Secion -->
-        <section class="main-section">
-    <div class="game-title-container container-fluid p-2 mt-4 mb-4 d-block justify-content-center">
-        <h1 class="game-title">Tic Tac Toe</h1>
-        <h2 class="game-subtitle">(2 Pemain)</h2>
-    </div>
-    <div class="score-container container-fluid d-flex justify-content-center">
-        <div class="score container-sm d-flex justify-content-center">
-            <span class="red-score value-score text-danger">0</span>
-            <span>:</span>
-            <span class="blue-score value-score text-primary">0</span>
-        </div>
-    </div>
-    <div class="main-container container-fluid mt-5 mb-5">
-        <div class="game-container container-sm d-grid">
-            <div class="game game-1"></div>
-            <div class="game game-2"></div>
-            <div class="game game-3"></div>
-            <div class="game game-4"></div>
-            <div class="game game-5"></div>
-            <div class="game game-6"></div>
-            <div class="game game-7"></div>
-            <div class="game game-8"></div>
-            <div class="game game-9"></div>
-        </div>
-    <div class="btn-container d-flex justify-content-center mt-5 mb-5">
-        <button class="reset-btn btn text-white">Reset</button>
-    </div>
-    </div>
-    <div class="info-container container-fluid pt-2 pb-2">
-        <div class="turn-container container"><span class="turn-text">Giliran: </span><span class="turn-value x-turn"><i></i></span></div>
-    </div>
-        </section>
-        <!-- End Main Secion -->
-        <!-- Footer Section -->
-        <footer id="footer" class="container-fluid d-flex">
-            <div class="footer-subcontainer">
-                <div class="">
-                    <div class="logo-footer-container container-sm">
-                        <a href="#footer"><img src="../../../images/main-logo.png" alt="" class="logo-footer"></a>
-                    </div>
-                    <div class="title-footer">
-                        <h3 class="site-name">UNISIX</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-subcontainer">
-                <span><a href="../../../profile/student/">Profil kelas</a></span>
-                <span><a href="../../../profile/structure/">Struktur kelas</a></span>
-                <span><a href="#">Galeri</a></span>
-                <span><a href="#">Tentang</a></span>
-            </div>
-            <div class="footer-subcontainer">
-                <span><a href="#">Privacy policy</a></span>
-                <span><a href="#">Term of use</a></span>
-            </div>
-            <div class="footer-subcontainer">
-                <div class="socmed-icon pt-2">
-                    <a href="https://instagram.com/sciesixx" target="_blank" class="socmed-link ig-link"><i class="bi bi-instagram socmed-logo ig-logo"></i></a>
-                    <a href="https://discord.gg/GzVM6rAm/" target="_blank" class="socmed-link dc-link"><i class="bi bi-discord socmed-logo dc-logo"></i></a>
-                </div>
-            </div>
-            <div class="footer-subcontainer">
-                <span>&copy; 2022<span class="dynamic-copyright-year"></span> Unity of Science Six</span>
-            </div>
-        </footer>
-        <!-- End Footer Section -->
     </header>
-    <script type="module" src="../../../js/tic-tac-toe.js"></script>
+
+    <!-- Main section -->
+    <section class="main-section">
+        <div class="temperature-section">
+            <div class="temperature-title-container">
+                <i class="converter-icon fa-solid fa-temperature-three-quarters"></i>
+                <h2 class="title-converter">Konverter Berat</h2>
+            </div>
+
+            <div class="amount-container">
+                <label for="amount">Masukkan Jumlah</label>
+                <input type="number" name="amount" id="amount">
+            </div>
+
+            <div class="unit-converter">
+                <div class="left">
+                    <p class="text-select">From</p>
+                    <div class="select-container">
+                        <select name="from" id="from">
+                            <option value="rankine" class="option">Rankine</option>
+                            <option value="reamur" class="option">Reamur</option>
+                            <option value="fahrenheit" class="option">Fahrenheit</option>
+                            <option value="kelvin" class="option">Kelvin</option>
+                            <option value="celsius" class="option">Celsius</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="middle">
+                    <i class="convert-icon bi bi-arrow-left-right"></i>
+                </div>
+                
+                <div class="right">
+                    <p class="text-select">To</p>
+                    <div class="select-container to">
+                        <select name="to" id="to">
+                            <option value="rankine" class="option">Rankine</option>
+                            <option value="reamur" class="option">Reamur</option>
+                            <option value="fahrenheit" class="option">Fahrenheit</option>
+                            <option value="kelvin" class="option">Kelvin</option>
+                            <option value="celsius" class="option">Celsius</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="formular-container">
+                <span class="title formular">rumus</span>
+                <span class="content"> tunggu...</span>
+            </div>
+
+            <div class="result-container">
+                <label for="result">Hasil</label>
+                <input type="text" name="result" id="result">
+            </div>
+        </div>
+    </section>
+    <!-- End main section -->
+    
+    <footer id="footer" class="container-fluid d-flex">
+        <div class="footer-subcontainer">
+            <div>
+                <div class="logo-footer-container container-sm">
+                    <a href="#footer"><img src="../../../images/main-logo.png" alt="" class="logo-footer"></a>
+                </div>
+                <div class="title-footer">
+                    <h3 class="site-name">SCIESIXX</h3>
+                </div>
+            </div>
+        </div>
+        <div class="footer-subcontainer">
+            <span><a href="#">Profil kelas</a></span>
+            <span><a href="#">Struktur kelas</a></span>
+            <span><a href="#">Galeri</a></span>
+            <span><a href="#">Tentang</a></span>
+        </div>
+        <div class="footer-subcontainer">
+            <span><a href="#">Privacy policy</a></span>
+            <span><a href="#">Term of use</a></span>
+        </div>
+        <div class="footer-subcontainer">
+            <div class="socmed-icon pt-2">
+                <a href="https://instagram.com/sciesixx" target="_blank" class="socmed-link ig-link"><i class="bi bi-instagram socmed-logo ig-logo"></i></a>
+                <a href="https://discord.gg/GzVM6rAm/" target="_blank" class="socmed-link dc-link"><i class="bi bi-discord socmed-logo dc-logo"></i></a>
+            </div>
+        </div>
+        <div class="footer-subcontainer">
+            <span>&copy; 2022<span class="dynamic-copyright-year"></span> Unity of Science Six</span>
+        </div>
+    </footer>
+    <!-- End Footer Section -->
+    <script type="module" src="../../../js/weight.js"></script>
 </body>
 </html>

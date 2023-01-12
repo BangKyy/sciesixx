@@ -196,3 +196,22 @@ header{
     color: #011d31;
 }
 /* End Main Section */
+
+@media screen and (max-width: 992px) {
+    .landscape-grid-container,
+    .portrait-grid-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media screen and (max-width: 768px) {
+    .landscape-grid-container,
+    .portrait-grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width: 576px) {
+    .landscape-grid-container,
+    .portrait-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
