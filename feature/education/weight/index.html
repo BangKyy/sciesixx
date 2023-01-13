@@ -17,6 +17,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- Math JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.0/math.min.js" integrity="sha512-CTGbAVWJ6AABEPglq77mqB8mXjBRcmtfnxsISZEnJijuJnwooQTMpqDsuIfoXns5HUoDME1Ka0wZ/sBO2jfwgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- FA Icons -->
     <script src="https://kit.fontawesome.com/df1f690d1c.js" crossorigin="anonymous"></script>
     <title>SCIESIXX SITE | Konverter Berat</title>
@@ -238,9 +240,9 @@
 
     <!-- Main section -->
     <section class="main-section">
-        <div class="temperature-section">
-            <div class="temperature-title-container">
-                <i class="converter-icon fa-solid fa-temperature-three-quarters"></i>
+        <div class="weight-section">
+            <div class="weight-title-container">
+                <i class="converter-icon fa-solid fa-weight-hanging"></i>
                 <h2 class="title-converter">Konverter Berat</h2>
             </div>
 
@@ -254,11 +256,13 @@
                     <p class="text-select">From</p>
                     <div class="select-container">
                         <select name="from" id="from">
-                            <option value="rankine" class="option">Rankine</option>
-                            <option value="reamur" class="option">Reamur</option>
-                            <option value="fahrenheit" class="option">Fahrenheit</option>
-                            <option value="kelvin" class="option">Kelvin</option>
-                            <option value="celsius" class="option">Celsius</option>
+                            <option value="milligram" class="option">Milligram</option>
+                            <option value="ounce" class="option">Ons</option>
+                            <option value="gram" class="option">Gram</option>
+                            <option value="pound" class="option">Pound</option>
+                            <option value="kilogram" class="option">Kilogram</option>
+                            <option value="quintal" class="option">Kwintal</option>
+                            <option value="ton" class="option">Ton</option>
                         </select>
                     </div>
                 </div>
@@ -271,11 +275,13 @@
                     <p class="text-select">To</p>
                     <div class="select-container to">
                         <select name="to" id="to">
-                            <option value="rankine" class="option">Rankine</option>
-                            <option value="reamur" class="option">Reamur</option>
-                            <option value="fahrenheit" class="option">Fahrenheit</option>
-                            <option value="kelvin" class="option">Kelvin</option>
-                            <option value="celsius" class="option">Celsius</option>
+                            <option value="milligram" class="option">Milligram</option>
+                            <option value="ounce" class="option">Ons</option>
+                            <option value="gram" class="option">Gram</option>
+                            <option value="pound" class="option">Pound</option>
+                            <option value="kilogram" class="option">Kilogram</option>
+                            <option value="quintal" class="option">Kwintal</option>
+                            <option value="ton" class="option">Ton</option>
                         </select>
                     </div>
                 </div>
@@ -288,7 +294,7 @@
 
             <div class="result-container">
                 <label for="result">Hasil</label>
-                <input type="text" name="result" id="result">
+                <input type="text" name="result" id="result" readonly>
             </div>
         </div>
     </section>

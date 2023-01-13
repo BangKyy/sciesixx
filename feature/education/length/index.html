@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="../../../css/feature/education/temperature.css" class="rel">
+    <link rel="stylesheet" href="../../../css/feature/education/length.css" class="rel">
     <!-- Partials -->
     <link rel="stylesheet" href="../../../css/partials/nav.css">
     <link rel="stylesheet" href="../../../css/partials/footer.css">
@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.0/math.min.js" integrity="sha512-CTGbAVWJ6AABEPglq77mqB8mXjBRcmtfnxsISZEnJijuJnwooQTMpqDsuIfoXns5HUoDME1Ka0wZ/sBO2jfwgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- FA Icons -->
     <script src="https://kit.fontawesome.com/df1f690d1c.js" crossorigin="anonymous"></script>
-    <title>UNISIX SITE | Suhu Konverter</title>
+    <title>SCIESIXX SITE | Konverter Jarak</title>
 </head>
 <body>
     <header>
@@ -240,27 +240,29 @@
 
     <!-- Main section -->
     <section class="main-section">
-        <div class="temperature-section">
-            <div class="temperature-title-container">
-                <i class="converter-icon fa-solid fa-temperature-three-quarters"></i>
-                <h2 class="title-converter">Konverter Suhu</h2>
+        <div class="length-section">
+            <div class="length-title-container">
+                <i class="converter-icon fa-solid fa-ruler-horizontal"></i>
+                <h2 class="title-converter">Konverter Jarak</h2>
             </div>
 
             <div class="amount-container">
-                <label for="amount">Masukan Jumlah</label>
+                <label for="amount">Masukkan Jumlah</label>
                 <input type="number" name="amount" id="amount">
             </div>
 
             <div class="unit-converter">
                 <div class="left">
-                    <p class="text-select">Dari</p>
+                    <p class="text-select">From</p>
                     <div class="select-container">
                         <select name="from" id="from">
-                            <option value="rankine" class="option">Rankine</option>
-                            <option value="reamur" class="option">Reamur</option>
-                            <option value="fahrenheit" class="option">Fahrenheit</option>
-                            <option value="kelvin" class="option">Kelvin</option>
-                            <option value="celsius" class="option">Celsius</option>
+                            <option value="rankine" class="option">Miligram</option>
+                            <option value="reamur" class="option">Once</option>
+                            <option value="fahrenheit" class="option">Gram</option>
+                            <option value="kelvin" class="option">Pound</option>
+                            <option value="celsius" class="option">Kilogram</option>
+                            <option value="celsius" class="option">Kwintal</option>
+                            <option value="celsius" class="option">Ton</option>
                         </select>
                     </div>
                 </div>
@@ -270,27 +272,29 @@
                 </div>
                 
                 <div class="right">
-                    <p class="text-select">Ke</p>
+                    <p class="text-select">To</p>
                     <div class="select-container to">
                         <select name="to" id="to">
-                            <option value="rankine" class="option">Rankine</option>
-                            <option value="reamur" class="option">Reamur</option>
-                            <option value="fahrenheit" class="option">Fahrenheit</option>
-                            <option value="kelvin" class="option">Kelvin</option>
-                            <option value="celsius" class="option">Celsius</option>
+                            <option value="rankine" class="option">Miligram</option>
+                            <option value="reamur" class="option">Once</option>
+                            <option value="fahrenheit" class="option">Gram</option>
+                            <option value="kelvin" class="option">Pound</option>
+                            <option value="celsius" class="option">Kilogram</option>
+                            <option value="celsius" class="option">Kwintal</option>
+                            <option value="celsius" class="option">Ton</option>
                         </select>
                     </div>
                 </div>
             </div>
 
             <div class="formular-container">
-                <span class="title formula">rumus</span>
+                <span class="title formular">rumus</span>
                 <span class="content"> tunggu...</span>
             </div>
 
             <div class="result-container">
                 <label for="result">Hasil</label>
-                <input type="text" name="result" id="result" readonly>
+                <input type="text" name="result" id="result">
             </div>
         </div>
     </section>
@@ -328,6 +332,6 @@
         </div>
     </footer>
     <!-- End Footer Section -->
-    <script type="module" src="../../../js/temperature.js"></script>
+    <script type="module" src="../../../js/weight.js"></script>
 </body>
 </html>
