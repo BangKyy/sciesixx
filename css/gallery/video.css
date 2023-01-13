@@ -1,0 +1,220 @@
+/* GOOGLE FONTS IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    color: var(--color-2);
+}
+
+/* VARIABLE CSS */
+:root{
+    /* background colors */
+    --bg-color-1: #a4bad6;
+    --bg-color-2: #e8eef5;
+    --bg-color-3: #dde8f7;
+    --bg-dropdown: #F4FAFF; /*#f2f2f8*/
+
+    /* font colors */
+    --color-1: #143a6a;
+    --color-2: #011D31;
+    --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
+    --color-4: #e8eef5;
+
+    /* Button colors */
+    --btn-color-1: #3677b0;
+    --btn-color-2: #3c84c4;
+    
+    /* Button hover */
+    --link-color-1: #19a6f3;
+    --link-color-2: #0767a2;
+
+    /* Fonts Bold */
+    --bold-1: 300;
+    --bold-2: 400;
+    --bold-3: 600;
+    --bold-4: 900; 
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+/* Navbar Section */
+header{
+    width: 100%;
+    background-color: var(--bg-color-1);
+}
+
+.btn-primary,
+.btn-primary:visited {
+    color: var(--color-4) !important;
+    background-color: var(--btn-color-1) !important;
+    border-color: var(--btn-color-1) !important;
+}
+.btn-primary:hover,
+.btn-primary:active {
+    color: var(--color-4) !important;
+    background-color: var(--btn-color-2) !important;
+    border-color: var(--btn-color-2) !important;
+}
+.btn-outline-primary,
+.btn-outline-primary:visited {
+    color: var(--color-1) !important;
+    border-color: var(--btn-color-1) !important;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
+    color: var(--color-4) !important;
+    background-color: var(--btn-color-1) !important;
+}
+/* End Navbar Section */
+
+/* Main Section */
+.main-section {
+    padding: 8rem 0;
+    background-color: var(--bg-color-2);
+}
+.video-title-container {
+    /* background-color: #0001; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+.video-icon-container {
+    background-color: var(--bg-color-3);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 4px 1px #0003;
+}
+.video-icon {
+    font-size: 28pt;
+}
+.video-text-container {
+    padding-top: 1.2rem;
+    /* background-color: #0002; */
+}
+.video-title,
+.video-subtitle {
+    text-align: center;
+}
+.video-title {
+    font-size: 26pt;
+    font-weight: 600;
+    margin: 0 !important;
+}
+.video-subtitle {
+    font-size: 11pt;
+    font-weight: 550;
+}
+.landscape-title,
+.portrait-title {
+    padding: 4rem 0 2rem 0;
+    text-align: center;
+    font-size: 16pt;
+    font-weight: 550;
+}
+.landscape-container,
+.portrait-container {
+    padding-top: 2.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.landscape-grid-container,
+.portrait-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 90%;
+    /* background-color: #0001; */
+    gap: 2rem;
+}
+.landscape,
+.portrait {
+    background-color: var(--bg-color-3);
+    border-radius: 15px;
+    box-shadow: 0 0 4px 1px #0003;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 0 0 0;
+}
+.landscape-video-container,
+.landscape-link-container,
+.portrait-video-container,
+.portrait-link-container {
+    width: 85%;
+}
+.landscape-video,
+.portrait-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+.landscape-link-container,
+.portrait-link-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    /* background-color: #0001; */
+    padding: 0.2rem 0;
+}
+.landscape-link,
+.portrait-link {
+    font-size: 10pt;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+.landscape-arrow-link,
+.portrait-arrow-link {
+    transition: 0.3s;
+}
+.landscape-link-container:hover .landscape-arrow-link,
+.landscape-link,
+.landscape-arrow-link:hover,
+.portrait-link-container:hover .portrait-arrow-link,
+.portrait-link,
+.portrait-arrow-link:hover {
+    transform: translateX(0.25rem);
+}
+.landscape-link:hover, 
+.portrait-link:hover {
+    color: #011d31;
+}
+/* End Main Section */
+
+@media screen and (max-width: 992px) {
+    .landscape-grid-container,
+    .portrait-grid-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+@media screen and (max-width: 768px) {
+    .landscape-grid-container,
+    .portrait-grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media screen and (max-width: 576px) {
+    .landscape-grid-container,
+    .portrait-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (max-width: 360px) {
+
+}

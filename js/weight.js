@@ -3,30 +3,28 @@ import * as footer from "./partials/footer.js";
 import { generateDynamicSiteName } from "./utils/site-name.js";
 import { Converter } from "./utils/converter.js";
 
-class TemperatureConverter extends Converter {
+class WeightConverter extends Converter {
     constructor() {
         super();
-        this.from = "rankine";
-        this.to = "rankine";
+        this.from = "miligram";
+        this.to = "miligram";
     }
 
     init() {
         super.init();
     }
-
-    convert(value) {
-        super.convert(value);
-    }
-
+ 
     calculate(value) {
         value = parseFloat(value);
 
         const unitObj = {
-            rankine: "&deg;R",
-            reamur: "&deg;r",
-            fahrenheit: "&deg;F",
-            kelvin: "K",
-            celsius: "&deg;C"
+            milligram: "mg",
+            ounce: "ons",
+            gram: "gr",
+            pound: "pon",
+            kilogram: "kg",
+            quintal: "kw",
+            ton: "ton"
         };
 
         const evaluate = (formula, value) => {
@@ -48,65 +46,105 @@ class TemperatureConverter extends Converter {
         };
 
         const resultObj = {
-             rankine(to) {
+             milligram(to) {
                 const formulaObj = {
-                    rankine: "x * 1",
-                    reamur: "(x - 491.67) * 0.44444",
-                    fahrenheit: "(x - 491.67) + 32",
-                    kelvin: "(x - 491.67) / 1.8 + 273.15",
-                    celsius: "(x - 491.67) / 1.8"
+                    milligram: "x * 1",
+                    ounce: "x / 28349.5",
+                    gram: "x / 1000",
+                    pound: "x / 453592",
+                    kilogram: "x / 1000000",
+                    quintal: "x / 100000000",
+                    ton: "x / 1000000000"
                 };
                 const formula = getFormula("rankine", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
 
-             reamur(to) {
+             ounce(to) {
                 const formulaObj = {
-                    rankine: "(x * 2.25) + 491.67",
-                    reamur: "x * 1",
-                    fahrenheit: "(x * 2.25) + 32",
-                    kelvin: "(x * 1.25) + 273.15",
-                    celsius: "x / 0.8"
+                    milligram: "x * 28349.5",
+                    ounce: "x * 1",
+                    gram: "x * 28.3495",
+                    pound: "x / 16",
+                    kilogram: "x / 35.274",
+                    quintal: "x / 3527.4",
+                    ton: "x / 35274"
                 };
                 const formula = getFormula("reamur", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
 
-             fahrenheit(to) {
+             gram(to) {
                 const formulaObj = {
-                    rankine: "(x - 32) + 491.67",
-                    reamur: "(x - 32) * 0.44444",
-                    fahrenheit: "x * 1",
-                    kelvin: "(x - 32) / 1.8 + 273.15",
-                    celsius: "(x - 32) / 1.8"
+                    milligram: "x * 1000",
+                    ounce: "x / 28.3495",
+                    gram: "x * 1",
+                    pound: "x / 453.592",
+                    kilogram: "x / 1000",
+                    quintal: "x / 100000",
+                    ton: "x / 1000000"
                 };
                 const formula = getFormula("fahrenheit", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
 
-             kelvin(to) {
+             pound(to) {
                 const formulaObj = {
-                    rankine: "(x - 273.15) * 1.8 + 491.67",
-                    reamur: "(x - 273.15) * 0.8",
-                    fahrenheit: "(x - 273.15) * 1.8 + 32",
-                    kelvin: "x * 1",
-                    celsius: "x - 273.15"
+                    milligram: "x * 453592",
+                    ounce: "x * 16",
+                    gram: "x * 453.592",
+                    pound: "x * 1",
+                    kilogram: "x / 2.20462",
+                    quintal: "x / 220.462",
+                    ton: "x / 2204.62"
                 };
                 const formula = getFormula("kelvin", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
 
-             celsius(to) {
+             kilogram(to) {
                 const formulaObj = {
-                    rankine: "(x * 1.8) + 491.67",
-                    reamur: "x * 0.8",
-                    fahrenheit: "(x * 1.8) + 32",
-                    kelvin: "x + 273.15",
-                    celsius: "x * 1"
+                    milligram: "x * 1000000",
+                    ounce: "x * 35.274",
+                    gram: "x * 1000",
+                    pound: "x * 2.20462",
+                    kilogram: "x * 1",
+                    quintal: "x / 100",
+                    ton: "x / 1000"
+                };
+                const formula = getFormula("celsius", formulaObj[to], "x");
+                const result = evaluate(formulaObj[to], value);
+                return { formula, result };
+             },
+
+             quintal(to) {
+                const formulaObj = {
+                    milligram: "",
+                    ounce: "",
+                    gram: "",
+                    pound: "",
+                    kilogram: "",
+                    quintal: "",
+                    ton: ""
+                };
+                const formula = getFormula("celsius", formulaObj[to], "x");
+                const result = evaluate(formulaObj[to], value);
+                return { formula, result };
+             },
+
+             ton(to) {
+                const formulaObj = {
+                    milligram: "",
+                    ounce: "",
+                    gram: "",
+                    pound: "",
+                    kilogram: "",
+                    quintal: "",
+                    ton: ""
                 };
                 const formula = getFormula("celsius", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
@@ -119,6 +157,10 @@ class TemperatureConverter extends Converter {
         return resultObj;
     }
 
+    convert(value) {
+        super.convert(value);
+    }
+
     display() {
         super.display();
     }
@@ -128,14 +170,14 @@ class TemperatureConverter extends Converter {
     }
 }
 
-const converter = new TemperatureConverter();
+const converter = new WeightConverter();
 
 window.addEventListener("scroll", () => {
     nav.toggleNavShadow(document, window.scrollY);
 });
 
 window.addEventListener("load", () => {
-    converter.init();
+    // converter.init();
     generateDynamicSiteName("../../../json/config.json");
     nav.initSidebar();
     nav.initSidebarArrow();
