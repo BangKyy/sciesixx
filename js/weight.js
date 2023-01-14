@@ -6,8 +6,8 @@ import { Converter } from "./utils/converter.js";
 class WeightConverter extends Converter {
     constructor() {
         super();
-        this.from = "miligram";
-        this.to = "miligram";
+        this.from = "milligram";
+        this.to = "milligram";
     }
 
     init() {
@@ -56,7 +56,7 @@ class WeightConverter extends Converter {
                     quintal: "x / 100000000",
                     ton: "x / 1000000000"
                 };
-                const formula = getFormula("rankine", formulaObj[to], "x");
+                const formula = getFormula("milligram", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
@@ -71,7 +71,7 @@ class WeightConverter extends Converter {
                     quintal: "x / 3527.4",
                     ton: "x / 35274"
                 };
-                const formula = getFormula("reamur", formulaObj[to], "x");
+                const formula = getFormula("ounce", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
@@ -86,7 +86,7 @@ class WeightConverter extends Converter {
                     quintal: "x / 100000",
                     ton: "x / 1000000"
                 };
-                const formula = getFormula("fahrenheit", formulaObj[to], "x");
+                const formula = getFormula("gram", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
@@ -101,7 +101,7 @@ class WeightConverter extends Converter {
                     quintal: "x / 220.462",
                     ton: "x / 2204.62"
                 };
-                const formula = getFormula("kelvin", formulaObj[to], "x");
+                const formula = getFormula("pound", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
@@ -116,37 +116,37 @@ class WeightConverter extends Converter {
                     quintal: "x / 100",
                     ton: "x / 1000"
                 };
-                const formula = getFormula("celsius", formulaObj[to], "x");
+                const formula = getFormula("kilogram", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
 
              quintal(to) {
                 const formulaObj = {
-                    milligram: "",
-                    ounce: "",
-                    gram: "",
-                    pound: "",
-                    kilogram: "",
-                    quintal: "",
-                    ton: ""
+                    milligram: "x * 100000000",
+                    ounce: "x * 3527.4",
+                    gram: "x * 100000",
+                    pound: "x * 220.462",
+                    kilogram: "x * 100",
+                    quintal: "x * 1",
+                    ton: "x / 10"
                 };
-                const formula = getFormula("celsius", formulaObj[to], "x");
+                const formula = getFormula("quintal", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
 
              ton(to) {
                 const formulaObj = {
-                    milligram: "",
-                    ounce: "",
-                    gram: "",
-                    pound: "",
-                    kilogram: "",
-                    quintal: "",
-                    ton: ""
+                    milligram: "x * 1000000000",
+                    ounce: "x * 35274",
+                    gram: "x * 1000000",
+                    pound: "x * 2204.62",
+                    kilogram: "x * 1000",
+                    quintal: "x * 10",
+                    ton: "x * 1"
                 };
-                const formula = getFormula("celsius", formulaObj[to], "x");
+                const formula = getFormula("ton", formulaObj[to], "x");
                 const result = evaluate(formulaObj[to], value);
                 return { formula, result };
              },
@@ -177,7 +177,7 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("load", () => {
-    // converter.init();
+    converter.init();
     generateDynamicSiteName("../../../json/config.json");
     nav.initSidebar();
     nav.initSidebarArrow();

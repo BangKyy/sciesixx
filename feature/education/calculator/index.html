@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="../../../css/feature/education/weight.css" class="rel">
+    <link rel="stylesheet" href="../../../css/feature/education/calculator.css" class="rel">
     <!-- Partials -->
     <link rel="stylesheet" href="../../../css/partials/nav.css">
     <link rel="stylesheet" href="../../../css/partials/footer.css">
@@ -21,7 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.0/math.min.js" integrity="sha512-CTGbAVWJ6AABEPglq77mqB8mXjBRcmtfnxsISZEnJijuJnwooQTMpqDsuIfoXns5HUoDME1Ka0wZ/sBO2jfwgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- FA Icons -->
     <script src="https://kit.fontawesome.com/df1f690d1c.js" crossorigin="anonymous"></script>
-    <title>SCIESIXX SITE | Konverter Berat</title>
+    <title>UNISIX SITE | Suhu Konverter</title>
 </head>
 <body>
     <header>
@@ -240,61 +240,51 @@
 
     <!-- Main section -->
     <section class="main-section">
-        <div class="weight-section">
-            <div class="weight-title-container">
-                <i class="converter-icon fa-solid fa-weight-hanging"></i>
-                <h2 class="title-converter">Konverter Berat</h2>
-            </div>
-
-            <div class="amount-container">
-                <label for="amount">Masukkan Jumlah</label>
-                <input type="number" name="amount" id="amount">
-            </div>
-
-            <div class="unit-converter">
-                <div class="left">
-                    <p class="text-select">Dari</p>
-                    <div class="select-container">
-                        <select name="from" id="from">
-                            <option value="milligram" class="option">Milligram</option>
-                            <option value="ounce" class="option">Ons</option>
-                            <option value="gram" class="option">Gram</option>
-                            <option value="pound" class="option">Pon</option>
-                            <option value="kilogram" class="option">Kilogram</option>
-                            <option value="quintal" class="option">Kwintal</option>
-                            <option value="ton" class="option">Ton</option>
-                        </select>
+        <div class="calculator-container">
+            <div class="calculator">
+                <div class="calculator-top-container">
+                    <div class="calculator-name-container">
+                        <i class="calculator-iconbi bi-x-diamond-fill"></i>
+                        <span class="calculator-name">Kalkulator</span>
+                    </div>
+                    <div class="calculator-history-container">
+                        <textarea rows="4" class="history"></textarea>
+                    </div>
+                    <div class="calculator-output-container">
+                        <div class="history-icon-container">
+                            <i class="history-icon bi bi-clock-history"></i>
+                        </div>
+                        <div class="output-container">
+                            <input type="text" class="output">
+                        </div>
                     </div>
                 </div>
-                
-                <div class="middle">
-                    <i class="convert-icon bi bi-arrow-left-right"></i>
-                </div>
-                
-                <div class="right">
-                    <p class="text-select">Ke</p>
-                    <div class="select-container to">
-                        <select name="to" id="to">
-                            <option value="milligram" class="option">Milligram</option>
-                            <option value="ounce" class="option">Ons</option>
-                            <option value="gram" class="option">Gram</option>
-                            <option value="pound" class="option">Pon</option>
-                            <option value="kilogram" class="option">Kilogram</option>
-                            <option value="quintal" class="option">Kwintal</option>
-                            <option value="ton" class="option">Ton</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+                <div class="calculator-bottom-container">
+                    <div class="calculator-btn calculator-btn-dark clear-btn">C</div>
+                    <div class="calculator-btn calculator-btn-dark add-btn">(</div>
+                    <div class="calculator-btn calculator-btn-dark add-btn">)</div>
+                    <div class="calculator-btn calculator-btn-dark delete-btn"><i class="bi bi-backspace-fill"></i></div>
+                    
+                    <div class="calculator-btn calculator-btn-light add-btn">7</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">8</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">9</div>
+                    <div class="calculator-btn calculator-btn-dark add-btn">&divide;</div>
 
-            <div class="formular-container">
-                <span class="title formular">rumus</span>
-                <span class="content"> tunggu...</span>
-            </div>
+                    <div class="calculator-btn calculator-btn-light add-btn">4</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">5</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">6</div>
+                    <div class="calculator-btn calculator-btn-dark add-btn">&times;</div>
 
-            <div class="result-container">
-                <label for="result">Hasil</label>
-                <input type="text" name="result" id="result" readonly>
+                    <div class="calculator-btn calculator-btn-light add-btn">3</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">2</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">1</div>
+                    <div class="calculator-btn calculator-btn-dark add-btn">&minus;</div>
+
+                    <div class="calculator-btn calculator-btn-light add-btn">&dot;</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">0</div>
+                    <div class="calculator-btn calculator-btn-light equal-btn">&equals;</div>
+                    <div class="calculator-btn calculator-btn-dark add-btn">&plus;</div>
+                </div>
             </div>
         </div>
     </section>
@@ -332,6 +322,6 @@
         </div>
     </footer>
     <!-- End Footer Section -->
-    <script type="module" src="../../../js/weight.js"></script>
+    <script type="module" src="../../../js/calculator.js"></script>
 </body>
 </html>

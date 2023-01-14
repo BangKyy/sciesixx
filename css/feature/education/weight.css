@@ -229,6 +229,9 @@ label{
     .converter-icon{
         font-size: 28px;
     }
+    .title-converter{
+        font-size: 20px;
+    }
     label{
         font-size: 12px;
     }
