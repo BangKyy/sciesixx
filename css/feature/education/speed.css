@@ -79,7 +79,7 @@ header{
     padding: 8rem 0;
     background-color: var(--bg-color-2);
 }
-.length-section {
+.speed-section {
     background-color: #fbfbfb;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
     padding: 2.5rem 5rem;;
@@ -87,7 +87,7 @@ header{
     border-radius: 0.6rem;
     max-width: 650px;
 }
-.length-title-container{
+.speed-title-container{
     display: block;
     justify-content: center;
     align-items: center;
@@ -165,112 +165,112 @@ label{
 /* End main section */
 
 @media screen and (max-width: 992px) {
-  header{
-      width: 100%;
-  }
+    header{
+        width: 100%;
+    }
 }
 @media screen and (max-width: 768px) {
 }
 @media screen and (max-width: 576px) {
-  .length-section{
-      padding: 32px 42px;
-      max-width: 400px;
-  }
-  .converter-icon{
-      font-size: 28px;
-  }
-  label{
-      font-size: 12px;
-  }
-  .amount-container{
-      margin: 16px auto;
-  }
-  .amount-container > input[type="number"]{
-      padding: 8px;
-      margin-top: 6px;
-      font-size: 10px;
-  }
-  .select-container > select{
-      padding: 4px 8px;
-      margin-bottom: 16px;
-      font-size: 10px;
-  }
-  .text-select{
-      margin-bottom: 4px !important;
-      font-size: 12px;
-  }
-  .middle{
-      margin-top: 25px;
-  }
-  .formular-container{
-      margin-bottom: 16px;
-  }
-  .formular-container > .title{
-      font-size: 10px;
-      padding: 7px;
-  }
-  .formular-container > .content{
-      font-size:10px;
-  }
-  .result-container{
-      margin-bottom: 1.5rem;
-  }
-  .result-container > input[type="text"]{
-      padding: 0.6rem;
-      margin-top: 0.5rem;
-      font-size: 10px;
-  }
+    .speed-section{
+        padding: 32px 42px;
+        max-width: 400px;
+    }
+    .converter-icon{
+        font-size: 28px;
+    }
+    label{
+        font-size: 12px;
+    }
+    .amount-container{
+        margin: 16px auto;
+    }
+    .amount-container > input[type="number"]{
+        padding: 8px;
+        margin-top: 6px;
+        font-size: 10px;
+    }
+    .select-container > select{
+        padding: 4px 8px;
+        margin-bottom: 16px;
+        font-size: 10px;
+    }
+    .text-select{
+        margin-bottom: 4px !important;
+        font-size: 12px;
+    }
+    .middle{
+        margin-top: 25px;
+    }
+    .formular-container{
+        margin-bottom: 16px;
+    }
+    .formular-container > .title{
+        font-size: 10px;
+        padding: 7px;
+    }
+    .formular-container > .content{
+        font-size:10px;
+    }
+    .result-container{
+        margin-bottom: 1.5rem;
+    }
+    .result-container > input[type="text"]{
+        padding: 0.6rem;
+        margin-top: 0.5rem;
+        font-size: 10px;
+    }
 }
 @media screen and (max-width: 360px) {
-  .length-section{
-      max-width: 300px;
-      padding: 32px 32px;
-  }
-  .converter-icon{
-      font-size: 28px;
-  }
-  .title-converter{
-      font-size: 20px;
-  }
-  label{
-      font-size: 12px;
-  }
-  .amount-container{
-      margin: 16px auto;
-  }
-  .amount-container > input[type="number"]{
-      padding: 8px;
-      margin-top: 6px;
-      font-size: 10px;
-  }
-  .select-container > select{
-      padding: 4px 0;
-      margin-bottom: 16px;
-      font-size: 10px;
-  }
-  .text-select{
-      margin-bottom: 4px !important;
-      font-size: 12px;
-  }
-  .middle{
-      margin-top: 25px;
-  }
-  .formular-container{
-      margin-bottom: 16px;
-  }
-  .formular-container > .title{
-      font-size: 10px;
-      padding: 7px;
-  }
-  .formular-container > .content{
-      font-size:10px;
-  }
-  .result-container{
-      margin-bottom: 1.5rem;
-  }
-  .result-container > input[type="text"]{
-      padding: 0.6rem;
-      margin-top: 0.5rem;
-      font-size: 10px;
-  }
+    .speed-section{
+        max-width: 300px;
+        padding: 32px 32px;
+    }
+    .converter-icon{
+        font-size: 28px;
+    }
+    .title-converter{
+        font-size: 20px;
+    }
+    label{
+        font-size: 12px;
+    }
+    .amount-container{
+        margin: 16px auto;
+    }
+    .amount-container > input[type="number"]{
+        padding: 8px;
+        margin-top: 6px;
+        font-size: 10px;
+    }
+    .select-container > select{
+        padding: 4px 0;
+        margin-bottom: 16px;
+        font-size: 10px;
+    }
+    .text-select{
+        margin-bottom: 4px !important;
+        font-size: 12px;
+    }
+    .middle{
+        margin-top: 25px;
+    }
+    .formular-container{
+        margin-bottom: 16px;
+    }
+    .formular-container > .title{
+        font-size: 10px;
+        padding: 7px;
+    }
+    .formular-container > .content{
+        font-size:10px;
+    }
+    .result-container{
+        margin-bottom: 1.5rem;
+    }
+    .result-container > input[type="text"]{
+        padding: 0.6rem;
+        margin-top: 0.5rem;
+        font-size: 10px;
+    }
 }
