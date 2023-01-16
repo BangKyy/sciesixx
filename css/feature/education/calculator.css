@@ -138,11 +138,11 @@ header{
 .calculator-output-container{
     display: flex;
     /* background-color: royalblue; */
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 12px;
 }
-.output-container input{
+.output {
     background-color: #fbfbfb;
     width: 100%;
     padding: 4px 2px;
@@ -150,11 +150,14 @@ header{
     font-size: 24px;
     /* background-color: #011D31; */
     border: none;
+    text-align: right;
 }
 .history-icon,
 .back-icon{
     margin-left: 8px;
+    margin-right: 8px;
     font-size: 28px;
+    cursor: pointer;
 }
 .calculator-bottom-container{
     display: grid;
@@ -168,6 +171,7 @@ header{
     font-weight: var(--bold-3);
     font-size: 32px;
     border: solid 1px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
 }
 .btn-important{
     background-color: var(--btn-color-1);
