@@ -251,40 +251,74 @@
                         <textarea rows="4" class="history"></textarea>
                     </div>
                     <div class="calculator-output-container">
-                        <div class="history-icon-container">
+                        <!-- <div class="history-icon-container"> -->
                             <i class="history-icon fa-solid fa-clock-rotate-left"></i>
                             <!-- <i class="back-icon fa-solid fa-xmark"></i> -->
-                        </div>
-                        <div class="output-container">
+                        <!-- </div> -->
+                        <!-- <div class="output-container"> -->
                             <input type="text" class="output">
-                        </div>
+                        <!-- </div> -->
                     </div>
                 </div>
                 <div class="calculator-bottom-container">
                     <div class="calculator-btn btn-important calculator-btn-dark clear-btn">C</div>
-                    <div class="calculator-btn btn-important calculator-btn-dark add-btn">(</div>
-                    <div class="calculator-btn btn-important calculator-btn-dark add-btn">)</div>
+                    <div class="calculator-btn btn-important calculator-btn-dark add-btn">
+                        <input type="hidden" class="add-btn-input" value="(">(
+                    </div>
+                    <div class="calculator-btn btn-important calculator-btn-dark add-btn">
+                        <input type="hidden" class="add-btn-input" value=")">)
+                    </div>
                     <div class="calculator-btn btn-important calculator-btn-dark delete-btn"><i class="fa-solid fa-delete-left"></i></div>
                     
-                    <div class="calculator-btn calculator-btn-light add-btn">7</div>
-                    <div class="calculator-btn calculator-btn-light add-btn">8</div>
-                    <div class="calculator-btn calculator-btn-light add-btn">9</div>
-                    <div class="calculator-btn btn-important calculator-btn-dark add-btn">&divide;</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value="7">7
+                    </div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value="8">8
+                    </div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value="9">9
+                    </div>
+                    <div class="calculator-btn btn-important calculator-btn-dark add-btn">
+                        <input type="hidden" class="add-btn-input" value="/">&divide;
+                    </div>
 
-                    <div class="calculator-btn calculator-btn-light add-btn">4</div>
-                    <div class="calculator-btn calculator-btn-light add-btn">5</div>
-                    <div class="calculator-btn calculator-btn-light add-btn">6</div>
-                    <div class="calculator-btn btn-important calculator-btn-dark add-btn">&times;</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value="4">4
+                    </div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value="5">5
+                    </div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value="6">6
+                    </div>
+                    <div class="calculator-btn btn-important calculator-btn-dark add-btn">
+                        <input type="hidden" class="add-btn-input" value="*">&times;
+                    </div>
 
-                    <div class="calculator-btn calculator-btn-light add-btn">3</div>
-                    <div class="calculator-btn calculator-btn-light add-btn">2</div>
-                    <div class="calculator-btn calculator-btn-light add-btn">1</div>
-                    <div class="calculator-btn btn-important calculator-btn-dark add-btn">&minus;</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value="3">3
+                    </div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value="2">2
+                    </div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value="1">1
+                    </div>
+                    <div class="calculator-btn btn-important calculator-btn-dark add-btn">
+                        <input type="hidden" class="add-btn-input" value="-">&minus;
+                    </div>
 
-                    <div class="calculator-btn calculator-btn-light add-btn">&dot;</div>
-                    <div class="calculator-btn calculator-btn-light add-btn">0</div>
-                    <div class="calculator-btn calculator-btn-light equal-btn">&equals;</div>
-                    <div class="calculator-btn btn-important btn-corner calculator-btn-dark add-btn">&plus;</div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value=".">&dot;
+                    </div>
+                    <div class="calculator-btn calculator-btn-light add-btn">
+                        <input type="hidden" class="add-btn-input" value="0">0
+                    </div>
+                    <div class="calculator-btn calculator-btn-light solve-btn">&equals;</div>
+                    <div class="calculator-btn btn-important btn-corner calculator-btn-dark add-btn">
+                        <input type="hidden" class="add-btn-input" value="+">&plus;
+                    </div>
                 </div>
             </div>
         </div>
