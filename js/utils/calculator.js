@@ -2,7 +2,7 @@ const select = document.querySelector.bind(document);
 const selectAll = document.querySelectorAll.bind(document);
 
 export class Calculator {
-    static history = select(".history");
+    static historyInput = select(".history");
     static historyBtn = select(".history-icon");
     static outputInput = select(".output");
     static clearBtn = select(".clear-btn");
@@ -12,7 +12,7 @@ export class Calculator {
     static addBtnInputs = selectAll(".add-btn-input");
 
     constructor() {
-        this.history = Calculator.history;
+        this.historyInput = Calculator.historyInput;
         this.historyBtn = Calculator.historyBtn;
         this.outputInput = Calculator.outputInput;
         this.clearBtn = Calculator.clearBtn;
@@ -20,6 +20,7 @@ export class Calculator {
         this.solveBtn = Calculator.solveBtn;
         this.addBtns = Calculator.addBtns;
         this.addBtnInputs = Calculator.addBtnInputs;
+        this.histories = [];
         this.numberList = [];
         this.rawOutput = "";
         this.output = "";
@@ -84,7 +85,8 @@ export class Calculator {
         try {
             const evaluated = math.evaluate(value);
             if (isNaN(evaluated) || !isFinite(evaluated)) throw new Error("Error");
-            return String(evaluated);
+            const result = String(Math.round(evaluated * 10e+14) / 10e+14);
+            return result;
         } catch (err) {
             console.log("Error");
             return new Error("Error");
