@@ -1,3 +1,5 @@
+import { getCookie, setCookie } from "../lib/cookie.js";
+
 const select = document.querySelector.bind(document);
 const selectAll = document.querySelectorAll.bind(document);
 
@@ -20,8 +22,10 @@ export class Calculator {
         this.solveBtn = Calculator.solveBtn;
         this.addBtns = Calculator.addBtns;
         this.addBtnInputs = Calculator.addBtnInputs;
-        this.histories = [];
+        this.historyPairs = [];
         this.numberList = [];
+        this.historyName = "";
+        this.historyOutput = "";
         this.rawOutput = "";
         this.output = "";
     }
@@ -36,8 +40,12 @@ export class Calculator {
             this.display();
         });
         this.solveBtn.addEventListener("click", () => {
+            this.addHistory(0);
             this.solve();
+            this.addHistory(1);
+            this.saveHistories();
             this.display();
+            this.displayHistories();
         });
         this.addBtns.forEach((addBtn, i) => {
             addBtn.addEventListener("click", () => {
@@ -53,6 +61,15 @@ export class Calculator {
         const result = this.changeSymbol(value);
         this.rawOutput = value;
         this.output = result;
+    }
+
+    toHistoryOutput() {
+        const pairs = Object.assign([], this.historyPairs);
+        pairs.reverse();
+        const value = pairs.map((pair) => {
+            return pair.join("\n= ");
+        }).join("\n");
+        this.historyOutput = value;
     }
 
     splitOutput() {
@@ -78,6 +95,10 @@ export class Calculator {
     }
 
     checkExpr(value) {
+        return !(this.evaluate(value) instanceof Error);
+    }
+
+    checkOperator(value) {
         return true;
     }
 
@@ -88,9 +109,15 @@ export class Calculator {
             const result = String(Math.round(evaluated * 10e+14) / 10e+14);
             return result;
         } catch (err) {
-            console.log("Error");
+            console.log(err.message);
             return new Error("Error");
         }
+    }
+
+    generatePastHistories() {
+        const pastHistoryPairs = JSON.parse(getCookie(document, { name: this.historyName }) || "[]");
+        this.historyPairs = pastHistoryPairs;
+        this.toHistoryOutput();
     }
 
     solve() {
@@ -112,14 +139,36 @@ export class Calculator {
         this.toOutput();
     }
 
+    saveHistories() {
+        setCookie(document, {
+            name: this.historyName,
+            value: JSON.stringify(this.historyPairs),
+            expires: 1000 * 60 * 60 * 24
+        });
+    }
+
     add(value) {
-        if (!this.checkExpr(value)) return;
+        if (!this.checkOperator(value)) return;
         this.numberList.push(value);
         this.toOutput();
     }
 
+    addHistory(index) {
+        if (!this.checkExpr(this.rawOutput)) return;
+        const hpLength = this.historyPairs.length;
+        const hpIndex = hpLength - index;
+        const pair = this.historyPairs[hpIndex] || [];
+        pair[index] = this.output;
+        this.historyPairs[hpIndex] = pair;
+        this.toHistoryOutput();
+    }
+
     display() {
         this.outputInput.value = this.output;
+    }
+    
+    displayHistories() {
+        this.historyInput.value = this.historyOutput;
     }
 
     addError() {

@@ -10,6 +10,7 @@ class BasicCalculator extends Calculator {
     
     init() {
         super.init();
+        this.historyName = "calculator_history";
     }
 }
 
@@ -21,6 +22,8 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("load", () => {
     calculator.init();
+    calculator.generatePastHistories();
+    calculator.displayHistories();
     generateDynamicSiteName("../../../json/config.json");
     nav.initSidebar();
     nav.initSidebarArrow();

@@ -12,6 +12,7 @@ class TrigonometryCalculator extends Calculator {
     init() {
         super.init();
         this.setAngleConfig();
+        this.historyName = "trigonometry_calculator_history";
     }
 
     setAngleConfig() {
