@@ -64,6 +64,16 @@ const responsiveIdentificationImg = () => {
     img.src = url;
 };
 
+const initTyped = () => {
+    const typed = new Typed(".h1-typed", {
+        // Words here
+        strings: ["kreatif", "inovatif", "ceria", "damai"],
+        typeSpeed: 75,
+        loop: true,
+        backSpeed: 50
+    });
+};
+
 formBtn.addEventListener("click", submitForm);
 window.addEventListener("scroll", () => {
     nav.changeNavColor(document, window.scrollY);
@@ -74,6 +84,7 @@ window.addEventListener("resize", () => {
 });
 window.addEventListener("load", () => {
     generateDynamicSiteName();
+    initTyped();
     nav.initSidebar();
     nav.initSidebarArrow();
     nav.checkUsername();
