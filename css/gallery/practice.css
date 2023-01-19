@@ -198,18 +198,77 @@ header{
 /* End Main Section */
 
 @media screen and (max-width: 992px) {
+    header{
+        width: 100%;
+    }
+    .practice-title-container {
+        padding: 1rem 0;
+    }
+    .practice-icon-container {
+        width: 70px;
+        height: 70px;
+    }
+    .practice-icon {
+        font-size: 24pt;
+    }
+    .practice-text-container {
+        padding-top: 1.2rem;
+    }
+    .practice-title {
+        font-size: 24pt;
+    }
+    .practice-subtitle {
+        font-size: 8pt;
+        padding: 0 50px;
+    }
     .landscape-grid-container,
     .portrait-grid-container {
         grid-template-columns: 1fr 1fr 1fr;
     }
 }
 @media screen and (max-width: 768px) {
+    .practice-title-container {
+        padding: 1rem 0;
+    }
+    .practice-icon-container {
+        width: 70px;
+        height: 70px;
+    }
+    .practice-icon {
+        font-size: 24pt;
+    }
+    .practice-text-container {
+        padding-top: 1.2rem;
+    }
+    .practice-title {
+        font-size: 24pt;
+    }
+    .practice-subtitle {
+        font-size: 8pt;
+        padding: 0 50px;
+    }
     .landscape-grid-container,
     .portrait-grid-container {
         grid-template-columns: 1fr 1fr;
     }
 }
 @media screen and (max-width: 576px) {
+    .practice-title-container {
+        padding: 1rem 0;
+    }
+    .practice-icon-container {
+        width: 60px;
+        height: 60px;
+    }
+    .practice-icon {
+        font-size: 20pt;
+    }
+    .practice-text-container {
+        padding-top: 1.2rem;
+    }
+    .practice-title {
+        font-size: 20pt;
+    }
     .landscape-grid-container,
     .portrait-grid-container {
         grid-template-columns: 1fr;

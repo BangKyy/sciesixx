@@ -198,6 +198,29 @@ header{
 /* End Main Section */
 
 @media screen and (max-width: 992px) {
+    header{
+        width: 100%;
+    }
+    .video-title-container {
+        padding: 1rem 0;
+    }
+    .video-icon-container {
+        width: 70px;
+        height: 70px;
+    }
+    .video-icon {
+        font-size: 24pt;
+    }
+    .video-text-container {
+        padding-top: 1.2rem;
+    }
+    .video-title {
+        font-size: 24pt;
+    }
+    .practice-subtitle {
+        font-size: 8pt;
+        padding: 0 50px;
+    }
     .landscape-grid-container,
     .portrait-grid-container {
         grid-template-columns: 1fr 1fr 1fr;
@@ -210,11 +233,46 @@ header{
     }
 }
 @media screen and (max-width: 576px) {
+    .video-title-container {
+        padding: 1rem 0;
+    }
+    .video-icon-container {
+        width: 70px;
+        height: 70px;
+    }
+    .video-icon {
+        font-size: 24pt;
+    }
+    .video-text-container {
+        padding-top: 1.2rem;
+    }
+    .video-title {
+        font-size: 24pt;
+    }
+    .video-subtitle {
+        font-size: 8pt;
+        padding: 0 50px;
+    }
     .landscape-grid-container,
     .portrait-grid-container {
         grid-template-columns: 1fr;
     }
 }
 @media screen and (max-width: 360px) {
-
+    .video-title-container {
+        padding: 1rem 0;
+    }
+    .video-icon-container {
+        width: 60px;
+        height: 60px;
+    }
+    .video-icon {
+        font-size: 20pt;
+    }
+    .video-text-container {
+        padding-top: 1.2rem;
+    }
+    .video-title {
+        font-size: 20pt;
+    }
 }

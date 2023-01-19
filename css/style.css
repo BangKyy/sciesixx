@@ -93,7 +93,7 @@ header{
     width: 455px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 .container-1 h1 {
     padding: 0 0 12px 0;
@@ -106,7 +106,7 @@ header{
 } */
 .image-section-1 {
     /* border: 1px solid #000; */
-    width: 300px;
+    width: 340px;
     height: auto;
 }
 /* End First Section */
@@ -160,7 +160,7 @@ header{
 /* .person-container > figure {
     background-color: #0002;
 } */
-.nick-person-container {
+.nick-person-container{
     /* background-color: #0001; */
     text-align: center;
     margin: -20px -25px 10px 15px;
@@ -645,7 +645,7 @@ header{
         /* width: 600px; */
     }
     .image-section-1 {
-        width: 260px;
+        width: 300px;
         height: auto;
         /* background-color: #0001; */
     }
@@ -770,7 +770,7 @@ header{
         font-size: 9pt;
     }
     .image-section-1 {
-        width: 200px;
+        width: 220px;
         height: auto;
         /* background-color: #0001; */
     }
@@ -852,7 +852,13 @@ header{
         height: auto;
     }
     .all-person-section{
-        padding-top: 14px;
+        padding: 14px;
+    }
+    .person-container{
+        display: block;
+        justify-content: center;
+        justify-items: center;
+        text-align: center;
     }
     .person-title{
         text-align: center;
@@ -861,18 +867,21 @@ header{
         font-size: 16px;
     }
     .img-person{
-        height: 60px;
-        margin: 0.8rem 0 2rem 2rem;
-        border: 3px dashed rgba(255,255,255,0.5);
+        height: 100px;
+        margin: 14px auto;
+        border: 5px dashed rgba(255,255,255,0.5);
+    }
+    .nick-person-container{
+        margin: 0;
     }
     .nick-person{
-        font-size: 8px;
-        margin: -20px 6px 0 0;
+        font-size: 14px;
+        padding-top: 14px;
     }
     .person-desk{
         margin-top: 1rem;
         margin-bottom: 0;
-        font-size: 4px;
+        font-size: 9px;
         font-weight: var(--bold-2);
     }
     .identification-title{

@@ -4,8 +4,12 @@ const select = document.querySelector.bind(document);
 const selectAll = document.querySelectorAll.bind(document);
 
 export class Calculator {
+    static historyTopContainer = select(".history-top-container");
+    static calculatorTopContainer = select(".calculator-top-container");
+    static historyTopInput = select(".history-top");
     static historyInput = select(".history");
     static historyBtn = select(".history-icon");
+    static historyTopBtn = select(".history-top-icon");
     static outputInput = select(".output");
     static clearBtn = select(".clear-btn");
     static deleteBtn = select(".delete-btn");
@@ -14,8 +18,12 @@ export class Calculator {
     static addBtnInputs = selectAll(".add-btn-input");
 
     constructor() {
+        this.historyTopContainer = Calculator.historyTopContainer;
+        this.calculatorTopContainer = Calculator.calculatorTopContainer;
+        this.historyTopInput = Calculator.historyTopInput;
         this.historyInput = Calculator.historyInput;
         this.historyBtn = Calculator.historyBtn;
+        this.historyTopBtn = Calculator.historyTopBtn;
         this.outputInput = Calculator.outputInput;
         this.clearBtn = Calculator.clearBtn;
         this.deleteBtn = Calculator.deleteBtn;
@@ -54,6 +62,19 @@ export class Calculator {
                 this.display();
             });
         });
+        this.historyBtn.addEventListener("click", () => {
+            this.toggleHistoryField(true);
+        });
+        this.historyTopBtn.addEventListener("click", () => {
+            this.toggleHistoryField(false);
+        });
+    }
+
+    toggleHistoryField(fromDefault=true) {
+        const willDisplayed = fromDefault ? this.historyTopContainer : this.calculatorTopContainer;
+        const willHidden = fromDefault ? this.calculatorTopContainer : this.historyTopContainer;
+        willDisplayed.style.display = "block";
+        willHidden.style.display = "none";
     }
 
     toOutput() {
@@ -169,6 +190,7 @@ export class Calculator {
     
     displayHistories() {
         this.historyInput.value = this.historyOutput;
+        this.historyTopInput.value = this.historyOutput;
     }
 
     addError() {
