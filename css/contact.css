@@ -19,7 +19,7 @@ body{
     --bg-color-3: #dde8f7;
     --bg-color-4: #b4c5dd;
     --bg-dropdown: #f2f2f8;
-    --bg-input-1: #f3f3f7c2;
+    --bg-input-1: #ebebebbb;
 
     /* font colors */
     --color-1: #143a6a;
@@ -87,7 +87,7 @@ header{
     justify-content: center;
     align-items: stretch;
     padding: 0 !important;
-    width: 80% !important;
+    width: 90% !important;
 }
 .contact-us-left {
     background-color: var(--bg-dropdown);
@@ -316,6 +316,9 @@ header{
 
 }
 @media screen and (max-width: 576px) {
+    .contact-us-container {
+        width: 100% !important;
+    }
     .contact-us-title,
     .contact-us-description,
     .input-group,
@@ -355,5 +358,7 @@ header{
     }
 }
 @media screen and (max-width: 360px) {
-
+    .contact-us-container {
+        width: 100% !important;
+    }
 }

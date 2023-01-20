@@ -120,7 +120,14 @@ export class Calculator {
     }
 
     checkOperator(value) {
-        return true;
+        const singleOperators = ["/", "*", "-", "+", "^", ",", "."];
+        const { numberList } = this;
+        const isFirst = !numberList.length;
+        const wasOperator  = (v) => singleOperators.includes(v);
+        const charBefore = isFirst ? "" : numberList[numberList.length - 1];
+        const isIllegalBegin = !(!isFirst || !!value.match(/^([^\/\*\+\^\,\.\!])/));
+        const isIllegalOperator = !isFirst && wasOperator(charBefore) && wasOperator(value);
+        return !(isIllegalBegin || isIllegalOperator);
     }
 
     evaluate(value) {

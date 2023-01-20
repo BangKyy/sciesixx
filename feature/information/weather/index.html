@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="../../../css/feature/education/speed.css" class="rel">
+    <link rel="stylesheet" href="../../../css/feature/information/weather.css" class="rel">
     <!-- Partials -->
     <link rel="stylesheet" href="../../../css/partials/nav.css">
     <link rel="stylesheet" href="../../../css/partials/footer.css">
@@ -18,11 +18,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <!-- Math JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.0/math.min.js" integrity="sha512-CTGbAVWJ6AABEPglq77mqB8mXjBRcmtfnxsISZEnJijuJnwooQTMpqDsuIfoXns5HUoDME1Ka0wZ/sBO2jfwgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Sweetalert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js" integrity="sha256-t2UzhRr4kaJ0M9btOrWK1Uua9mDTZVrXyuC9lRtqAwk=" crossorigin="anonymous"></script>
     <!-- FA Icons -->
     <script src="https://kit.fontawesome.com/df1f690d1c.js" crossorigin="anonymous"></script>
-    <title>SCIESIXX SITE | Konverter Kecepatan</title>
+    <title>UNISIX SITE | Cuaca</title>
 </head>
 <body>
     <div class="up-arrow-container">
@@ -130,7 +130,7 @@
         <div class="sidebar container-fluid">
             <ul class="sidebar-ul">
                 <li class="sidebar-link-list container-fluid">
-                    <a href="../" class="sidebar-link">Beranda</a>
+                    <a href="../../../" class="sidebar-link">Beranda</a>
                 </li>
                 <li class="sidebar-link-list sidebar-arrow-list container-fluid">
                     <p class="p-0 m-0">
@@ -194,7 +194,7 @@
                         </a>
                     </p>
                     <div class="collapse-sidebar collapse container-fluid" id="collapse-sidebar-feature">
-                        <div class="card card-body container-fluid m-0 pt-2 pb-2" style="background-color: #0000; border-width:0;">
+                        <div class="card card-body container-./..fluid m-0 pt-2 pb-2" style="background-color: #0000; border-width:0;">
                             <div class="collapse-list collapse-list-feature container-fluid text-center">
                                 <a class="a-collapse text-center" href="../../../feature/education/">
                                     <i class="bi bi-journals"></i>
@@ -244,98 +244,243 @@
             </ul>
         </div>
         <!-- End Navbar Section -->
+        <!-- Main Section -->
+        <section class="main-section">
+            <div class="weather-container">
+                <div class="weather-left-container">
+                    <div class="search-container">
+                        <div class="search-icon-container"><i class="bi bi-search icon-search"></i></div>
+                        <div class="search-subcontainer">
+                            <input class="search" placeholder="Cari lokasi anda ..">
+                        </div>
+                        <div class="search-close-icon-container"><i class="bi bi-x-circle-fill"></i></div>
+                    </div>
+                    <div class="weather-icon-container">
+                        <img src="../../../images/weather/weather-fog.svg" alt="" class="weather-today-icon">
+                    </div>
+                    <div class="weather-temperature-container"></div>
+                    <div class="weather-condition-container"></div>
+                </div>
+                <div class="weather-right-container">
+                    <div class="top-weather-right">
+                        <div class="option-times-container">
+                            <h4 class="option-today times-container">Hari ini</h4>
+                            <h4 class="option-week times-container">Minggu ini</h4>
+                        </div>
+                    </div>
+                    <div class="week-weather-container">
+                        <div class="day-weather-container">
+                            <h4 class="day-weather-teks">Senin</h4>
+                            <div class="day-weather-icon">
+                                <img src="../../../images/weather/weather-summer.svg" alt="" class="weather-day-icon">
+                            </div>
+                            <h5 class="day-weather-info">
+                                24°
+                                <span class="day-weather-info-min">21°</span>
+                            </h5>
+                        </div>
+                        <div class="day-weather-container">
+                            <h4 class="day-weather-teks">Senin</h4>
+                            <div class="day-weather-icon">
+                                <img src="../../../images/weather/weather-haze.svg" alt="" class="weather-day-icon">
+                            </div>
+                            <h5 class="day-weather-info">
+                                24°
+                                <span class="day-weather-info-min">21°</span>
+                            </h5>
+                        </div>
+                        <div class="day-weather-container">
+                            <h4 class="day-weather-teks">Senin</h4>
+                            <div class="day-weather-icon">
+                                <img src="../../../images/weather/weather-heavy-rain.svg" alt="" class="weather-day-icon">
+                            </div>
+                            <h5 class="day-weather-info">
+                                24°
+                                <span class="day-weather-info-min">21°</span>
+                            </h5>
+                        </div>
+                        <div class="day-weather-container">
+                            <h4 class="day-weather-teks">Senin</h4>
+                            <div class="day-weather-icon">
+                                <img src="../../../images/weather/weather-rainfall.svg" alt="" class="weather-day-icon">
+                            </div>
+                            <h5 class="day-weather-info">
+                                24°
+                                <span class="day-weather-info-min">21°</span>
+                            </h5>
+                        </div>
+                        <div class="day-weather-container">
+                            <h4 class="day-weather-teks">Senin</h4>
+                            <div class="day-weather-icon">
+                                <img src="../../../images/weather/weather-windy.svg" alt="" class="weather-day-icon">
+                            </div>
+                            <h5 class="day-weather-info">
+                                24°
+                                <span class="day-weather-info-min">21°</span>
+                            </h5>
+                        </div>
+                        <div class="day-weather-container">
+                            <h4 class="day-weather-teks">Senin</h4>
+                            <div class="day-weather-icon">
+                                <img src="../../../images/weather/weather-storm.svg" alt="" class="weather-day-icon">
+                            </div>
+                            <h5 class="day-weather-info">
+                                24°
+                                <span class="day-weather-info-min">21°</span>
+                            </h5>
+                        </div>
+                        <div class="day-weather-container">
+                            <h4 class="day-weather-teks">Senin</h4>
+                            <div class="day-weather-icon">
+                                <img src="../../../images/weather/weather-partly-cloud.svg" alt="" class="weather-day-icon">
+                            </div>
+                            <h5 class="day-weather-info">
+                                24°
+                                <span class="day-weather-info-min">21°</span>
+                            </h5>
+                        </div>
+                    </div>
+                    <div class="title-weather-right-container">
+                        <h5 class="title-weather-right">Sorotan Hari Ini</h5>
+                    </div>
+                    <div class="highlight-weather-right-container"> <!-- Grid -->
+                        <div class="highlight">
+                            <div class="highlight-title">UV Index</div>
+                            <div class="highlight-content highlight-content-1">
+                                <div class="uv-content uv-content-1">
+                                    <div class="uv-number">2</div>
+                                </div>
+                                <div class="uv-content uv-content-2">
+                                    <div class="uv-indicator-bar">
+                                        <div class="uv-indicator">
+                                            <div class="uv-indicator-bullet"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="uv-content uv-content-3">
+                                    <div class="uv-number-indicator">12</div>
+                                    <div class="uv-number-indicator">9</div>
+                                    <div class="uv-number-indicator">6</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-title">Status Angin</div>
+                            <div class="highlight-content highlight-content-2">
+                                <div class="wind-content wind-content-1">
+                                    <div class="wind-number-container">
+                                        <span class="wind-number">25</span>
+                                        <span class="wind-unit">m/s</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="highlight-footer">
+                                <div class="wind-direction-icon-container"><i class="bi bi-geo-alt-fill"></i></div>
+                                <div class="wind-direction-text-container">SSW</div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-title">Terbit &amp; Terbenam</div>
+                            <div class="highlight-content highlight-content-3">
+                                <div class="sun-content sun-content-1 sunrise-container">
+                                    <div class="sunrise-icon-container"><i class="bi bi-arrow-up-short icon-arrow"></i></div>
+                                    <div class="sun-time-content">
+                                        <div class="title-sun-time">05:28 WIB</div>
+                                        <div class="subtitle-sun-time">-1m 46s</div>
+                                    </div>
+                                </div>
+                                <div class="sun-content sun-content-2 sunset-container">
+                                    <div class="sunset-icon-container"><i class="bi bi-arrow-down-short icon-arrow"></i></div>
+                                    <div class="sun-time-content">
+                                        <div class="title-sun-time">17:58 WIB</div>
+                                        <div class="subtitle-sun-time">-2m 22s</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-title">Kelembapan</div>
+                            <div class="highlight-content highlight-content-4">
+                                <div class="humidity-content humidity-content-1">
+                                    <div class="humidity-number-container">
+                                        <span class="humidity-number">88%</span>
+                                    </div>
+                                </div>
+                                <div class="humidity-content humidity-content-2">
+                                    <div class="humidity-indicator-bar">
+                                        <div class="humidity-indicator"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="highlight-footer">Sangat Berbahaya</div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-title">Visibilitas</div>
+                            <div class="highlight-content highlight-content-5">
+                                <div class="visibility-content visibility-content-1">
+                                    <div class="humidity-number-container">
+                                        <span class="visibility-number">10.0</span>
+                                        <span class="visibility-unit">km</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="highlight-footer">Sepoi Lembut</div>
+                        </div>
+                        <div class="highlight">
+                            <div class="highlight-title">Kualitas Udara</div>
+                            <div class="highlight-content highlight-content-6">
+                                <div class="air-content air-content-1">
+                                    <div class="air-number-container">
+                                        <span class="air-number">74</span>
+                                    </div>
+                                </div>
+                                <div class="air-content air-content-2">
+                                    <div class="air-indicator-bar">
+                                        <div class="air-indicator"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="highlight-footer">Sedang</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Main Section -->
+        <!-- Footer Section -->
+        <footer id="footer" class="container-fluid d-flex">
+            <div class="footer-subcontainer">
+                <div class="">
+                    <div class="logo-footer-container container-sm">
+                        <a href="#footer"><img src="../../../images/main-logo.png" alt="" class="logo-footer"></a>
+                    </div>
+                    <div class="title-footer">
+                        <h3 class="site-name">UNISIX</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-subcontainer">
+                <span><a href="../../../profile/student/">Profil kelas</a></span>
+                <span><a href="../../../profile/structure/">Struktur kelas</a></span>
+                <span><a href="#">Galeri</a></span>
+                <span><a href="#">Tentang</a></span>
+            </div>
+            <div class="footer-subcontainer">
+                <span><a href="#">Privacy policy</a></span>
+                <span><a href="#">Term of use</a></span>
+            </div>
+            <div class="footer-subcontainer">
+                <div class="socmed-icon pt-2">
+                    <a href="https://instagram.com/sciesixx" target="_blank" class="socmed-link ig-link"><i class="bi bi-instagram socmed-logo ig-logo"></i></a>
+                    <a href="https://discord.gg/GzVM6rAm/" target="_blank" class="socmed-link dc-link"><i class="bi bi-discord socmed-logo dc-logo"></i></a>
+                </div>
+            </div>
+            <div class="footer-subcontainer">
+                <span>&copy; 2022<span class="dynamic-copyright-year"></span> Unity of Science Six</span>
+            </div>
+        </footer>
+        <!-- End Footer Section -->
     </header>
-
-    <!-- Main section -->
-    <section class="main-section">
-        <div class="speed-section">
-            <div class="speed-title-container">
-                <i class="converter-icon fa-solid fa-gauge"></i>
-                <h2 class="title-converter">Konverter Kecepatan</h2>
-            </div>
-
-            <div class="amount-container">
-                <label for="amount">Masukkan Jumlah</label>
-                <input type="number" name="amount" id="amount">
-            </div>
-
-            <div class="unit-converter">
-                <div class="left">
-                    <p class="text-select">Dari</p>
-                    <div class="select-container">
-                        <select name="from" id="from">
-                            <option value="knot" class="option">Knot</option>
-                            <option value="mph" class="option">mil per jam</option>
-                            <option value="ftps" class="option">Kaki per detik</option>
-                            <option value="kmph" class="option">Km per jam</option>
-                            <option value="mps" class="option">Meter per detik</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="middle">
-                    <i class="convert-icon bi bi-arrow-left-right"></i>
-                </div>
-                
-                <div class="right">
-                    <p class="text-select">Ke</p>
-                    <div class="select-container to">
-                        <select name="to" id="to">
-                            <option value="knot" class="option">Knot</option>
-                            <option value="mph" class="option">mil per jam</option>
-                            <option value="ftps" class="option">Kaki per detik</option>
-                            <option value="kmph" class="option">Km per jam</option>
-                            <option value="mps" class="option">Meter per detik</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="formular-container">
-                <span class="title formular">rumus</span>
-                <span class="content"> tunggu...</span>
-            </div>
-
-            <div class="result-container">
-                <label for="result">Hasil</label>
-                <input type="text" name="result" id="result" readonly>
-            </div>
-        </div>
-    </section>
-    <!-- End main section -->
-    
-    <footer id="footer" class="container-fluid d-flex">
-        <div class="footer-subcontainer">
-            <div>
-                <div class="logo-footer-container container-sm">
-                    <a href="#footer"><img src="../../../images/main-logo.png" alt="" class="logo-footer"></a>
-                </div>
-                <div class="title-footer">
-                    <h3 class="site-name">SCIESIXX</h3>
-                </div>
-            </div>
-        </div>
-        <div class="footer-subcontainer">
-            <span><a href="#">Profil kelas</a></span>
-            <span><a href="#">Struktur kelas</a></span>
-            <span><a href="#">Galeri</a></span>
-            <span><a href="#">Tentang</a></span>
-        </div>
-        <div class="footer-subcontainer">
-            <span><a href="#">Privacy policy</a></span>
-            <span><a href="#">Term of use</a></span>
-        </div>
-        <div class="footer-subcontainer">
-            <div class="socmed-icon pt-2">
-                <a href="https://instagram.com/sciesixx" target="_blank" class="socmed-link ig-link"><i class="bi bi-instagram socmed-logo ig-logo"></i></a>
-                <a href="https://discord.gg/GzVM6rAm/" target="_blank" class="socmed-link dc-link"><i class="bi bi-discord socmed-logo dc-logo"></i></a>
-            </div>
-        </div>
-        <div class="footer-subcontainer">
-            <span>&copy; 2022<span class="dynamic-copyright-year"></span> Unity of Science Six</span>
-        </div>
-    </footer>
-    <!-- End Footer Section -->
-    <script type="module" src="../../../js/speed.js"></script>
+    <script type="module" src="../../../js/weather.js"></script>
 </body>
 </html>
