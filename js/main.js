@@ -1,6 +1,7 @@
 import * as nav from "./partials/navbar.js";
 import * as footer from "./partials/footer.js";
 import { generateDynamicSiteName } from "./utils/site-name.js";
+import { UpArrow } from "./partials/float.js";
 
 const formBtn = document.querySelector("#send");
 
@@ -93,4 +94,5 @@ window.addEventListener("load", () => {
     footer.generateDynamicCopyrightYear(document);
     footer.updateSocmedUrl(document);
     responsiveIdentificationImg();
+    new UpArrow(".up-arrow-container").init();
 });

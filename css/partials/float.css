@@ -1,0 +1,59 @@
+:root{
+    /* background colors */
+    --bg-color-1: #a4bad6;
+    --bg-color-2: #e8eef5;
+    --bg-color-3: #dde8f7;
+    --bg-dropdown: #F4FAFF; /*#f2f2f8*/
+
+    /* font colors */
+    --color-1: #143a6a;
+    --color-2: #011D31;
+    --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
+    --color-4: #e8eef5;
+
+    /* Button colors */
+    --btn-color-1: #3677b0;
+    --btn-color-2: #3c84c4;
+    --btn-color-3:  #46406c; 
+    
+    /* Button hover */
+    --link-color-1: #19a6f3;
+    --link-color-2: #0767a2;
+
+    /* Fonts Bold */
+    --bold-1: 300;
+    --bold-2: 400;
+    --bold-3: 600;
+    --bold-4: 900; 
+}
+
+.up-arrow-container {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    z-index: 100;
+    transition: 0.1s;
+    transform: translate(0, 100%);
+}
+.up-arrow {
+    width: 35px;
+    height: 38px;
+    opacity: 0.9;
+    background-color: var(--btn-color-3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    display: block;
+}
+.a-up-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.up-arrow-icon {
+    color: var(--color-4);
+}

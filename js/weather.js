@@ -1,30 +1,14 @@
 import * as nav from "./partials/navbar.js";
 import * as footer from "./partials/footer.js";
 import { generateDynamicSiteName } from "./utils/site-name.js";
-import { Calculator } from "./utils/calculator.js";
+import { Weather } from "./utils/weather.js";
 import { UpArrow } from "./partials/float.js";
-
-class BasicCalculator extends Calculator {
-    constructor() {
-        super();
-    }
-    
-    init() {
-        super.init();
-        this.historyName = "calculator_history";
-    }
-}
-
-const calculator = new BasicCalculator();
 
 window.addEventListener("scroll", () => {
     nav.toggleNavShadow(document, window.scrollY);
 });
 
 window.addEventListener("load", () => {
-    calculator.init();
-    calculator.generatePastHistories();
-    calculator.displayHistories();
     generateDynamicSiteName("../../../json/config.json");
     nav.initSidebar();
     nav.initSidebarArrow();
