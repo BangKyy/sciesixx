@@ -150,14 +150,14 @@ header{
     /* border-bottom: 1px solid var(--btn-color-1) !important; */
 }
 .input-group-text {
-    background-color: var(--bg-input-1) !important;
+    background-color: #0001 !important;
     border: none !important;
     border-bottom-left-radius: 0 !important;
     border-bottom: 1px solid var(--btn-color-1) !important;
     /* box-shadow: 0 1px 2px 0 var(--bg-color-1); */
 }
 .form-control {
-    background-color: var(--bg-input-1) !important;
+    background-color: #0001 !important;
     border: none !important;
     font-size: 10pt !important;
     font-weight: 450 !important;
