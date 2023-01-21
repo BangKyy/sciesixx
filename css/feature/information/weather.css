@@ -89,6 +89,13 @@ header{
     padding: 8rem 0;
     background-color: var(--bg-color-2);
 }
+.weather-section-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    border-radius: 35px;
+}
 .weather-container{
     display: flex;
     flex-direction: row;
@@ -98,7 +105,7 @@ header{
     background-color: var(--color-gradient-white-1);
     padding: 40px 32px;
     border-radius: 35px 0 0 35px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.8); */
 }
 .search-container{
     display: flex;
@@ -111,7 +118,7 @@ header{
 .search{
     outline: none;
     border: none;
-    /* background-color: #0001; */
+    background-color: var(--color-gradient-white-1);
     padding: 4px 6px;
     width: 300px;
     font-size: 14px;
@@ -135,24 +142,57 @@ header{
     margin: 20px auto;
     width: 160px;
 }
-
+.weather-temperature-container{
+    font-size: 50px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: var(--bold-3);
+}
+.weather-time-day{
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: var(--bold-3);
+}
+.weather-time-hour{
+    color: var(--color-gradient-black-3);
+    font-weight: var(--bold-3);
+}
+.weather-condition-container{
+    margin-top: 24px;
+}
+.weather-condition{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 14px 0;
+}
+.weather-condition-icon{
+    width: 24px;
+}
+.weather-condition-text{
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+}
 
 
 .weather-right-container{
     background-color: var(--bg-color-3);
     padding: 40px 52px;
+    border-radius: 0 35px 35px 0;
+}
+.top-weather-right{
+    display: none;
 }
 .option-times-container{
     display: flex;
     gap: 26px;
 }
 .times-container{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: var(--bold-3);
     margin: 0;
 }
 .week-weather-container{
-    display: flex;
+    /* display: flex; */
+    display: none;
     text-align: center;
     gap: 14px;
     margin: 44px 0;
@@ -167,7 +207,8 @@ header{
 .day-weather-teks{
     font-size: 16px;
     font-weight: var(--bold-3);
-    color: var(--color-gradient-black-1);
+    /* color: var(--color-gradient-black-1); */
+    color: rgba(0, 0, 0, 0.8);
     margin: 0;
 }
 .weather-day-icon{
@@ -176,7 +217,8 @@ header{
 }
 .day-weather-info{
     font-size: 12px;
-    color: var(--color-gradient-black-1);
+    /* color: var(--color-gradient-black-1); */
+    color: rgba(0, 0, 0, 0.8);
     margin: 0;
 }
 .day-weather-info-min{
@@ -186,17 +228,21 @@ header{
 .bi-geo-alt-fill{
     transform: rotate(20deg);
     /* background-color: #0002; */
-    padding-left: 5px;
+    padding-left: 4px;
     padding-right: 5px;
     padding-top: 3px;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
     border-radius: 20px;
-    margin-right: 8px;
+    margin-right: 6px;
     font-size: 10px;
-    border: solid 1px var(--color-gradient-black-1);
+    border: solid 1px #0008;
+}
+.wind-direction-text-container{
+    margin-top: 3px;
 }
 .title-weather-right{
     font-weight: var(--bold-3);
+    font-size: 22px;
 }
 .highlight-weather-right-container{
     display: grid;
@@ -215,13 +261,29 @@ header{
     font-weight: 700;
 }
 .highlight-content{
+    display: flex;
     margin-top: 12px;
     /* background-color: #0001; */
-    min-height: 100px;
+    min-height: 150px;
 }
 .highlight-content-1 {
-    /* background-color: #0001; */
-    display: flex;
+    justify-content: center;
+}
+.highlight-content-2 {
+    align-items: center;
+}
+.highlight-content-3 {
+    flex-direction: column;
+    justify-content: center;
+    height: 160px;
+}
+.highlight-content-4 {
+    justify-content: center;
+}
+.highlight-content-5 {
+    align-items: center;
+}
+.highlight-content-6 {
     justify-content: center;
 }
 .uv-content-1 {
@@ -239,7 +301,9 @@ header{
     grid-template-rows: 1fr 1fr 1fr;
     width: 50px;
 }
-.uv-indicator-bar {
+.uv-indicator-bar,
+.humidity-indicator-bar,
+.air-indicator-bar {
     background-color: var(--bg-color-4);
     width: 10px;
     height: 150px;
@@ -248,23 +312,51 @@ header{
     justify-content: center;
     align-items: flex-end;
 }
-/*
-    f(0) = 10px
-    f(50) = 80px
-    f(100) = 150px
-    f(n) = (n / 100)(150px - 10px) + 10
-*/
-.uv-indicator {
+.humidity-indicator-bar,
+.air-indicator-bar {
+    height: 120px;
+    width: 22px;
+    border-radius: 15px;
+}
+.uv-indicator,
+.humidity-indicator,
+.air-indicator {
     width: 10px;
-    height: 10px;
+    height: calc((0 / 100) * 140px + 12px);
     border-radius: 15px;
     display: flex;
     justify-content: center;
 }
-.uv-indicator-bullet {
+.humidity-indicator,
+.air-indicator {
+    width: 22px;
+    /* height: 22px; */
+    /* height: calc((100 / 100) * 98px + 22px); */
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 4px;
+}
+.humidity-indicator {
+    height: calc((88 / 100) * 98px + 22px);
+}
+.air-indicator {
+    height: calc((74 / 100) * 98px + 22px);
+}
+.uv-indicator-bullet,
+.humidity-indicator-bullet,
+.air-indicator-bullet {
     width: 10px;
-    height: 10px;
+    height: 12px;
     background-color: var(--bg-color-1);
+    border-radius: 5px;
+}
+.humidity-indicator-bullet,
+.air-indicator-bullet {
+    width: 17px;
+    height: 17px;
+    border-radius: 15px;
 }
 .uv-number-indicator {
     display: flex;
@@ -275,17 +367,58 @@ header{
 .uv-number-indicator {
     text-align: center;
 }
+.uv-number,
+.wind-number,
+.humidity-number,
+.visibility-number,
+.air-number {
+    font-size: 28pt;
+}
+.wind-unit,
+.visibility-unit {
+    font-size: 16pt;
+}
 .uv-number {
-    font-size: 20pt;
+    width: 100%;
+    text-align: center;
 }
 .uv-number-indicator {
     font-size: 8pt;
+}
+.wind-number-container,
+.visibility-number-container {
+    width: 100%;
+    padding-left: 1rem;
 }
 .sun-content{
     display: flex;
     align-items: center;
     gap: 12px;
     margin: 12px 0;
+}
+.sun-content-1 {
+    margin-bottom: 8px;
+}
+.sun-content-2 {
+    margin-top: 8px;
+}
+.humidity-content-1 {
+    display: flex;
+    align-items: center;
+    width: 150px;
+}
+.humidity-content-2 {
+    display: flex;
+    align-items: center;
+}
+.air-content-1 {
+    display: flex;
+    align-items: center;
+    width: 150px;
+}
+.air-content-2 {
+    display: flex;
+    align-items: center;
 }
 .title-sun-time{
     font-weight: var(--color-gradient-black-2);
@@ -294,7 +427,8 @@ header{
 .subtitle-sun-time{
     font-weight: var(--color-gradient-black-2);
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
+    display: none;
 }
 .icon-arrow{
     background-color: var(--bg-color-1);
@@ -305,7 +439,8 @@ header{
 }
 .highlight-footer{
     font-weight: var(--bold-3);
-    color: var(--color-gradient-black-1);
+    /* color: var(--color-gradient-black-1); */
+    color: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
 }

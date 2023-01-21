@@ -25,6 +25,14 @@ body{
     --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
     --color-4: #e8eef5;
 
+    --color-gradient-black-1: rgba(0, 0, 0, 0.8);
+    --color-gradient-black-2: rgba(0, 0, 0, 0.6);
+    --color-gradient-black-3: rgba(0, 0, 0, 0.4);
+    --color-gradient-black-4: rgba(0, 0, 0, 0.2);
+
+    --color-gradient-white-1: rgba(255, 255, 255, 0.9);
+    --color-gradient-white-2: rgba(255, 255, 255, 0.8);
+
     /* Button colors */
     --btn-color-1: #3677b0;
     --btn-color-2: #3c84c4;
@@ -135,6 +143,14 @@ header{
     background: #e8eef5;
     box-shadow:  1px 1px 18px #797c7f;
 }
+.person-title,
+.daily-title,
+.identification-title,
+.creation-title,
+.logos-title,
+.contact-sub-title{
+    color: rgba(0, 0, 0, 0.8) !important;
+}
 .person-title{
     text-align: center;
     color: var(--color-2);
@@ -165,6 +181,7 @@ header{
     /* background-color: #0001; */
     text-align: center;
     margin: -20px -25px 10px 15px;
+    color: rgba(0, 0, 0, 0.8);
     font-weight: var(--bold-3);
     text-decoration: underline;
 }
@@ -220,7 +237,7 @@ header{
     font-size: 1.1rem;
     font-weight: 500;
     margin: 0.5rem 0;
-    color: var(--main-color);
+    color: rgba(0, 0, 0, 0.8);
 }
 /* End Third Section */
 
@@ -312,9 +329,11 @@ header{
 }
 .creation-link > a {
     color: var(--color-2);
+    text-decoration: none;
 }
 .creation-link > a:hover{
-    color: var(--link-color-1);
+    color: var(--link-color-2);
+    text-decoration: underline
 }
 .creation-container {
     width: 100%;
@@ -448,9 +467,11 @@ header{
 }
 .contact-link > a {
     color: var(--color-2);
+    text-decoration: none;
 }
 .contact-link > a:hover{
-    color: var(--link-color-1);
+    color: var(--link-color-2);
+    text-decoration: underline;
 }
 .contact-box{
     width: 500px;

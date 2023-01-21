@@ -68,7 +68,7 @@ const responsiveIdentificationImg = () => {
 const initTyped = () => {
     const typed = new Typed(".h1-typed", {
         // Words here
-        strings: ["kreatif", "inovatif", "ceria", "damai"],
+        strings: ["sciesixx", "smanta", "family", "creative", "innovative", "cheerful"],
         typeSpeed: 75,
         loop: true,
         backSpeed: 50
