@@ -4,7 +4,6 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
 }
 
 /* VARIABLE CSS */
@@ -45,59 +44,72 @@ footer {
     flex-direction: column;
     padding: 15px 0;
     /* box-shadow: 0px -0.2px 5px var(--color-2); */
+    font-family: 'Poppins', sans-serif;
 }
 .logo-footer-container {
     display: flex;
     justify-content: center;
     width: 55px !important;
+    font-family: 'Poppins', sans-serif;
 }
 .logo-footer {
     width: 50px;
     height: auto;
     margin: 2px 0 0 0;
+    font-family: 'Poppins', sans-serif;
 }
 .title-footer {
     display: flex;
     margin-top: 13px;
     align-items: center;
     padding: 0 5px;
+    font-family: 'Poppins', sans-serif;
 }
 footer .footer-subcontainer {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Poppins', sans-serif;
 }
 .footer-subcontainer:first-child > div {
     display: flex;
     padding: 0 0 10px 0;
     /* background-color: #0001; */
+    font-family: 'Poppins', sans-serif;
 }
 .footer-subcontainer > span {
     padding: 5px 10px;
+    font-family: 'Poppins', sans-serif;
 }
 .footer-subcontainer > span > a {
     text-decoration: none;
     color: #202020;
     transition: 0.2s;
     font-size: 11pt;
+    font-family: 'Poppins', sans-serif;
 }
 .footer-subcontainer > span > a:hover {
     color: var(--bg-color-2);
+    font-family: 'Poppins', sans-serif;
 }
 .footer-subcontainer:last-child {
     padding: 15px 0;
+    font-family: 'Poppins', sans-serif;
 }
 .footer-subcontainer:last-child > span {
     font-size: 9pt;
+    font-family: 'Poppins', sans-serif;
 }
 .socmed-icon {
     margin: 10px 0 0 0;
+    font-family: 'Poppins', sans-serif;
 }
 .socmed-logo {
     font-size: 18pt;
     color: #202020;
     margin: 0 5px;
     transition: 0.2s;
+    font-family: 'Poppins', sans-serif;
 }
 .socmed-logo:hover{
     color: var(--bg-color-2);

@@ -4,7 +4,6 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
 }
 
 /* VARIABLE CSS */
@@ -51,6 +50,7 @@ nav{
     transition: 0.2s;
     background-color: var(--bg-color-1);
     /* box-shadow: 0 1px 2px 0.1px #00000020; */
+    font-family: 'Poppins', sans-serif;
 }
 .nav-logo {
     width: 50px;
@@ -64,11 +64,13 @@ nav{
     align-items: center;
     justify-content: center;
     display: none;
+    font-family: 'Poppins', sans-serif;
 }
 .main-title {
     font-size: 20pt;
     /* background-color: #678ba5; */
     margin: 0 !important;
+    font-family: 'Poppins', sans-serif;
 }
 /* .logo-container {
     background-color: aquamarine;
@@ -78,31 +80,39 @@ nav{
     display: flex;
     list-style-type: none;
     margin: 5px 20px 5px 0;
+    font-family: 'Poppins', sans-serif;
 }
 .navbar .dropdown-menu {
     padding: 0;
     background-color: var(--bg-dropdown);
+    font-family: 'Poppins', sans-serif;
 }
 .navbar .dropdown-menu li a {
     padding: 8px 10px;
+    font-family: 'Poppins', sans-serif;
 }
 .navbar .dropdown-menu li a:hover {
     background-color: #011d310a; 
+    font-family: 'Poppins', sans-serif;
 }
 .navbar > li {
     padding: 0 4px;
+    font-family: 'Poppins', sans-serif;
 }
 .navbar > li a {
     text-decoration: none;
     color: var(--color-2);
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
 }
 .navbar > li a:hover {
     color: var(--link-color-2);
+    font-family: 'Poppins', sans-serif;
 }
 .nav-p {
     text-align: center;
     padding-top: 12px;
+    font-family: 'Poppins', sans-serif;
 }
 .nav-username-container {
     display: flex;
@@ -110,28 +120,35 @@ nav{
     /* background-color: #0001; */
     align-items: center;
     width: calc(100% - 690px);
+    font-family: 'Poppins', sans-serif;
 }
 .nav-username-icon-container {
     padding: 0 0.5rem;
+    font-family: 'Poppins', sans-serif;
 }
 .nav-username-text {
     font-size: 10pt;
+    font-family: 'Poppins', sans-serif;
 }
 .nav-username-container-hidden {
     /* visibility: hidden; */
     display: none !important;
+    font-family: 'Poppins', sans-serif;
 }
 .sign-btn-container {
     justify-self: end;
     margin-left: calc(100% - 715px);
+    font-family: 'Poppins', sans-serif;
     /* margin-left: 30px; */
 }
 .sign-btn-container--logout {
     /* margin-left: calc(100% - 665px); */
     margin-left: 25px;
+    font-family: 'Poppins', sans-serif;
 }
 .sign-btn-container a i {
     font-size: 12px;
+    font-family: 'Poppins', sans-serif;
 }
 .menu-icon-container {
     width: calc(100% - 355px);
@@ -141,6 +158,7 @@ nav{
     justify-content: center;
     flex-direction: column;
     display: none;
+    font-family: 'Poppins', sans-serif;
 }
 .menu-icon {
     /* display: none; */
@@ -150,24 +168,30 @@ nav{
     flex-direction: column;
     height: 40px;
     cursor: pointer;
+    font-family: 'Poppins', sans-serif;
 }
 .menu-icon > div {
     width: 22px;
     height: calc(100% / 18);
     background-color: var(--color-2);
     border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
 }
 .menu-icon > div {
     transition: 0.4s;
+    font-family: 'Poppins', sans-serif;
 }
 .menu-icon > div:nth-child(1) {
     transform: translate(0, -150%);
+    font-family: 'Poppins', sans-serif;
 }
 .menu-icon > div:nth-child(3) {
     transform: translate(0, 150%);
+    font-family: 'Poppins', sans-serif;
 }
 .dropdown-menu .bi{
     margin-right: 12px;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar {
     position: fixed;
@@ -178,11 +202,13 @@ nav{
     transform: translate(0, -100%);
     transition: 0.4s;
     display: none;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar-ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
     /* background-color: #011D31; */
 }
 .sidebar-ul li {
@@ -191,48 +217,60 @@ nav{
     align-items: center;
     padding: 10px 0 !important;
     flex-direction: column;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar-link-list div {
     padding: 2px 0 !important;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar-ul li a {
     color: var(--color-2);
     text-decoration: none;
     /* background-color: #0001; */
     /* width: 100%; */
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar-ul li .a-collapse {
     font-size: 10pt;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar-ul li .card {
     background-color: #fff !important;
     width: 100% !important;
     margin: 0 !important;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar-ul li .card .bi{
     margin-right: 2px;
+    font-family: 'Poppins', sans-serif;
 }
 .sign-button-list {
     padding: 5px 0;
     flex-direction: row !important;
     /* background-color: #011D31; */
+    font-family: 'Poppins', sans-serif;
 }
 .sign-button-list, .sign-button-list a {
     display: none !important;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar-username-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar-username-icon-container {
     padding: 0 0.5rem;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar-username-text {
     font-size: 10pt;
+    font-family: 'Poppins', sans-serif;
 }
 .sidebar-list-hidden {
     display: none !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 @media screen and (max-width: 992px) {
