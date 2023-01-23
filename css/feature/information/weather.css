@@ -136,6 +136,13 @@ header{
     padding-right: 4.5px;
     cursor: pointer;
 }
+.city-name-container {
+    padding-bottom: 1rem;
+}
+.city-name {
+    text-align: center;
+    /* font-weight: var(--bold-2); */
+}
 .weather-today-icon{
     display: flex;
     justify-content: center;
@@ -286,22 +293,22 @@ header{
 .highlight-content-6 {
     justify-content: center;
 }
-.uv-content-1 {
+.pressure-content-1 {
     display: flex;
     align-items: center;
-    width: 60px;
+    width: 80px;
 }
-.uv-content-2 {
+.pressure-content-2 {
     padding: 0 10px;
 }
-.uv-content-3 {
+.pressure-content-3 {
     /* background-color: #0002; */
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 1fr 1fr 1fr;
     width: 50px;
 }
-.uv-indicator-bar,
+.pressure-indicator-bar,
 .humidity-indicator-bar,
 .air-indicator-bar {
     background-color: var(--bg-color-4);
@@ -318,7 +325,7 @@ header{
     width: 22px;
     border-radius: 15px;
 }
-.uv-indicator,
+.pressure-indicator,
 .humidity-indicator,
 .air-indicator {
     width: 10px;
@@ -339,12 +346,12 @@ header{
     padding-top: 4px;
 }
 .humidity-indicator {
-    height: calc((88 / 100) * 98px + 22px);
+    height: calc((0 / 100) * 98px + 22px);
 }
 .air-indicator {
-    height: calc((74 / 100) * 98px + 22px);
+    height: calc((0 / 100) * 98px + 22px);
 }
-.uv-indicator-bullet,
+.pressure-indicator-bullet,
 .humidity-indicator-bullet,
 .air-indicator-bullet {
     width: 10px;
@@ -358,16 +365,19 @@ header{
     height: 17px;
     border-radius: 15px;
 }
-.uv-number-indicator {
+.pressure-number-indicator {
     display: flex;
     align-items: center;
     color: var(--color-3);
 }
-.uv-number,
-.uv-number-indicator {
+/* .unknown-number {
+    font-size: 18pt;
+} */
+.pressure-number,
+.pressure-number-indicator {
     text-align: center;
 }
-.uv-number,
+.pressure-number,
 .wind-number,
 .humidity-number,
 .visibility-number,
@@ -378,11 +388,11 @@ header{
 .visibility-unit {
     font-size: 16pt;
 }
-.uv-number {
+.pressure-number-container {
     width: 100%;
     text-align: center;
 }
-.uv-number-indicator {
+.pressure-number-indicator {
     font-size: 8pt;
 }
 .wind-number-container,
