@@ -135,8 +135,20 @@ header{
     header{
         width: 100%;
     }
+    .main-section {
+        padding: 3rem 0;
+    }
 }
 @media screen and (max-width: 576px) {
+    .sub-main-privacy-policy{
+        padding: 0 2rem;
+    }
 }
 @media screen and (max-width: 360px) {
+    .main-section {
+        padding: 3.5rem 0;
+    }
+    .sub-main-terms-conditions{
+        padding: 0 1rem;
+    }
 }
