@@ -2,6 +2,8 @@ const select = document.querySelector.bind(document);
 const selectAll = document.querySelectorAll.bind(document);
 
 export class Weather {
+    static searchElement = select(".search");
+    static searchCloseBtn = select(".search-close-icon");
     static cityElement = select(".city-name");
     static todayIcon = select(".weather-today-icon");
     static temperatureElement = select(".weather-temperature");
@@ -27,6 +29,8 @@ export class Weather {
     static airFooter = select(".air-footer");
 
     constructor() {
+        this.searchElement = Weather.searchElement;
+        this.searchCloseBtn = Weather.searchCloseBtn;
         this.cityElement = Weather.cityElement;
         this.todayIcon = Weather.todayIcon;
         this.temperatureElement = Weather.temperatureElement;
@@ -62,8 +66,32 @@ export class Weather {
         await this.configApiKey();
         await this.requestCoord();
         await this.fetchCurrentData();
+        await this.fetchSunriseSunset(this.currentData);
+        this.initEvent();
+        this.enableSearch();
         this.displayCurrent();
         console.log(this.currentData);
+    }
+
+    initEvent() {
+        this.searchElement.addEventListener("keyup", async (event) => {
+            const value = event.target.value;
+            switch(event.keyCode) {
+                case 13: {
+                    await this.fetchData(value);
+                    await this.fetchSunriseSunset();
+                    this.display();
+                    console.log(this.data);
+                    break;
+                }
+                default: {}
+            }
+        });
+        this.searchCloseBtn.addEventListener("click", () => {
+            this.searchElement.value = "";
+            this.data = {};
+            this.displayCurrent();
+        });
     }
 
     async configApiKey() {
@@ -75,6 +103,10 @@ export class Weather {
         } catch (err) {
             await this.showError(err.message);
         }
+    }
+
+    enableSearch() {
+        this.searchElement.removeAttribute("disabled");
     }
 
     getCoord() {
@@ -103,6 +135,20 @@ export class Weather {
         }
     }
 
+    async fetchData(value="") {
+        if (!value) return;
+        try {
+            const rawData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${value}&lang=id&appid=${this.apiKey}`);
+            const data = await rawData.json();
+            if (data.cod === "404") throw new Error("404");
+            this.data = data;
+        } catch (err) {
+            this.data = !!Object.keys(this.data).length ? this.data : this.currentData;
+            const errMessage = err.message === "404" ? "Kota tidak ditemukan" : "Telah terjadi kesalahan";
+            await this.showError(errMessage);
+        }
+    }
+
     async fetchCurrentData() {
         if (!(this.latitude && this.longitude)) return;
         try {
@@ -113,19 +159,18 @@ export class Weather {
             await this.showError("Telah terjadi kesalahan pada saat menampilkan cuaca di lokasi anda");
         }
     }
-
-    async fetchData(city) {
+    
+    async fetchSunriseSunset(value=this.data) {
+        if (!(this.latitude && this.longitude)) return;
         try {
-            const rawData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}`);
+            const rawData = await fetch(`https://api.sunrise-sunset.org/json?lat=${this.latitude}&lng=${this.longitude}&formatted=0`);
             const data = await rawData.json();
-            this.data = data;
+            value?.sys?.sunrise ? value.sys.sunrise = new Date(data.results.sunrise).getTime() : 0;
+            value?.sys?.sunset ? value.sys.sunset = new Date(data.results.sunset).getTime() : 0;
         } catch (err) {
-            await this.showError("Lokasi tidak dapat ditemukan");
+            const errMessage = "Telah terjadi kesalahan pada saat menampilkan waktu terbit dan terbenam";
+            await this.showError(errMessage);
         }
-    }
-
-    search() {
-
     }
 
     async showError(message, title="Error", icon="error") {
@@ -139,7 +184,11 @@ export class Weather {
     }
 
     displayTodayIcon(value=this.data) {
-
+        const icon = value?.weather && value.weather[0]?.icon;
+        if (!icon) return;
+        const url = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+        this.todayIcon.setAttribute("src", url);
+        this.conditionIcon.setAttribute("src", url);
     }
 
     displayTodayTime() {
@@ -160,10 +209,10 @@ export class Weather {
     }
 
     displayCondition(value=this.data) {
-        const condition = value?.weather[0]?.description;
+        const condition = value?.weather && value.weather[0]?.description
         if (!condition) {
             this.conditionIcon.src = "../../../images/weather/weather-haze.svg";
-            this.conditionText = "N/A";
+            this.conditionText.innerHTML = "N/A";
             return;
         }
         const toCapitalize = (string) => string.split(" ").map(s => s[0].toUpperCase() + s.substr(1, s.length - 1)).join(" ");
@@ -173,7 +222,7 @@ export class Weather {
 
     displayPressure(value=this.data) {
         const pressure = value?.main?.pressure;
-        if (!pressure) return this.pressureElement = "N/A";
+        if (!pressure) return this.pressureElement.innerHTML = "N/A";
         const pressureAtm = Math.round(pressure / 1013.25 * 100) / 100;
         this.pressureElement.innerHTML = pressureAtm;
     }
@@ -242,7 +291,14 @@ export class Weather {
     }
 
     displayHumidityFooter(value=this.data) {
-        this.humidityFooter.innerHTML = "Berbahaya";
+        const humidity = value?.main?.humidity;
+        if (!humidity) return "N/A";
+        const levels = ["Sangat Aman", "Aman", "Berbahaya", "Sangat Berbahaya"];
+        const minNumbers = [0, 40, 60, 80];
+        const filteredMinNumbers = minNumbers.filter((n) => humidity >= n);
+        const levelIndex = filteredMinNumbers.length - 1;
+        const currentLevel = levels[levelIndex];
+        this.humidityFooter.innerHTML = currentLevel || "N/A";
     }
 
     displayHumidityIndicator(value=this.data) {
@@ -253,13 +309,20 @@ export class Weather {
 
     displayVisibility(value=this.data) {
         const visibility = value?.visibility;
-        if (!visibility) return this.visibilityElement = "N/A";
+        if (!visibility) return this.visibilityElement.innerHTML = "N/A";
         const visibilityKm = Math.round(visibility / 1000 * 10) / 10;
         this.visibilityElement.innerHTML = visibilityKm;
     }
     
     displayVisibilityFooter(value=this.data) {
-        this.visibilityElement = "Lembut";
+        const visibility = value?.visibility;
+        if (!visibility) return "N/A";
+        const levels = ["Sangat Buruk", "Buruk", "Sedang", "Baik"];
+        const minNumbers = [0, 1000, 3705, 9261];
+        const filteredMinNumbers = minNumbers.filter((n) => visibility >= n);
+        const levelIndex = filteredMinNumbers.length - 1;
+        const currentLevel = levels[levelIndex];
+        this.visibilityFooter.innerHTML = currentLevel;
     }
 
     displayAir(value=this.data) {
