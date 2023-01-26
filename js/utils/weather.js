@@ -79,7 +79,7 @@ export class Weather {
             switch(event.keyCode) {
                 case 13: {
                     await this.fetchData(value);
-                    await this.fetchSunriseSunset();
+                    await this.fetchSunriseSunset(this.data);
                     this.display();
                     console.log(this.data);
                     break;
@@ -142,6 +142,8 @@ export class Weather {
             const data = await rawData.json();
             if (data.cod === "404") throw new Error("404");
             this.data = data;
+            this.latitude = data.coord.lat;
+            this.longitude = data.coord.lon;
         } catch (err) {
             this.data = !!Object.keys(this.data).length ? this.data : this.currentData;
             const errMessage = err.message === "404" ? "Kota tidak ditemukan" : "Telah terjadi kesalahan";
@@ -162,11 +164,18 @@ export class Weather {
     
     async fetchSunriseSunset(value=this.data) {
         if (!(this.latitude && this.longitude)) return;
+        if (!value?.sys) return;
         try {
             const rawData = await fetch(`https://api.sunrise-sunset.org/json?lat=${this.latitude}&lng=${this.longitude}&formatted=0`);
             const data = await rawData.json();
-            value?.sys?.sunrise ? value.sys.sunrise = new Date(data.results.sunrise).getTime() : 0;
-            value?.sys?.sunset ? value.sys.sunset = new Date(data.results.sunset).getTime() : 0;
+            const sunriseDate = new Date(data.results.sunrise);
+            const sunsetDate = new Date(data.results.sunset);
+            const localTimezone = -(new Date().getTimezoneOffset() * 60);
+            sunriseDate.setUTCSeconds(sunriseDate.getUTCSeconds() + value.timezone - localTimezone);
+            sunsetDate.setUTCSeconds(sunsetDate.getUTCSeconds() + value.timezone - localTimezone);
+            value.sys.sunrise = sunriseDate.getTime();
+            value.sys.sunset = sunsetDate.getTime();
+            console.log(sunriseDate.toUTCString(), sunsetDate.toUTCString(), sunriseDate.getTime(), value.sys.sunrise);
         } catch (err) {
             const errMessage = "Telah terjadi kesalahan pada saat menampilkan waktu terbit dan terbenam";
             await this.showError(errMessage);
@@ -186,17 +195,20 @@ export class Weather {
     displayTodayIcon(value=this.data) {
         const icon = value?.weather && value.weather[0]?.icon;
         if (!icon) return;
-        const url = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+        // const url = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+        const url = `../../../images/weather/icon/${icon}.png`;
         this.todayIcon.setAttribute("src", url);
         this.conditionIcon.setAttribute("src", url);
     }
 
-    displayTodayTime() {
+    displayTodayTime(value=this.data) {
+        const timezone = value?.timezone || 0;
         const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
         const leadZero = (number) => number < 10 ? "0" + String(number) : String(number);
         const date = new Date();
-        const day = `${days[date.getDay()]}, `;
-        const clock = `${leadZero(date.getHours())}:${leadZero(date.getMinutes())}`;
+        date.setUTCSeconds(date.getUTCSeconds() + timezone);
+        const day = `${days[date.getUTCDay()]}, `;
+        const clock = `${leadZero(date.getUTCHours())}:${leadZero(date.getUTCMinutes())}`;
         this.timeDayElement.innerHTML = day;
         this.timeHourElement.innerHTML = clock;
     }
@@ -250,16 +262,15 @@ export class Weather {
     displayWindDirection(value=this.data) {
         const degree = value?.wind?.deg;
         if (!degree) return this.windFooter.innerHTML = "N/A";
+        const degreeNumber = degree % 360;
         const directions = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
-        /*
-            0 -> N = 0 deg
-            1 -> NNE = (1-44) deg
-            2 -> NE = 45 deg
-            3 -> ENE = (46-89) deg
-            4 -> E = 90 deg
-            ....
-        */
-       this.windFooter.innerHTML = "N";
+        const degreeRanges = [[0, 0], [1, 44], [45, 45], [46, 89], [90, 90], [91, 134], [135, 135], [136, 179], [180, 180], [181, 224], [225, 225], [226, 269], [270, 270], [271, 314], [315, 315], [316, 359]];
+        const filteredDegreeRanges = degreeRanges.filter((range) => {
+               return degreeNumber >= range[0] || degreeNumber >= range[1]; 
+        });
+        const directionIndex = filteredDegreeRanges.length - 1;
+        const currentDirection = directions[directionIndex];
+        this.windFooter.innerHTML = currentDirection;
     }
 
     displaySunDate(value=this.data) {
