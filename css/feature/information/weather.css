@@ -4,7 +4,6 @@
 *{
     padding: 0;
     margin: 0;
-    font-family: 'Nunito Sans', sans-serif;
 }
 
 body{
@@ -89,12 +88,33 @@ header{
     padding: 8rem 0;
     background-color: var(--bg-color-2);
 }
+.search,
+.city-name,
+.weather-temperature,
+.weather-time-day,
+.weather-time-hour,
+.weather-condition-text,
+.title-weather-right,
+.highlight-title,
+.unknown-number,
+.humidity-number,
+.visibility-number,
+.visibility-unit,
+.elevation-number,
+.elevation-unit,
+.pressure-indicator,
+.pressure-number,
+.wind-number,
+.wind-unit{
+    font-family: 'Nunito', sans-serif;
+}
 .weather-section-container {
     display: flex;
     justify-content: center;
     flex-direction: row;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
     border-radius: 35px;
+    max-width: 90%;
 }
 .weather-container{
     display: flex;
@@ -121,6 +141,7 @@ header{
     background-color: var(--color-gradient-white-1);
     padding: 4px 6px;
     width: 300px;
+    max-width: 100%;
     font-size: 14px;
 }
 .icon-search{
@@ -130,10 +151,11 @@ header{
 .bi-x-circle-fill{
     color: var(--color-gradient-black-2);
     background-color: #0002;
-    border-radius: 20px;
-    padding-top: 1px;
-    padding-left: 4px;
-    padding-right: 4.5px;
+    border-radius: 100%;
+    padding-top: 1.5px;
+    padding-bottom: 2px;
+    padding-left: 3.5px;
+    padding-right: 4px;
     cursor: pointer;
 }
 .city-name-container {
@@ -235,12 +257,12 @@ header{
 .bi-geo-alt-fill{
     transform: rotate(20deg);
     /* background-color: #0002; */
-    padding-left: 4px;
+    padding-left: 5px;
     padding-right: 5px;
-    padding-top: 3px;
-    padding-bottom: 1px;
-    border-radius: 20px;
-    margin-right: 6px;
+    padding-top: 3.5px;
+    padding-bottom: 3px;
+    border-radius: 100%;
+    margin-right: 8px;
     font-size: 10px;
     border: solid 1px #0008;
 }
@@ -310,7 +332,7 @@ header{
 }
 .pressure-indicator-bar,
 .humidity-indicator-bar,
-.air-indicator-bar {
+.elevation-indicator-bar {
     background-color: var(--bg-color-4);
     width: 10px;
     height: 150px;
@@ -320,14 +342,14 @@ header{
     align-items: flex-end;
 }
 .humidity-indicator-bar,
-.air-indicator-bar {
+.elevation-indicator-bar {
     height: 120px;
     width: 22px;
     border-radius: 15px;
 }
 .pressure-indicator,
 .humidity-indicator,
-.air-indicator {
+.elevation-indicator {
     width: 10px;
     height: calc((0 / 100) * 140px + 12px);
     border-radius: 15px;
@@ -335,7 +357,7 @@ header{
     justify-content: center;
 }
 .humidity-indicator,
-.air-indicator {
+.elevation-indicator {
     width: 22px;
     /* height: 22px; */
     /* height: calc((100 / 100) * 98px + 22px); */
@@ -348,19 +370,19 @@ header{
 .humidity-indicator {
     height: calc((0 / 100) * 98px + 22px);
 }
-.air-indicator {
+.elevation-indicator {
     height: calc((0 / 100) * 98px + 22px);
 }
 .pressure-indicator-bullet,
 .humidity-indicator-bullet,
-.air-indicator-bullet {
+.elevation-indicator-bullet {
     width: 10px;
     height: 12px;
     background-color: var(--bg-color-1);
     border-radius: 5px;
 }
 .humidity-indicator-bullet,
-.air-indicator-bullet {
+.elevation-indicator-bullet {
     width: 17px;
     height: 17px;
     border-radius: 15px;
@@ -381,11 +403,12 @@ header{
 .wind-number,
 .humidity-number,
 .visibility-number,
-.air-number {
+.elevation-number {
     font-size: 28pt;
 }
 .wind-unit,
-.visibility-unit {
+.visibility-unit,
+.elevation-unit {
     font-size: 16pt;
 }
 .pressure-number-container {
@@ -421,12 +444,12 @@ header{
     display: flex;
     align-items: center;
 }
-.air-content-1 {
+.elevation-content-1 {
     display: flex;
     align-items: center;
     width: 150px;
 }
-.air-content-2 {
+.elevation-content-2 {
     display: flex;
     align-items: center;
 }
@@ -443,9 +466,9 @@ header{
 .icon-arrow{
     background-color: var(--bg-color-1);
     font-size: 24px;
-    border-radius: 20px;
-    padding-left: 5px;
-    padding-right: 5px;
+    border-radius: 100%;
+    padding-left: 4px;
+    padding-right: 4px;
 }
 .highlight-footer{
     font-weight: var(--bold-3);
@@ -457,16 +480,88 @@ header{
 /* End Main Section */
 
 @media screen and (max-width: 992px) {
-  header{
-      width: 100%;
-  }
+    header{
+        width: 100%;
+    }
+    .weather-section-container {
+        flex-direction: column;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    }
+    .weather-left-container {
+        border-radius: 35px 35px 0 0;
+    }
+    .weather-right-container {
+        border-radius: 0 0 35px 35px;
+    }
+    .search-container {
+        justify-content: center;
+    }
+    .weather-temperature-container,
+    .weather-time-container,
+    .weather-condition-container {
+        padding-left: 1.5rem;
+    }
 }
 @media screen and (max-width: 768px) {
+    .highlight-weather-right-container {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 @media screen and (max-width: 576px) {
+    .highlight-weather-right-container {
+        grid-template-columns: 1fr;
+    }
+    .search-subcontainer {
+        max-width: 80%;
+    }
+    .weather-today-icon {
+        width: 120px;
+    }
+    .highlight-content-6 {
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .elevation-number-container {
+        padding-left: 1rem;
+    }
 }
 @media screen and (max-width: 360px) {
-  .main-section{
-     padding: 11rem 0;
-  }
+    .main-section{
+        padding: 11rem 0;
+    }
+    .weather-section-container {
+        border-radius: 25px;
+    }
+    .weather-temperature-container{
+        margin-top: 4rem;
+    }
+    .weather-temperature-container,
+    .weather-time-container,
+    .weather-condition-container {
+        padding-left: 0;
+    }
+    .weather-right-container {
+        padding: 40px 2rem 15px 2rem;
+    }
+    .title-weather-right-container{
+        padding-left: 0;
+    }
+    .bi-geo-alt-fill{
+        transform: rotate(20deg);
+        padding-left: 4px;
+        padding-right: 5.5px;
+        padding-top: 2px;
+        padding-bottom: 4px;
+    }
+    .icon-arrow{
+        font-size: 24px;
+        padding-left: 4px;
+        padding-right: 3.5px;
+    }
+    .bi-x-circle-fill{
+        padding-top: 1px;
+        padding-bottom: 2px;
+        padding-left: 3.5px;
+        padding-right: 3.5px;
+    }
 }

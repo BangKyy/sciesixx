@@ -214,7 +214,7 @@ header{
     flex-direction: column;
     align-items: center;
     text-align: center; */
-    padding: 10px 50px;
+    padding: 10px 10px;
     margin-top: 2rem;
     /* width: 500%; */
     background: var(--bg-color-1);
@@ -761,6 +761,9 @@ header{
     }
 }
 @media screen and (max-width: 768px) {
+    .image-section-1 {
+        width: 225px;
+    }
     .person-desk{
         margin: 1rem;
         font-size: 10px;
@@ -773,6 +776,9 @@ header{
     .img-person{
         height: 150px;
         margin: 0 0 2rem 3rem;
+    }
+    .daily-content {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -792,7 +798,7 @@ header{
         font-size: 9pt;
     }
     .image-section-1 {
-        width: 220px;
+        width: 170px;
         height: auto;
         /* background-color: #0001; */
     }

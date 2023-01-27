@@ -14,7 +14,6 @@ export class Weather {
 
     static pressureIndicator = select(".pressure-indicator");
     static humidityIndicator = select(".humidity-indicator");
-    static airIndicator = select(".air-indicator");
 
     static pressureElement = select(".pressure-number");
     static windElement = select(".wind-number");
@@ -25,8 +24,8 @@ export class Weather {
     static humidityFooter = select(".humidity-footer");
     static visibilityElement = select(".visibility-number");
     static visibilityFooter = select(".visibility-footer");
-    static airElement = select(".air-number");
-    static airFooter = select(".air-footer");
+    static elevationElement = select(".elevation-number");
+    static elevationFooter = select(".elevation-footer");
 
     constructor() {
         this.searchElement = Weather.searchElement;
@@ -41,7 +40,6 @@ export class Weather {
 
         this.pressureIndicator = Weather.pressureIndicator;
         this.humidityIndicator = Weather.humidityIndicator;
-        this.airIndicator = Weather.airIndicator;
 
         this.pressureElement = Weather.pressureElement;
         this.windElement = Weather.windElement;
@@ -52,14 +50,17 @@ export class Weather {
         this.humidityFooter = Weather.humidityFooter;
         this.visibilityElement = Weather.visibilityElement;
         this.visibilityFooter = Weather.visibilityFooter;
-        this.airElement = Weather.airElement;
-        this.airFooter = Weather.airFooter;
+        this.elevationElement = Weather.elevationElement;
+        this.elevationFooter = Weather.elevationFooter;
 
         this.latitude = null;
         this.longitude = null;
         this.currentData = {};
+        this.accuCurrentData = {};
         this.data = {};
+        this.accuData = {};
         this.apiKey = "";
+        this.accuApiKey = "";
     }
 
     async init() {
@@ -71,6 +72,7 @@ export class Weather {
         this.enableSearch();
         this.displayCurrent();
         console.log(this.currentData);
+        console.log(this.accuCurrentData);
     }
 
     initEvent() {
@@ -82,6 +84,7 @@ export class Weather {
                     await this.fetchSunriseSunset(this.data);
                     this.display();
                     console.log(this.data);
+                    console.log(this.accuData);
                     break;
                 }
                 default: {}
@@ -97,9 +100,13 @@ export class Weather {
     async configApiKey() {
         try {
             const filePath = "../../../env-json/weather.json";
+            const accuFilePath = "../../../env-json/accu-weather.json";
             const rawConfig = await fetch(filePath);
+            const rawAccuConfig = await fetch(accuFilePath);
             const config = await rawConfig.json();
+            const accuConfig = await rawAccuConfig.json();
             this.apiKey = config.apiKey;
+            this.accuApiKey = accuConfig.apiKey;
         } catch (err) {
             await this.showError(err.message);
         }
@@ -139,9 +146,12 @@ export class Weather {
         if (!value) return;
         try {
             const rawData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${value}&lang=id&appid=${this.apiKey}`);
+            const rawAccuData = await fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?q=${value}&language=id-ID&apikey=${this.accuApiKey}`);
             const data = await rawData.json();
+            const accuData = await rawAccuData.json();
             if (data.cod === "404") throw new Error("404");
             this.data = data;
+            this.accuData = accuData[0];
             this.latitude = data.coord.lat;
             this.longitude = data.coord.lon;
         } catch (err) {
@@ -155,8 +165,11 @@ export class Weather {
         if (!(this.latitude && this.longitude)) return;
         try {
             const rawCurrentData = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${this.latitude}&lon=${this.longitude}&lang=id&appid=${this.apiKey}`);
+            const rawAccuCurrentData = await fetch(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?q=${this.latitude},${this.longitude}&language=id-ID&apikey=${this.accuApiKey}`);
             const currentData = await rawCurrentData.json();
+            const accuCurrentData = await rawAccuCurrentData.json();
             this.currentData = currentData;
+            this.accuCurrentData = accuCurrentData;
         } catch (err) {
             await this.showError("Telah terjadi kesalahan pada saat menampilkan cuaca di lokasi anda");
         }
@@ -175,7 +188,6 @@ export class Weather {
             sunsetDate.setUTCSeconds(sunsetDate.getUTCSeconds() + value.timezone - localTimezone);
             value.sys.sunrise = sunriseDate.getTime();
             value.sys.sunset = sunsetDate.getTime();
-            console.log(sunriseDate.toUTCString(), sunsetDate.toUTCString(), sunriseDate.getTime(), value.sys.sunrise);
         } catch (err) {
             const errMessage = "Telah terjadi kesalahan pada saat menampilkan waktu terbit dan terbenam";
             await this.showError(errMessage);
@@ -195,7 +207,6 @@ export class Weather {
     displayTodayIcon(value=this.data) {
         const icon = value?.weather && value.weather[0]?.icon;
         if (!icon) return;
-        // const url = `https://openweathermap.org/img/wn/${icon}@2x.png`;
         const url = `../../../images/weather/icon/${icon}.png`;
         this.todayIcon.setAttribute("src", url);
         this.conditionIcon.setAttribute("src", url);
@@ -228,7 +239,6 @@ export class Weather {
             return;
         }
         const toCapitalize = (string) => string.split(" ").map(s => s[0].toUpperCase() + s.substr(1, s.length - 1)).join(" ");
-        // this.condition.src = 
         this.conditionText.innerHTML = toCapitalize(condition);
     }
 
@@ -333,22 +343,24 @@ export class Weather {
         const filteredMinNumbers = minNumbers.filter((n) => visibility >= n);
         const levelIndex = filteredMinNumbers.length - 1;
         const currentLevel = levels[levelIndex];
-        this.visibilityFooter.innerHTML = currentLevel;
+        this.visibilityFooter.innerHTML = currentLevel || "N/A";
     }
 
-    displayAir(value=this.data) {
-        this.airElement.innerHTML = "N/A";
+    displayElevation(value=this.accuData) {
+        const elevation = value?.GeoPosition?.Elevation?.Metric?.Value;
+        if (!elevation) return;
+        this.elevationElement.innerHTML = elevation;
     }
-    
-    displayAirIndicator(value=this.data) {
-        this.airIndicator.style.height = `calc((0 / 100) * 98px + 22px)`;
+        
+    displayElevationFooter(value=this.accuData) {
+        const elevation = value?.GeoPosition?.Elevation?.Metric?.Value;
+        if (!elevation) return "N/A";
+        const elevationFoot = Math.round(elevation * 3.28084);
+        const elevationFootString = `${elevationFoot} kaki`;
+        this.elevationFooter.innerHTML = elevationFootString;
     }
 
-    displayAirFooter(value=this.data) {
-        this.airFooter.innerHTML = "N/A";
-    }
-
-    displayAll(value=this.data) {
+    displayAll(value=this.data, accuValue=this.accuData) {
         this.displayCityName(value);
         this.displayTodayIcon(value);
         this.displayTemperature(value);
@@ -364,16 +376,15 @@ export class Weather {
         this.displayHumidityFooter(value);
         this.displayVisibility(value);
         this.displayVisibilityFooter(value);
-        this.displayAir(value);
-        this.displayAirIndicator(value);
-        this.displayAirFooter(value);
+        this.displayElevation(accuValue);
+        this.displayElevationFooter(accuValue);
     }
 
     displayCurrent() {
-        this.displayAll(this.currentData);
+        this.displayAll(this.currentData, this.accuCurrentData);
     }
 
     display() {
-        this.displayAll(this.data);
+        this.displayAll(this.data, this.accuData);
     }
 }
