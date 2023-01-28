@@ -59,7 +59,7 @@ const responsiveIdentificationImg = () => {
     const img = document.querySelector(".identification-image");
     const width = window.innerWidth;
     const imgUrls = ["./images/identification-3.jpg", "./images/identification-2.jpg"];
-    const sizes = [0, 992];
+    const sizes = [0, 768];
     const imgUrlsIndex = sizes.filter((size) => size <= width).length - 1;
     const url = imgUrls[imgUrlsIndex];
     img.src = url;

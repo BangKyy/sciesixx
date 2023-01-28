@@ -284,7 +284,8 @@ header{
 }
 .identification-exam{
     padding: 1rem 2rem;
-    text-indent: 8rem;
+    font-size: 16px;
+    text-indent: 80px;
 }
 /* End Four Section */
 
@@ -676,25 +677,18 @@ header{
         margin: 1rem;
         font-size: 12px;
     }
-    .identification {
-        flex-direction: column;
-    }
-    .identification-image {
-        width: 100%;
-        border-radius: 15px 15px 0 0 ;
-    }
     .identification-exam-section {
         border-radius: 0 0 15px 15px ;
     }
     .identification-exam{
         padding: 1rem 2rem;
-        text-indent: 8rem;
+        /* text-indent: 8rem; */
     }
 
     .identification-exam{
         padding: 1rem 2rem;
-        text-indent: 8rem;
-        font-size: 12px;
+        text-indent: 3rem;
+        font-size: 10px;
     }
     .main-page{
         padding: 60px 0;
@@ -776,6 +770,13 @@ header{
     .img-person{
         height: 150px;
         margin: 0 0 2rem 3rem;
+    }
+    .identification {
+        flex-direction: column;
+    }
+    .identification-image {
+        width: 100%;
+        border-radius: 15px 15px 0 0 ;
     }
     .daily-content {
         grid-template-columns: 1fr 1fr;
@@ -914,6 +915,9 @@ header{
     }
     .identification-title{
         font-size: 16px;
+    }
+    .identification-exam{
+        font-size: 10px;
     }
     /* .daily-content{
         display: grid;

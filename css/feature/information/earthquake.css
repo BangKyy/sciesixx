@@ -1,0 +1,297 @@
+/* GOOGLE FONTS IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    color: var(--color-2);
+}
+
+/* VARIABLE CSS */
+:root{
+    /* background colors */
+    --bg-color-1: #a4bad6;
+    --bg-color-2: #e8eef5;
+    --bg-color-3: #dde8f7;
+    --bg-color-4: #e5e6e7;
+    --bg-color-5: #dbe6f5;
+    --bg-color-6: #c7d1df;
+    --bg-color-7: #b6c8de;
+    --bg-dropdown: #F4FAFF; /*#f2f2f8*/
+
+    /* font colors */
+    --color-1: #143a6a;
+    --color-2: #011D31;
+    --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
+    --color-4: #e8eef5;
+
+    --color-gradient-black-1: rgba(0, 0, 0, 0.8);
+    --color-gradient-black-2: rgba(0, 0, 0, 0.6);
+    --color-gradient-black-3: rgba(0, 0, 0, 0.4);
+    --color-gradient-black-4: rgba(0, 0, 0, 0.2);
+
+    --color-gradient-white-1: rgba(255, 255, 255, 0.9);
+    --color-gradient-white-2: rgba(255, 255, 255, 0.8);
+
+    /* Button colors */
+    --btn-color-1: #3677b0;
+    --btn-color-2: #3c84c4;
+    --btn-color-3:  #46406c;
+    
+    /* Button hover */
+    --link-color-1: #19a6f3;
+    --link-color-2: #0767a2;
+
+    /* Fonts Bold */
+    --bold-1: 300;
+    --bold-2: 400;
+    --bold-3: 600;
+    --bold-4: 900; 
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+/* Navbar Section */
+header{
+    width: 100%;
+    background-color: var(--bg-color-1);
+}
+
+.btn-primary,
+.btn-primary:visited {
+    color: var(--color-4) !important;
+    background-color: var(--btn-color-1) !important;
+    border-color: var(--btn-color-1) !important;
+}
+.btn-primary:hover,
+.btn-primary:active {
+    color: var(--color-4) !important;
+    background-color: var(--btn-color-2) !important;
+    border-color: var(--btn-color-2) !important;
+}
+.btn-outline-primary,
+.btn-outline-primary:visited {
+    color: var(--color-1) !important;
+    border-color: var(--btn-color-1) !important;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
+    color: var(--color-4) !important;
+    background-color: var(--btn-color-1) !important;
+}
+/* End Navbar Section */
+
+/* Main Section */
+.main-section{
+    padding: 8rem 0;
+    background-color: var(--bg-color-2);
+}
+.earthquake-title,
+.shakemap-title,
+.parameter-title,
+.parameter-date,
+.parameter-text-title,
+.parameter-text-value,
+.mmi-title,
+.mmi-description,
+.mmi-box,
+.quake-container,
+.table-col,
+.row-datetime,
+.row-clock,
+.row-coord,
+.row-magnitude,
+.row-depth,
+.row-felt,
+.table-content{
+    font-family: 'Nunito', sans-serif;
+}
+.earthquake-section-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    border-radius: 35px;
+    max-width: 90%;
+}
+.earthquake-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.earthquake-left-container {
+    background-color: #fff;
+    padding: 40px 32px;
+    border-radius: 35px 0 0 35px;
+}
+.earthquake-title {
+    font-size: 16pt;
+    color: rgba(0, 0, 0, 0.9);
+    font-weight: 800;
+    margin-bottom: 0 !important;
+}
+.earthquake-left-line {
+    height: 2px;
+    background-color: #ddd;
+    margin: 5px 0 20px 0;
+}
+.shakemap-title{
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 700;
+}
+.parameter-title,
+.mmi-title {
+    font-size: 14pt;
+    color: var(--color-gradient-black-2);
+    font-weight: 700;
+}
+.shakemap {
+    width: 330px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+}
+.parameter-icon {
+    width: 25px;
+    height: auto;
+}
+.parameter-title-container {
+    padding-bottom: 0.5rem;
+}
+.parameter-date-container {
+    padding-bottom: 0.8rem;
+}
+.parameter-date {
+    font-size: 12pt;
+    font-weight: 650;
+    color: rgba(0, 0, 0, 0.8);
+}
+.parameter-container {
+    padding-bottom: 0.8rem;
+}
+.parameter-content {
+    display: flex;
+    padding-bottom: 0.3rem;
+}
+.parameter-icon-container {
+    display: flex;
+    align-items: center;
+    padding-right: 0.8rem;
+}
+.parameter-text-title {
+    font-size: 9pt;
+    font-weight: 650;
+    color: rgba(0, 0, 0, 0.7);
+}
+.parameter-text-value {
+    font-size: 14pt;
+    font-weight: 650;
+}
+.mmi-description {
+    font-size: 10pt;
+    font-weight: 650;
+    color: rgba(0, 0, 0, 0.8);
+}
+.mmi-box-container {
+    padding-bottom: 0.8rem;
+}
+.mmi-box {
+    font-size: 8pt;
+    font-weight: 700;
+    background-color: var(--bg-color-7);
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+.earthquake-right-container {
+    padding: 40px 52px;
+    border-radius: 0 35px 35px 0;
+    background-color: var(--bg-color-5);
+    width: calc(100% - 394px);
+}
+.top-earthquake-right {
+    display: flex;
+    justify-content: space-between;
+}
+.option-quake-container {
+    display: flex;
+}
+.quake-container {
+    font-size: 18px;
+    font-weight: var(--bold-3);
+    margin: 0;
+    font-weight: 500;
+    color: #8f8f8f;
+    cursor: pointer;
+    padding-right: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.quake-container-active {
+    font-weight: 750;
+    color: var(--color-2);
+}
+.quake-container-active > .quake-underline {
+    width: 85%;
+    height: 2px;
+    background-color: var(--color-2);
+}
+.bmkg-logo {
+    width: 25px;
+    height: auto;
+    justify-self: flex-end;
+}
+.earthquake-table-container {
+    padding-top: 2rem;
+    width: 100%;
+    overflow: auto !important;
+}
+.earthquake-table thead,
+.earthquake-table tbody {
+    display: block;
+}
+.earthquake-table tbody {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 730px;
+}
+.earthquake-table > thead > tr > .table-col:nth-child(1),
+.earthquake-table > tbody > tr > .table-content:nth-child(1) {
+    min-width: 50px;
+}
+.earthquake-table > thead > tr > .table-col:nth-child(2),
+.earthquake-table > tbody > tr > .table-content:nth-child(2) {
+    min-width: 125px;
+}
+.earthquake-table > thead > tr > .table-col:nth-child(3),
+.earthquake-table > tbody > tr > .table-content:nth-child(3) {
+    min-width: 130px;
+}
+.earthquake-table > tbody > tr > .table-content:nth-child(4) {
+    min-width: 95px;
+}
+.earthquake-table > tbody > tr > .table-content:nth-child(5) {
+    min-width: 100px;
+}
+.earthquake-table > thead > tr > .table-col:nth-child(6),
+.earthquake-table > tbody > tr > .table-content:nth-child(6) {
+    min-width: 200px;
+}
+.earthquake-table > tbody > tr:nth-child(odd) {
+    background-color: var(--bg-color-6);
+}
+.row-datetime,
+.row-clock,
+.row-coord,
+.row-magnitude,
+.row-depth,
+.row-felt{
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: var(--bold-3);
+}
