@@ -129,6 +129,10 @@ header{
     padding: 40px 32px;
     border-radius: 35px 0 0 35px;
 }
+.left-flex-container {
+    display: flex;
+    flex-direction: column;
+}
 .earthquake-title {
     font-size: 16pt;
     color: rgba(0, 0, 0, 0.9);
@@ -155,6 +159,7 @@ header{
     height: auto;
     margin: 20px auto;
     display: block;
+    max-width: 100%;
 }
 .parameter-icon {
     width: 25px;
@@ -219,6 +224,9 @@ header{
 }
 .option-quake-container {
     display: flex;
+}
+.quake-text {
+    text-align: center;
 }
 .quake-container {
     font-size: 18px;
@@ -294,4 +302,53 @@ header{
 .row-felt{
     color: rgba(0, 0, 0, 0.8);
     font-weight: var(--bold-3);
+}
+@media screen and (max-width: 992px) {
+    .earthquake-title {
+        margin-left: 1.5rem;
+    }
+    /* .earthquake-title, */
+    .shakemap-title {
+        text-align: center;
+    }
+    .parameter-title {
+        margin-bottom: 1.5rem !important;
+    }
+    .earthquake-section-container {
+        flex-direction: column;
+    }
+    .earthquake-left-container {
+        border-radius: 35px 35px 0 0;
+    }
+    .earthquake-right-container {
+        border-radius: 0 0 35px 35px;
+        width: 100%;
+    }
+    .left-flex-container {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
+@media screen and (max-width: 768px) {
+    .earthquake-title {
+        margin-left: 0;
+        text-align: center;
+    }
+    .shakemap-title {
+        text-align: center;
+    }
+    .parameter-title {
+        text-align: center;
+        margin-bottom: 1rem !important;
+    }
+    .left-flex-container {
+        flex-direction: column;
+    }
+}
+@media screen and (max-width: 576px) {
+
+}
+@media screen and (max-width: 360px) {
+
 }
