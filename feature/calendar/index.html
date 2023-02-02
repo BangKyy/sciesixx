@@ -28,7 +28,462 @@
             </a>
         </div>
     </div>
-
+    <header>
+        <!-- Navbar Section -->
+        <nav class="nav container-fluid">
+            <!-- Logo -->
+            <!-- Navbar -->
+            <div class="navbar-container">
+                <ul class="navbar">
+                    <li class="logo-container">
+                        <a href="../../">
+                            <img src="../../images/main-logo.png" alt="logo" class="nav-logo">
+                        </a>
+                    </li>
+                    <li class="main-title-container">
+                        <h1 class="site-name main-title">UNISIX</h1>
+                    </li>
+                    <li class="navbar-list"><a href="../../" class="nav-link">Beranda</a></li>
+                    <li class="navbar-list">
+                        <div class="dropdown-center p-2 pt-0 pb-0">
+                            <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                              Profil
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="../../profile/student/"><i class="bi bi-person-lines-fill"></i><span>Siswa</span></a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="../../profile/structure/"><i class="bi bi-diagram-3"></i><span>Struktur Kelas</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navbar-list">
+                        <div class="dropdown-center p-2 pt-0 pb-0">
+                            <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                              Galeri
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li>
+                                <a class="dropdown-item" href="../../gallery/photo/"><i class="bi bi-images"></i><span>Foto</span></a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="../../gallery/practice/"><i class="bi bi-bookmarks"></i><span>Praktik</span></a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="../../gallery/video/"><i class="bi bi-film"></i><span>Video</span></a>
+                              </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navbar-list">
+                        <div class="dropdown-center p-2 pt-0 pb-0">
+                            <a class="dropdown-toggle pt-2 pb-2" data-bs-toggle="dropdown" aria-expanded="false">
+                              Fitur
+                            </a>
+                            <ul class="dropdown-menu">
+                              <li>
+                                <a class="dropdown-item" href="../../feature/education/"><i class="bi bi-journals"></i><span>Edukasi</span></a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="../../feature/entertainment/"><i class="bi bi-puzzle"></i><span>Hiburan</span></a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="../../feature/information/"><i class="bi bi-info-circle"></i><span>Informasi</span></a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item" href="../../feature/calendar/"><i class="bi bi-calendar"></i><span>Kalender</span></a>
+                              </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="navbar-list"><a href="../../contact/" class="nav-link">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="nav-username-container nav-username-container-hidden">
+                <div class="nav-username-icon-container">
+                    <i class="nav-username-icon bi bi-person"></i>
+                </div>
+                <div class="nav-username-text-container">
+                    <div class="nav-username-text site-username"></div>
+                </div>
+            </div>
+            <!-- Log in && Sign up button -->
+            <div class="sign-btn-container">
+                <a href="../../login/" class="sign-btn login-btn btn btn-sm btn-outline-primary">Masuk</a>
+                <a href="../../signup/" class="sign-btn signup-btn btn btn-sm btn-primary">Daftar</a>
+            </div>
+            <!-- Menu Icon -->
+            <div class="menu-icon-container">
+                <div class="menu-icon">
+                    <div class="menu-bar line1"></div>
+                    <div class="menu-bar line2"></div>
+                    <div class="menu-bar line3"></div>
+                </div>
+            </div>
+        </nav>
+        <div class="sidebar container-fluid">
+            <ul class="sidebar-ul">
+                <li class="sidebar-link-list container-fluid">
+                    <a href="../../" class="sidebar-link">Beranda</a>
+                </li>
+                <li class="sidebar-link-list sidebar-arrow-list container-fluid">
+                    <p class="p-0 m-0">
+                        <a class="p-0 m-0 collapsed" data-bs-toggle="collapse" href="#collapse-sidebar-profile" role="button" aria-expanded="false" aria-controls="collapse-sidebar-profile">
+                          <span>Profil</span>
+                          <i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
+                        </a>
+                    </p>
+                    <div class="collapse-sidebar collapse container-fluid" id="collapse-sidebar-profile">
+                        <div class="card card-body container-fluid m-0 pt-2 pb-2 bg-dark" style="background-color: #0000; border-width:0;">
+                            <div class="collapse-list collapse-list-profile container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../profile/student/">
+                                    <i class="bi bi-person-lines-fill"></i>
+                                    <span>Siswa</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-profile container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../profile/structure/">
+                                    <i class="bi bi-diagram-3"></i>
+                                    <span>Struktur Kelas</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="sidebar-link-list sidebar-arrow-list container-fluid">
+                    <p class="p-0 m-0">
+                        <a class="p-0 m-0 collapsed" data-bs-toggle="collapse" href="#collapse-sidebar-gallery" role="button" aria-expanded="false" aria-controls="collapse-sidebar-gallery">
+                          <span>Galeri</span>
+                          <i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
+                        </a>
+                    </p>
+                    <div class="collapse-sidebar collapse container-fluid" id="collapse-sidebar-gallery">
+                        <div class="card card-body container-fluid m-0 pt-2 pb-2" style="background-color: #0000; border-width:0;">
+                            <div class="collapse-list collapse-list-gallery container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../gallery/photo/">
+                                    <i class="bi bi-images"></i>
+                                    <span>Foto</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-gallery container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../gallery/practice/">
+                                    <i class="bi bi-bookmarks"></i>
+                                    <span>Praktik</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-gallery container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../gallery/video/">
+                                    <i class="bi bi-film"></i>
+                                    <span>Video</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="sidebar-link-list sidebar-arrow-list container-fluid">
+                    <p class="p-0 m-0">
+                        <a class="p-0 m-0 collapsed" data-bs-toggle="collapse" href="#collapse-sidebar-feature" role="button" aria-expanded="false" aria-controls="collapse-sidebar-feature">
+                            <span>Fitur</span>
+                            <i class="bi bi-caret-down-fill" style="font-size: 9pt;"></i>
+                        </a>
+                    </p>
+                    <div class="collapse-sidebar collapse container-fluid" id="collapse-sidebar-feature">
+                        <div class="card card-body container-./..fluid m-0 pt-2 pb-2" style="background-color: #0000; border-width:0;">
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../feature/education/">
+                                    <i class="bi bi-journals"></i>
+                                    <span>Edukasi</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../feature/entertainment/">
+                                    <i class="bi bi-puzzle"></i>
+                                    <span>Hiburan</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../feature/information/">
+                                    <i class="bi bi-info-circle"></i>
+                                    <span>Informasi</span>
+                                </a>
+                            </div>
+                            <div class="collapse-list collapse-list-feature container-fluid text-center">
+                                <a class="a-collapse text-center" href="../../feature/calendar/">
+                                    <i class="bi bi-calendar"></i>
+                                    <span>Kalender</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="sidebar-link-list container-fluid">
+                    <a href="../../contact/" class="sidebar-link">Kontak</a>
+                </li>
+                <li class="sign-button-list container-fluid">
+                    <a href="../../login/" class="sign-btn login-btn btn btn-sm btn-outline-primary">Masuk</a>
+                    <a href="../../signup/" class="sign-btn signup-btn btn btn-sm btn-primary">Daftar</a>
+                </li>
+                <li class="sidebar-username-list sidebar-list-hidden container-fluid">
+                    <!-- Username here -->
+                    <!-- <i class="bi bi-person-circle"></i> iki enek circle -->
+                    <div class="sidebar-username-container container-fluid">
+                        <div class="sidebar-username-icon-container">
+                            <i class="sidebar-username-icon bi bi-person"></i>
+                        </div>
+                        <div class="sidebar-username-text-container">
+                            <div class="sidebar-username-text site-username"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- End Navbar Section -->
+    </header>
+    <!-- Main Section -->
+    <section class="main-section">
+        <div class="calendar-container">
+            <div class="calendar-section-container">
+                <div class="calendar-left-container">
+                    <div class="calendar-left-subcontainer">
+                        <div class="left-top-container">
+                            <div class="left-top-arrow-icon-container left-top-arrow-icon-container-1"></div>
+                            <div class="left-top-date-container">
+                                <span class="left-top-month-text">Februari</span><span class="left-top-year-text">2023</span>
+                            </div>
+                            <div class="left-top-arrow-icon-container left-top-arrow-icon-container-2"></div>
+                        </div>
+                        <div class="day-container">
+                            <div class="day-subcontainer">
+                                <div class="day">Minggu</div>
+                                <div class="day">Senin</div>
+                                <div class="day">Selasa</div>
+                                <div class="day">Rabu</div>
+                                <div class="day">Kamis</div>
+                                <div class="day">Jumat</div>
+                                <div class="day">Sabtu</div>
+                            </div>
+                        </div>
+                        <div class="number-container">
+                            <div class="number-grid-container">
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">29</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">30</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">31</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-active">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content">
+                                    <div class="number-text">2</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                                <div class="number-content number-content-disabled">
+                                    <div class="number-text">1</div>
+                                    <div class="number-mark"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="calendar-right-container">
+                    <div class="calender-right-subcontainer">
+                        <div class="right-top-container">
+                            <div class="right-top-day-container"></div>
+                            <div class="right-top-date-container">
+                                <span class="right-top-date-text">1</span><span class="right-top-month-text">Februari</span><span class="right-top-year-text">2023</span>
+                            </div>
+                        </div>
+                        <div class="list-container">
+                            <ul class="ul-list">
+                                <li class="list">
+                                    <h5 class="list-title">Mini Tesla Coil</h5>
+                                    <div class="list-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, facere.</div>
+                                </li>
+                                <li class="list">
+                                    <h5 class="list-title">Mini Tesla Coil</h5>
+                                    <div class="list-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, facere.</div>
+                                </li>
+                                <li class="list">
+                                    <h5 class="list-title">Mini Tesla Coil</h5>
+                                    <div class="list-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, facere.</div>
+                                </li>
+                                <li class="list">
+                                    <h5 class="list-title">Mini Tesla Coil</h5>
+                                    <div class="list-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, facere.</div>
+                                </li>
+                                <li class="list">
+                                    <h5 class="list-title">Mini Tesla Coil</h5>
+                                    <div class="list-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, facere.</div>
+                                </li>
+                                <li class="list">
+                                    <h5 class="list-title">Mini Tesla Coil</h5>
+                                    <div class="list-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, facere.</div>
+                                </li>
+                                <li class="list">
+                                    <h5 class="list-title">Mini Tesla Coil</h5>
+                                    <div class="list-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, facere.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Footer Section -->
     <footer id="footer" class="container-fluid d-flex">
         <div class="footer-subcontainer">
@@ -63,6 +518,6 @@
         </div>
     </footer>
     <!-- End Footer Section -->
-    <script type="module" src="../../js/information.js"></script>
+    <script type="module" src="../../js/calendar.js"></script>
 </body>
 </html>
