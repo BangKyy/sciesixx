@@ -17,6 +17,13 @@ body{
     --bg-color-2: #e8eef5;
     --bg-color-3: #dde8f7;
     --bg-color-4: #e5e6e7;
+    --bg-color-calendar: #fefefe;
+    --bg-color-calendar-mark: #90d3ed;
+    --bg-color-calendar-border: #e7e7e7;
+    --bg-color-calendar-shadow-1: #f3f7fc;
+    --bg-color-calendar-shadow-2: #e7eff9;
+    --bg-dot: #597394;
+    --bg-list: #c6d5e8;
     --bg-dropdown: #F4FAFF; /*#f2f2f8*/
 
     /* font colors */
@@ -24,6 +31,9 @@ body{
     --color-2: #011D31;
     --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
     --color-4: #e8eef5;
+    --color-calendar-1: #637b9a;
+    --color-calendar-2: #cbcbcb;
+    --color-calendar-3: #676767;
 
     --color-gradient-black-1: rgba(0, 0, 0, 0.8);
     --color-gradient-black-2: rgba(0, 0, 0, 0.6);
@@ -87,4 +97,171 @@ header{
 .main-section{
     padding: 8rem 0;
     background-color: var(--bg-color-2);
+}
+.calendar-section-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+    border-radius: 35px;
+    max-width: 90%;
+}
+.calendar-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.calendar-left-container,
+.calendar-right-container {
+    background-color: var(--bg-color-3);
+    padding: 1.5rem;
+}
+.calendar-left-subcontainer,
+.calendar-right-subcontainer {
+    padding: 2.5rem 0;
+}
+.calendar-left-container {
+    border-radius: 35px 0 0 35px;
+    /* padding-right: 0; */
+}
+.calendar-left-subcontainer {
+    padding: 2.5rem;
+    border-radius: 20px;
+    background-color: var(--bg-color-calendar);
+    box-shadow: 0.75rem 0 var(--bg-color-calendar-shadow-1), 
+    1.5rem 0 var(--bg-color-calendar-shadow-2);
+}
+.left-top-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem 0 5rem 0;
+}
+.left-top-date-container {
+    color: var(--color-2);
+    font-weight: 625;
+    font-size: 14pt;
+}
+.day-container {
+    display: flex;
+    justify-content: center;
+}
+.day-subcontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 2.5rem;
+    padding: 0 calc(2.5rem / 2);
+    padding-bottom: 1rem;
+}
+.day {
+    min-width: 50px;
+    text-align: center;
+    color: var(--color-calendar-3);
+    font-weight: bold;
+}
+.number-container {
+    width: 100%;
+}
+.number-grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.number-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0;
+    border: 1px solid var(--bg-color-calendar-border);
+}
+.number-content-disabled > .number-text {
+    color: var(--color-calendar-2);
+}
+.number-text {
+    padding: 1rem 0;
+    color: var(--color-calendar-1);
+    font-weight: 600;
+}
+.number-mark {
+    width: 75%;
+    border-radius: 5px;
+    height: 3px;
+}
+.number-mark-active {
+    background-color: var(--bg-color-calendar-mark);
+}
+.number-content-active {
+    background-color: var(--bg-color-calendar-mark);
+    box-shadow: 0 0 10px 0 var(--bg-color-calendar-mark);
+}
+.number-content-active > .number-text {
+    color: var(--bg-color-calendar);
+    transform: scale(2);
+}
+.number-content-active > .number-mark {
+    background-color: var(--bg-color-calendar);
+    height: 4px;
+    width: 65%;
+}
+.calendar-right-container {
+    border-radius: 0 35px 35px 0;
+    /* padding-left: 0; */
+}
+/* .calendar-right-subcontainer {
+
+} */
+.right-top-container {
+    padding: 0.5rem 0 3rem 0;
+}
+.right-top-date-container {
+    display: flex;
+}
+.right-top-date-subcontainer {
+    width: 50%;
+}
+.right-top-day {
+    font-size: 22pt;
+    font-weight: 600;
+    color: var(--color-2);
+}
+.right-top-date-subcontainer:nth-child(2) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.right-top-date-subcontainer:nth-child(2) > span {
+    padding: 0 1.5px;
+    color: var(--color-calendar-3);
+    font-weight: 550;
+}
+.list-container {
+    height: 500px;
+    overflow-y: auto;
+}
+.list {
+    padding: 1rem 0 0.5rem 0;
+    display: flex;
+}
+.list:nth-child(odd) {
+    background-image: linear-gradient(90deg, var(--bg-list), #0000);
+}
+.list-dot-container {
+    width: 50px;
+    /* background-color: #0001; */
+    display: flex;
+    justify-content: center;
+    padding-top: 7px;
+}
+.list-dot {
+    border-radius: 50%;
+    width: 7px;
+    height: 7px;
+    background-color: var(--bg-dot);
+}
+.list-title {
+    font-size: 12pt;
+    margin-bottom: 1.5px !important;
+    color: var(--color-2);
+}
+.list-text {
+    font-size: 9pt;
+    color: var(--color-calendar-1);
 }
