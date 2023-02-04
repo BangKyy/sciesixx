@@ -34,6 +34,7 @@ body{
     --color-calendar-1: #637b9a;
     --color-calendar-2: #cbcbcb;
     --color-calendar-3: #676767;
+    --color-star: #4c9bf4;
 
     --color-gradient-black-1: rgba(0, 0, 0, 0.8);
     --color-gradient-black-2: rgba(0, 0, 0, 0.6);
@@ -135,6 +136,10 @@ header{
     display: flex;
     justify-content: space-around;
     padding: 0.5rem 0 5rem 0;
+}
+.left-top-arrow-icon {
+    font-size: 16pt !important;
+    cursor: pointer;
 }
 .left-top-date-container {
     color: var(--color-2);
@@ -264,4 +269,14 @@ header{
 .list-text {
     font-size: 9pt;
     color: var(--color-calendar-1);
+}
+.list-star-container {
+    /* background-color: #0001; */
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+}
+.list-star-icon {
+    color: var(--color-star) !important;
+    cursor: pointer;
 }
