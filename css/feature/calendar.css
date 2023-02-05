@@ -145,6 +145,12 @@ header{
     color: var(--color-2);
     font-weight: 625;
     font-size: 14pt;
+    min-width: 150px;
+    display: flex;
+    justify-content: center;
+}
+.left-top-date-container > span {
+    padding: 0 2.5px;
 }
 .day-container {
     display: flex;

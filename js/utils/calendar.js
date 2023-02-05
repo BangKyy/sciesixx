@@ -54,6 +54,9 @@ class NumberContent {
 }
 
 export class Calendar {
+    static #months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+    static #days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+
     static prevBtn = select(".left-top-arrow-icon-1");
     static nextBtn = select(".left-top-arrow-icon-2");
     static leftMonthElement = select(".left-top-month-text");
@@ -89,6 +92,7 @@ export class Calendar {
         this.generateDates(this.currentDate);
         this.formatNumberContents();
         this.formatTasks();
+        this.displayCalendarDate();
         this.display();
         this.displayTask();
         this.initEvent();
@@ -97,11 +101,17 @@ export class Calendar {
     initEvent() {
         this.prevBtn.addEventListener("click", () => {
             this.nextMonth(-1);
-            this.generateDates();
+            this.generateDates(this.date);
+            this.formatNumberContents();
+            this.displayCalendarDate();
+            this.display();
         });
         this.nextBtn.addEventListener("click", () => {
             this.nextMonth(1);
-            this.generateDates();
+            this.generateDates(this.date);
+            this.formatNumberContents();
+            this.displayCalendarDate();
+            this.display();
         });
     }
 
@@ -123,7 +133,7 @@ export class Calendar {
     }
 
     getMaxDate(value=new Date()) {
-        const date = Object.assign(value);
+        const date = new Date(value.getTime());
         date.setDate(1);
         let output = 0;
         while (date.getDate() > output) {
@@ -134,8 +144,36 @@ export class Calendar {
         return output;
     }
 
+    generatePastDates(value=this.date, output) {
+        const date = new Date(value.getTime());
+        date.setMonth(date.getMonth() - 1);
+        const maxDate = this.getMaxDate(date);
+        const numberContents = Object.assign([], output);
+        const nullLength = numberContents.findIndex((n) => n !== null);
+        const maxNullIndex = nullLength - 1;
+        const firstActiveDay = numberContents[nullLength].day;
+        const pastDates = Array(nullLength).fill(maxDate - maxNullIndex).map((v, i) => v + i);
+        const pastDays = Array(nullLength).fill((firstActiveDay + 7 - nullLength) % 7).map((v, i) => v + i);
+        const pastDateObjs = pastDates.map((v, i) => new NumberContent(v, pastDays[i], false, false));
+        output.splice(0, pastDateObjs.length, ...pastDateObjs);
+    }
+
+    generateFutureDates(value=this.date, output) {
+        const date = new Date(value.getTime());
+        date.setMonth(date.getMonth() + 1);
+        output.reverse();
+        const numberContents = Object.assign([], output);
+        const nullLength = numberContents.findIndex((n) => n !== null);
+        const lastActiveDay = numberContents[nullLength].day;
+        const futureDates = Array(nullLength).fill(nullLength).map((v, i) => v - i);
+        const futureDays = Array(nullLength).fill(lastActiveDay + nullLength).map((v, i) => (v + 7 - i) % 7);
+        const futureDaysObjs = futureDates.map((v, i) => new NumberContent(v, futureDays[i], false, false));
+        output.splice(0, futureDaysObjs.length, ...futureDaysObjs);
+        output.reverse();
+    }
+
     generateDates(value=this.date) {
-        const date = Object.assign(value);
+        const date = new Date(value.getTime());
         date.setDate(1);
         const beginDay = date.getDay();
         const maxDate = this.getMaxDate(date);
@@ -145,6 +183,8 @@ export class Calendar {
             let tempDay = tempIndex % 7;
             output[tempIndex] = new NumberContent(i + 1, tempDay, true, false);
         }
+        this.generatePastDates(value, output);
+        this.generateFutureDates(value, output);
         this.numberContents = output;
         console.log(output);
     }
@@ -181,6 +221,13 @@ export class Calendar {
     
     displayTask() {
         this.listContainer.innerHTML = this.taskElement;
+    }
+
+    displayCalendarDate() {
+        const month = Calendar.#months[this.date.getMonth()];
+        const year = String(this.date.getFullYear());
+        this.leftMonthElement.innerHTML = month;
+        this.leftYearElement.innerHTML = year;
     }
 
     display() {
