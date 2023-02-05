@@ -11,7 +11,7 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("load", () => {
-    // calendar.init();
+    calendar.init();
     generateDynamicSiteName("../../json/config.json");
     nav.initSidebar();
     nav.initSidebarArrow();
