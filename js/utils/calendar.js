@@ -41,7 +41,7 @@ class NumberContent {
     toElement() {
         const classLists = ["number-content"];
         const taskClassLists = ["number-mark"];
-        this.isCurrent ? 0 : classLists.push("number-content-disabled");
+        this.isCurrent ? classLists.push("number-content-enabled") : classLists.push("number-content-disabled");
         this.hasTask ? taskClassLists.push("number-mark-active") : 0;
         const element = `
             <div class="${classLists.join(" ")}">
@@ -65,6 +65,7 @@ export class Calendar {
     static rightYearElement = select(".right-top-year-text");
     static rightDayElement = select(".right-top-day");
     static gridContainer = select(".number-grid-container");
+    static numberContentElements = selectAll(".number-content-enabled");
     static listContainer = select(".list-container");
 
     constructor() {
@@ -76,14 +77,16 @@ export class Calendar {
         this.rightYearElement = Calendar.rightYearElement;
         this.rightDayElement = Calendar.rightDayElement;
         this.gridContainer = Calendar.gridContainer;
+        this.numberContentElements = Calendar.numberContentElements;
         this.listContainer = Calendar.listContainer;
         this.currentDate = new Date();
         this.date = new Date();
         this.numberContents = [];
         this.starredTasks = [];
         this.tasks = [];
-        this.element = "";
-        this.taskElement = "";
+        this.elementString = "";
+        this.starredTaskElementString = "";
+        this.taskElementString = "";
     }
     
     async init() {
@@ -94,8 +97,15 @@ export class Calendar {
         this.formatTasks();
         this.displayCalendarDate();
         this.display();
-        this.displayTask();
+        this.displayStarredTask();
+        // this.displayTask();
+        this.initDom();
         this.initEvent();
+        this.initObject();
+    }
+
+    initDom() {
+        this.numberContentElements = selectAll(".number-content-enabled");
     }
 
     initEvent() {
@@ -115,15 +125,18 @@ export class Calendar {
         });
     }
 
+    initObject() {
+        const numberContents = [...this.numberContentElements].map((v, i) => new NumberContentEnabled(i));
+        NumberContentEnabled.setObjects(...numberContents);
+        NumberContentEnabled.objects.forEach((obj) => {
+            obj.init();
+        });
+    }
+
     async fetchTasks() {
         try {
-            // const rawTasks = await fetch(``);
-            // const tasks = await rawTasks.json();
-            const tasks = [
-                { name: "Matematika Wajib", description: "Limit fungsi menggunakan metode L'Hospital", date: "Wed, 01 Feb 2023 17:00:00 GMT" },
-                { name: "Biologi", description: "Menggambar struktur pernapasan pada manusia", date: "Thu, 02 Feb 2023 17:00:00 GMT" },
-                { name: "Fisika", description: "Mengerjakan lks halaman sekian", date: "Fri, 03 Feb 2023 17:00:00 GMT" }
-            ];
+            const rawTasks = await fetch(`../../rest/calendar-task.php`);
+            const tasks = await rawTasks.json();
             const output = tasks.map((t) => new Task(t.name, t.description, t.date, false));
             this.tasks = output;
         } catch (err) {
@@ -144,6 +157,18 @@ export class Calendar {
         return output;
     }
 
+    hasTaskDate(value=this.date, number) {
+        const date = new Date(value.getTime());
+        const tasks = this.tasks.find((task) => {
+            const taskDate = new Date(task.date);
+            const equalDate = taskDate.getDate() === number;
+            const equalMonth = taskDate.getMonth() === date.getMonth();
+            const equalYear = taskDate.getFullYear() === date.getFullYear();
+            return equalDate && equalMonth && equalYear;
+        });
+        return tasks;
+    }
+
     generatePastDates(value=this.date, output) {
         const date = new Date(value.getTime());
         date.setMonth(date.getMonth() - 1);
@@ -154,7 +179,10 @@ export class Calendar {
         const firstActiveDay = numberContents[nullLength].day;
         const pastDates = Array(nullLength).fill(maxDate - maxNullIndex).map((v, i) => v + i);
         const pastDays = Array(nullLength).fill((firstActiveDay + 7 - nullLength) % 7).map((v, i) => v + i);
-        const pastDateObjs = pastDates.map((v, i) => new NumberContent(v, pastDays[i], false, false));
+        const pastDateObjs = pastDates.map((v, i) => {
+            const hasTask = this.hasTaskDate(date, maxDate - (maxNullIndex - i));
+            return new NumberContent(v, pastDays[i], false, hasTask);
+        });
         output.splice(0, pastDateObjs.length, ...pastDateObjs);
     }
 
@@ -167,7 +195,10 @@ export class Calendar {
         const lastActiveDay = numberContents[nullLength].day;
         const futureDates = Array(nullLength).fill(nullLength).map((v, i) => v - i);
         const futureDays = Array(nullLength).fill(lastActiveDay + nullLength).map((v, i) => (v + 7 - i) % 7);
-        const futureDaysObjs = futureDates.map((v, i) => new NumberContent(v, futureDays[i], false, false));
+        const futureDaysObjs = futureDates.map((v, i) => {
+            const hasTask = this.hasTaskDate(date, nullLength - i);
+            return new NumberContent(v, futureDays[i], false, hasTask);
+        });
         output.splice(0, futureDaysObjs.length, ...futureDaysObjs);
         output.reverse();
     }
@@ -181,12 +212,13 @@ export class Calendar {
         for (let i = 0; i < maxDate; i++) {
             let tempIndex = beginDay + i;
             let tempDay = tempIndex % 7;
-            output[tempIndex] = new NumberContent(i + 1, tempDay, true, false);
+            const hasTask = this.hasTaskDate(value, i + 1);
+            output[tempIndex] = new NumberContent(i + 1, tempDay, true, hasTask);
         }
         this.generatePastDates(value, output);
         this.generateFutureDates(value, output);
         this.numberContents = output;
-        console.log(output);
+        console.log(this.tasks);
     }
 
     generateStarredTasks() {
@@ -204,13 +236,24 @@ export class Calendar {
     }
 
     formatNumberContents() {
-        this.element = this.numberContents.map((numberContent) => {
+        this.elementString = this.numberContents.map((numberContent) => {
             return numberContent !== null ? numberContent.toElement() : "";
         }).join("");
     }
 
+    formatStarredTasks() {
+        this.starredTaskElementString = this.starredTasks.map((task) => {
+            return task.toElement();
+        }).join("");
+    }
+
     formatTasks() {
-        this.taskElement = this.tasks.map((task) => {
+        this.taskElementString = this.tasks.map((task) => {
+            return task.toElement();
+        }).join("");
+    }
+    formatTasks() {
+        this.taskElementString = this.tasks.map((task) => {
             return task.toElement();
         }).join("");
     }
@@ -218,9 +261,13 @@ export class Calendar {
     async showError(message, title="Error", icon="error") {
         await Swal.fire(title, message, icon);
     }
+
+    displayStarredTask() {
+        this.listContainer.innerHTML = this.starredTaskElementString;
+    }
     
     displayTask() {
-        this.listContainer.innerHTML = this.taskElement;
+        this.listContainer.innerHTML = this.taskElementString;
     }
 
     displayCalendarDate() {
@@ -231,6 +278,43 @@ export class Calendar {
     }
 
     display() {
-        this.gridContainer.innerHTML = this.element;
+        this.gridContainer.innerHTML = this.elementString;
+    }
+}
+
+class NumberContentEnabled extends Calendar {
+    static objects = [];
+
+    static setObjects(...values) {
+        NumberContentEnabled.objects.length = 0;
+        NumberContentEnabled.objects.push(...values);
+    }
+
+    static toggleActiveObject(index) {
+        NumberContentEnabled.objects.forEach((obj) => {
+            obj.isActive = false;
+        });
+        NumberContentEnabled.objects[index].isActive = true;
+    }
+
+    constructor(index) {
+        super();
+        this.index = index;
+        this.element = selectAll(".number-content-enabled")[index];
+        this.isActive = false;
+    }
+
+    init() {
+        this.initEvent();
+    }
+
+    initEvent() {
+        this.element.addEventListener("click", () => {
+            console.log(this.index);
+        });
+    }
+
+    displayTask() {
+
     }
 }
