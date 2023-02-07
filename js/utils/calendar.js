@@ -64,6 +64,7 @@ export class Calendar {
     static leftYearElement = select(".left-top-year-text");
     static rightYearElement = select(".right-top-year-text");
     static rightDayElement = select(".right-top-day");
+    static rightDateElement = select(".right-top-date-text");
     static gridContainer = select(".number-grid-container");
     static numberContentElements = selectAll(".number-content-enabled");
     static listContainer = select(".list-container");
@@ -76,6 +77,7 @@ export class Calendar {
         this.leftYearElement = Calendar.leftYearElement;
         this.rightYearElement = Calendar.rightYearElement;
         this.rightDayElement = Calendar.rightDayElement;
+        this.rightDateElement = Calendar.rightDateElement;
         this.gridContainer = Calendar.gridContainer;
         this.numberContentElements = Calendar.numberContentElements;
         this.listContainer = Calendar.listContainer;
@@ -96,16 +98,28 @@ export class Calendar {
         this.formatNumberContents();
         this.formatTasks();
         this.displayCalendarDate();
+        this.displayTaskDate(this.date, this.date.getDate());
         this.display();
         this.displayStarredTask();
         // this.displayTask();
         this.initDom();
+        this.initDomEvent();
         this.initEvent();
         this.initObject();
     }
 
     initDom() {
         this.numberContentElements = selectAll(".number-content-enabled");
+    }
+
+    initDomEvent() {
+        this.numberContentElements.forEach((element) => {
+            element.addEventListener("click", () => {
+                this.numberContentElements.forEach((subElement) => {
+                    subElement.classList.remove("number-content-active");
+                });
+            });
+        });
     }
 
     initEvent() {
@@ -115,6 +129,9 @@ export class Calendar {
             this.formatNumberContents();
             this.displayCalendarDate();
             this.display();
+            this.initDom();
+            this.initDomEvent();
+            this.initObject();
         });
         this.nextBtn.addEventListener("click", () => {
             this.nextMonth(1);
@@ -122,12 +139,16 @@ export class Calendar {
             this.formatNumberContents();
             this.displayCalendarDate();
             this.display();
+            this.initDom();
+            this.initDomEvent();
+            this.initObject();
         });
     }
 
     initObject() {
-        const numberContents = [...this.numberContentElements].map((v, i) => new NumberContentEnabled(i));
+        const numberContents = [...this.numberContentElements].map((v, i) => new NumberContentEnabled(i, this.date));
         NumberContentEnabled.setObjects(...numberContents);
+        NumberContentEnabled.setTasks(...this.tasks);
         NumberContentEnabled.objects.forEach((obj) => {
             obj.init();
         });
@@ -247,11 +268,18 @@ export class Calendar {
         }).join("");
     }
 
-    formatTasks() {
-        this.taskElementString = this.tasks.map((task) => {
-            return task.toElement();
-        }).join("");
+    specifyTasks(value=this.date, number) {
+        const date = new Date(value.getTime());
+        const filteredTasks = this.tasks.filter((task) => {
+            const taskDate = new Date(task.date);
+            const equalDate = taskDate.getDate() === number;
+            const equalMonth = taskDate.getMonth() === date.getMonth();
+            const equalYear = taskDate.getFullYear() === date.getFullYear();
+            return equalDate && equalMonth && equalYear;
+        });
+        console.log(filteredTasks);
     }
+    
     formatTasks() {
         this.taskElementString = this.tasks.map((task) => {
             return task.toElement();
@@ -277,6 +305,18 @@ export class Calendar {
         this.leftYearElement.innerHTML = year;
     }
 
+    displayTaskDate(value=this.date, number) {
+        const date = new Date(value.getTime());
+        date.setDate(number);
+        const day = Calendar.#days[date.getDay()];
+        const month = Calendar.#months[date.getMonth()];
+        const year = String(date.getFullYear());
+        this.rightDayElement.innerHTML = day;
+        this.rightDateElement.innerHTML = number;
+        this.rightMonthElement.innerHTML = month;
+        this.rightYearElement.innerHTML = year;
+    }
+
     display() {
         this.gridContainer.innerHTML = this.elementString;
     }
@@ -284,24 +324,31 @@ export class Calendar {
 
 class NumberContentEnabled extends Calendar {
     static objects = [];
+    static tasks = [];
 
     static setObjects(...values) {
-        NumberContentEnabled.objects.length = 0;
-        NumberContentEnabled.objects.push(...values);
+        NumberContentEnabled.objects = [...values];
     }
 
-    static toggleActiveObject(index) {
+    static setTasks(...values) {
+        NumberContentEnabled.tasks = [...values];
+    }
+
+    static toggleActiveObject(index, shouldActive) {
         NumberContentEnabled.objects.forEach((obj) => {
             obj.isActive = false;
         });
-        NumberContentEnabled.objects[index].isActive = true;
+        NumberContentEnabled.objects[index].isActive = shouldActive;
     }
 
-    constructor(index) {
+    constructor(index, date) {
         super();
         this.index = index;
+        this.date = date;
         this.element = selectAll(".number-content-enabled")[index];
         this.isActive = false;
+        this.specifiedTasks = [];
+        this.specifiedTaskElementString = "";
     }
 
     init() {
@@ -310,11 +357,49 @@ class NumberContentEnabled extends Calendar {
 
     initEvent() {
         this.element.addEventListener("click", () => {
-            console.log(this.index);
+            this.toggleActive();
         });
     }
 
-    displayTask() {
+    toggleActive() {
+        if (this.isActive) {
+            super.displayStarredTask();
+            this.element.classList.remove("number-content-active");
+            this.isActive = false;
+            return;
+        }
+        NumberContentEnabled.toggleActiveObject(this.index, !this.isActive);
+        this.displayTaskDate(this.date, this.index + 1);
+        this.specifyTasks(this.date, this.index + 1);
+        this.formatSpecifiedTasks();
+        this.displaySpecifiedTask();
+        this.element.classList.add("number-content-active");
+    }
 
+    specifyTasks(value=this.date, number) {
+        const date = new Date(value.getTime());
+        const specifiedTasks = NumberContentEnabled.tasks.filter((task) => {
+            const taskDate = new Date(task.date);
+            const equalDate = taskDate.getDate() === number;
+            const equalMonth = taskDate.getMonth() === date.getMonth();
+            const equalYear = taskDate.getFullYear() === date.getFullYear();
+            return equalDate && equalMonth && equalYear;
+        });
+        this.specifiedTasks = specifiedTasks;
+    }
+
+    formatSpecifiedTasks() {
+        const taskElements = this.specifiedTasks.map((task) => {
+            return task.toElement();
+        })
+        .map((task) => task.trim());
+        const taskElementString = taskElements.join("");
+        this.specifiedTaskElementString = taskElementString;
+        console.log(89)
+    }
+
+    displaySpecifiedTask() {
+        this.listContainer.innerHTML = this.specifiedTaskElementString;
+        console.log(1)
     }
 }
