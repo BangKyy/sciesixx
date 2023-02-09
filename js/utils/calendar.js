@@ -2,9 +2,10 @@ const select = document.querySelector.bind(document);
 const selectAll = document.querySelectorAll.bind(document);
 
 class Task {
-    constructor(name="", description="", date="", isStarred=false) {
+    constructor(name="", description="", tag="", date="", isStarred=false) {
         this.name = name;
         this.description = description;
+        this.tag = tag;
         this.date = date;
         this.isStarred = isStarred;
     }
@@ -101,7 +102,6 @@ export class Calendar {
         this.displayTaskDate(this.date, this.date.getDate());
         this.display();
         this.displayStarredTask();
-        // this.displayTask();
         this.initDom();
         this.initDomEvent();
         this.initEvent();
@@ -158,7 +158,7 @@ export class Calendar {
         try {
             const rawTasks = await fetch(`../../rest/calendar-task.php`);
             const tasks = await rawTasks.json();
-            const output = tasks.map((t) => new Task(t.name, t.description, t.date, false));
+            const output = tasks.map((t) => new Task(t.name, t.description, t.tag, t.date, false));
             this.tasks = output;
         } catch (err) {
             await this.showError("Telah terjadi kesalahan");
@@ -176,6 +176,16 @@ export class Calendar {
             date.setDate(date.getDate() + 1);
         }
         return output;
+    }
+
+    getStarredTasks() {
+        const starredTasks = JSON.parse(localStorage.getItem("sciesixx-calendar-task-starred") ?? "[]");
+        return starredTasks;
+    }
+
+    setStarredTasks(...value) {
+        const starredTaskString = JSON.stringify([...value]);
+        localStorage.setItem("sciesixx-calendar-task-starred", starredTaskString);
     }
 
     hasTaskDate(value=this.date, number) {
@@ -243,7 +253,7 @@ export class Calendar {
     }
 
     generateStarredTasks() {
-        const starredTasks = JSON.parse(localStorage.getItem("sciesixx-calendar-task-starred") ?? "[]");
+        const starredTasks = this.getStarredTasks();
         this.starredTasks = starredTasks;
     }
 
@@ -322,6 +332,77 @@ export class Calendar {
     }
 }
 
+class Star extends Calendar {
+    static starredTasks = [];
+
+    constructor(index, date, data={}, isStarred=false) {
+        super();
+        this.index = index;
+        this.date = date;
+        this.data = data;
+        this.isStarred = isStarred;
+        this.isFilled = isStarred;
+    }
+
+    init() {
+        this.initDom();
+        this.initEvent();
+    }
+
+    initDom() {
+        this.element = selectAll(".list-star-icon")[this.index];
+    }
+
+    initEvent() {
+        this.element.addEventListener("click", () => {
+            this.toggleStar();
+        });
+    }
+
+    toggleStar() {
+        if (this.isFilled) {
+            this.unsave();
+            this.unstar();
+            this.isFilled = false;
+            return;
+        }
+        this.save();
+        this.star();
+        this.isFilled = true;
+    }
+
+    save() {
+        this.data.isStarred = true;
+        Star.starredTasks.push(this.data);
+        this.starredTasks = [...Star.starredTasks];
+        super.setStarredTasks(...this.starredTasks);
+        console.log(this.starredTasks)
+    }
+    
+    unsave() {
+        Star.starredTasks = this.starredTasks.filter((task) => {
+            return task.tag !== this.data.tag;
+        });
+        this.starredTasks = [...Star.starredTasks];
+        super.setStarredTasks(...this.starredTasks);
+        console.log(this.starredTasks)
+    }
+
+    star() {
+        const oldClassName = "bi-star";
+        const newClassName = "bi-star-fill";
+        this.element.classList.remove(oldClassName);
+        this.element.classList.add(newClassName);
+    }
+    
+    unstar() {
+        const oldClassName = "bi-star-fill";
+        const newClassName = "bi-star";
+        this.element.classList.remove(oldClassName);
+        this.element.classList.add(newClassName);
+    }
+}
+
 class NumberContentEnabled extends Calendar {
     static objects = [];
     static tasks = [];
@@ -373,6 +454,7 @@ class NumberContentEnabled extends Calendar {
         this.specifyTasks(this.date, this.index + 1);
         this.formatSpecifiedTasks();
         this.displaySpecifiedTask();
+        this.emitSpecifiedStars();
         this.element.classList.add("number-content-active");
     }
 
@@ -388,6 +470,15 @@ class NumberContentEnabled extends Calendar {
         this.specifiedTasks = specifiedTasks;
     }
 
+    emitSpecifiedStars() {
+        const specifiedStars = this.specifiedTasks.map((v, i) => {
+            return new Star(i, this.date, v, false);
+        });
+        specifiedStars.forEach((star) => {
+            star.init();
+        });
+    }
+
     formatSpecifiedTasks() {
         const taskElements = this.specifiedTasks.map((task) => {
             return task.toElement();
@@ -395,11 +486,9 @@ class NumberContentEnabled extends Calendar {
         .map((task) => task.trim());
         const taskElementString = taskElements.join("");
         this.specifiedTaskElementString = taskElementString;
-        console.log(89)
     }
 
     displaySpecifiedTask() {
         this.listContainer.innerHTML = this.specifiedTaskElementString;
-        console.log(1)
     }
 }
