@@ -101,11 +101,13 @@ export class Calendar {
         this.displayCalendarDate();
         this.displayTaskDate(this.date, this.date.getDate());
         this.display();
+        this.formatStarredTasks();
         this.displayStarredTask();
         this.initDom();
         this.initDomEvent();
         this.initEvent();
         this.initObject();
+        console.log(this.starredTasks)
     }
 
     initDom() {
@@ -166,6 +168,11 @@ export class Calendar {
         }
     }
 
+    addStarredTaskMethod(value) {
+        const toElement = new Task().toElement.bind(value);
+        value.toElement = toElement;
+    }
+
     getMaxDate(value=new Date()) {
         const date = new Date(value.getTime());
         date.setDate(1);
@@ -180,6 +187,7 @@ export class Calendar {
 
     getStarredTasks() {
         const starredTasks = JSON.parse(localStorage.getItem("sciesixx-calendar-task-starred") ?? "[]");
+        starredTasks.forEach((v) => this.addStarredTaskMethod(v));
         return starredTasks;
     }
 
@@ -249,7 +257,6 @@ export class Calendar {
         this.generatePastDates(value, output);
         this.generateFutureDates(value, output);
         this.numberContents = output;
-        console.log(this.tasks);
     }
 
     generateStarredTasks() {
@@ -335,6 +342,14 @@ export class Calendar {
 class Star extends Calendar {
     static starredTasks = [];
 
+    static getStarredTasks() {
+        return JSON.parse(localStorage.getItem("sciesixx-calendar-task-starred") ?? "[]");
+    }
+
+    static regenerateStarredTasks() {
+        Star.starredTasks = Star.getStarredTasks();
+    }
+
     constructor(index, date, data={}, isStarred=false) {
         super();
         this.index = index;
@@ -376,16 +391,14 @@ class Star extends Calendar {
         Star.starredTasks.push(this.data);
         this.starredTasks = [...Star.starredTasks];
         super.setStarredTasks(...this.starredTasks);
-        console.log(this.starredTasks)
     }
     
     unsave() {
-        Star.starredTasks = this.starredTasks.filter((task) => {
+        Star.starredTasks = Star.starredTasks.filter((task) => {
             return task.tag !== this.data.tag;
         });
         this.starredTasks = [...Star.starredTasks];
         super.setStarredTasks(...this.starredTasks);
-        console.log(this.starredTasks)
     }
 
     star() {
@@ -428,11 +441,13 @@ class NumberContentEnabled extends Calendar {
         this.date = date;
         this.element = selectAll(".number-content-enabled")[index];
         this.isActive = false;
+        this.newTasks = [];
         this.specifiedTasks = [];
         this.specifiedTaskElementString = "";
     }
 
     init() {
+        this.putStarredTasks();
         this.initEvent();
     }
 
@@ -444,6 +459,9 @@ class NumberContentEnabled extends Calendar {
 
     toggleActive() {
         if (this.isActive) {
+            super.generateStarredTasks();
+            super.formatStarredTasks();
+            this.putStarredTasks();
             super.displayStarredTask();
             this.element.classList.remove("number-content-active");
             this.isActive = false;
@@ -454,8 +472,24 @@ class NumberContentEnabled extends Calendar {
         this.specifyTasks(this.date, this.index + 1);
         this.formatSpecifiedTasks();
         this.displaySpecifiedTask();
+        this.putStarredTasks();
         this.emitSpecifiedStars();
         this.element.classList.add("number-content-active");
+    }
+
+    putStarredTasks() {
+        const starredTasks = super.getStarredTasks();
+        const newTasks = NumberContentEnabled.tasks.map((v) => {
+            const output = Object.assign(v);
+            output.isStarred = false;
+            starredTasks.forEach((w) => {
+                if (w.tag !== v.tag) return;
+                output.isStarred = true;
+            });
+            return output;
+        });
+        NumberContentEnabled.setTasks(...newTasks);
+        this.newTasks = newTasks;
     }
 
     specifyTasks(value=this.date, number) {
@@ -471,8 +505,9 @@ class NumberContentEnabled extends Calendar {
     }
 
     emitSpecifiedStars() {
+        Star.regenerateStarredTasks();
         const specifiedStars = this.specifiedTasks.map((v, i) => {
-            return new Star(i, this.date, v, false);
+            return new Star(i, this.date, v, v.isStarred);
         });
         specifiedStars.forEach((star) => {
             star.init();
