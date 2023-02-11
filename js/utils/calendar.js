@@ -148,7 +148,10 @@ export class Calendar {
     }
 
     initObject() {
-        const numberContents = [...this.numberContentElements].map((v, i) => new NumberContentEnabled(i, this.date));
+        const numberContents = [...this.numberContentElements].map((v, i) => {
+            const isActive = NumberContentEnabled.isActiveNumberContent(i + 1, this.date);
+            return new NumberContentEnabled(i, this.date, isActive);
+        });
         NumberContentEnabled.setObjects(...numberContents);
         NumberContentEnabled.setTasks(...this.tasks);
         NumberContentEnabled.objects.forEach((obj) => {
@@ -366,10 +369,11 @@ class Star extends Calendar {
 
     initDom() {
         this.element = selectAll(".list-star-icon")[this.index];
+        console.log(this.index);
     }
 
     initEvent() {
-        this.element.addEventListener("click", () => {
+        this.element?.addEventListener("click", () => {
             this.toggleStar();
         });
     }
@@ -419,13 +423,41 @@ class Star extends Calendar {
 class NumberContentEnabled extends Calendar {
     static objects = [];
     static tasks = [];
+    static starredTasks = [];
+    static activeNumberDateString = null;
+
+    static isActiveNumberContent(number, date) {
+        const pastDateString = NumberContentEnabled.activeNumberDateString;
+        const pastDate = new Date(pastDateString);
+        const isEqualDate = number === pastDate.getDate();
+        const isEqualMonth = date.getMonth() === pastDate.getMonth();
+        const isEqualYear = date.getFullYear() === pastDate.getFullYear();
+        return isEqualDate && isEqualMonth && isEqualYear;
+    }
 
     static setObjects(...values) {
         NumberContentEnabled.objects = [...values];
     }
 
+    static setStarredTasks(...values) {
+        NumberContentEnabled.starredTasks = [...values];
+    }
+
     static setTasks(...values) {
         NumberContentEnabled.tasks = [...values];
+    }
+
+    static saveActiveNumberContent(number, date) {
+        const activeNumberDate = new Date();
+        activeNumberDate.setDate(number);
+        activeNumberDate.setMonth(date.getMonth());
+        activeNumberDate.setFullYear(date.getFullYear());
+        const dateString = activeNumberDate.toString();
+        NumberContentEnabled.activeNumberDateString = dateString;
+    }
+
+    static removeActiveNumberContent() {
+        NumberContentEnabled.activeNumberDateString = null;
     }
 
     static toggleActiveObject(index, shouldActive) {
@@ -435,20 +467,24 @@ class NumberContentEnabled extends Calendar {
         NumberContentEnabled.objects[index].isActive = shouldActive;
     }
 
-    constructor(index, date) {
+    constructor(index, date, isActive=false) {
         super();
         this.index = index;
         this.date = date;
+        this.isActive = isActive;
         this.element = selectAll(".number-content-enabled")[index];
-        this.isActive = false;
+        this.newStarredTasks = [];
         this.newTasks = [];
         this.specifiedTasks = [];
         this.specifiedTaskElementString = "";
     }
 
     init() {
+        this.mightActivate();
         this.putStarredTasks();
+        this.specifyStarredTasks();
         this.initEvent();
+        this.emitStarredStars();
     }
 
     initEvent() {
@@ -459,22 +495,40 @@ class NumberContentEnabled extends Calendar {
 
     toggleActive() {
         if (this.isActive) {
-            super.generateStarredTasks();
-            super.formatStarredTasks();
-            this.putStarredTasks();
-            super.displayStarredTask();
-            this.element.classList.remove("number-content-active");
-            this.isActive = false;
+            this.deactivate();
             return;
         }
+        this.activate();
+    }
+
+    mightActivate() {
+        if (!this.isActive) return;
+        this.activate();
+        this.isActive = true;
+    }
+
+    activate() {
         NumberContentEnabled.toggleActiveObject(this.index, !this.isActive);
-        this.displayTaskDate(this.date, this.index + 1);
+        NumberContentEnabled.saveActiveNumberContent(this.index + 1, this.date);
+        super.displayTaskDate(this.date, this.index + 1);
         this.specifyTasks(this.date, this.index + 1);
         this.formatSpecifiedTasks();
         this.displaySpecifiedTask();
         this.putStarredTasks();
         this.emitSpecifiedStars();
         this.element.classList.add("number-content-active");
+        // this.specifiedTasks.length ? this.element.classList.add("number-content-task-active") : 0;
+    }
+
+    deactivate() {
+        NumberContentEnabled.removeActiveNumberContent();
+        super.generateStarredTasks();
+        super.formatStarredTasks();
+        this.putStarredTasks();
+        super.displayStarredTask();
+        this.emitStarredStars();
+        this.element.classList.remove("number-content-active", "number-content-task-active");
+        this.isActive = false;
     }
 
     putStarredTasks() {
@@ -492,6 +546,13 @@ class NumberContentEnabled extends Calendar {
         this.newTasks = newTasks;
     }
 
+    specifyStarredTasks() {
+        const starredTasks = this.newTasks.filter((task) => {
+            return task.isStarred;
+        });
+        this.newStarredTasks = starredTasks;
+    }
+
     specifyTasks(value=this.date, number) {
         const date = new Date(value.getTime());
         const specifiedTasks = NumberContentEnabled.tasks.filter((task) => {
@@ -502,6 +563,16 @@ class NumberContentEnabled extends Calendar {
             return equalDate && equalMonth && equalYear;
         });
         this.specifiedTasks = specifiedTasks;
+    }
+
+    emitStarredStars() {
+        Star.regenerateStarredTasks();
+        const starredStars = Star.starredTasks.map((v, i) => {
+            return new Star(i, this.date, v, true);
+        });
+        starredStars.forEach((star) => {
+            star.init();
+        });
     }
 
     emitSpecifiedStars() {

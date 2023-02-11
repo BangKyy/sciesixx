@@ -210,17 +210,20 @@ header{
     transform: scale(2);
 }
 .number-content-active > .number-mark {
-    background-color: var(--bg-color-calendar);
+    background-color: var(--bg-color-calendar-mark);
     height: 4px;
     width: 65%;
+}
+.number-content-task-active > .number-mark {
+    background-color: var(--bg-color-calendar);
 }
 .calendar-right-container {
     border-radius: 0 35px 35px 0;
     /* padding-left: 0; */
 }
-/* .calendar-right-subcontainer {
-
-} */
+.calendar-right-subcontainer {
+    width: 250px;
+}
 .right-top-container {
     padding: 0.5rem 0 3rem 0;
 }
@@ -252,6 +255,7 @@ header{
 .list {
     padding: 1rem 0 0.5rem 0;
     display: flex;
+    justify-content: flex-start;
 }
 .list:nth-child(odd) {
     background-image: linear-gradient(90deg, var(--bg-list), #0000);
@@ -268,6 +272,9 @@ header{
     width: 7px;
     height: 7px;
     background-color: var(--bg-dot);
+}
+.list-text-container {
+    min-width: 155px;
 }
 .list-title {
     font-size: 12pt;
@@ -287,4 +294,48 @@ header{
 .list-star-icon {
     color: var(--color-star) !important;
     cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+    .calendar-section-container {
+        flex-direction: column;
+    }
+    .calendar-left-container {
+        border-radius: 35px 35px 0 0;
+    }
+    .calendar-left-subcontainer {
+        box-shadow: 0 0.75rem var(--bg-color-calendar-shadow-1), 
+        0 1.5rem var(--bg-color-calendar-shadow-2);
+    }
+    .calendar-right-container {
+        border-radius: 0 0 35px 35px;
+        display: flex;
+        justify-content: center;
+    }
+    .calendar-right-subcontainer {
+        width: 100%;
+    }
+    .right-top-container {
+        width: 100%;
+    }
+    .list-container {
+        height: 300px;
+    }
+    .list-text-container {
+        width: calc(100% - (50px + (3 * 16px)));
+    }
+}
+@media screen and (max-width: 768px) {
+    .day-subcontainer {
+        column-gap: 1rem;
+    }
+    .day {
+        min-width: 60px;
+    }
+}
+@media screen and (max-width: 576px) {
+
+}
+@media screen and (max-width: 360px) {
+
 }
