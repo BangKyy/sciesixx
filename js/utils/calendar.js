@@ -69,6 +69,7 @@ export class Calendar {
     static gridContainer = select(".number-grid-container");
     static numberContentElements = selectAll(".number-content-enabled");
     static listContainer = select(".list-container");
+    static allListContainers = selectAll(".list-all-container");
 
     constructor() {
         this.prevBtn = Calendar.prevBtn;
@@ -82,6 +83,7 @@ export class Calendar {
         this.gridContainer = Calendar.gridContainer;
         this.numberContentElements = Calendar.numberContentElements;
         this.listContainer = Calendar.listContainer;
+        this.allListContainers = Calendar.allListContainers;
         this.currentDate = new Date();
         this.date = new Date();
         this.numberContents = [];
@@ -94,6 +96,7 @@ export class Calendar {
     
     async init() {
         this.generateStarredTasks();
+        this.checkListContainers();
         await this.fetchTasks();
         this.generateDates(this.currentDate);
         this.formatNumberContents();
@@ -107,7 +110,6 @@ export class Calendar {
         this.initDomEvent();
         this.initEvent();
         this.initObject();
-        console.log(this.starredTasks)
     }
 
     initDom() {
@@ -118,7 +120,7 @@ export class Calendar {
         this.numberContentElements.forEach((element) => {
             element.addEventListener("click", () => {
                 this.numberContentElements.forEach((subElement) => {
-                    subElement.classList.remove("number-content-active");
+                    subElement.classList.remove("number-content-active", "number-content-task-active");
                 });
             });
         });
@@ -171,6 +173,19 @@ export class Calendar {
         }
     }
 
+    toggleListContainers(index) {
+        this.allListContainers.forEach((container) => {
+            container.classList.add("container-hidden");
+        });
+        this.allListContainers[index].classList.remove("container-hidden");
+    }
+
+    checkListContainers() {
+        const hasStarredTasks = this.hasStarredTasks();
+        const index = hasStarredTasks ? 2 : 0;
+        this.toggleListContainers(index);
+    }
+
     addStarredTaskMethod(value) {
         const toElement = new Task().toElement.bind(value);
         value.toElement = toElement;
@@ -197,6 +212,11 @@ export class Calendar {
     setStarredTasks(...value) {
         const starredTaskString = JSON.stringify([...value]);
         localStorage.setItem("sciesixx-calendar-task-starred", starredTaskString);
+    }
+
+    hasStarredTasks() {
+        const starredTasks = this.getStarredTasks();
+        return starredTasks.length > 0;
     }
 
     hasTaskDate(value=this.date, number) {
@@ -369,7 +389,6 @@ class Star extends Calendar {
 
     initDom() {
         this.element = selectAll(".list-star-icon")[this.index];
-        console.log(this.index);
     }
 
     initEvent() {
@@ -501,6 +520,16 @@ class NumberContentEnabled extends Calendar {
         this.activate();
     }
 
+    checkListTasks() {
+        const hasSpecifiedTasks = this.hasSpecifiedTasks();
+        const index = hasSpecifiedTasks ? 2 : 1;
+        super.toggleListContainers(index);
+    }
+
+    hasSpecifiedTasks() {
+        return this.specifiedTasks.length > 0;
+    }
+
     mightActivate() {
         if (!this.isActive) return;
         this.activate();
@@ -512,17 +541,19 @@ class NumberContentEnabled extends Calendar {
         NumberContentEnabled.saveActiveNumberContent(this.index + 1, this.date);
         super.displayTaskDate(this.date, this.index + 1);
         this.specifyTasks(this.date, this.index + 1);
+        this.checkListTasks();
         this.formatSpecifiedTasks();
         this.displaySpecifiedTask();
         this.putStarredTasks();
         this.emitSpecifiedStars();
         this.element.classList.add("number-content-active");
-        // this.specifiedTasks.length ? this.element.classList.add("number-content-task-active") : 0;
+        this.specifiedTasks.length ? this.element.classList.add("number-content-task-active") : 0;
     }
 
     deactivate() {
         NumberContentEnabled.removeActiveNumberContent();
         super.generateStarredTasks();
+        super.checkListContainers();
         super.formatStarredTasks();
         this.putStarredTasks();
         super.displayStarredTask();

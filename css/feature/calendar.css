@@ -105,7 +105,9 @@ header{
     flex-direction: row;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
     border-radius: 35px;
-    max-width: 90%;
+    /* max-width: 90%; */
+    width: 90%;
+    max-width: 1100px;
 }
 .calendar-container{
     display: flex;
@@ -151,6 +153,8 @@ header{
 }
 .left-top-date-container > span {
     padding: 0 2.5px;
+    display: flex;
+    align-items: center;
 }
 .day-container {
     display: flex;
@@ -234,7 +238,7 @@ header{
     width: 50%;
 }
 .right-top-day {
-    font-size: 22pt;
+    font-size: 18pt;
     font-weight: 600;
     color: var(--color-2);
 }
@@ -247,6 +251,19 @@ header{
     padding: 0 1.5px;
     color: var(--color-calendar-3);
     font-weight: 550;
+    font-size: 11pt;
+}
+.star-list-icon-container,
+.empty-list-icon-container {
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.star-list-icon,
+.empty-list-icon {
+    width: 100%;
+    height: auto;
 }
 .list-container {
     height: 500px;
@@ -274,7 +291,7 @@ header{
     background-color: var(--bg-dot);
 }
 .list-text-container {
-    min-width: 155px;
+    width: 155px;
 }
 .list-title {
     font-size: 12pt;
@@ -295,6 +312,9 @@ header{
     color: var(--color-star) !important;
     cursor: pointer;
 }
+.container-hidden {
+    display: none;
+}
 
 @media screen and (max-width: 992px) {
     .calendar-section-container {
@@ -306,6 +326,19 @@ header{
     .calendar-left-subcontainer {
         box-shadow: 0 0.75rem var(--bg-color-calendar-shadow-1), 
         0 1.5rem var(--bg-color-calendar-shadow-2);
+    }
+    .day-subcontainer {
+        width: 100%;
+        column-gap: 0;
+        padding: 0 0 1rem 0;
+        /* background-color: #0002; */
+    }
+    .day {
+        min-width: 65px;
+        /* background-color: #0001; */
+    }
+    .number-text {
+        padding: 1.5rem 0;
     }
     .calendar-right-container {
         border-radius: 0 0 35px 35px;
@@ -327,15 +360,133 @@ header{
 }
 @media screen and (max-width: 768px) {
     .day-subcontainer {
-        column-gap: 1rem;
+        width: 100%;
+        column-gap: 0;
+        padding: 0 0 1rem 0;
+        /* column-gap: 0.675rem; */
+        /* padding: 0 0 1rem 0; */
     }
     .day {
         min-width: 60px;
+        font-size: 10pt;
+        /* background-color: #0001; */
+    }
+}
+@media screen and (max-width: 610px) {
+    .left-top-arrow-icon {
+        font-size: 14pt !important;
+    }
+    .left-top-date-container {
+        font-size: 12pt;
+    }
+    .day {
+        min-width: 55px;
+        font-size: 8pt;
+    }
+    .number-text {
+        padding: 0.5rem 0;
+        font-size: 10pt;
+    }
+    .number-mark {
+        height: 2px;
+    }
+    .number-content-active > .number-text {
+        transform: scale(1.5);
+    }
+    .number-content-active > .number-mark {
+        height: 3px;
     }
 }
 @media screen and (max-width: 576px) {
-
+    .left-top-arrow-icon {
+        font-size: 12pt !important;
+    }
+    .left-top-date-container {
+        font-size: 11pt;
+    }
+    .day {
+        font-size: 8pt;
+        min-width: 40px;
+    }
+    .right-top-day {
+        font-size: 16pt;
+    }
+    .right-top-date-subcontainer:nth-child(2) > span {
+        font-size: 10pt;
+    }
+}
+@media screen and (max-width: 476px) {
+    .calendar-left-subcontainer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    .left-top-container {
+        padding-bottom: 3rem;
+    }
+    .left-top-arrow-icon {
+        font-size: 11pt !important;
+    }
+    .left-top-date-container {
+        font-size: 10pt;
+    }
+    .day {
+        font-size: 7pt;
+    }
+    .number-text {
+        padding: 0.2rem 0;
+        font-size: 8pt;
+    }
+    .number-content-active > .number-mark {
+        height: 2px;
+    }
+}
+@media screen and (max-width: 420px) {
+    .calendar-left-subcontainer {
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+    .left-top-arrow-icon {
+        font-size: 10pt !important;
+    }
+    .left-top-date-container {
+        font-size: 10pt;
+    }
+    .day {
+        min-width: 30px;
+        font-size: 6pt;
+    }
+    .number-text {
+        padding: 0.2rem 0;
+        font-size: 7pt;
+    }
 }
 @media screen and (max-width: 360px) {
-
+    .calendar-left-subcontainer {
+        padding-top: 1.5rem;
+    }
+    .left-top-container {
+        padding-bottom: 2rem;
+    }
+    .day {
+        min-width: 25px;
+        font-size: 6pt;
+    }
+    .number-text {
+        padding: 0.1rem 0;
+    }
+    .right-top-day {
+        font-size: 14pt;
+    }
+    .right-top-date-subcontainer:nth-child(2) > span {
+        font-size: 8pt;
+    }
+    .list-title {
+        font-size: 11pt;
+    }
+    .list-text {
+        font-size: 8pt;
+    }
+    .list-star-icon {
+        font-size: 10pt !important;
+    }
 }
