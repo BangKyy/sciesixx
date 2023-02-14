@@ -287,6 +287,16 @@ header{
         font-size: 8pt;
         padding: 0 50px;
     }
+    .practice-toggle-container{
+        margin-top: 4rem;
+    }
+    .practice-toggle{
+        margin: 0 12px;
+        padding: 8px 12px;
+    }
+    .practice-toggle-teks{
+        font-size: 14px;
+    }
     .landscape-grid-container,
     .portrait-grid-container {
         grid-template-columns: 1fr 1fr;
@@ -308,6 +318,18 @@ header{
     }
     .practice-title {
         font-size: 20pt;
+    }
+    .practice-toggle-container{
+        margin: 0 0.5rem;
+        margin-top: 4rem;
+    }
+    .practice-toggle{
+        margin: 0 8px;
+        padding: 6px 8px;
+        max-width: 150px;
+    }
+    .practice-toggle-teks{
+        font-size: 10px;
     }
     .landscape-grid-container,
     .portrait-grid-container {
