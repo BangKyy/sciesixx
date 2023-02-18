@@ -1,0 +1,7 @@
+.fr-section {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 110;
+    display: none;
+}
