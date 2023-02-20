@@ -3,5 +3,103 @@
     height: 100%;
     width: 100%;
     z-index: 110;
+    /* display: none; */
+    /* background-color: #000; */
+}
+.fr-image-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.fr-image {
+    width: 100%;
+    height: 100%;
+}
+.fr-image-disabled {
     display: none;
+}
+.fr-main-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #000000aa;
+}
+.fr-subcontainer:nth-child(1) {
+    height: calc(100% - 165px);
+    background-color: #0001;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.fr-subcontainer:nth-child(2) {
+    height: 165px;
+    background-color: var(--bg-fr-1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 0 3rem 0 0;
+}
+.fr-site-name-container {
+    display: flex;
+    position: absolute;
+    top: 0;
+}
+.fr-main-logo {
+    width: 35px;
+    height: auto;
+    margin: 0.5rem;
+}
+.fr-name-container {
+    display: flex;
+    align-items: center;
+}
+.fr-title-container {
+    display: flex;
+    justify-content: center;
+}
+.fr-title {
+    padding: 0 1rem;
+    color: var(--color-fr-1);
+    font-size: 18pt;
+}
+.fr-site-name {
+    color: var(--color-fr-1);
+}
+.fr-description-container,
+.fr-login-btn-container,
+.fr-signup-link-container {
+    padding: 0 1rem;
+}
+.fr-description-container {
+    font-weight: 525;
+    padding-bottom: 15px;
+    /* letter-spacing: 0; */
+}
+.fr-description {
+    color: var(--color-fr-2);
+    font-size: 10pt;
+}
+.fr-login-btn-container {
+    padding-bottom: 15px;
+}
+.fr-login-btn {
+    width: 100% !important;
+    background-color: var(--bg-fr-2) !important;
+    color: var(--color-fr-1) !important;
+    font-size: 9pt !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+}
+.fr-signup-link-container {
+    display: flex;
+    justify-content: flex-end;
+}
+.fr-signup-link {
+    color: var(--color-fr-2);
+    text-decoration: none;
+    font-weight: 520;
+    font-size: 11pt;
 }
