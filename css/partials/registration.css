@@ -1,3 +1,11 @@
+:root {
+    --bg-fr-1: #f8fbff;
+    --bg-fr-2: #57708f;
+
+    --color-fr-1: #eef1f5;
+    --color-fr-2: #57708f;
+}
+
 .fr-section {
     position: fixed;
     height: 100%;
@@ -27,20 +35,21 @@
     flex-direction: column;
     background-color: #000000aa;
 }
-.fr-subcontainer:nth-child(1) {
-    height: calc(100% - 165px);
-    background-color: #0001;
+.fr-subcontainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+.fr-subcontainer:nth-child(1) {
+    height: calc(100% - 165px);
+}
 .fr-subcontainer:nth-child(2) {
     height: 165px;
     background-color: var(--bg-fr-1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     border-radius: 0 3rem 0 0;
+}
+.fr-subcontainer:nth-child(3) {
+    display: none;
 }
 .fr-site-name-container {
     display: flex;
@@ -102,4 +111,62 @@
     text-decoration: none;
     font-weight: 520;
     font-size: 11pt;
+}
+
+@media screen and (min-width: 361px) {
+    .fr-image {
+        height: 120%;
+        transform: translate(0, -50px);
+    }
+}
+@media screen and (min-width: 577px) {
+    .fr-image {
+        height: 225%;
+        transform: translate(0, -250px);
+    }
+    .fr-subcontainer {
+        height: 50% !important;
+    }
+    .fr-subcontainer:nth-child(1) {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    .fr-subcontainer:nth-child(2) {
+        display: none;
+    }
+    .fr-subcontainer:nth-child(3) {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .fr-title {
+        font-size: 20pt;
+    }
+    .fr-description-container {
+        display: flex;
+        justify-content: center;
+    }
+    .fr-description {
+        color: var(--color-fr-1);
+    }
+    .fr-login-btn-container {
+        display: flex;
+        justify-content: center;
+    }
+    .fr-login-btn {
+        width: 150px !important;
+    }
+    .fr-signup-link-container {
+        justify-content: center;
+    }
+    .fr-signup-link {
+        color: var(--color-fr-1);
+    }
+}
+@media screen and (min-width: 767px) {
+    .fr-image {
+        height: 245%;
+    }
+    .fr-title {
+        font-size: 24pt;
+    }
 }
