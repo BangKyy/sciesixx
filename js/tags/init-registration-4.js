@@ -12,7 +12,7 @@ document.querySelector(".fr-section").innerHTML = `
                     <img src="../../../images/main-logo.png" alt="" class="fr-main-logo">
                 </div>
                 <div class="fr-name-container">
-                    <span class="site-name fr-site-name"></span>
+                    <a href="../../../" class="site-name fr-site-name"></a>
                 </div>
             </div>
             <div class="fr-title-container">

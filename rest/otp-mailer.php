@@ -1,6 +1,7 @@
 <?php
 require "../utils/mailer.php";
 require "../utils/otp.php";
+require "../utils/opt-mailer.php";
 
 header("Content-Type: application/json; charset=utf-8");
 
@@ -12,15 +13,24 @@ function getRequest($key, $request) {
     return $value;
 }
 
+// function getMailMessageBody() {
+//     $filePath = "../html-data/otp/new-password.txt";
+//     $file = fopen($filePath, "r");
+//     $messageBody = fread($file, filesize($filePath));
+//     return $messageBody;
+// }
+
 switch($_SERVER["REQUEST_METHOD"]) {
     case "GET": {
-        echo json_encode(["error" => true]);
+        echo json_encode(["error" =>true]);
+        // echo json_encode(["data" => getMailMessageBody("123456")]);
         break;
     }
     case "POST": {
         $email = getRequest("email", $POST);
         $otpUser = getOtpUser("email", $email);
-        $body = "<h1>" . $otpUser["otp_number"] . "</h1><br><br><p>(Berlaku selama 15 menit)</p>";
+        // $body = "<h1>" . $otpUser["otp_number"] . "</h1><br><br><p>(Berlaku selama 15 menit)</p>";
+        $body = getMailMessageBody($otpUser["otp_number"]);
         echo sendMail($email, "Kode Verifikasi", $body);
         break;
     }

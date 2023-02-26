@@ -10,7 +10,7 @@ const getPhotoElement = (number, orientation) => {
                 <img class="${orientation}-photo" src="../../images/photo/photo-${orientation}-${number}.jpg" alt="">
             </div>
             <div class="${orientation}-link-container">
-                <a href="#" class="${orientation}-link">Buka gambar</a>
+                <a href="../../images/photo/photo-${orientation}-${number}.jpg" class="${orientation}-link">Buka gambar</a>
                 <i class="${orientation}-arrow-link bi bi-arrow-right-short"></i>
             </div>
         </div>
@@ -30,6 +30,8 @@ const insertPhotos = (landscapeContainer, portraitContainer, photoCounts) => {
     const portraitPhotos = Array(parseInt(photoCounts[0]?.portrait_count)).fill(1).map((arr, i) => {
         return getPhotoElement(i + 1, "portrait");
     });
+    landscapePhotos.reverse();
+    portraitPhotos.reverse();
     landscapeContainer.innerHTML = landscapePhotos.join("");
     portraitContainer.innerHTML = portraitPhotos.join("");
 };

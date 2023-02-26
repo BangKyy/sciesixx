@@ -56,6 +56,10 @@
     position: absolute;
     top: 0;
 }
+.fr-site-name {
+    text-decoration: none;
+    color: var(--color-fr-1);
+}
 .fr-main-logo {
     width: 35px;
     height: auto;

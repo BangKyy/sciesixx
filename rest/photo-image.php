@@ -13,7 +13,7 @@ function getRequest($key, $request) {
 
 switch($_SERVER["REQUEST_METHOD"]) {
     case "GET": {
-        echo getPhotoCount();
+        echo getPhotoCounts();
         break;
     }
     default: {
