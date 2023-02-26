@@ -169,6 +169,11 @@ header{
     justify-content: center;
     align-items: center;
 }
+.landscape-empty-text,
+.portrait-empty-text {
+    font-style: italic;
+    color: #2228;
+}
 .landscape-grid-container,
 .portrait-grid-container {
     display: grid;

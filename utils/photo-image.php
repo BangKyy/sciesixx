@@ -1,7 +1,7 @@
 <?php
 require "../database/connection.php";
 
-function getPhotoCount() {
+function getPhotoCounts() {
     global $connection;
     $query = $connection->query("SELECT * FROM photo_images");
     $result = $query->fetch_all(MYSQLI_ASSOC);

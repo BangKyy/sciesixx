@@ -10,7 +10,7 @@ const getImageElement = (number, sectionNumber, orientation) => {
                 <img class="${orientation}-practice" src="../../images/practice/section-${sectionNumber}/practice-${orientation}-${number}.jpg" alt="">
             </div>
             <div class="${orientation}-link-container">
-                <a href="#" class="${orientation}-link">Buka gambar</a>
+                <a href="../../images/practice/section-${sectionNumber}/practice-${orientation}-${number}.jpg" class="${orientation}-link">Buka gambar</a>
                 <i class="${orientation}-arrow-link bi bi-arrow-right-short"></i>
             </div>
         </div>
@@ -23,6 +23,18 @@ const getImageCounts = async () => {
     return data;
 };
 
+const mightToggleGridContainer = (containers, emptyContainers, count, index) => {
+    const containerDisplay = count > 0 ? "grid" : "none";
+    const emptyDisplay = count > 0 ? "none" : "grid";
+    containers[index].style.display = containerDisplay;
+    emptyContainers[index].style.display = emptyDisplay;
+};
+
+const mightToggleBothGridContainers = (landscapeContainers, portraitContainers, landscapeEmptyContainers, portraitEmptyContainers, imageCount, index) => {
+    mightToggleGridContainer(landscapeContainers, landscapeEmptyContainers, imageCount?.landscape_count, index);
+    mightToggleGridContainer(portraitContainers, portraitEmptyContainers, imageCount?.portrait_count, index);
+};
+
 const insertImages = (landscapeContainers, portraitContainers, imageCount, index) => {
     const landscapeImages = Array(parseInt(imageCount?.landscape_count)).fill(1).map((arr, i) => {
         return getImageElement(i + 1, index + 1, "landscape");
@@ -30,16 +42,21 @@ const insertImages = (landscapeContainers, portraitContainers, imageCount, index
     const portraitImages = Array(parseInt(imageCount?.portrait_count)).fill(1).map((arr, i) => {
         return getImageElement(i + 1, index + 1, "portrait");
     });
-    landscapeContainers[index].innerHTML = landscapeImages.join("");
-    portraitContainers[index].innerHTML = portraitImages.join("");
+    const landscapeElementString = landscapeImages.join();
+    const portraitElementString = portraitImages.join();
+    landscapeContainers[index].innerHTML = landscapeElementString;
+    portraitContainers[index].innerHTML = portraitElementString;
 };
 
 const setupImages = async () => {
     const landscapeContainers = document.querySelectorAll(".landscape-grid-container");
     const portraitContainers = document.querySelectorAll(".portrait-grid-container");
+    const landscapeEmptyContainers = document.querySelectorAll(".landscape-empty-container");
+    const portraitEmptyContainers = document.querySelectorAll(".portrait-empty-container");
     const imageCounts = await getImageCounts();
     imageCounts.forEach((imageCount, i) => {
         insertImages(landscapeContainers, portraitContainers, imageCount, i);
+        mightToggleBothGridContainers(landscapeContainers, portraitContainers, landscapeEmptyContainers, portraitEmptyContainers, imageCount, i);
     });
 };
 
@@ -69,7 +86,7 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("load", () => {
-    // setupImages();
+    setupImages();
     initToggle();
     generateDynamicSiteName("../../json/config.json");
     nav.initSidebar();
