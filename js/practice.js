@@ -42,8 +42,8 @@ const insertImages = (landscapeContainers, portraitContainers, imageCount, index
     const portraitImages = Array(parseInt(imageCount?.portrait_count)).fill(1).map((arr, i) => {
         return getImageElement(i + 1, index + 1, "portrait");
     });
-    const landscapeElementString = landscapeImages.join();
-    const portraitElementString = portraitImages.join();
+    const landscapeElementString = landscapeImages.join("");
+    const portraitElementString = portraitImages.join("");
     landscapeContainers[index].innerHTML = landscapeElementString;
     portraitContainers[index].innerHTML = portraitElementString;
 };
