@@ -18,9 +18,21 @@ const getVideoElement = (number, orientation) => {
 };
 
 const getVideoCounts = async () => {
-    const rawData = await fetch("../rest/video-image.php");
+    const rawData = await fetch("../../rest/video-image.php");
     const data = await rawData.json();
     return data;
+};
+
+const mightToggleGridContainer = (container, emptyContainer, count) => {
+    const containerDisplay = count > 0 ? "grid" : "none";
+    const emptyDisplay = count > 0 ? "none" : "grid";
+    container.style.display = containerDisplay;
+    emptyContainer.style.display = emptyDisplay;
+};
+
+const mightToggleBothGridContainers = (landscapeContainer, portraitContainer, landscapeEmptyContainer, portraitEmptyContainer, videoCounts) => {
+    mightToggleGridContainer(landscapeContainer, landscapeEmptyContainer, videoCounts[0]?.landscape_count);
+    mightToggleGridContainer(portraitContainer, portraitEmptyContainer, videoCounts[0]?.portrait_count);
 };
 
 const insertThumbnails = (landscapeContainer, portraitContainer, videoCounts) => {
@@ -39,8 +51,11 @@ const insertThumbnails = (landscapeContainer, portraitContainer, videoCounts) =>
 const setupThumbnails = async () => {
     const landscapeContainer = document.querySelector(".landscape-grid-container");
     const portraitContainer = document.querySelector(".portrait-grid-container");
+    const landscapeEmptyContainer = document.querySelector(".landscape-empty-container");
+    const portraitEmptyContainer = document.querySelector(".portrait-empty-container");
     const videoCounts = await getVideoCounts();
     insertThumbnails(landscapeContainer, portraitContainer, videoCounts);
+    mightToggleBothGridContainers(landscapeContainer, portraitContainer, landscapeEmptyContainer, portraitEmptyContainer, videoCounts);
 };
 
 window.addEventListener("scroll", () => {
@@ -48,7 +63,7 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("load", () => {
-    // setupThumbnails();
+    setupThumbnails();
     generateDynamicSiteName("../../json/config.json");
     nav.initSidebar();
     nav.initSidebarArrow();
