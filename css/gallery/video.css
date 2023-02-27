@@ -205,6 +205,9 @@ header{
 .portrait-link:hover {
     color: #011d31;
 }
+.container-hidden {
+    display: none;
+}
 /* End Main Section */
 
 @media screen and (max-width: 992px) {

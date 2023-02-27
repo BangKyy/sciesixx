@@ -76,6 +76,20 @@ const initTyped = () => {
     });
 };
 
+const directCreationBox = () => {
+    const directUrl = `./gallery/practice/`;
+    window.location.assign(directUrl);
+};
+
+const initCreationBox = () => {
+    const containers = document.querySelectorAll(".creation");
+    containers.forEach((container) => {
+        container.addEventListener("click", () => {
+            directCreationBox();
+        });
+    });
+};
+
 formBtn.addEventListener("click", submitForm);
 window.addEventListener("scroll", () => {
     nav.changeNavColor(document, window.scrollY);
@@ -87,6 +101,7 @@ window.addEventListener("resize", () => {
 window.addEventListener("load", () => {
     generateDynamicSiteName();
     initTyped();
+    initCreationBox();
     nav.initSidebar();
     nav.initSidebarArrow();
     nav.checkUsername();
