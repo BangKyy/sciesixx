@@ -24,8 +24,12 @@
     <script src="https://kit.fontawesome.com/df1f690d1c.js" crossorigin="anonymous"></script>
     <!-- BOOTSRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>SCIESIXX | Kontak</title>
 </head>
 <body>
@@ -260,16 +264,16 @@
         <div class="contact-us-container container">
             <div class="contact-us-left">
                 <div class="contact-us-title-container container-fluid">
-                    <h1 class="contact-us-title">KONTAK KAMI</h1>
+                    <h1 class="contact-us-title" data-aos="zoom-in">KONTAK KAMI</h1>
                     <div class="title-line-container">
-                        <div class="title-line"></div>
+                        <div class="title-line" data-aos="flip-left"></div>
                     </div>
                 </div>
                 <div class="contact-us-description-container container-fluid">
-                    <div class="contact-us-description">Jangan ragu untuk menghubungi kami kapan saja. Kami akan menghubungi anda sesegera mungkin!</div>
+                    <div class="contact-us-description" data-aos="fade-up">Jangan ragu untuk menghubungi kami kapan saja. Kami akan menghubungi anda sesegera mungkin!</div>
                 </div>
                 <div class="error-container container-fluid"></div>
-                <form class="form container-fluid">
+                <form class="form container-fluid" data-aos="fade-up" data-aos-delay="100">
                     <div class="input-group username-group mb-3">
                         <span class="input-group-text input-group-text-name" id="username-addon"><i class="bi bi-person"></i></span>
                         <input type="text" id="name-input" class="form-control" placeholder="Nama" aria-label="Nama" aria-describedby="username-addon" autocomplete="off">
@@ -289,10 +293,10 @@
             </div>
             <div class="contact-us-right">
                 <div class="contact-us-info-title-container container-fluid">
-                    <h4 class="contact-us-info-title">Kontak Informasi</h4>
+                    <h4 class="contact-us-info-title" data-aos="zoom-in">Kontak Informasi</h4>
                 </div>
                 <div class="contact-us-info-container container-fluid">
-                    <div class="contact-us-info">
+                    <div class="contact-us-info" data-aos="zoom-in">
                         <div class="info-icon-container">
                             <i class="bi bi-geo"></i>
                         </div>
@@ -302,7 +306,7 @@
                             <span class="info-list">Kab. Blitar - Jawa Timur</span>
                         </div>
                     </div>
-                    <div class="contact-us-info">
+                    <div class="contact-us-info" data-aos="zoom-in">
                         <div class="info-icon-container">
                             <i class="bi bi-newspaper"></i>
                         </div>
@@ -312,13 +316,13 @@
                             <span class="info-list">0896-9680-4460</span>
                         </div>
                     </div>
-                    <div class="contact-us-info">
+                    <div class="contact-us-info" data-aos="zoom-in">
                         <div class="info-icon-container">
                             <i class="bi bi-question-circle"></i>
                         </div>
                         <div class="info-list-container">
                             <h6 class="info-list-title">Butuh bantuan&quest;</h6>
-                            <span class="info-list">unisix.help@gmail.com</span>
+                            <span class="info-list">sciesixx.help@gmail.com</span>
                             <span class="info-list">0821-4062-7334</span>
                         </div>
                     </div>
@@ -328,8 +332,8 @@
                         <i style="visibility: hidden;" class="bi bi-1-circle"></i>
                     </div>
                     <div class="contact-us-socmed-icon-container">
-                        <i class="bi bi-instagram"></i>
-                        <i class="bi bi-discord"></i>
+                        <i class="bi bi-instagram" data-aos="zoom-in" data-aos-delay="0"></i>
+                        <i class="bi bi-discord" data-aos="zoom-in" data-aos-delay="50"></i>
                     </div>
                 </div>
             </div>
@@ -379,6 +383,7 @@
         </div>
     </footer>
     <!-- End Footer Section -->
+    <script src="../js/tags/aos-init.js"></script>
     <script type="module" src="../js/contact.js"></script>
 </body>
 </html>

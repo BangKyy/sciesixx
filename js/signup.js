@@ -4,6 +4,7 @@ import { TogglePassword } from "./utils/toggle-password.js";
 const select = (selector) => document.querySelector(selector);
 const form = document.querySelector(".form");
 const formBtn = document.querySelector(".form-btn");
+const usernameInput = document.querySelector("#username-input");
 const passwordInput = document.querySelector("#password-input");
 const cpasswordInput = document.querySelector("#cpassword-input");
 const passwordEye = document.querySelector(".password-eye");
@@ -80,6 +81,15 @@ const submitForm = async () => {
     });
     window.location.assign("../");
 };
+
+const lowerCaseInput = (element, value) => {
+    element.value = value.toLowerCase();
+};
+
+usernameInput.addEventListener("input", (ev) => {
+    const value = ev.target.value;
+    lowerCaseInput(usernameInput, value);
+});
 
 form.addEventListener("submit", (ev) => {
     ev.preventDefault();

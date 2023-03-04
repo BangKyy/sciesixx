@@ -1,0 +1,23 @@
+:root {
+    --bg-fr-1: #f8fbff;
+    --bg-fr-2: #57708f;
+
+    --color-fr-1: #eef1f5;
+    --color-fr-2: #57708f;
+}
+
+.loader-container {
+    position: fixed;
+    z-index: 115;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-fr-1);
+}
+
+.loader {
+    width: 45px !important;
+    height: 45px !important;
+}

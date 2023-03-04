@@ -15,6 +15,7 @@
     <!-- Partials -->
     <link rel="stylesheet" href="../../css/partials/nav.css">
     <link rel="stylesheet" href="../../css/partials/footer.css">
+    <link rel="stylesheet" href="../../css/partials/loader.css">
     <link rel="stylesheet" href="../../css/partials/registration.css">
     <link rel="stylesheet" href="../../css/partials/float.css">
     <!-- FAV Icons -->
@@ -24,12 +25,17 @@
     <!-- FA Icons -->
     <script src="https://kit.fontawesome.com/df1f690d1c.js" crossorigin="anonymous"></script>
     <!-- BOOTSRAP -->
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>SCIESIXX | Foto</title>
 </head>
 <body>
+    <div class="loader-container"></div>
     <div class="up-arrow-container">
         <div class="up-arrow">
             <a href="#" class="a-up-arrow">
@@ -261,15 +267,15 @@
     <!-- Main Section -->
     <section class="main-section">
         <div class="photo-title-container container-fluid">
-            <div class="photo-icon-container">
+            <div class="photo-icon-container" data-aos="zoom-in">
                 <i class="photo-icon bi bi-images"></i>
             </div>
             <div class="photo-text-container">
-                <h2 class="photo-title">Foto</h2>
-                <h5 class="photo-subtitle">Foto album kami selama tiga tahun menjadi siswa SMAN 01 Talun. Tetap mengutamakan kekeluargaan dan solidaritas yang tinggi.</h5>
+                <h2 class="photo-title" data-aos="fade-up">Foto</h2>
+                <h5 class="photo-subtitle" data-aos="fade-up">Foto album kami selama tiga tahun menjadi siswa SMAN 01 Talun. Tetap mengutamakan kekeluargaan dan solidaritas yang tinggi.</h5>
             </div>
         </div>
-        <h4 class="landscape-title">—&nbsp;Tampilan Landscape&nbsp;—</h4>
+        <h4 class="landscape-title" data-aos="fade-up" data-aos-delay="50">—&nbsp;Tampilan Landscape&nbsp;—</h4>
         <div class="landscape-container">
             <div class="landscape-grid-container">
                 <div class="landscape">
@@ -364,7 +370,7 @@
                 </div>
             </div>
         </div>
-        <h4 class="portrait-title">—&nbsp;Tampilan Portrait&nbsp;—</h4>
+        <h4 class="portrait-title" data-aos-delay="50">—&nbsp;Tampilan Portrait&nbsp;—</h4>
         <div class="portrait-container">
             <div class="portrait-grid-container">
                 <div class="portrait">
@@ -503,6 +509,9 @@
         </div>
     </footer>
     <!-- End Footer Section -->
+    <script src="../../js/tags/aos-init.js"></script>
+    <script type="module" src="../../js/tags/init-loader-registration.js"></script>
+    <script type="module" src="../../js/tags/loader-registration.js"></script>
     <script type="module" src="../../js/tags/init-registration-3.js"></script>
     <script type="module" src="../../js/tags/registration.js"></script>
     <script type="module" src="../../js/photo.js"></script>

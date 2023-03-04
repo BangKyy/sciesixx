@@ -37,8 +37,8 @@ switch($_SERVER["REQUEST_METHOD"]) {
             array_push($output["errorMessages"], "Email tidak valid");
         } else {
             saveContactForm($name, $email, $message, $date);
-            sendMail($email, $subject, $body);
-            sendMail($from, "Pesan dari: $email", $selfBody);
+            // sendMail($email, $subject, $body);
+            // sendMail($from, "Pesan dari: $email", $selfBody);
         }
 
         echo json_encode($output);
