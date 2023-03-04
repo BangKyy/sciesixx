@@ -32,7 +32,7 @@ elseif ($reqMethod === "POST") {
 
     if (!$output["error"]) {
         saveUser($username, $email, $password, $date);
-        sendMail($email, $mailSubject, $mailBody);
+        // sendMail($email, $mailSubject, $mailBody);
     }
 
     echo json_encode($output);

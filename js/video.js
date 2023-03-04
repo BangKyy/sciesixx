@@ -5,7 +5,7 @@ import { UpArrow } from "./partials/float.js";
 
 const getVideoElement = (number, orientation) => {
     return `
-        <div class="${orientation}">
+        <div class="${orientation}" data-aos="fade-up">
             <div class="${orientation}-video-container">
                 <img class="${orientation}-video" src="../../images/thumbnail/video-thumbnail-${orientation}-${number}.jpg" alt="">
             </div>

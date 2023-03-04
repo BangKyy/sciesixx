@@ -13,6 +13,7 @@
     <!-- Partials -->
     <link rel="stylesheet" href="../../css/partials/nav.css">
     <link rel="stylesheet" href="../../css/partials/footer.css">
+    <link rel="stylesheet" href="../../css/partials/loader.css">
     <link rel="stylesheet" href="../../css/partials/registration.css">
     <link rel="stylesheet" href="../../css/partials/float.css">
     <!-- FAV Icons -->
@@ -22,14 +23,19 @@
     <!-- FA Icons -->
     <script src="https://kit.fontawesome.com/df1f690d1c.js" crossorigin="anonymous"></script>
     <!-- BOOTSRAP -->
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <!-- Sweetalert 2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.15/dist/sweetalert2.all.min.js" integrity="sha256-t2UzhRr4kaJ0M9btOrWK1Uua9mDTZVrXyuC9lRtqAwk=" crossorigin="anonymous"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>SCIESIXX | Praktik</title>
 </head>
 <body>
+    <div class="loader-container"></div>
     <div class="up-arrow-container">
         <div class="up-arrow">
             <a href="#" class="a-up-arrow">
@@ -261,36 +267,36 @@
     <!-- Main section -->
     <section class="main-section">
         <div class="practice-title-container container-fluid">
-            <div class="practice-icon-container">
+            <div class="practice-icon-container" data-aos="zoom-in">
                 <i class="practice-icon bi bi-bookmarks"></i>
             </div>
             <div class="practice-text-container">
-                <h2 class="practice-title">Praktik</h2>
-                <h5 class="practice-subtitle">Berisi dokumentasi atau hasil praktik dari kelas kami. Disetiap foto dilengkapi dengan penjelasannya. Bertujuan untuk menambahkan ilmu pengetahuan kalian.
+                <h2 class="practice-title" data-aos="fade-up">Praktik</h2>
+                <h5 class="practice-subtitle" data-aos="fade-up">Berisi dokumentasi atau hasil praktik dari kelas kami. Disetiap foto dilengkapi dengan penjelasannya. Bertujuan untuk menambahkan ilmu pengetahuan kalian.
                 </h5>
             </div>
         </div>
         <div class="practice-toggle-container">
-            <div class="practice-toggle practice-toggle-active">
+            <div class="practice-toggle practice-toggle-active" data-aos="flip-left" data-aos-delay="50">
                 <h4 class="practice-toggle-teks">KEWIRAUSAHAAN</h4>
             </div>
-            <div class="practice-toggle">
+            <div class="practice-toggle" data-aos="flip-left" data-aos-delay="50">
                 <h4 class="practice-toggle-teks">SENI</h4>
             </div>
             <div class="practice-toggle">
-                <h4 class="practice-toggle-teks">PRAKTIKUM</h4>
+                <h4 class="practice-toggle-teks" data-aos="flip-left" data-aos-delay="50">PRAKTIKUM</h4>
             </div>
         </div>
         <div class="practice-section-container practice-section-container-1">
             <!-- <h4 class="practice-main-title">—&nbsp;Kewirausahaan&nbsp;—</h2> -->
-            <h4 class="landscape-title">—&nbsp;Tampilan Landscape&nbsp;—</h4>
+            <h4 class="landscape-title" data-aos="fade-up" data-aos-delay="50">—&nbsp;Tampilan Landscape&nbsp;—</h4>
             <div class="landscape-container">
                 <div class="landscape-empty-container">
                     <span class="landscape-empty-text">Belum ada foto</span>
                 </div>
                 <div class="landscape-grid-container container-hidden"></div>
             </div>
-            <h4 class="portrait-title">—&nbsp;Tampilan Portrait&nbsp;—</h4>
+            <h4 class="portrait-title" data-aos-delay="50">—&nbsp;Tampilan Portrait&nbsp;—</h4>
             <div class="portrait-container">
                 <div class="portrait-empty-container">
                     <span class="portrait-empty-text">Belum ada foto</span>
@@ -300,14 +306,14 @@
         </div>
         <div class="practice-section-container practice-section-container-2 container-hidden">
             <!-- <h4 class="practice-main-title">—&nbsp;Seni&nbsp;—</h2> -->
-            <h4 class="landscape-title">—&nbsp;Tampilan Landscape&nbsp;—</h4>
+            <h4 class="landscape-title" data-aos="fade-up" data-aos-delay="50">—&nbsp;Tampilan Landscape&nbsp;—</h4>
             <div class="landscape-container">
                 <div class="landscape-empty-container">
                     <span class="landscape-empty-text">Belum ada foto</span>
                 </div>
                 <div class="landscape-grid-container container-hidden"></div>
             </div>
-            <h4 class="portrait-title">—&nbsp;Tampilan Portrait&nbsp;—</h4>
+            <h4 class="portrait-title" data-aos-delay="50">—&nbsp;Tampilan Portrait&nbsp;—</h4>
             <div class="portrait-container">
                 <div class="portrait-empty-container">
                     <span class="portrait-empty-text">Belum ada foto</span>
@@ -317,14 +323,14 @@
         </div>
         <div class="practice-section-container practice-section-container-3 container-hidden">
             <!-- <h4 class="practice-main-title">—&nbsp;Praktikum&nbsp;—</h2> -->
-                <h4 class="landscape-title">—&nbsp;Tampilan Landscape&nbsp;—</h4>
+                <h4 class="landscape-title" data-aos="fade-up" data-aos-delay="50">—&nbsp;Tampilan Landscape&nbsp;—</h4>
             <div class="landscape-container">
                 <div class="landscape-empty-container">
                     <span class="landscape-empty-text">Belum ada foto</span>
                 </div>
                 <div class="landscape-grid-container container-hidden"></div>
             </div>
-            <h4 class="portrait-title">—&nbsp;Tampilan Portrait&nbsp;—</h4>
+            <h4 class="portrait-title" data-aos-delay="50">—&nbsp;Tampilan Portrait&nbsp;—</h4>
             <div class="portrait-container">
                 <div class="portrait-empty-container">
                     <span class="portrait-empty-text">Belum ada foto</span>
@@ -376,6 +382,9 @@
         </div>
     </footer>
     <!-- End Footer Section -->
+    <script src="../../js/tags/aos-init.js"></script>
+    <script type="module" src="../../js/tags/init-loader-registration.js"></script>
+    <script type="module" src="../../js/tags/loader-registration.js"></script>
     <script type="module" src="../../js/tags/init-registration-3.js"></script>
     <script type="module" src="../../js/tags/registration.js"></script>
     <script type="module" src="../../js/practice.js"></script>

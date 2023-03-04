@@ -5,7 +5,7 @@ import { UpArrow } from "./partials/float.js";
 
 const getPhotoElement = (number, orientation) => {
     return `
-        <div class="${orientation}">
+        <div class="${orientation}" data-aos="fade-up">
             <div class="${orientation}-photo-container">
                 <img class="${orientation}-photo" src="../../images/photo/photo-${orientation}-${number}.jpg" alt="">
             </div>

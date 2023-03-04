@@ -53,17 +53,21 @@ const getSearchedStudents = async (value) => {
     return data;
 };
 
-const insertStudentData = (student, index) => {
-    const element = getStudentElement(student);
-    const container = document.querySelectorAll(".student")[index];
-    container.innerHTML = element;
+const insertStudentData = (value) => {
+    const container = document.querySelector(".student-grid-container");
+    container.innerHTML = value;
 };
 
 const displayStudents = async () => {
     const students = await getStudents();
-    students?.forEach((student, i) => {
-        insertStudentData(student, i);
-    });
+    const studentElementString = students.map((student) => {
+        return `
+            <div class="student" data-aos="fade-up">
+                ${getStudentElement(student)}
+            </div>
+        `;
+    }).join("");
+    insertStudentData(studentElementString);
 };
 
 const displaySearchedStudents = async () => {
@@ -72,7 +76,7 @@ const displaySearchedStudents = async () => {
     const students = await getSearchedStudents(value);
     const studentElements = students.map((student) => {
         return `
-            <div class="student">
+            <div class="student" data-aos="fade-up">
                 ${getStudentElement(student)}
             </div>
         `;
@@ -94,7 +98,7 @@ window.addEventListener("load", () => {
     nav.initSidebar();
     nav.initSidebarArrow();
     nav.toggleSignBtn(document, null, "../../logout");
-    // nav.toggleSignBtn(document, ".sign-button-list", "../../logout");
+    nav.toggleSignBtn(document, ".sign-button-list", "../../logout");
     nav.checkUsername();
     footer.generateDynamicCopyrightYear(document);
     footer.updateSocmedUrl(document, "../../json/social-media.json");

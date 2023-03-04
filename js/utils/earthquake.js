@@ -2,7 +2,7 @@ const select = document.querySelector.bind(document);
 const selectAll = document.querySelectorAll.bind(document);
 
 export class Earthquake {
-    static shakemap = select(".shakemap");
+    static shakemapElement = select(".shakemap");
     static dateTimeElement = select(".parameter-datetime");
     static clockElement = select(".parameter-clock");
     static paramElements = selectAll(".parameter-text-value");
@@ -13,7 +13,7 @@ export class Earthquake {
     static rowContainer = select(".earthquake-table tbody");
 
     constructor() {
-        this.shakemap = Earthquake.shakemap;
+        this.shakemapElement = Earthquake.shakemapElement;
         this.dateTimeElement = Earthquake.dateTimeElement;
         this.clockElement = Earthquake.clockElement;
         this.paramElements = Earthquake.paramElements;
@@ -31,8 +31,8 @@ export class Earthquake {
     }
 
     async init() {
-        // await this.fetchData();
-        // console.log(this.data);
+        await this.fetchData();
+        console.log(this.data);
     }
 
     async fetchAllData() {
@@ -62,27 +62,27 @@ export class Earthquake {
 
     }
 
-    // async fetchHistory() {
-    //     try {
-    //         const rawHistory = await fetch("https://data.bmkg.go.id/DataMKG/TEWS/gempaterkini.json");
-    //         const history = await rawHistory.json();
-    //         this.history = history;
-    //     } catch (err) {
-    //         await this.showError("Telah terjadi kesalahan pada saat menampilkan data");
-    //         console.log(err);
-    //     }
-    // }
+    async fetchHistory() {
+        try {
+            const rawHistory = await fetch("https://data.bmkg.go.id/DataMKG/TEWS/gempaterkini.json");
+            const history = await rawHistory.json();
+            this.history = history;
+        } catch (err) {
+            await this.showError("Telah terjadi kesalahan pada saat menampilkan data");
+            console.log(err);
+        }
+    }
 
-    // async fetchM5History() {
-    //     try {
-    //         const rawM5History = await fetch("https://data.bmkg.go.id/DataMKG/TEWS/gempadirasakan.json");
-    //         const m5History = await rawM5History.json();
-    //         this.m5History = m5History;
-    //     } catch (err) {
-    //         await this.showError("Telah terjadi kesalahan pada saat menampilkan data");
-    //         console.log(err);
-    //     }
-    // }
+    async fetchM5History() {
+        try {
+            const rawM5History = await fetch("https://data.bmkg.go.id/DataMKG/TEWS/gempadirasakan.json");
+            const m5History = await rawM5History.json();
+            this.m5History = m5History;
+        } catch (err) {
+            await this.showError("Telah terjadi kesalahan pada saat menampilkan data");
+            console.log(err);
+        }
+    }
 
     async showError(message, title="Error", icon="error") {
         await Swal.fire(title, message, icon);
