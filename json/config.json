@@ -1,6 +1,8 @@
 {
     "name": "SCIESIXX",
 
+    "localhostRoot": "http://localhost/sciesixx/",
+
     "styleMobile": {
         "signBtnContainer": {
             "width": "calc(100% - 275px)",

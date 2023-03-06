@@ -1,6 +1,11 @@
 import { getQueryOrigin } from "./lib/query-parser.js";
+import { getCookie, setCookie } from "./lib/cookie.js";
 
 const select = document.querySelector.bind(document);
+
+const saveAdminUser = (email) => {
+    setCookie(document, { name: "admin-user", value: email, expires: 1000 * 60 * 60 });
+};
 
 const toggleActiveLoginBtn = (willActive=false) => {
     const formBtn = document.querySelector(".form-btn");
@@ -13,13 +18,15 @@ const redirectOrigin = () => {
     window.location.assign(targetOrigin);
 };
 
-const handleRedirect = (response={}) => {
+const handleRedirect = (response={}, payload={}) => {
     const isValidData = "error" in response && response.error === false;
-    if (isValidData) {
-        return redirectOrigin();
+    if (!isValidData) {
+        alert("Data tidak valid");
+        toggleActiveLoginBtn(true);
+        return;
     }
-    alert("Data tidak valid");
-    toggleActiveLoginBtn(true);
+    saveAdminUser(payload.email);
+    redirectOrigin();
 };
 
 const sendForm = async () => {
@@ -38,7 +45,7 @@ const sendForm = async () => {
         body: JSON.stringify(payload)
     });
     const response = await rawResponse.json();
-    handleRedirect(response);
+    handleRedirect(response, payload);
 };
 
 const checkSubmittedData = (callback, errCallback) => {
