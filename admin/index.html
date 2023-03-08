@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Style CSS -->
     <link rel="stylesheet" href="../css/admin/admin.css">
+    <!-- Partials -->
+    <link rel="stylesheet" href="../css/partials/auth-admin.css">
     <!-- FAV Icons -->
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <!-- BOOTSRAP -->
@@ -13,12 +15,15 @@
     <title>SCIESIXX | Admin</title>
 </head>
 <body>
+    <div class="loader-container"></div>
     <h1 class="page-title text-center text-dark">SCIESIXX ADMIN</h1>
     <div class="container-fluid">
         <div class="admin-btn-container container-md">
             <a href="./calendar/" class="admin-btn btn btn-primary text-white">Kalender</a>
         </div>
     </div>
+    <script type="module" src="../js/tags/init-auth-admin.js"></script>
+    <script type="module" src="../js/tags/auth-admin-1.js"></script>
     <script type="module" src="../js/admin.js"></script>
 </body>
 </html>
