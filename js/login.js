@@ -47,7 +47,7 @@ const rememberObj = {
     },
 
     delete() {
-        window.localStorage.removeItem("unisix-email")
+        window.localStorage.removeItem("unisix-email");
     }
 };
 

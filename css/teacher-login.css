@@ -1,0 +1,58 @@
+/* GOOGLE FONTS IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: rgb(232,238,245);
+    background: linear-gradient(215deg, rgba(232,238,245,1) 50%, rgba(164,186,214,1) 50%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* height: 93.95vh; */
+}
+
+:root{
+    /* background colors */
+    --bg-color-1: #a4bad6;
+    --bg-color-2: #e8eef5;
+    --bg-color-3: #dde8f7;
+    --bg-reg-mobile-1: #f8fbff;
+    --bg-reg-mobile-2: #57708f;
+
+    /* font colors */
+    --color-1: #143a6a;
+    --color-2: #011D31;
+    --color-3: #7798c1; /*hover navbar*/ /*#a4bad6*/
+    --color-4: #e8eef5;
+
+    /* Button colors */
+    --btn-color-1: #3677b0;
+    --btn-color-2: #3c84c4;
+    --btn-color-3: #f8f5f5;
+    
+    /* Button hover */
+    --link-color-1: #19a6f3;
+    --link-color-2: #0767a2;
+
+    /* Fonts Bold */
+    --bold-1: 300;
+    --bold-2: 400;
+    --bold-3: 600;
+    --bold-4: 900; 
+}
+
+.tlogin-container {
+    margin-top: 16rem;
+    margin-bottom: 16rem;
+    max-width: 90% !important;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
