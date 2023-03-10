@@ -19,15 +19,20 @@
 <body>
     <header></header>
     <div class="tlogin-container container">
-        <h3>Masuk sebagai guru</h3>
-        <div class="error-container"></div>
-        <form class="form">
-            <div class="password-group-container input-group">
-                <input type="password" name="password" autocomplete="off" class="password-input" id="password-input" placeholder="Masukan kode" class="form-control">
-                <span class="password-eye input-group-text"><i class="bi bi-eye-slash"></i></span>
-            </div>
-            <button class="form-btn btn btn-primary" type="submit">Masuk</button>
-        </form>
+        <div class="tlogin-top">
+            <h3 class="tlogin-title">Masuk sebagai guru</h3>
+        </div>
+        <div class="tlogin-bottom">
+            <div class="error-container"></div>
+            <form class="form">
+                <label class="password-label" for="password-input">Kode guru</label>
+                <div class="password-group-container input-group">
+                    <input type="password" name="password" autocomplete="off" class="password-input" id="password-input" placeholder="Masukan kode guru" class="form-control">
+                    <span class="password-eye input-group-text"><i class="bi bi-eye-slash"></i></span>
+                </div>
+                <button class="form-btn btn btn-primary" type="submit">Masuk</button>
+            </form>
+        </div>
     </div>
     <script type="module" src="../js/teacher-login.js"></script>
 </body>

@@ -1,4 +1,4 @@
-import { setCookie } from "./lib/cookie.js";
+import { deleteCookie, setCookie } from "./lib/cookie.js";
 import { TogglePassword } from "./utils/toggle-password.js";
 
 const select = (selector) => document.querySelector(selector);
@@ -69,6 +69,7 @@ const submitForm = async () => {
         return;
     }
 
+    deleteCookie(document, { name: "teacher" });
     setCookie(document, {
         name: "user",
         value: email,
