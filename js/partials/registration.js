@@ -28,3 +28,28 @@ export class RegistrationFloat {
         this.mainSectionElement.style.display = "none";
     }
 }
+
+export class TeacherRegistrationFloat {
+    constructor() {
+        this.mainSectionElement = RegistrationFloat.mainSectionElement;
+    }
+
+    init() {
+        this.checkUser();
+    }
+
+    getUser() {
+        const user = getCookie(document, { name: "teacher" });
+        return user;
+    }
+
+    checkUser() {
+        const user = this.getUser();
+        if (!user) return false;
+        this.hide();
+    }
+
+    hide() {
+        this.mainSectionElement.style.display = "none";
+    }
+}

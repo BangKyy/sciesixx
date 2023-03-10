@@ -26,9 +26,10 @@ const toggleSignBtn = (document, selector=null, targetPath=null) => {
             <i class="bi bi-box-arrow-left"></i>&nbsp;&nbsp;<span>Keluar</span>
         </a>
     `;
-    const cookieData = getCookie(document, { name: "user" });
+    const userData = getCookie(document, { name: "user" });
+    const teacherData = getCookie(document, { name: "teacher" });
 
-    if (!cookieData) return;
+    if (!(userData || teacherData)) return;
     const newClassName = `${selector}--logout`.split(".")[1];
     signBtnContainer.classList.add(newClassName);
     signBtnContainer.innerHTML = logOutElement;
@@ -57,7 +58,9 @@ const initSidebarArrow = (parentElements=null, arrowElements=null) => {
 
 const checkUsername = () => {
     const username = getCookie(document, { name: "username" });
-    if (!username) return;
+    const teacher = getCookie(document, { name: "teacher" });
+    const teacherName = "GURU";
+    if (!(username || teacher)) return;
     const containerSidebar = document.querySelector(".sidebar-username-list");
     const containerNav = document.querySelector(".nav-username-container");
     const usernameSidebar = document.querySelector(".sidebar-username-text");
@@ -65,8 +68,8 @@ const checkUsername = () => {
 
     containerSidebar.classList.remove("sidebar-list-hidden");
     containerNav.classList.remove("nav-username-container-hidden");
-    usernameSidebar.innerHTML = username;
-    usernameNav.innerHTML = username;
+    usernameSidebar.innerHTML = username ? username : teacherName;
+    usernameNav.innerHTML = username ? username : teacherName;
 };
 
 export {

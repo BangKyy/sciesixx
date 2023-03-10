@@ -1,5 +1,5 @@
 import { TogglePassword } from "./utils/toggle-password.js";
-import { setCookie } from "./lib/cookie.js";
+import { deleteCookie, setCookie } from "./lib/cookie.js";
 
 const select = document.querySelector.bind(document);
 
@@ -15,8 +15,9 @@ const displayErrors = (errors) => {
         </ul>
     `;
     const errorElement = `
-        <div style="max-width:500px;" class="container-sm d-flex align-items-center alert alert-danger pt-2 pb-2" role="alert">
+        <div style="max-width:500px;" class="container-sm d-flex align-items-center alert alert-danger alert-dismissible fade show pt-2 pb-2" role="alert">
             ${errorList}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     `;
 
@@ -29,6 +30,8 @@ const toggleActiveLoginBtn = (willActive=false) => {
 }
 
 const handleSuccessfulLogin = (data) => {
+    deleteCookie(document, { name: "user" });
+    deleteCookie(document, { name: "username" });
     setCookie(document, { name: "teacher", value: data.name, expires: 1000 * 60 * 60 });
     location.assign("../");
 };

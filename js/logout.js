@@ -5,6 +5,7 @@ const logOutUser = () => {
     const lastOrigin = getQueryOrigin(window, "last_origin");
     deleteCookie(document, { name: "user" });
     deleteCookie(document, { name: "username" });
+    deleteCookie(document, { name: "teacher" });
     window.location.assign(lastOrigin || "/");
 };
 
