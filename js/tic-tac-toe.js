@@ -53,8 +53,9 @@ const turn = {
     
     set(value="") {
       let color = this.getColor(value);
+      let turnElement = this.getTurnElement(value);
       this.options.style.color = color
-      this.options.innerHTML = value;
+      this.options.innerHTML = turnElement;
       this.display();
     },
     
@@ -71,7 +72,6 @@ const turn = {
       const turnClassName = this.options.style.color === this.color.red ? "x-turn" : "o-turn";
       const oldTurnClassName = turnClassName === "x-turn" ? "o-turn" : "x-turn";
       this.html.classList.replace(oldTurnClassName, turnClassName);
-      console.log(this.options.style.color);
       this.html.innerHTML = this.options.innerHTML;
     }
 };
@@ -213,7 +213,7 @@ const game = {
       this.value = `x`;
       this.winner = "";
       this.paused = false;
-      turn.set(`<i class="bi bi-x-lg"></i>`);
+      turn.set("x");
       this.display();
     },
     
@@ -238,7 +238,7 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("load", () => {
     game.init();
-    turn.set(`<i class="bi bi-x-lg"></i>`);
+    turn.set("x");
     generateDynamicSiteName("../../../json/config.json");
     nav.initSidebar();
     nav.initSidebarArrow();

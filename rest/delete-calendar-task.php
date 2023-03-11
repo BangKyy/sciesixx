@@ -12,16 +12,10 @@ function getRequest($key, $request) {
 }
 
 switch($_SERVER["REQUEST_METHOD"]) {
-    case "GET": {
-        echo getTasks();
-        break;
-    }
     case "POST": {
-        $name = getRequest("name", $POST);
-        $description = getRequest("description", $POST);
-        $tag = getRequest("tag", $POST);
-        $date = getRequest("date", $POST);
-        echo saveTask($name, $description, $tag, $date);
+        $key = getRequest("key", $POST);
+        $value = getRequest("value", $POST);
+        echo deleteTask($key, $value);
         break;
     }
     default: {

@@ -1,9 +1,7 @@
 document.querySelector(".fr-section").innerHTML = `
     <div class="fr-image-container">
-        <img src="../images/registration/float-registration-1.jpeg" alt="" class="fr-image">
-        <img src="" alt="" class="fr-image fr-image-disabled">
-        <img src="" alt="" class="fr-image fr-image-disabled">
-        <img src="" alt="" class="fr-image fr-image-disabled">
+    <img src="../images/registration/float-registration-1.jpeg" alt="" class="fr-image fr-image-1">
+    <img src="../images/registration/float-registration-2.jpg" alt="" class="fr-image fr-image-2">
     </div>
     <div class="fr-main-container">
         <div class="fr-subcontainer">
