@@ -8,7 +8,7 @@ const getRowElement = (task, number) => {
             <td>${task.description}</td>
             <td>${task.date}</td>
             <td>
-                <a href="" class="update-btn btn btn-warning">Edit</a>
+                <a href="./edit-task/?tag=${task.tag}" class="update-btn btn btn-warning">Edit</a>
                 <a href="./delete-task/?tag=${task.tag}" class="delete-btn btn btn-danger">Hapus</a>
             </td>
         </tr>

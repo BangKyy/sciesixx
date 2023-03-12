@@ -13,7 +13,9 @@ function getRequest($key, $request) {
 
 switch($_SERVER["REQUEST_METHOD"]) {
     case "GET": {
-        echo getTasks();
+        $key = getRequest("key", $POST ? $POST : $_GET);
+        $value = getRequest("value", $POST ? $POST : $_GET);
+        echo getTasks($key, $value);
         break;
     }
     case "POST": {
@@ -22,6 +24,14 @@ switch($_SERVER["REQUEST_METHOD"]) {
         $tag = getRequest("tag", $POST);
         $date = getRequest("date", $POST);
         echo saveTask($name, $description, $tag, $date);
+        break;
+    }
+    case "PATCH": {
+        $name = getRequest("name", $POST);
+        $description = getRequest("description", $POST);
+        $tag = getRequest("tag", $POST);
+        $date = getRequest("date", $POST);
+        echo updateTask($name, $description, $tag, $date);
         break;
     }
     default: {
