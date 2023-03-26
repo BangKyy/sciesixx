@@ -126,9 +126,13 @@ nav{
     padding: 0 0.5rem;
     font-family: 'Poppins', sans-serif;
 }
+.nav-username-icon {
+    cursor: pointer;
+}
 .nav-username-text {
     font-size: 10pt;
     font-family: 'Poppins', sans-serif;
+    cursor: pointer;
 }
 .nav-username-container-hidden {
     /* visibility: hidden; */

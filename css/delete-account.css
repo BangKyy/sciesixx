@@ -51,4 +51,8 @@ body::-webkit-scrollbar{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    height: 100vh;
+}
+.loader-text {
+    padding: 1rem 0;
 }

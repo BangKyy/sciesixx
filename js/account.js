@@ -89,11 +89,27 @@ const fillUsernameInput = (value) => {
     usernameInput.value = value;
 };
 
+const updateUserCookie = (email, username) => {
+    const expires = 1000 * 60 * 60;
+    setCookie(document, {
+        name: "user",
+        value: email,
+        expires
+    });
+    setCookie(document, {
+        name: "username",
+        value: username,
+        expires
+    });
+};
+
 const btnAction = {
     async updateUser() {
         toggleActiveBtns(false);
+        const userEmail = getUser();
         const usernameValue = select(".username-input").value?.toLowerCase();
         updateUserAndValidateUsername(usernameValue, () => {
+            updateUserCookie(userEmail, usernameValue);
             location.assign("./");
         }, async (err) => {
             await showError(err?.firstMessage);

@@ -56,6 +56,32 @@ const initSidebarArrow = (parentElements=null, arrowElements=null) => {
     });
 };
 
+const getPathRoot = (hostname) => {
+    const { protocol } = location;
+    const isLocalhost = hostname === "localhost";
+    const root = isLocalhost ? `${protocol}//localhost/sciesixx/` : "/";
+    return root;
+};
+
+const redirectToAccount = () => {
+    const hostname = location.hostname;
+    const pathRoot = getPathRoot(hostname);
+    const targetUrl = pathRoot + "account/";
+    location.assign(targetUrl);
+};
+
+const initUsernameEvent = () => {
+    const elements = [
+        document.querySelector(".nav-username-icon"),
+        document.querySelector(".nav-username-text")
+    ];
+    elements.forEach((element) => {
+        element.addEventListener("click", () => {
+            redirectToAccount();
+        });
+    });
+};
+
 const checkUsername = () => {
     const username = getCookie(document, { name: "username" });
     const teacher = getCookie(document, { name: "teacher" });
@@ -70,6 +96,8 @@ const checkUsername = () => {
     containerNav.classList.remove("nav-username-container-hidden");
     usernameSidebar.innerHTML = username ? username : teacherName;
     usernameNav.innerHTML = username ? username : teacherName;
+
+    initUsernameEvent();
 };
 
 export {
@@ -78,5 +106,6 @@ export {
     toggleSignBtn,
     initSidebar,
     initSidebarArrow,
+    initUsernameEvent,
     checkUsername
 };

@@ -37,6 +37,13 @@ const getStudentElement = (student) => `
                     <i class="student-socmed-icon bi bi-instagram"></i>
                 </a>
             </div>
+            <div class="student-socmed-container">
+                ${student.tiktok ?
+                `<a href="https://tiktok.com/@${student.tiktok}" class="student-socmed-link">
+                    <i class="student-socmed-icon bi bi-tiktok"></i>
+                </a>` : ""
+                }
+            </div>
         </div>
     </div>
 `;
