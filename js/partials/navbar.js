@@ -73,7 +73,9 @@ const redirectToAccount = () => {
 const initUsernameEvent = () => {
     const elements = [
         document.querySelector(".nav-username-icon"),
-        document.querySelector(".nav-username-text")
+        document.querySelector(".nav-username-text"),
+        document.querySelector(".sidebar-username-icon"),
+        document.querySelector(".sidebar-username-text")
     ];
     elements.forEach((element) => {
         element.addEventListener("click", () => {

@@ -6,6 +6,19 @@ const redirectToRoot = () => {
 
 const getUser = (name="user") => getCookie(document, { name });
 
+const confirmUser = async () => {
+    const confirmation = await Swal.fire({
+        title: "Yakin?",
+        text: "Akun anda akan dihapus",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        confirmButtonText: "Hapus",
+        cancelButtonText: "Batal"
+    });
+    return confirmation.isConfirmed;
+};
+
 const deleteSavedUser = async () => {
     const email = getUser();
     const payload = { email };
@@ -38,6 +51,8 @@ const checkUser = (callback, errCallback) => {
 
 const initUser = () => {
     checkUser(async () => {
+        const confirmation = await confirmUser();
+        if (!confirmation) return redirectToRoot();
         await deleteSavedUser();
         deleteCachedUser();
         redirectToRoot();
