@@ -256,7 +256,13 @@ header{
     margin-bottom: 14px;
 }
 .student-subcontainer-5{
+    padding-top: 5px;
     padding-bottom: 12px;
+    display: flex;
+    justify-content: center;
+}
+.student-socmed-icon {
+    padding: 0 5px;
 }
 .student-socmed-link{
     color: var(--icon-color-1);
